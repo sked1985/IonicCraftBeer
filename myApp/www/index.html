@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+  <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    
+	<title>Craft Beer</title>
+	
+	<!--ionic scripts-->
+		<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+		<link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+		<script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+		<script src="cordova.js"></script>
+
+    <!-- your app's js -->
+		<script src="js/app.js"></script>
+  </head>
+  <body>
+	<!--This is the Header bar-->
+		<ion-nav-bar class="bar-positive">
+			<ion-nav-back-button class="button-icon ion-arrow-left-c">
+			</ion-nav-back-button>
+		</ion-nav-bar>
+
+	<!--This the home page navigation icon-->
+	<ion-tabs class="tabs-positive">
+		<ion-tab icon="ion-home" ui-sref="home">
+			<ion-nav-view name="home"></ion-nav-view>
+		</ion-tab>
+	
+	<!--This the help page navigation icon-->
+		<ion-tab icon="ion-help" ui-sref="help">
+			<ion-nav-view name="help"></ion-nav-view>
+		</ion-tab>
+	</ion-tabs>
+	
+	<!--This the home page. This is the main menu of the application -->
+	<script type="text/ng-template" id="home.html">
+		<ion-view title="Home">
+			<ion-content padding="true">
+			<div class="list card">
+
+  <div class="item item-avatar">
+    <img src="img/main.jpg">
+    <h2>Craft Beer Store</h2>
+    <p>Where everybody knows your name</p>
+  </div>
+
+  <div class="item item-image">
+    <img src="img/main2.jpg">
+  </div>
+  
+	<div class="list card">
+
+  <a href="#" class="item item-icon-left" ui-sref="browse">
+    <i class="icon ion-search"></i>
+    Browse
+  </a>
+
+  <a href="#" class="item item-icon-left">
+    <i class="icon ion-beer"></i>
+    Order Now
+  </a>
+
+  <a href="#" class="item item-icon-left">
+    <i class="icon ion-edit"></i>
+    Reviews
+  </a>
+
+  <a href="#" class="item item-icon-left">
+    <i class="icon ion-videocamera"></i>
+    Videos
+  </a>
+
+</div>
+  
+
+</div>
+				
+				 
+			</ion-content>
+		</ion-view>
+	</script>
+	
+	<!--This the help page -->
+	<script type="text/ng-template" id="help.html">
+		<ion-view title="Help">
+			<ion-content padding="true">
+				<h2>This is the help page</h2>
+				<p>This is the help page to the application</p>
+			</ion-content>
+		</ion-view>
+	</script>
+	
+	<!--This is browse items page-->
+	  <script id="browse.html" type="text/ng-template">
+      <!-- The title of the ion-view will be shown on the navbar -->
+      <ion-view title="Browse">
+           
+
+        <ion-content class="padding">
+        
+		  
+ <div class="list">
+
+    <a class="item item-thumbnail-left" ui-sref="beers">
+      <img src="img/beer.jpg">
+      <h2>Beers</h2>
+      <p>Check out our fine selection</p>
+    </a>
+	 <a class="item item-thumbnail-left" href="#">
+      <img src="img/cider.jpg">
+      <h2>Ciders</h2>
+      <p>Made from the freshest apples</p>
+    </a>
+	 <a class="item item-thumbnail-left" href="#">
+      <img src="img/stout.jpg">
+      <h2>Stouts</h2>
+      <p>Tastiest around</p>
+    </a>
+	 <a class="item item-thumbnail-left" href="#">
+      <img src="img/cocktail.jpg">
+      <h2>Cocktails</h2>
+      <p>Party on!!</p>
+    </a>
+	 <a class="item item-thumbnail-left" href="#">
+      <img src="img/coffee.jpg">
+      <h2>Coffees</h2>
+      <p>Delicious and cheap</p>
+    </a>
+	 <a class="item item-thumbnail-left" href="#">
+      <img src="img/sandwich.jpg">
+      <h2>Sandwiches</h2>
+      <p>Try our delicious range</p>
+    </a>
+
+    
+
+</div>
+		  
+        </ion-content>
+      </ion-view>
+    </script> 
+
+	<!--This is beers items page-->
+	  <script id="beers.html" type="text/ng-template">
+      <!-- The title of the ion-view will be shown on the navbar -->
+      <ion-view title="Beers">
+              
+
+  <ion-content class="padding">
+        
+		  
+ <div class="list">
+
+    <a class="item item-avatar" ui-sref="baltika">
+      <img src="img/baltika.jpg">
+      <h2>Baltika</h2>
+      <p>3.99</p>
+    </a>
+	<a class="item item-avatar" ui-sref="dungarvan">
+      <img src="img/dun.jpg">
+      <h2>Dungarvan Copper Coast Red</h2>
+      <p>3.39</p>
+    </a>
+	<a class="item item-avatar" href="#">
+      <img src="img/bare.jpg">
+      <h2>Barefoot Bohemian</h2>
+      <p>2.29</p>
+    </a>
+	<a class="item item-avatar" href="#">
+      <img src="img/abbey.jpg">
+      <h2>Abbey Irish Pale Ale</h2>
+      <p>3.39</p>
+    </a>
+	<a class="item item-avatar" href="#">
+      <img src="img/curim.jpg">
+      <h2>Curim Wheat Beer</h2>
+      <p>3.09</p>
+    </a>
+	<a class="item item-avatar" href="#">
+      <img src="img/dungarven.jpg">
+      <h2>Dungarvan Mine head</h2>
+      <p>3.49</p>
+    </a>
+
+    
+
+</div>
+		  
+        </ion-content>
+      </ion-view>
+    </script> 
+	
+	<!--This the baltika page -->
+	<script type="text/ng-template" id="baltika.html">
+		<ion-view title="Baltika">
+			<ion-content padding="true">
+				<div class="list card">
+
+  <div class="item item-avatar">
+    <img src="img/baltika.jpg">
+    <h2>Baltika Beer</h2>
+    <p>Brewed in Russia, 1994</p>
+  </div>
+
+  <div class="item item-body">
+    <img class="full-image" src="img/fun.jpg">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
+	  Sed mattis auctor mauris. Donec ac urna imperdiet, fringilla neque
+	  auctor, fringilla lorem. Vivamus lobortis porta ipsum vitae accumsan. Duis ligula lectus, porta nec eros et, fermentum
+	  volutpat diam. Praesent pretium justo vitae urna lobortis, a egestas odio dapibus. Ut sollicitudin feugiat nisi, at ullamcorper felis porta at. Vivamus eu molestie eros, non scelerisque urna.
+	  Fusce vulputate ullamcorper venenatis. Sed laoreet quam massa, id blandit lectus lacinia quis
+    </p>
+    <p>
+      <a href="#" class="subdued">1 Like</a>
+      <a href="#" class="subdued">5 Comments</a>
+    </p>
+  </div>
+
+  <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item" href="#">
+      <i class="icon ion-thumbsup"></i>
+      Like
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-chatbox"></i>
+      Comment
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+      Share
+    </a>
+  </div>
+
+</div>
+			</ion-content>
+		</ion-view>
+	</script>
+	
+<!--This the dungarven page -->
+	<script type="text/ng-template" id="dungarvan.html">
+		<ion-view title="Dungarvan">
+			<ion-content padding="true">
+				<div class="list card">
+
+  <div class="item item-avatar">
+    <img src="img/baltika.jpg">
+    <h2>Dungarvan Beer</h2>
+    <p>Brewed in Ireland, 2002</p>
+  </div>
+
+  <div class="item item-body">
+    <img class="full-image" src="img/dun2.jpg">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
+	  Sed mattis auctor mauris. Donec ac urna imperdiet, fringilla neque
+	  auctor, fringilla lorem. Vivamus lobortis porta ipsum vitae accumsan. Duis ligula lectus, porta nec eros et, fermentum
+	  volutpat diam. Praesent pretium justo vitae urna lobortis, a egestas odio dapibus. Ut sollicitudin feugiat nisi, at ullamcorper felis porta at. Vivamus eu molestie eros, non scelerisque urna.
+	  Fusce vulputate ullamcorper venenatis. Sed laoreet quam massa, id blandit lectus lacinia quis
+    </p>
+    <p>
+      <a href="#" class="subdued">1 Like</a>
+      <a href="#" class="subdued">5 Comments</a>
+    </p>
+  </div>
+
+  <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item" href="#">
+      <i class="icon ion-thumbsup"></i>
+      Like
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-chatbox"></i>
+      Comment
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+      Share
+    </a>
+  </div>
+
+</div>
+			</ion-content>
+		</ion-view>
+	</script>
+	   
+    
+  </body>
+</html>

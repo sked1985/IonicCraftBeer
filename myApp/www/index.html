@@ -22,6 +22,8 @@
 
     <!-- your app's js -->
 		<script src="js/app.js"></script>
+		
+		
   </head>
   <body>
 	<!--This is the Header bar-->
@@ -70,12 +72,12 @@
     Order Now
   </a>
 
-  <a href="#" class="item item-icon-left">
+  <a href="#" class="item item-icon-left" ui-sref="photo">
     <i class="icon ion-edit"></i>
-    Reviews
+    Images
   </a>
 
-  <a href="#" class="item item-icon-left">
+  <a href="#" class="item item-icon-left" ui-sref="video">
     <i class="icon ion-videocamera"></i>
     Videos
   </a>
@@ -293,6 +295,27 @@
 			</ion-content>
 		</ion-view>
 	</script>
+	
+<!--This the photo page -->
+	<script type="text/ng-template" id="photo.html">
+		<ion-view title="Images">
+			<ion-content padding="true">
+	Insert image gallery here!!!!!
+			</ion-content>
+		</ion-view>
+	</script>
+<!--This is the videos page-->	
+	<script type="text/ng-template" id="video.html">
+		<ion-view title="Videos">
+			<ion-content padding="true">
+	Insert Videos here!!!!!
+			</ion-content>
+		</ion-view>
+	</script>
+	
+
+	
+
 	   
     
   </body>

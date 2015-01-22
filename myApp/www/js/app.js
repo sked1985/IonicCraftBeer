@@ -47,6 +47,28 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     }
   })
+  
+   //This brings you to photo page
+   $stateProvider.state('photo', {
+    url: '/photo',
+    views: {
+      home: {
+        templateUrl: 'photo.html'
+      }
+    }
+  })
+  
+  //This brings you to videos page
+   $stateProvider.state('video', {
+    url: '/video',
+    views: {
+      home: {
+        templateUrl: 'video.html'
+      }
+    }
+  })
+  
+  
   //This brings you to help page
   $stateProvider.state('help', {
     url: '/help',
@@ -57,3 +79,5 @@ app.config(function($stateProvider, $urlRouterProvider) {
     }
   })
 })
+
+	

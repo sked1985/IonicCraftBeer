@@ -11,6 +11,26 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     }
   })
+  
+  //This brings you to Sign in items page
+  $stateProvider.state('sign', {
+    url: '/sign',
+    views: {
+      home: {
+        templateUrl: 'sign.html'
+      }
+    }
+  })
+  
+  //This brings you to Sign in items page
+  $stateProvider.state('register', {
+    url: '/register',
+    views: {
+      home: {
+        templateUrl: 'register.html'
+      }
+    }
+  })
   //This brings you to browse items page
   $stateProvider.state('browse', {
     url: '/2',

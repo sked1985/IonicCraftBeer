@@ -1,70 +1,35 @@
-/* Empty. Add your own CSS if you like */
-.slide-wrapper {
-  height: 40%;
-  width: 86%;
-	margin: 0 auto;
-}
-
+//This is the image gallery CSS
 .slider {
   height: 100%;
-  overflow: visible;
 }
-
 .slider-slide {
-	/*border-bottom: 1px solid rgba(0,0,0,0.2);*/
-	overflow: hidden;
-	color: #000;
-	background-color: #fff;
-	text-align: center;
-}
-  ion-slide {
-		padding-right: 3px;
-		padding-left: 3px;
-	}
-		ion-slide:first-child { padding-left: 0; }
-		ion-slide:last-child { padding-right: 0; }
+  padding-top: 80px;
+  color: #000;
+  background-color: #fff;
+  text-align: center;
 
-		ion-slide:nth-child(2) { z-index: 1; }
-
-		ion-slide .box {
-			position: relative;
-			width: 100%;
-			height: 100%;
-		}
-
-			ion-slide .box h1 {
-				position: absolute;
-				bottom: -43px;
-				margin: 0;
-				width: 100%;
-				background-color: rgba(255,255,255,0.2);
-			}
-
-.slider ion-slide.slider-slide.current .box h1 {
-	transition: bottom 450ms ease-out 250ms;
-	bottom: 0;
+  
 }
 
-.blue {
-	background-color: #009FD9;
+#logo {
+  margin: 30px 0px;
 }
-	.blue h1 {
-		color: #fff;
-	}
 
-
-.green {
-	background-color: #1FB36B;
+#list {
+  width: 170px;
+  margin: 30px auto;
+  font-size: 20px;
 }
-	.green h1 {
-		color: #fff;
-	}
-
-.red {
-	background-color: #E62B25;
+#list ol {
+  margin-top: 30px;
 }
-	.red h1 {
-		color: #fff;
-	}
+#list ol li {
+  text-align: left;
+  list-style: decimal;
+  margin: 10px 0px;
+}
 
-
+.button.ng-hide{
+  display:none;
+}
+//End of image gallery Css

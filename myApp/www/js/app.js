@@ -49,6 +49,36 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     }
   })
+  
+    //This brings you to Sandwiches list page
+  $stateProvider.state('sandwiches', {
+    url: '/6',
+    views: {
+      home: {
+        templateUrl: 'sandwiches.html'
+      }
+    }
+  })
+  
+  //This is club page
+  $stateProvider.state('club', {
+    url: '/7',
+    views: {
+      home: {
+        templateUrl: 'club.html'
+      }
+    }
+  })
+  
+   //This is blt page
+  $stateProvider.state('blt', {
+    url: '/8',
+    views: {
+      home: {
+        templateUrl: 'blt.html'
+      }
+    }
+  })
   //This brings you to baltika page
    $stateProvider.state('baltika', {
     url: '/4',

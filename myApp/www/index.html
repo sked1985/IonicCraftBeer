@@ -128,7 +128,7 @@
 		<h2>Coffees</h2>
 			<p>Delicious and cheap</p>
 </a>
-<a class="item item-thumbnail-left" href="#">
+<a class="item item-thumbnail-left" ui-sref="sandwiches">
       <img src="img/sandwich.jpg">
 		<h2>Sandwiches</h2>
 			<p>Try our delicious range</p>
@@ -173,6 +173,36 @@
 		<img src="img/dungarven.jpg">
 			<h2>Dungarvan Mine head</h2>
 				<p>3.49</p>
+    </a>
+</div> 
+        </ion-content>
+      </ion-view>
+    </script> 
+	
+<!--This is the sandwiches items page-->
+<script id="sandwiches.html" type="text/ng-template">
+    <ion-view title="Sandwiches">
+		<ion-content class="padding">
+     <div class="list">
+ <a class="item item-avatar" ui-sref="club">
+      <img src="img/club.jpg">
+		<h2>Club</h2>
+			<p>3.59</p>
+  </a>
+	<a class="item item-avatar" ui-sref="blt">
+      <img src="img/blt.jpg">
+		<h2>BLT</h2>
+			<p>2.99</p>
+    </a>
+	<a class="item item-avatar" href="#">
+		<img src="img/turk.jpg">
+			<h2>Turkey Melt</h2>
+				<p>4.29</p>
+    </a>
+	<a class="item item-avatar" href="#">
+		<img src="img/bagel.jpg">
+			<h2>Bagels</h2>
+				<p>3.39</p>
     </a>
 </div> 
         </ion-content>
@@ -233,6 +263,86 @@
 		</div>
   <div class="item item-body">
 		<img class="full-image" src="img/dun2.jpg">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
+	  Sed mattis auctor mauris. 
+    <p>
+		<a href="#" class="subdued">1 Like</a>
+		<a href="#" class="subdued">5 Comments</a>
+    </p>
+	</div>
+
+  <div class="item tabs tabs-secondary tabs-icon-left">
+		<a class="tab-item" href="#">
+			<i class="icon ion-thumbsup"></i>
+		Like
+		</a>
+		<a class="tab-item" href="#">
+			<i class="icon ion-chatbox"></i>
+		Comment
+		</a>
+		<a class="tab-item" href="#">
+			<i class="icon ion-share"></i>
+		Share
+		</a>
+	</div>
+</div>
+			</ion-content>
+		</ion-view>
+</script>
+
+<!--This the club sandwich page -->
+<script type="text/ng-template" id="club.html">
+		<ion-view title="Club">
+			<ion-content padding="true">
+<div class="list card">
+	<div class="item item-avatar">
+		<img src="img/club.jpg">
+			<h2>Club Sandwiche</h2>
+				<p>Absolutely delish</p>
+		</div>
+  <div class="item item-body">
+		<img class="full-image" src="img/club2.jpg">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
+	  Sed mattis auctor mauris. 
+    <p>
+		<a href="#" class="subdued">1 Like</a>
+		<a href="#" class="subdued">5 Comments</a>
+    </p>
+	</div>
+
+  <div class="item tabs tabs-secondary tabs-icon-left">
+		<a class="tab-item" href="#">
+			<i class="icon ion-thumbsup"></i>
+		Like
+		</a>
+		<a class="tab-item" href="#">
+			<i class="icon ion-chatbox"></i>
+		Comment
+		</a>
+		<a class="tab-item" href="#">
+			<i class="icon ion-share"></i>
+		Share
+		</a>
+	</div>
+</div>
+			</ion-content>
+		</ion-view>
+</script>
+
+<!--This the blt sandwich page -->
+<script type="text/ng-template" id="blt.html">
+		<ion-view title="BLT">
+			<ion-content padding="true">
+<div class="list card">
+	<div class="item item-avatar">
+		<img src="img/blt.jpg">
+			<h2>BLT Sandwich</h2>
+				<p>Goes great with a pint</p>
+		</div>
+  <div class="item item-body">
+		<img class="full-image" src="img/blt2.jpg">
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
 	  Sed mattis auctor mauris. 

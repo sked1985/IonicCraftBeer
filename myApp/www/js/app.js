@@ -118,6 +118,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
     }
   })
   
+  //This brings you to order now page
+   $stateProvider.state('order', {
+    url: '/order',
+    views: {
+      home: {
+        templateUrl: 'order.html'
+      }
+    }
+  })
+  
   
   //This brings you to help page
   $stateProvider.state('help', {
@@ -149,6 +159,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $scope.slideIndex = index;
   };
 })
+
+
 
 .controller('MainCtrl', function($scope, $state) {
   console.log('MainCtrl');

@@ -40,12 +40,44 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     }
   })
+  
   //This brings you to beers list page
   $stateProvider.state('beers', {
     url: '/3',
     views: {
       home: {
         templateUrl: 'beers.html'
+      }
+    }
+  })
+  
+   //This brings you to ciders list page
+  $stateProvider.state('ciders', {
+    url: '/9',
+    views: {
+      home: {
+        templateUrl: 'ciders.html'
+      }
+    }
+  })
+  
+   //This brings you to bulmers page
+  $stateProvider.state('bulmers', {
+    url: '/10',
+    views: {
+      home: {
+        templateUrl: 'bulmers.html'
+      }
+    }
+  })
+  
+    
+   //This brings you to strongbow page
+  $stateProvider.state('strongbow', {
+    url: '/11',
+    views: {
+      home: {
+        templateUrl: 'strongbow.html'
       }
     }
   })

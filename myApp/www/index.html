@@ -108,7 +108,7 @@
 		<h2>Beers</h2>
 			<p>Check out our fine selection</p>
 </a>	 
-<a class="item item-thumbnail-left" href="#">
+<a class="item item-thumbnail-left" ui-sref="ciders">
       <img src="img/cider.jpg">
 		<h2>Ciders</h2>
 			<p>Made from the freshest apples</p>
@@ -153,6 +153,46 @@
       <img src="img/dun.jpg">
 		<h2>Dungarvan Copper Coast Red</h2>
 			<p>3.39</p>
+    </a>
+	<a class="item item-avatar" href="#">
+		<img src="img/bare.jpg">
+			<h2>Barefoot Bohemian</h2>
+				<p>2.29</p>
+    </a>
+	<a class="item item-avatar" href="#">
+		<img src="img/abbey.jpg">
+			<h2>Abbey Irish Pale Ale</h2>
+				<p>3.39</p>
+    </a>
+	<a class="item item-avatar" href="#">
+		<img src="img/curim.jpg">
+			<h2>Curim Wheat Beer</h2>
+				<p>3.09</p>
+    </a>
+	<a class="item item-avatar" href="#">
+		<img src="img/dungarven.jpg">
+			<h2>Dungarvan Mine head</h2>
+				<p>3.49</p>
+    </a>
+</div> 
+        </ion-content>
+      </ion-view>
+</script> 
+
+<!--This is ciders items page-->
+<script id="ciders.html" type="text/ng-template">
+    <ion-view title="Ciders">
+		<ion-content class="padding">
+     <div class="list">
+ <a class="item item-avatar" ui-sref="bulmers">
+      <img src="img/bulmers.jpg">
+		<h2>Bulmers</h2>
+			<p>3.99</p>
+  </a>
+	<a class="item item-avatar" ui-sref="strongbow">
+      <img src="img/strongbow.jpg">
+		<h2>Strongbow</h2>
+			<p>2.50</p>
     </a>
 	<a class="item item-avatar" href="#">
 		<img src="img/bare.jpg">
@@ -370,6 +410,86 @@
 			</ion-content>
 		</ion-view>
 </script>
+
+<!--This the bulmers page -->
+<script type="text/ng-template" id="bulmers.html">
+		<ion-view title="Bulmers">
+			<ion-content padding="true">
+<div class="list card">
+	<div class="item item-avatar">
+		<img src="img/bulmers.jpg">
+			<h2>Bulmers</h2>
+				<p>It may not be craft but it`s a classic</p>
+		</div>
+  <div class="item item-body">
+		<img class="full-image" src="img/bulmers2.jpg">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
+	  Sed mattis auctor mauris. 
+    <p>
+		<a href="#" class="subdued">1 Like</a>
+		<a href="#" class="subdued">5 Comments</a>
+    </p>
+	</div>
+
+  <div class="item tabs tabs-secondary tabs-icon-left">
+		<a class="tab-item" href="#">
+			<i class="icon ion-thumbsup"></i>
+		Like
+		</a>
+		<a class="tab-item" href="#">
+			<i class="icon ion-chatbox"></i>
+		Comment
+		</a>
+		<a class="tab-item" href="#">
+			<i class="icon ion-share"></i>
+		Share
+		</a>
+	</div>
+</div>
+			</ion-content>
+		</ion-view>
+</script>
+
+<!--This the strongbow page -->
+<script type="text/ng-template" id="strongbow.html">
+		<ion-view title="Strongbow">
+			<ion-content padding="true">
+<div class="list card">
+	<div class="item item-avatar">
+		<img src="img/strongbow.jpg">
+			<h2>Strongbow</h2>
+				<p>It is ridiculously cheap</p>
+		</div>
+  <div class="item item-body">
+		<img class="full-image" src="img/strongbow2.jpg">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
+	  Sed mattis auctor mauris. 
+    <p>
+		<a href="#" class="subdued">1 Like</a>
+		<a href="#" class="subdued">5 Comments</a>
+    </p>
+	</div>
+
+  <div class="item tabs tabs-secondary tabs-icon-left">
+		<a class="tab-item" href="#">
+			<i class="icon ion-thumbsup"></i>
+		Like
+		</a>
+		<a class="tab-item" href="#">
+			<i class="icon ion-chatbox"></i>
+		Comment
+		</a>
+		<a class="tab-item" href="#">
+			<i class="icon ion-share"></i>
+		Share
+		</a>
+	</div>
+</div>
+			</ion-content>
+		</ion-view>
+</script>
 <!--This the Images page -->
 <script type="text/ng-template" id="photo.html">
 	<ion-view title="Images">
@@ -432,7 +552,11 @@
 <script type="text/ng-template" id="video.html">
 	<ion-view title="Videos">
 		<ion-content padding="true">
-		<p>Welcome to the videos page. See how some of our craft beers are brewed!</p>
+		<div class="card">
+	<div class="item item-text-wrap">
+		Welcome to the video page. take a look at how some of our craft beers are created.
+	</div>
+</div>
 		<div class="card">
   <div class="item item-divider">
     <b>Wicklow Warrior</b>
@@ -515,8 +639,9 @@
 </script>
 <!--This is the Order now page-->	
 <script type="text/ng-template" id="order.html">
-	<ion-view title="Place your Order">
+<ion-view title="Place your Order">
 	<ion-content padding="true">
+<!--Start of beers order list-->
 <div class="list">
 	<div class="item item-divider">
     <b>Beers</b>
@@ -583,7 +708,7 @@
   </label>
 
 </div>
-
+<!--Start of ciders order list-->
 <div class="list">
 	<div class="item item-divider">
     <b>Ciders</b>

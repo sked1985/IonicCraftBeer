@@ -129,6 +129,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     }
   })
+   //This brings you to bohemian page
+   $stateProvider.state('bohemian', {
+    url: '/12',
+    views: {
+      home: {
+        templateUrl: 'bohemian.html'
+      }
+    }
+  })
   
    //This brings you to photo page
    $stateProvider.state('photo', {

@@ -1,16 +1,9 @@
 [
             
-            {"id":"airport","label":"Airport"},
-            {"id":"amusement_park","label":"Amusement Park"},
-            {"id":"aquarium","label":"Aquarium"},
-            {"id":"art_gallery","label":"Art Gallery"},
+           
             {"id":"atm","label":"ATM"},
-            {"id":"bakery","label":"Bakery"},
             {"id":"bank","label":"Bank"},
             {"id":"bar","label":"Bar"},
-            {"id":"beauty_salon","label":"Beauty Salon"},
-            {"id":"bicycle_store","label":"Bicycle Store"},
-            {"id":"book_store","label":"Book Store"},
             {"id":"bowling_alley","label":"Bowling Alley"},
             {"id":"bus_station","label":"Bus Station"},
             {"id":"cafe","label":"Cafe"},

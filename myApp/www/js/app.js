@@ -1,4 +1,16 @@
-var app = angular.module('ionicApp', ['ionic'])
+var app = angular.module('ionicApp', ['ionic','ionic.contrib.ui.tinderCards'])
+
+//Swipe Script
+.directive('noScroll', function() {
+    return {
+        restrict: 'A',
+        link: function($scope, $element, $attr) {
+            $element.on('touchmove', function(e) {
+                e.preventDefault();
+            });
+        }
+    }
+})
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/home')
@@ -159,6 +171,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
     }
   })
   
+   
+  //This brings you to reviews page
+   $stateProvider.state('review', {
+    url: '/review',
+    views: {
+      home: {
+        templateUrl: 'review.html'
+      }
+    }
+  })
+  
   //This brings you to order now page
    $stateProvider.state('order', {
     url: '/order',
@@ -181,6 +204,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
   })
 })
 
+
+
 //This is the script that makes the image gallery work
 .controller('IntroCtrl', function($scope, $state, $ionicSlideBoxDelegate) {
  
@@ -201,8 +226,45 @@ app.config(function($stateProvider, $urlRouterProvider) {
   };
 })
 
+//Swipe Cards functionality
+.controller('CardsCtrl', function($scope) {
+    var cardTypes = [
+        { image: 'img/beer.jpg', title: 'So much grass #hippster'},
+        { image: 'img/beer.jpg', title: 'Way too much Sand, right?'},
+        { image: 'img/bagel.jpg', title: 'Beautiful sky from wherever'},
+		{ image: 'img/beer.jpg', title: 'So much grass #hippster'},
+        { image: 'img/beer.jpg', title: 'Way too much Sand, right?'},
+        { image: 'img/bagel.jpg', title: 'Beautiful sky from wherever'},
+		 { image: 'img/beer.jpg', title: 'So much grass #hippster'},
+        { image: 'img/beer.jpg', title: 'Way too much Sand, right?'},
+        { image: 'img/bagel.jpg', title: 'Beautiful sky from wherever'},
+    ];
+ 
+    $scope.cards = [];
+ 
+    $scope.addCard = function(i) {
+        var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
+        newCard.id = Math.random();
+        $scope.cards.push(angular.extend({}, newCard));
+    }
+ 
+    for(var i = 0; i < 9; i++) $scope.addCard();
+ 
+    $scope.cardSwipedLeft = function(index) {
+        console.log('Left swipe');
+    }
+ 
+    $scope.cardSwipedRight = function(index) {
+        console.log('Right swipe');
+    }
+ 
+    $scope.cardDestroyed = function(index) {
+        $scope.cards.splice(index, 1);
+        console.log('Card removed');
+    }
+})
 
-
+//Main Control
 .controller('MainCtrl', function($scope, $state) {
   console.log('MainCtrl');
   
@@ -210,5 +272,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $state.go('intro');
   }
 });
+
+
 
 	

@@ -3,9 +3,9 @@
   <head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    
+
 	<title>Craft Beer</title>
-	
+
 	<!--ionic scripts-->
 		<link href="lib/ionic/css/ionic.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
@@ -21,11 +21,13 @@
 		<script src="cordova.js"></script>
 
     <!-- your app's js -->
+    <script src="js/firebase.js"></script>
+    <script src="js/angularfire.min.js"></script>
 		<script src="js/app.js"></script>
 		<script src="lib/collide/collide.js"></script>
 		<script src="lib/ionic-contrib-tinder-cards/ionic.tdcards.js"></script>
-		
-		
+
+
   </head>
   <body ng-app="ionicApp" no-scroll>
 	<!--This is the Header bar-->
@@ -39,33 +41,33 @@
 		<ion-tab icon="ion-home" ui-sref="home">
 			<ion-nav-view name="home"></ion-nav-view>
 		</ion-tab>
-	
+
 	<!--This the help page navigation icon-->
 		<ion-tab icon="ion-help" ui-sref="help">
 			<ion-nav-view name="help"></ion-nav-view>
 		</ion-tab>
 	</ion-tabs>
-	
+
 	<!--This the home page. This is the main menu of the application -->
 <script type="text/ng-template" id="home.html">
-	<ion-view title="Home"> 
+	<ion-view title="Home">
 	<ion-nav-buttons side="right" ng-show="false">
-        <button class="button button-icon button-clear ion-person" ui-sref="sign">
+        <button class="button button-icon button-clear ion-person" ui-sref="login">
         </button>
       </ion-nav-buttons>
 		<ion-content padding="true">
-			
+
 			<div class="list card">
 				<div class="item item-image">
 					<img src="img/main2.jpg">
 				</div>
-  
+
 <div class="list card">
 	<a href="#" class="item item-icon-left" ui-sref="order">
 		<i class="icon ion-beer"></i>
     Order Now
   </a>
-  
+
 
   <a href="#" class="item item-icon-left" ui-sref="browse">
     <i class="icon ion-search"></i>
@@ -74,14 +76,9 @@
 
   <a href="#" class="item item-icon-left" ui-sref="photo">
     <i class="icon ion-images"></i>
-    Images
+    Gallery
   </a>
 
-  <a href="#" class="item item-icon-left" ui-sref="video">
-    <i class="icon ion-videocamera"></i>
-    Videos
-  </a>
-  
   <a href="#" class="item item-icon-left" ui-sref="review">
     <i class="icon ion-star"></i>
     Review
@@ -89,12 +86,12 @@
 
 	</div>
 </div>
-				
-				 
+
+
 			</ion-content>
 		</ion-view>
 </script>
-	
+
 <!--This the help page -->
 <script type="text/ng-template" id="help.html">
 	<ion-view title="Help">
@@ -104,7 +101,7 @@
 		</ion-content>
 	</ion-view>
 </script>
-	
+
 <!--This is browse items page-->
 <script id="browse.html" type="text/ng-template">
      <ion-view title="Browse">
@@ -114,7 +111,7 @@
       <img src="img/beer.jpg">
 		<h2>Beers</h2>
 			<p>Check out our fine selection</p>
-</a>	 
+</a>
 <a class="item item-thumbnail-left" ui-sref="ciders">
       <img src="img/cider.jpg">
 		<h2>Ciders</h2>
@@ -141,10 +138,10 @@
 			<p>Try our delicious range</p>
 </a>
 </div>
-		  
+
         </ion-content>
 </ion-view>
-</script> 
+</script>
 
 <!--This is beers items page-->
 <script id="beers.html" type="text/ng-template">
@@ -181,10 +178,10 @@
 			<h2>Dungarvan Mine head</h2>
 				<p>3.49</p>
     </a>
-</div> 
+</div>
         </ion-content>
       </ion-view>
-</script> 
+</script>
 
 <!--This is ciders items page-->
 <script id="ciders.html" type="text/ng-template">
@@ -221,11 +218,11 @@
 			<h2>Dungarvan Mine head</h2>
 				<p>3.49</p>
     </a>
-</div> 
+</div>
         </ion-content>
       </ion-view>
-    </script> 
-	
+    </script>
+
 <!--This is the sandwiches items page-->
 <script id="sandwiches.html" type="text/ng-template">
     <ion-view title="Sandwiches">
@@ -251,11 +248,11 @@
 			<h2>Bagels</h2>
 				<p>3.39</p>
     </a>
-</div> 
+</div>
         </ion-content>
       </ion-view>
-    </script> 
-	
+    </script>
+
 <!--This the baltika page -->
 <script type="text/ng-template" id="baltika.html">
 	<ion-view title="Baltika">
@@ -271,7 +268,7 @@
 	<p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
 	  Sed mattis auctor mauris. Donec ac urna imperdiet, fringilla neque
-	  auctor, fringilla lorem. 
+	  auctor, fringilla lorem.
     </p>
     <p>
       <a href="#" class="subdued">1 Like</a>
@@ -297,7 +294,7 @@
 			</ion-content>
 		</ion-view>
 	</script>
-	
+
 <!--This the dungarven Beer page -->
 <script type="text/ng-template" id="dungarvan.html">
 		<ion-view title="Dungarvan">
@@ -312,7 +309,7 @@
 		<img class="full-image" src="img/dun2.jpg">
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
-	  Sed mattis auctor mauris. 
+	  Sed mattis auctor mauris.
     <p>
 		<a href="#" class="subdued">1 Like</a>
 		<a href="#" class="subdued">5 Comments</a>
@@ -352,7 +349,7 @@
 		<img class="full-image" src="img/bohemian2.jpg">
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
-	  Sed mattis auctor mauris. 
+	  Sed mattis auctor mauris.
     <p>
 		<a href="#" class="subdued">1 Like</a>
 		<a href="#" class="subdued">5 Comments</a>
@@ -393,7 +390,7 @@
 		<img class="full-image" src="img/club2.jpg">
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
-	  Sed mattis auctor mauris. 
+	  Sed mattis auctor mauris.
     <p>
 		<a href="#" class="subdued">1 Like</a>
 		<a href="#" class="subdued">5 Comments</a>
@@ -433,7 +430,7 @@
 		<img class="full-image" src="img/blt2.jpg">
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
-	  Sed mattis auctor mauris. 
+	  Sed mattis auctor mauris.
     <p>
 		<a href="#" class="subdued">1 Like</a>
 		<a href="#" class="subdued">5 Comments</a>
@@ -467,13 +464,13 @@
 	<div class="item item-avatar">
 		<img src="img/bulmers.jpg">
 			<h2>Bulmers</h2>
-				<p>It may not be craft but it`s a classic</p>
+				<p>It may not be craft but its a classic</p>
 		</div>
   <div class="item item-body">
 		<img class="full-image" src="img/bulmers2.jpg">
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
-	  Sed mattis auctor mauris. 
+	  Sed mattis auctor mauris.
     <p>
 		<a href="#" class="subdued">1 Like</a>
 		<a href="#" class="subdued">5 Comments</a>
@@ -513,7 +510,7 @@
 		<img class="full-image" src="img/strongbow2.jpg">
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
-	  Sed mattis auctor mauris. 
+	  Sed mattis auctor mauris.
     <p>
 		<a href="#" class="subdued">1 Like</a>
 		<a href="#" class="subdued">5 Comments</a>
@@ -540,117 +537,68 @@
 </script>
 <!--This the Images page -->
 <script type="text/ng-template" id="photo.html">
-	<ion-view title="Images">
-        <ion-slide-box on-slide-changed="slideChanged(index)">
-          <ion-slide>
-			<p>
-				We've worked super hard to make you happy.
-            </p>
-         <div id="logo">
-             <img src="img/tasty.jpg">
-         </div>
-			</ion-slide>
-		   <ion-slide>
-			<p>
-				We use only the freshest ingredients.
-            </p>
-           <div id="logo">
-              <img src="img/tasty.jpg">
-           </div>
-			</ion-slide>
-		   <ion-slide>
-			<p>
-				We've worked super hard to make you happy.
-            </p>
-            <div id="logo">
-              <img src="img/tasty.jpg">
-            </div>
-          </ion-slide>
-		   <ion-slide>
-<div class="card">
-	<div class="item item-text-wrap">
-		We use the freshest ingredients
-	</div>
+	<ion-view title="Gallery">
+  <ion-content class="has-header padding" ng-controller="MediaCtrl">
+  <div class="card">
+<div class="item item-divider">
+  <b>Blt</b>
 </div>
-            <div id="logo">
-              <img src="img/tasty.jpg">
-            </div>
-          </ion-slide>
-          <ion-slide>
-				<h3>Using Awesome</h3>
-			<div id="list">
-				<h5>Just three steps:</h5>
-				<ol>
-					<li>Be awesome</li>
-					<li>Stay awesome</li>
-					<li>There is no step 3</li>
-				</ol>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <h3>Any questions?</h3>
-				<p>
-					Too bad!
-				</p>
-          </ion-slide>
-        </ion-slide-box>
+<div class="item item-text-wrap">
+Try our delicious BLT!!!!!
+</div>
+</div>
+
+      <div class="item item-divider">
+          <i class="ion-images"></i>
+          My Images
+      </div>
+      <a class="item item-list-detail">
+          <ion-scroll direction="x">
+              <img ng-repeat="image in allImages" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
+          </ion-scroll>
+      </a>
+      <br><br>
+
+      <div class="button-bar">
+      <button class="button button-outline button-positive" ng-click="playVideo()">Play a video</button>
+  </div>
+    </ion-content>
       </ion-view>
 </script>
-<!--This is the videos page-->	
-<script type="text/ng-template" id="video.html">
-	<ion-view title="Videos">
-		<ion-content>
-    <ion-list>
-        <div class="card">
-            <ion-item>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/wyVM1evRxNw" frameborder="0" width="560" height="315"></iframe>
-                </div>
-            </ion-item>
-        </div>
-        <div class="card">
-            <ion-item>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/gvI2ClWqHO0" frameborder="0" width="560" height="315"></iframe>
-                </div>
-            </ion-item>
-        </div>
-        <div class="card">
-            <ion-item>
-                <div class="video-container">
-                    <iframe src="http://www.youtube.com/embed/uJAWaE11Jf4" frameborder="0" width="560" height="315"></iframe>
-                </div>
-            </ion-item>
-        </div>
-    </ion-list>
-</ion-content>
-	</ion-view>
-</script>	
-<!--This is the Sign in page-->	
-<script type="text/ng-template" id="sign.html">
+
+<!--This is the Sign in page-->
+<script type="text/ng-template" id="login.html">
 	<ion-view title="Sign In">
 		<ion-nav-buttons side="right" ng-show="false">
 			<button class="button button-icon button-clear ion-compose" ui-sref="register">
 			</button>
 		</ion-nav-buttons>
-	<ion-content padding="true">
-	<div class="list list-inset">
-		<label class="item item-input">
-			<input type="text" placeholder="Username">
-		</label>
-		<label class="item item-input">
-			<input type="text" placeholder="Password">
-		</label>
-	</div>
-	<button class="button button-full button-balanced">
-		Submit
-	</button>
-
-	</ion-content>
-</ion-view>		
+    <ion-content>
+         <div class="padding-left padding-top padding-right">
+             <h1>Welcome</h1>
+         </div>
+         <div>
+             <div class="list list-inset">
+                 <label class="item item-input">
+                     <input ng-model="username" type="text" placeholder="Username" />
+                 </label>
+                 <label class="item item-input">
+                     <input ng-model="password" type="password" placeholder="Password" />
+                 </label>
+             </div>
+             <div class="padding">
+                 <button ng-click="login(username, password)" class="button button-block button-stable">Sign In</button>
+                 <button ng-click="register(username, password)" class="button button-block button-balanced">Register</button>
+                 <p>
+                     Sign into this application
+                 </p>
+             </div>
+         </div>
+     </ion-content>
+</ion-view>
 </script>
-	
-<!--This is the Register page-->	
+
+<!--This is the Register page-->
 <script type="text/ng-template" id="register.html">
 	<ion-view title="Register Account">
 	<ion-content padding="true">
@@ -672,15 +620,23 @@
 				Submit
 			</button>
 		</ion-content>
-	</ion-view>	
+	</ion-view>
 </script>
-<!--This is the Register page-->	
+<!--This is the Review page-->
 <script type="text/ng-template" id="review.html">
+<ion-view title="Review">
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+<div class="card">
+  <div class="item item-divider">
+    <b>Welcome</b>
+  </div>
+  <div class="item item-text-wrap">
+    Welcome to our review page. If you like what you swipe righy, otherwise swope left!!!
+  </div>
+</div>
 		 <ion-pane ng-controller="CardsCtrl">
-          <ion-header-bar class="bar-calm">
-              <h1 class="title">Ionic Tinder Cards</h1>
-          </ion-header-bar>
- 
           <td-cards>
               <td-card id="td-card" ng-repeat="card in cards" on-destroy="cardDestroyed($index)"
               on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)"
@@ -689,17 +645,18 @@
                       {{card.title}}
                   </div>
                   <div class="image">
-                      <div class="no-text overlayBox"><div class="noBox boxed">Trash</div></div>
+                      <div class="no-text overlayBox"><div class="noBox boxed">No</div></div>
                       <img ng-src="{{card.image}}">
-                      <div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Save</div></div>
+                      <div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Yes</div></div>
                   </div>
               </td-card>
           </td-cards>
       </ion-pane>
-	
+	</ion-view>
+
 </script>
 
-<!--This is the Order now page-->	
+<!--This is the Order now page-->
 <script type="text/ng-template" id="order.html">
 <ion-view title="Place your Order">
 	<ion-content padding="true">
@@ -840,8 +797,8 @@
 <button class="button button-full button-balanced">
 		Submit Order
 	</button>
-    
+
 	</ion-content>
-</script>		   
+</script>
 </body>
 </html>

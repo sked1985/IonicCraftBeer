@@ -1,61 +1,13 @@
- /* This is the css for the video page */
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 30px; height: 0; overflow: hidden;
-}
-
-.video-container iframe,
-.video-container object,
-.video-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
- /* This is the css for image gallery */
-.slider {
-  height: 100%;
-}
-.slider-slide {
-  padding-top: 80px;
-  color: #000;
-  background-color: #fff;
-  text-align: center;
-
-  
-}
-
-#logo {
-  margin: 30px 0px;
-}
-
-#list {
-  width: 170px;
-  margin: 30px auto;
-  font-size: 20px;
-}
-#list ol {
-  margin-top: 30px;
-}
-#list ol li {
-  text-align: left;
-  list-style: decimal;
-  margin: 10px 0px;
-}
-
 .button.ng-hide{
   display:none;
 }
 /* This is the swipe card style*/
 /* Card styling */
- 
+
 td-cards {
     display: block;
 }
- 
+
 td-card {
     position: absolute;
     left: 50%;
@@ -67,27 +19,27 @@ td-card {
     border-radius: 6px;
     background-color: rgb(255,255,255);
 }
- 
+
 .td-card .title {
     height: 40px;
     font-size: 15px;
     padding: 15px;
 }
- 
+
 td-card .image {
     position: absolute;
     top: 40px;
     width: 100%;
 }
- 
+
 td-card img {
     height: 258px;
     width: 100%;
     border-radius: 6px;
 }
- 
+
 /* Overlay styling*/
- 
+
 .overlayBox {
     position: absolute;
     left: 50%;
@@ -97,7 +49,7 @@ td-card img {
     opacity: 0;
     margin: 80px 0 0 -149px;
 }
- 
+
 .boxed {
     height: 50px;
     width: 100px;
@@ -105,34 +57,83 @@ td-card img {
     border-radius: 6px;
     font-size: 30px;
 }
- 
+
 .yes-text {
     background-color: rgba(0,256,0,0.2);
 }
- 
+
 .yesBox {
     margin: 10% 60% 0% 10%;
     border: 2px solid #00FF00;
     color: rgb(0, 256, 0);
     -webkit-transform: rotate(-25deg);
 }
- 
+
 .no-text {
     background-color: rgba(256,0,0,0.2);
 }
- 
+
 .noBox {
     margin: 10% 10% 0% 60%;
     border: 2px solid #FF0000;
     color: rgb(256, 0, 0);
     -webkit-transform: rotate(25deg);
 }
- 
+
 .fade {
     -webkit-transition: 0.2s opacity linear;
     transition: 0.2s opacity linear;
     opacity: 0;
 }
 
+/*IMAGES*/
+.image-list-thumb {
+    padding: 2px 2px 2px 2px;
+    height: 100px;
+}
 
+.image-modal {
+    width: 100% !important;
+    height: 100%;
+    top: 0 !important;
+    left: 0 !important;
+}
 
+.transparent {
+    background: transparent !important;
+}
+
+.fullscreen-image {
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+}
+
+.centerme {
+    margin: 0 auto;
+    width: 100%;
+    height:100%;
+}
+
+.fullscreen-player {
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+}

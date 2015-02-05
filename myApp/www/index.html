@@ -1,556 +1,563 @@
 <!DOCTYPE html>
-<html ng-app="ionicApp">
+<html>
   <head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Craft Beer Application</title>
 
-	<title>Craft Beer</title>
-
-	<!--ionic scripts-->
-		<link href="lib/ionic/css/ionic.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet">
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-		<link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
+    <script src="lib/auth0-lock/build/auth0-lock.js"></script>
+
+
     <!-- ionic/angularjs js -->
-		<script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/angular-cookies/angular-cookies.js"></script>
+
+    <script src="lib/auth0-angular/build/auth0-angular.js"></script>
+    <script src="lib/a0-angular-storage/dist/angular-storage.js"></script>
+    <script src="lib/angular-jwt/dist/angular-jwt.js"></script>
+
 
     <!-- cordova script (this will be a 404 during development) -->
-		<script src="cordova.js"></script>
+    <script src="cordova.js"></script>
 
     <!-- your app's js -->
-    <script src="js/firebase.js"></script>
-    <script src="js/angularfire.min.js"></script>
-		<script src="js/app.js"></script>
-		<script src="lib/collide/collide.js"></script>
-		<script src="lib/ionic-contrib-tinder-cards/ionic.tdcards.js"></script>
-
-
+    <script src="js/auth0-variables.js"></script>
+    <script src="js/app.js"></script>
+    <script src="lib/collide/collide.js"></script>
+    <script src="lib/ionic-contrib-tinder-cards/ionic.tdcards.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
   </head>
-  <body ng-app="ionicApp" no-scroll>
-	<!--This is the Header bar-->
-		<ion-nav-bar class="bar-balanced">
-			<ion-nav-back-button class="button-icon ion-arrow-left-c">
-			</ion-nav-back-button>
-		</ion-nav-bar>
 
-	<!--This the home page navigation icon-->
-	<ion-tabs class="tabs-balanced">
-		<ion-tab icon="ion-home" ui-sref="home">
-			<ion-nav-view name="home"></ion-nav-view>
-		</ion-tab>
+<body ng-app="starter" animation="slide-left-right-ios7">
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button class="button-icon ion-arrow-left-c">
+      </ion-nav-back-button>
+    </ion-nav-bar>
 
-	<!--This the help page navigation icon-->
-		<ion-tab icon="ion-help" ui-sref="help">
-			<ion-nav-view name="help"></ion-nav-view>
-		</ion-tab>
-	</ion-tabs>
-
-	<!--This the home page. This is the main menu of the application -->
-<script type="text/ng-template" id="home.html">
-	<ion-view title="Home">
-	<ion-nav-buttons side="right" ng-show="false">
-        <button class="button button-icon button-clear ion-person" ui-sref="login">
-        </button>
-      </ion-nav-buttons>
-		<ion-content padding="true">
-
-			<div class="list card">
-				<div class="item item-image">
-					<img src="img/main2.jpg">
-				</div>
-
-<div class="list card">
-	<a href="#" class="item item-icon-left" ui-sref="order">
-		<i class="icon ion-beer"></i>
-    Order Now
-  </a>
+<ion-nav-view></ion-nav-view
+<!--Tabs page-->
+<script id="templates/tabs.html" type="text/ng-template">
+    <ion-tabs class="tabs-icon-top tabs-positive">
+      <!--Home tab-->
+      <ion-tab title="Home" icon="icon ion-home" href="#/tab/home">
+          <ion-nav-view name="tab-home"></ion-nav-view>
+      </ion-tab>
 
 
-  <a href="#" class="item item-icon-left" ui-sref="browse">
-    <i class="icon ion-search"></i>
-    Browse
-  </a>
+      <!-- Help Tab -->
+      <ion-tab title="Friends" icon="icon ion-help" href="#/tab/friends">
+          <ion-nav-view name="tab-friends"></ion-nav-view>
+      </ion-tab>
 
-  <a href="#" class="item item-icon-left" ui-sref="photo">
-    <i class="icon ion-images"></i>
-    Gallery
-  </a>
+      <!-- Account Tab -->
+      <ion-tab title="Account" icon="icon ion-gear-b" href="#/tab/account">
+          <ion-nav-view name="tab-account"></ion-nav-view>
+      </ion-tab>
 
-  <a href="#" class="item item-icon-left" ui-sref="review">
-    <i class="icon ion-star"></i>
-    Review
-  </a>
+    </ion-tabs>
+</script>
+<!--End of tabs page-->
+<!--Start of the home page-->
+<script type="text/ng-template" id="templates/home.html">
+  <ion-view title="Home">
+      <ion-nav-buttons side="right" ng-show="false">
+  </ion-nav-buttons>
+  <ion-content class="padding">
 
-	</div>
+      <div class="list card">
+          <div class="item item-image">
+              <img src="img/main2.jpg">
+            </div>
+
+      <div class="list card">
+        <a href="#tab/order" class="item item-icon-left">
+            <i class="icon ion-beer"></i>
+            Order Now
+        </a>
+
+
+        <a href="#tab/browse" class="item item-icon-left">
+            <i class="icon ion-search"></i>
+            Browse
+        </a>
+
+        <a href="#tab/images" class="item item-icon-left">
+            <i class="icon ion-images"></i>
+            Gallery
+        </a>
+
+        <a href="#tab/review" class="item item-icon-left">
+            <i class="icon ion-star"></i>
+            Review
+        </a>
+
+        </div>
 </div>
 
-
-			</ion-content>
-		</ion-view>
-</script>
-
-<!--This the help page -->
-<script type="text/ng-template" id="help.html">
-	<ion-view title="Help">
-		<ion-content padding="true">
-			<h2>This is the help page</h2>
-				<p>This is the help page to the application</p>
-		</ion-content>
-	</ion-view>
-</script>
-
-<!--This is browse items page-->
-<script id="browse.html" type="text/ng-template">
-     <ion-view title="Browse">
-        <ion-content class="padding">
-			<div class="list">
-<a class="item item-thumbnail-left" ui-sref="beers">
-      <img src="img/beer.jpg">
-		<h2>Beers</h2>
-			<p>Check out our fine selection</p>
-</a>
-<a class="item item-thumbnail-left" ui-sref="ciders">
-      <img src="img/cider.jpg">
-		<h2>Ciders</h2>
-			<p>Made from the freshest apples</p>
-</a>
-<a class="item item-thumbnail-left" href="#">
-      <img src="img/stout.jpg">
-		<h2>Stouts</h2>
-			<p>Tastiest around</p>
-</a>
-<a class="item item-thumbnail-left" href="#">
-      <img src="img/cocktail.jpg">
-		<h2>Cocktails</h2>
-			<p>Party on!!</p>
-</a>
-<a class="item item-thumbnail-left" href="#">
-      <img src="img/coffee.jpg">
-		<h2>Coffees</h2>
-			<p>Delicious and cheap</p>
-</a>
-<a class="item item-thumbnail-left" ui-sref="sandwiches">
-      <img src="img/sandwich.jpg">
-		<h2>Sandwiches</h2>
-			<p>Try our delicious range</p>
-</a>
-</div>
-
-        </ion-content>
+    </ion-content>
 </ion-view>
 </script>
+<!--End of home page-->
+<!--Start of the browse menu page-->
+<script id="templates/browse.html" type="text/ng-template">
+    <ion-view view-title="Browse">
+      <ion-content class="padding">
+        <div class="list">
+          <a class="item item-thumbnail-left" a href="#tab/beers">
+            <img src="img/beer.jpg">
+              <h2>Beers</h2>
+                <p>Check out our fine selection</p>
+          </a>
 
-<!--This is beers items page-->
-<script id="beers.html" type="text/ng-template">
-    <ion-view title="Beers">
-		<ion-content class="padding">
-     <div class="list">
- <a class="item item-avatar" ui-sref="baltika">
-      <img src="img/baltika.jpg">
-		<h2>Baltika</h2>
-			<p>3.99</p>
-  </a>
-	<a class="item item-avatar" ui-sref="dungarvan">
-      <img src="img/dun.jpg">
-		<h2>Dungarvan Copper Coast Red</h2>
-			<p>3.39</p>
-    </a>
-	<a class="item item-avatar" ui-sref="bohemian">
-		<img src="img/bare.jpg">
-			<h2>Barefoot Bohemian</h2>
-				<p>2.29</p>
-    </a>
-	<a class="item item-avatar" href="#">
-		<img src="img/abbey.jpg">
-			<h2>Abbey Irish Pale Ale</h2>
-				<p>3.39</p>
-    </a>
-	<a class="item item-avatar" href="#">
-		<img src="img/curim.jpg">
-			<h2>Curim Wheat Beer</h2>
-				<p>3.09</p>
-    </a>
-	<a class="item item-avatar" href="#">
-		<img src="img/dungarven.jpg">
-			<h2>Dungarvan Mine head</h2>
-				<p>3.49</p>
-    </a>
-</div>
-        </ion-content>
-      </ion-view>
+          <a class="item item-thumbnail-left" a href="#tab/ciders">
+            <img src="img/cider.jpg">
+              <h2>Ciders</h2>
+                <p>Made from the freshest apples</p>
+          </a>
+
+          <a class="item item-thumbnail-left" href="#">
+            <img src="img/stout.jpg">
+              <h2>Stouts</h2>
+                <p>Tastiest around</p>
+          </a>
+
+          <a class="item item-thumbnail-left" href="#">
+            <img src="img/cocktail.jpg">
+              <h2>Cocktails</h2>
+                <p>Party on!!</p>
+          </a>
+
+          <a class="item item-thumbnail-left" href="#">
+            <img src="img/coffee.jpg">
+              <h2>Coffees</h2>
+                <p>Delicious and cheap</p>
+          </a>
+
+          <a class="item item-thumbnail-left" a href="#tab/sandwiches">
+            <img src="img/sandwich.jpg">
+              <h2>Sandwiches</h2>
+                <p>Try our delicious range</p>
+          </a>
+        </div>
+
+     </ion-content>
+</ion-view>
 </script>
-
+<!--End of browse menu page-->
+<!--Start of the beers page-->
+<script id="templates/beers.html" type="text/ng-template">
+    <ion-view title="Beers">
+        <ion-content class="padding">
+     <div class="list">
+          <a class="item item-avatar" a href="#tab/baltika">
+              <img src="img/baltika.jpg">
+                <h2>Baltika</h2>
+                  <p>3.99</p>
+          </a>
+          <a class="item item-avatar" a href="#tab/dungarvan">
+              <img src="img/dun.jpg">
+                <h2>Dungarvan Copper Coast Red</h2>
+                  <p>3.39</p>
+          </a>
+          <a class="item item-avatar" a href="#tab/bohemian">
+              <img src="img/bare.jpg">
+                <h2>Barefoot Bohemian</h2>
+                  <p>2.29</p>
+          </a>
+          <a class="item item-avatar" href="#">
+              <img src="img/abbey.jpg">
+                <h2>Abbey Irish Pale Ale</h2>
+                  <p>3.39</p>
+          </a>
+          <a class="item item-avatar" href="#">
+              <img src="img/curim.jpg">
+                <h2>Curim Wheat Beer</h2>
+                  <p>3.09</p>
+          </a>
+          <a class="item item-avatar" href="#">
+              <img src="img/dungarven.jpg">
+                <h2>Dungarvan Mine head</h2>
+                  <p>3.49</p>
+          </a>
+          </div>
+    </ion-content>
+</ion-view>
+</script>
+<!--End of beers list page-->
 <!--This is ciders items page-->
-<script id="ciders.html" type="text/ng-template">
+<script id="templates/ciders.html" type="text/ng-template">
     <ion-view title="Ciders">
-		<ion-content class="padding">
+    <ion-content class="padding">
      <div class="list">
- <a class="item item-avatar" ui-sref="bulmers">
+ <a class="item item-avatar" a href="#tab/bulmers">
       <img src="img/bulmers.jpg">
-		<h2>Bulmers</h2>
-			<p>3.99</p>
+    <h2>Bulmers</h2>
+      <p>3.99</p>
   </a>
-	<a class="item item-avatar" ui-sref="strongbow">
+  <a class="item item-avatar" a href="#tab/strongbow">
       <img src="img/strongbow.jpg">
-		<h2>Strongbow</h2>
-			<p>2.50</p>
+    <h2>Strongbow</h2>
+      <p>2.50</p>
     </a>
-	<a class="item item-avatar" href="#">
-		<img src="img/bare.jpg">
-			<h2>Barefoot Bohemian</h2>
-				<p>2.29</p>
+  <a class="item item-avatar" href="#">
+    <img src="img/bare.jpg">
+      <h2>Barefoot Bohemian</h2>
+        <p>2.29</p>
     </a>
-	<a class="item item-avatar" href="#">
-		<img src="img/abbey.jpg">
-			<h2>Abbey Irish Pale Ale</h2>
-				<p>3.39</p>
+  <a class="item item-avatar" href="#">
+    <img src="img/abbey.jpg">
+      <h2>Abbey Irish Pale Ale</h2>
+        <p>3.39</p>
     </a>
-	<a class="item item-avatar" href="#">
-		<img src="img/curim.jpg">
-			<h2>Curim Wheat Beer</h2>
-				<p>3.09</p>
+  <a class="item item-avatar" href="#">
+    <img src="img/curim.jpg">
+      <h2>Curim Wheat Beer</h2>
+        <p>3.09</p>
     </a>
-	<a class="item item-avatar" href="#">
-		<img src="img/dungarven.jpg">
-			<h2>Dungarvan Mine head</h2>
-				<p>3.49</p>
+  <a class="item item-avatar" href="#">
+    <img src="img/dungarven.jpg">
+      <h2>Dungarvan Mine head</h2>
+        <p>3.49</p>
     </a>
 </div>
         </ion-content>
       </ion-view>
     </script>
-
+<!--End of ciders page-->
 <!--This is the sandwiches items page-->
-<script id="sandwiches.html" type="text/ng-template">
+<script id="templates/sandwiches.html" type="text/ng-template">
     <ion-view title="Sandwiches">
-		<ion-content class="padding">
+    <ion-content class="padding">
      <div class="list">
- <a class="item item-avatar" ui-sref="club">
+ <a class="item item-avatar" a href ="#tab/club">
       <img src="img/club.jpg">
-		<h2>Club</h2>
-			<p>3.59</p>
+    <h2>Club</h2>
+      <p>3.59</p>
   </a>
-	<a class="item item-avatar" ui-sref="blt">
+  <a class="item item-avatar" a href ="#tab/blt">
       <img src="img/blt.jpg">
-		<h2>BLT</h2>
-			<p>2.99</p>
+    <h2>BLT</h2>
+      <p>2.99</p>
     </a>
-	<a class="item item-avatar" href="#">
-		<img src="img/turk.jpg">
-			<h2>Turkey Melt</h2>
-				<p>4.29</p>
+  <a class="item item-avatar" href="#">
+    <img src="img/turk.jpg">
+      <h2>Turkey Melt</h2>
+        <p>4.29</p>
     </a>
-	<a class="item item-avatar" href="#">
-		<img src="img/bagel.jpg">
-			<h2>Bagels</h2>
-				<p>3.39</p>
+  <a class="item item-avatar" href="#">
+    <img src="img/bagel.jpg">
+      <h2>Bagels</h2>
+        <p>3.39</p>
     </a>
 </div>
         </ion-content>
       </ion-view>
     </script>
+<!--This is the end of the sandwiches page-->
+<!--This is the start of the baltika page-->
+<script type="text/ng-template" id="templates/baltika.html">
+    <ion-view title="Baltika">
+      <ion-content padding="true">
+          <div class="list card">
+            <div class="item item-avatar">
+                <img src="img/baltika.jpg">
+                    <h2>Baltika Beer</h2>
+                      <p>Brewed in Russia, 1994</p>
+            </div>
+            <div class="item item-body">
+                <img class="full-image" src="img/fun.jpg">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
+                Sed mattis auctor mauris. Donec ac urna imperdiet, fringilla neque
+                auctor, fringilla lorem.</p>
+                <p>
+                <a href="#" class="subdued">1 Like</a>
+                <a href="#" class="subdued">5 Comments</a>
+                </p>
+            </div>
+           <div class="item tabs tabs-secondary tabs-icon-left">
+              <a class="tab-item" href="#">
+                <i class="icon ion-thumbsup"></i>
+                  Like
+              </a>
+              <a class="tab-item" href="#">
+                <i class="icon ion-chatbox"></i>
+                  Comment
+              </a>
+              <a class="tab-item" href="#">
+                <i class="icon ion-share"></i>
+                  Share
+              </a>
+          </div>
 
-<!--This the baltika page -->
-<script type="text/ng-template" id="baltika.html">
-	<ion-view title="Baltika">
-		<ion-content padding="true">
-			<div class="list card">
-	<div class="item item-avatar">
-		<img src="img/baltika.jpg">
-			<h2>Baltika Beer</h2>
-				<p>Brewed in Russia, 1994</p>
-	</div>
-	<div class="item item-body">
-		<img class="full-image" src="img/fun.jpg">
-	<p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
-	  Sed mattis auctor mauris. Donec ac urna imperdiet, fringilla neque
-	  auctor, fringilla lorem.
-    </p>
+        </div>
+      </ion-content>
+    </ion-view>
+</script>
+<!--End of baltika page-->
+<!--This the dungarven Beer page -->
+<script type="text/ng-template" id="templates/dungarvan.html">
+    <ion-view title="Dungarvan">
+      <ion-content padding="true">
+<div class="list card">
+  <div class="item item-avatar">
+    <img src="img/baltika.jpg">
+      <h2>Dungarvan Beer</h2>
+        <p>Brewed in Ireland, 2002</p>
+    </div>
+  <div class="item item-body">
+    <img class="full-image" src="img/dun2.jpg">
     <p>
-      <a href="#" class="subdued">1 Like</a>
-      <a href="#" class="subdued">5 Comments</a>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
+    Sed mattis auctor mauris.
+    <p>
+    <a href="#" class="subdued">1 Like</a>
+    <a href="#" class="subdued">5 Comments</a>
     </p>
   </div>
-	<div class="item tabs tabs-secondary tabs-icon-left">
-		<a class="tab-item" href="#">
-			<i class="icon ion-thumbsup"></i>
-		Like
-		</a>
-		<a class="tab-item" href="#">
-			<i class="icon ion-chatbox"></i>
-		Comment
-		</a>
-		<a class="tab-item" href="#">
-			<i class="icon ion-share"></i>
-		Share
-		</a>
-	</div>
-
-</div>
-			</ion-content>
-		</ion-view>
-	</script>
-
-<!--This the dungarven Beer page -->
-<script type="text/ng-template" id="dungarvan.html">
-		<ion-view title="Dungarvan">
-			<ion-content padding="true">
-<div class="list card">
-	<div class="item item-avatar">
-		<img src="img/baltika.jpg">
-			<h2>Dungarvan Beer</h2>
-				<p>Brewed in Ireland, 2002</p>
-		</div>
-  <div class="item item-body">
-		<img class="full-image" src="img/dun2.jpg">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
-	  Sed mattis auctor mauris.
-    <p>
-		<a href="#" class="subdued">1 Like</a>
-		<a href="#" class="subdued">5 Comments</a>
-    </p>
-	</div>
 
   <div class="item tabs tabs-secondary tabs-icon-left">
-		<a class="tab-item" href="#">
-			<i class="icon ion-thumbsup"></i>
-		Like
-		</a>
-		<a class="tab-item" href="#">
-			<i class="icon ion-chatbox"></i>
-		Comment
-		</a>
-		<a class="tab-item" href="#">
-			<i class="icon ion-share"></i>
-		Share
-		</a>
-	</div>
+    <a class="tab-item" href="#">
+      <i class="icon ion-thumbsup"></i>
+    Like
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-chatbox"></i>
+    Comment
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+    Share
+    </a>
+  </div>
 </div>
-			</ion-content>
-		</ion-view>
+      </ion-content>
+    </ion-view>
 </script>
-
+<!--End of dungarven page-->
 <!--This the Bohemian Beer page -->
-<script type="text/ng-template" id="bohemian.html">
-		<ion-view title="Bohemian">
-			<ion-content padding="true">
+<script type="text/ng-template" id="templates/bohemian.html">
+    <ion-view title="Bohemian">
+      <ion-content padding="true">
 <div class="list card">
-	<div class="item item-avatar">
-		<img src="img/bare.jpg">
-			<h2>Bohemian Beer</h2>
-				<p>This beer is currently unavaialble</p>
-		</div>
+  <div class="item item-avatar">
+    <img src="img/bare.jpg">
+      <h2>Bohemian Beer</h2>
+        <p>This beer is currently unavaialble</p>
+    </div>
   <div class="item item-body">
-		<img class="full-image" src="img/bohemian2.jpg">
+    <img class="full-image" src="img/bohemian2.jpg">
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
-	  Sed mattis auctor mauris.
+    Sed mattis auctor mauris.
     <p>
-		<a href="#" class="subdued">1 Like</a>
-		<a href="#" class="subdued">5 Comments</a>
+    <a href="#" class="subdued">1 Like</a>
+    <a href="#" class="subdued">5 Comments</a>
     </p>
-	</div>
+  </div>
 
   <div class="item tabs tabs-secondary tabs-icon-left">
-		<a class="tab-item" href="#">
-			<i class="icon ion-thumbsup"></i>
-		Like
-		</a>
-		<a class="tab-item" href="#">
-			<i class="icon ion-chatbox"></i>
-		Comment
-		</a>
-		<a class="tab-item" href="index2.html">
-			<i class="icon ion-search"></i>
-		Find
-		</a>
-	</div>
+    <a class="tab-item" href="#">
+      <i class="icon ion-thumbsup"></i>
+    Like
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-chatbox"></i>
+    Comment
+    </a>
+    <a class="tab-item" href="index2.html">
+      <i class="icon ion-search"></i>
+    Find
+    </a>
+  </div>
 </div>
-			</ion-content>
-		</ion-view>
+      </ion-content>
+    </ion-view>
 </script>
-
-
-<!--This the club sandwich page -->
-<script type="text/ng-template" id="club.html">
-		<ion-view title="Club">
-			<ion-content padding="true">
-<div class="list card">
-	<div class="item item-avatar">
-		<img src="img/club.jpg">
-			<h2>Club Sandwiche</h2>
-				<p>Absolutely delish</p>
-		</div>
-  <div class="item item-body">
-		<img class="full-image" src="img/club2.jpg">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
-	  Sed mattis auctor mauris.
-    <p>
-		<a href="#" class="subdued">1 Like</a>
-		<a href="#" class="subdued">5 Comments</a>
-    </p>
-	</div>
-
-  <div class="item tabs tabs-secondary tabs-icon-left">
-		<a class="tab-item" href="#">
-			<i class="icon ion-thumbsup"></i>
-		Like
-		</a>
-		<a class="tab-item" href="#">
-			<i class="icon ion-chatbox"></i>
-		Comment
-		</a>
-		<a class="tab-item" href="#">
-			<i class="icon ion-share"></i>
-		Share
-		</a>
-	</div>
-</div>
-			</ion-content>
-		</ion-view>
-</script>
-
-<!--This the blt sandwich page -->
-<script type="text/ng-template" id="blt.html">
-		<ion-view title="BLT">
-			<ion-content padding="true">
-<div class="list card">
-	<div class="item item-avatar">
-		<img src="img/blt.jpg">
-			<h2>BLT Sandwich</h2>
-				<p>Goes great with a pint</p>
-		</div>
-  <div class="item item-body">
-		<img class="full-image" src="img/blt2.jpg">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
-	  Sed mattis auctor mauris.
-    <p>
-		<a href="#" class="subdued">1 Like</a>
-		<a href="#" class="subdued">5 Comments</a>
-    </p>
-	</div>
-
-  <div class="item tabs tabs-secondary tabs-icon-left">
-		<a class="tab-item" href="#">
-			<i class="icon ion-thumbsup"></i>
-		Like
-		</a>
-		<a class="tab-item" href="#">
-			<i class="icon ion-chatbox"></i>
-		Comment
-		</a>
-		<a class="tab-item" href="#">
-			<i class="icon ion-share"></i>
-		Share
-		</a>
-	</div>
-</div>
-			</ion-content>
-		</ion-view>
-</script>
-
+<!--End of Bohemian page-->
 <!--This the bulmers page -->
-<script type="text/ng-template" id="bulmers.html">
-		<ion-view title="Bulmers">
-			<ion-content padding="true">
+<script type="text/ng-template" id="templates/bulmers.html">
+    <ion-view title="Bulmers">
+      <ion-content padding="true">
 <div class="list card">
-	<div class="item item-avatar">
-		<img src="img/bulmers.jpg">
-			<h2>Bulmers</h2>
-				<p>It may not be craft but its a classic</p>
-		</div>
+  <div class="item item-avatar">
+    <img src="img/bulmers.jpg">
+      <h2>Bulmers</h2>
+        <p>It may not be craft but its a classic</p>
+    </div>
   <div class="item item-body">
-		<img class="full-image" src="img/bulmers2.jpg">
+    <img class="full-image" src="img/bulmers2.jpg">
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
-	  Sed mattis auctor mauris.
+    Sed mattis auctor mauris.
     <p>
-		<a href="#" class="subdued">1 Like</a>
-		<a href="#" class="subdued">5 Comments</a>
+    <a href="#" class="subdued">1 Like</a>
+    <a href="#" class="subdued">5 Comments</a>
     </p>
-	</div>
+  </div>
 
   <div class="item tabs tabs-secondary tabs-icon-left">
-		<a class="tab-item" href="#">
-			<i class="icon ion-thumbsup"></i>
-		Like
-		</a>
-		<a class="tab-item" href="#">
-			<i class="icon ion-chatbox"></i>
-		Comment
-		</a>
-		<a class="tab-item" href="#">
-			<i class="icon ion-share"></i>
-		Share
-		</a>
-	</div>
+    <a class="tab-item" href="#">
+      <i class="icon ion-thumbsup"></i>
+    Like
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-chatbox"></i>
+    Comment
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+    Share
+    </a>
+  </div>
 </div>
-			</ion-content>
-		</ion-view>
+      </ion-content>
+    </ion-view>
 </script>
-
+<!--This is the end of the bulmers page-->
 <!--This the strongbow page -->
-<script type="text/ng-template" id="strongbow.html">
-		<ion-view title="Strongbow">
-			<ion-content padding="true">
+<script type="text/ng-template" id="templates/strongbow.html">
+    <ion-view title="Strongbow">
+      <ion-content padding="true">
 <div class="list card">
-	<div class="item item-avatar">
-		<img src="img/strongbow.jpg">
-			<h2>Strongbow</h2>
-				<p>It is ridiculously cheap</p>
-		</div>
+  <div class="item item-avatar">
+    <img src="img/strongbow.jpg">
+      <h2>Strongbow</h2>
+        <p>It is ridiculously cheap</p>
+    </div>
   <div class="item item-body">
-		<img class="full-image" src="img/strongbow2.jpg">
+    <img class="full-image" src="img/strongbow2.jpg">
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
-	  Sed mattis auctor mauris.
+    Sed mattis auctor mauris.
     <p>
-		<a href="#" class="subdued">1 Like</a>
-		<a href="#" class="subdued">5 Comments</a>
+    <a href="#" class="subdued">1 Like</a>
+    <a href="#" class="subdued">5 Comments</a>
     </p>
-	</div>
+  </div>
 
   <div class="item tabs tabs-secondary tabs-icon-left">
-		<a class="tab-item" href="#">
-			<i class="icon ion-thumbsup"></i>
-		Like
-		</a>
-		<a class="tab-item" href="#">
-			<i class="icon ion-chatbox"></i>
-		Comment
-		</a>
-		<a class="tab-item" href="#">
-			<i class="icon ion-share"></i>
-		Share
-		</a>
-	</div>
+    <a class="tab-item" href="#">
+      <i class="icon ion-thumbsup"></i>
+    Like
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-chatbox"></i>
+    Comment
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+    Share
+    </a>
+  </div>
 </div>
-			</ion-content>
-		</ion-view>
+      </ion-content>
+    </ion-view>
 </script>
+<!--End of strongbow page-->
+<!--This the club sandwich page -->
+<script type="text/ng-template" id="templates/club.html">
+    <ion-view title="Club">
+      <ion-content padding="true">
+<div class="list card">
+  <div class="item item-avatar">
+    <img src="img/club.jpg">
+      <h2>Club Sandwich</h2>
+        <p>Absolutely delish</p>
+    </div>
+  <div class="item item-body">
+    <img class="full-image" src="img/club2.jpg">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
+    Sed mattis auctor mauris.
+    <p>
+    <a href="#" class="subdued">1 Like</a>
+    <a href="#" class="subdued">5 Comments</a>
+    </p>
+  </div>
+
+  <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item" href="#">
+      <i class="icon ion-thumbsup"></i>
+    Like
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-chatbox"></i>
+    Comment
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+    Share
+    </a>
+  </div>
+</div>
+      </ion-content>
+    </ion-view>
+</script>
+<!--End of club sandwich page-->
+<!--This the blt sandwich page -->
+<script type="text/ng-template" id="templates/blt.html">
+    <ion-view title="BLT">
+      <ion-content padding="true">
+<div class="list card">
+  <div class="item item-avatar">
+    <img src="img/blt.jpg">
+      <h2>BLT Sandwich</h2>
+        <p>Goes great with a pint</p>
+    </div>
+  <div class="item item-body">
+    <img class="full-image" src="img/blt2.jpg">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
+    Sed mattis auctor mauris.
+    <p>
+    <a href="#" class="subdued">1 Like</a>
+    <a href="#" class="subdued">5 Comments</a>
+    </p>
+  </div>
+
+  <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item" href="#">
+      <i class="icon ion-thumbsup"></i>
+    Like
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-chatbox"></i>
+    Comment
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+    Share
+    </a>
+  </div>
+</div>
+      </ion-content>
+    </ion-view>
+</script>
+<!--End of the blt page-->
 <!--This the Images page -->
-<script type="text/ng-template" id="photo.html">
-	<ion-view title="Gallery">
-  <ion-content class="has-header padding" ng-controller="MediaCtrl">
-  <div class="card">
-<div class="item item-divider">
-  <b>Blt</b>
-</div>
-<div class="item item-text-wrap">
-Try our delicious BLT!!!!!
-</div>
-</div>
+<script type="text/ng-template" id="templates/images.html">
+    <ion-view title="Gallery">
+        <ion-content class="has-header padding" ng-controller="MediaCtrl">
+          <div class="card">
+            <div class="item item-divider">
+              <b>Blt</b>
+          </div>
+          <div class="item item-text-wrap">
+            Try our delicious BLT!!!!!
+          </div>
+          </div>
 
       <div class="item item-divider">
           <i class="ion-images"></i>
-          My Images
+            My Images
       </div>
       <a class="item item-list-detail">
           <ion-scroll direction="x">
@@ -560,70 +567,14 @@ Try our delicious BLT!!!!!
       <br><br>
 
       <div class="button-bar">
-      <button class="button button-outline button-positive" ng-click="playVideo()">Play a video</button>
-  </div>
+        <button class="button button-outline button-positive" ng-click="playVideo()">Play a video</button>
+      </div>
     </ion-content>
-      </ion-view>
-</script>
-
-<!--This is the Sign in page-->
-<script type="text/ng-template" id="login.html">
-	<ion-view title="Sign In">
-		<ion-nav-buttons side="right" ng-show="false">
-			<button class="button button-icon button-clear ion-compose" ui-sref="register">
-			</button>
-		</ion-nav-buttons>
-    <ion-content>
-         <div class="padding-left padding-top padding-right">
-             <h1>Welcome</h1>
-         </div>
-         <div>
-             <div class="list list-inset">
-                 <label class="item item-input">
-                     <input ng-model="username" type="text" placeholder="Username" />
-                 </label>
-                 <label class="item item-input">
-                     <input ng-model="password" type="password" placeholder="Password" />
-                 </label>
-             </div>
-             <div class="padding">
-                 <button ng-click="login(username, password)" class="button button-block button-stable">Sign In</button>
-                 <button ng-click="register(username, password)" class="button button-block button-balanced">Register</button>
-                 <p>
-                     Sign into this application
-                 </p>
-             </div>
-         </div>
-     </ion-content>
 </ion-view>
 </script>
-
-<!--This is the Register page-->
-<script type="text/ng-template" id="register.html">
-	<ion-view title="Register Account">
-	<ion-content padding="true">
-		<div class="list">
-			<label class="item item-input item-stacked-label">
-				<span class="input-label"></span>
-				<input type="text" placeholder="Username">
-			</label>
-			<label class="item item-input item-stacked-label">
-				<span class="input-label"></span>
-				<input type="text" placeholder="Password">
-			</label>
-			<label class="item item-input item-stacked-label">
-				<span class="input-label"></span>
-				<input type="text" placeholder="Email">
-			</label>
-		</div>
-			<button class="button button-full button-balanced">
-				Submit
-			</button>
-		</ion-content>
-	</ion-view>
-</script>
-<!--This is the Review page-->
-<script type="text/ng-template" id="review.html">
+<!--End of images page-->
+<!--Review page-->
+<script type="text/ng-template" id="templates/review.html">
 <ion-view title="Review">
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
@@ -636,7 +587,7 @@ Try our delicious BLT!!!!!
     Welcome to our review page. If you like what you swipe righy, otherwise swope left!!!
   </div>
 </div>
-		 <ion-pane ng-controller="CardsCtrl">
+     <ion-pane ng-controller="CardsCtrl">
           <td-cards>
               <td-card id="td-card" ng-repeat="card in cards" on-destroy="cardDestroyed($index)"
               on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)"
@@ -652,17 +603,24 @@ Try our delicious BLT!!!!!
               </td-card>
           </td-cards>
       </ion-pane>
-	</ion-view>
+  </ion-view>
 
 </script>
-
+<!--login page-->
+<script id="login.html" type="text/ng-template">
+  <ion-view title="Login">
+    <ion-content>
+    </ion-content>
+    </ion-view>
+</script>
+<!--End of login page-->
 <!--This is the Order now page-->
-<script type="text/ng-template" id="order.html">
+<script type="text/ng-template" id="templates/order.html">
 <ion-view title="Place your Order">
-	<ion-content padding="true">
+  <ion-content padding="true">
 <!--Start of beers order list-->
 <div class="list">
-	<div class="item item-divider">
+  <div class="item item-divider">
     <b>Beers</b>
   </div>
   <label class="item item-input item-select">
@@ -729,7 +687,7 @@ Try our delicious BLT!!!!!
 </div>
 <!--Start of ciders order list-->
 <div class="list">
-	<div class="item item-divider">
+  <div class="item item-divider">
     <b>Ciders</b>
   </div>
   <label class="item item-input item-select">
@@ -794,11 +752,12 @@ Try our delicious BLT!!!!!
   </label>
 
 </div>
-<button class="button button-full button-balanced">
-		Submit Order
-	</button>
+<button class="button button-full button-positive">
+    Submit Order
+  </button>
 
-	</ion-content>
+  </ion-content>
 </script>
-</body>
+
+  </body>
 </html>

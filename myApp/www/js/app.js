@@ -1,231 +1,20 @@
-var app = angular.module('ionicApp', ['ionic','ionic.contrib.ui.tinderCards', 'firebase'])
+// Ionic Starter App
 
+// angular.module is a global place for creating, registering and retrieving Angular modules
+// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// the 2nd parameter is an array of 'requires'
+// 'starter.services' is found in services.js
+// 'starter.controllers' is found in controllers.js
+angular.module('starter', ['ionic',
+  'starter.controllers',
+  'starter.services',
+  'auth0',
+  'angular-storage',
+  'angular-jwt',
+  'ionic.contrib.ui.tinderCards'
+  ])
 
-//Swipe Script
-.directive('noScroll', function() {
-    return {
-        restrict: 'A',
-        link: function($scope, $element, $attr) {
-            $element.on('touchmove', function(e) {
-                e.preventDefault();
-            });
-        }
-    }
-})
-
-app.config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/home')
-
-  $stateProvider.state('home', {
-    url: '/home',
-    views: {
-      home: {
-        templateUrl: 'home.html'
-      }
-    }
-  })
-
-
-  //This brings you to Sign in items page
-  $stateProvider.state('login', {
-    url: '/login',
-    views: {
-      home: {
-        templateUrl: 'login.html',
-        
-      }
-    }
-  })
-
-  app.controller("LoginController", function($scope, $firebaseAuth, $location) {
-
-
-    $scope.login = function(username, password) {
-      var fbAuth = $firebaseAuth(fb);
-      fbAuth.$authWithPassword({
-        email: username,
-        password: password
-      }).then(function(authData) {
-        $location.path("/home");
-      }).catch(function(error) {
-        console.error("ERROR: " + error);
-      });
-    }
-
-    $scope.register = function(username, password) {
-      var fbAuth = $firebaseAuth(fb);
-      fbAuth.$createUser(username, password).then(function() {
-        return fbAuth.$authWithPassword({
-          email: username,
-          password: password
-        });
-      }).then(function(authData) {
-        $location.path("/home");
-      }).catch(function(error) {
-        console.error("ERROR " + error);
-      });
-    }
-
-  });
-
-
-
-  //This brings you to Sign in items page
-  $stateProvider.state('register', {
-    url: '/register',
-    views: {
-      home: {
-        templateUrl: 'register.html'
-      }
-    }
-  })
-  //This brings you to browse items page
-  $stateProvider.state('browse', {
-    url: '/2',
-    views: {
-      home: {
-        templateUrl: 'browse.html'
-      }
-    }
-  })
-
-  //This brings you to beers list page
-  $stateProvider.state('beers', {
-    url: '/3',
-    views: {
-      home: {
-        templateUrl: 'beers.html'
-      }
-    }
-  })
-
-   //This brings you to ciders list page
-  $stateProvider.state('ciders', {
-    url: '/9',
-    views: {
-      home: {
-        templateUrl: 'ciders.html'
-      }
-    }
-  })
-
-   //This brings you to bulmers page
-  $stateProvider.state('bulmers', {
-    url: '/10',
-    views: {
-      home: {
-        templateUrl: 'bulmers.html'
-      }
-    }
-  })
-
-
-   //This brings you to strongbow page
-  $stateProvider.state('strongbow', {
-    url: '/11',
-    views: {
-      home: {
-        templateUrl: 'strongbow.html'
-      }
-    }
-  })
-
-    //This brings you to Sandwiches list page
-  $stateProvider.state('sandwiches', {
-    url: '/6',
-    views: {
-      home: {
-        templateUrl: 'sandwiches.html'
-      }
-    }
-  })
-
-  //This is club page
-  $stateProvider.state('club', {
-    url: '/7',
-    views: {
-      home: {
-        templateUrl: 'club.html'
-      }
-    }
-  })
-
-   //This is blt page
-  $stateProvider.state('blt', {
-    url: '/8',
-    views: {
-      home: {
-        templateUrl: 'blt.html'
-      }
-    }
-  })
-  //This brings you to baltika page
-   $stateProvider.state('baltika', {
-    url: '/4',
-    views: {
-      home: {
-        templateUrl: 'baltika.html'
-      }
-    }
-  })
-  //This brings you to dungarvan page
-   $stateProvider.state('dungarvan', {
-    url: '/5',
-    views: {
-      home: {
-        templateUrl: 'dungarvan.html'
-      }
-    }
-  })
-   //This brings you to bohemian page
-   $stateProvider.state('bohemian', {
-    url: '/12',
-    views: {
-      home: {
-        templateUrl: 'bohemian.html'
-      }
-    }
-  })
-
-   //This brings you to photo page
-   $stateProvider.state('photo', {
-    url: '/photo',
-    views: {
-      home: {
-        templateUrl: 'photo.html'
-      }
-    }
-  })
-  //This brings you to reviews page
-   $stateProvider.state('review', {
-    url: '/review',
-    views: {
-      home: {
-        templateUrl: 'review.html'
-      }
-    }
-  })
-  //This brings you to order now page
-   $stateProvider.state('order', {
-    url: '/order',
-    views: {
-      home: {
-        templateUrl: 'order.html'
-      }
-    }
-  })
-  //This brings you to help page
-  $stateProvider.state('help', {
-    url: '/help',
-    views: {
-      help: {
-        templateUrl: 'help.html'
-      }
-    }
-  })
-})
-
-//Image gallery
+  //Image gallery
 .controller('MediaCtrl', function($scope, $ionicModal) {
  $scope.allImages = [{
         'src' : 'img/blt.jpg'
@@ -261,16 +50,17 @@ $scope.showModal = function(templateUrl) {
         $scope.modal.remove()
     };
 })
+//End of image gallery
 //Swipe Cards Review functionality
 .controller('CardsCtrl', function($scope) {
     var cardTypes = [
         { image: 'img/beer.jpg', title: 'Baltika'},
         { image: 'img/beer.jpg', title: 'Bulmers'},
         { image: 'img/bagel.jpg', title: 'Bagel'},
-		{ image: 'img/beer.jpg', title: 'So much grass #hippster'},
+    { image: 'img/beer.jpg', title: 'So much grass #hippster'},
         { image: 'img/beer.jpg', title: 'Way too much Sand, right?'},
         { image: 'img/bagel.jpg', title: 'Bagel'},
-		 { image: 'img/beer.jpg', title: 'So much grass #hippster'},
+     { image: 'img/beer.jpg', title: 'So much grass #hippster'},
         { image: 'img/beer.jpg', title: 'Way too much Sand, right?'},
         { image: 'img/bagel.jpg', title: 'Bagel'},
     ];
@@ -298,19 +88,9 @@ $scope.showModal = function(templateUrl) {
         console.log('Card removed');
     }
 })
+//End of swipe card functionality
 
-//Main Control
-.controller('MainCtrl', function($scope, $state) {
-  console.log('MainCtrl');
-
-  $scope.toIntro = function(){
-    $state.go('intro');
-  }
-});
-
-var fb = null;
-
-app.run(function($ionicPlatform) {
+.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -318,10 +98,255 @@ app.run(function($ionicPlatform) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
     if(window.StatusBar) {
+      // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-    fb = new Firebase("https://craftbeerproject.firebaseio.com/");
+  });
+})
+
+.config(function($stateProvider, $urlRouterProvider, authProvider, $httpProvider,
+  jwtInterceptorProvider) {
+
+  // Ionic uses AngularUI Router which uses the concept of states
+  // Learn more here: https://github.com/angular-ui/ui-router
+  // Set up the various states which the app can be in.
+  // Each state's controller can be found in controllers.js
+  $stateProvider
+
+    // This is the Login state
+    .state('login', {
+      url: "/login",
+      templateUrl: "login.html",
+      controller: "LoginCtrl"
+    })
+
+    // setup an abstract state for the tabs directive
+    .state('tab', {
+      url: "/tab",
+      abstract: true,
+      templateUrl: "templates/tabs.html",
+      // The tab requires user login
+      data: {
+        requiresLogin: true
+      }
+    })
+
+    // Each tab has its own nav history stack:
+
+    .state('tab.home', {
+      url: '/home',
+      views: {
+        'tab-home': {
+          templateUrl: 'templates/home.html',
+          controller: 'HomeCtrl'
+        }
+      }
+    })
+
+    .state('tab.browse', {
+     url: "/browse",
+     views: {
+       'tab-home': {
+         templateUrl: "templates/browse.html"
+       }
+     }
+   })
+
+   .state('tab.beers', {
+    url: "/beers",
+    views: {
+      'tab-home': {
+        templateUrl: "templates/beers.html"
+      }
+    }
+  })
+
+  .state('tab.ciders', {
+   url: "/ciders",
+   views: {
+     'tab-home': {
+       templateUrl: "templates/ciders.html"
+     }
+   }
+ })
+
+ .state('tab.sandwiches', {
+  url: "/sandwiches",
+  views: {
+    'tab-home': {
+      templateUrl: "templates/sandwiches.html"
+    }
+  }
+})
+
+  .state('tab.baltika', {
+   url: "/baltika",
+   views: {
+     'tab-home': {
+       templateUrl: "templates/baltika.html"
+     }
+   }
+ })
+
+ .state('tab.dungarvan', {
+  url: "/dungarvan",
+  views: {
+    'tab-home': {
+      templateUrl: "templates/dungarvan.html"
+    }
+  }
+})
+
+.state('tab.bohemian', {
+ url: "/bohemian",
+ views: {
+   'tab-home': {
+     templateUrl: "templates/bohemian.html"
+   }
+ }
+})
+
+.state('tab.bulmers', {
+ url: "/bulmers",
+ views: {
+   'tab-home': {
+     templateUrl: "templates/bulmers.html"
+   }
+ }
+})
+
+
+.state('tab.strongbow', {
+ url: "/strongbow",
+ views: {
+   'tab-home': {
+     templateUrl: "templates/strongbow.html"
+   }
+ }
+})
+
+.state('tab.club', {
+ url: "/club",
+ views: {
+   'tab-home': {
+     templateUrl: "templates/club.html"
+   }
+ }
+})
+
+.state('tab.blt', {
+ url: "/blt",
+ views: {
+   'tab-home': {
+     templateUrl: "templates/blt.html"
+   }
+ }
+})
+
+
+ .state('tab.images', {
+  url: "/images",
+  views: {
+    'tab-home': {
+      templateUrl: "templates/images.html"
+    }
+  }
+})
+
+.state('tab.review', {
+ url: "/review",
+ views: {
+   'tab-home': {
+     templateUrl: "templates/review.html"
+   }
+ }
+})
+
+.state('tab.order', {
+ url: "/order",
+ views: {
+   'tab-home': {
+     templateUrl: "templates/order.html"
+   }
+ }
+})
+
+    .state('tab.friends', {
+      url: '/friends',
+      views: {
+        'tab-friends': {
+          templateUrl: 'templates/tab-friends.html',
+          controller: 'FriendsCtrl'
+        }
+      }
+    })
+    .state('tab.friend-detail', {
+      url: '/friend/:friendId',
+      views: {
+        'tab-friends': {
+          templateUrl: 'templates/friend-detail.html',
+          controller: 'FriendDetailCtrl'
+        }
+      }
+    })
+
+    //This brings you to browse items page
+ $stateProvider.state('browse', {
+   url: '/browse',
+   views: {
+     home: {
+       templateUrl: 'templates/browse.html'
+     }
+   }
+ })
+
+    .state('tab.account', {
+      url: '/account',
+      views: {
+        'tab-account': {
+          templateUrl: 'templates/tab-account.html',
+          controller: 'AccountCtrl'
+        }
+      }
+    });
+
+
+
+  // Configure Auth0
+  authProvider.init({
+    domain: AUTH0_DOMAIN,
+    clientID: AUTH0_CLIENT_ID,
+    loginState: 'login'
+  });
+
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/tab/home');
+
+  jwtInterceptorProvider.tokenGetter = function(store, jwtHelper, auth) {
+    var idToken = store.get('token');
+    var refreshToken = store.get('refreshToken');
+    if (!idToken || !refreshToken) {
+      return null;
+    }
+    if (jwtHelper.isTokenExpired(idToken)) {
+      return auth.refreshIdToken(refreshToken).then(function(idToken) {
+        store.set('token', idToken);
+        return idToken;
+      });
+    } else {
+      return idToken;
+    }
+  }
+
+  $httpProvider.interceptors.push('jwtInterceptor');
+}).run(function($rootScope, auth, store) {
+  $rootScope.$on('$locationChangeStart', function() {
+    if (!auth.isAuthenticated) {
+      var token = store.get('token');
+      if (token) {
+        auth.authenticate(store.get('profile'), token);
+      }
+    }
+
   });
 });
-
-//This brings you to Sign in items page

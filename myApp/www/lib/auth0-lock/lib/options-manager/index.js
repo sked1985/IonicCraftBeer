@@ -222,14 +222,15 @@ OptionsManager.prototype._onclientloaded = function(client) {
   this.showSignupAction = (this.disableSignupAction !== true) && ((auth0Conn && auth0Conn.showSignup) || this.signupLink);
   this.showResetAction = (this.disableResetAction !== true) && ((auth0Conn && auth0Conn.showForgot) || this.resetLink);
 
-    // override usernameStyle if required by connection
-    var auth0ConnStrategy = this._getClientStrategyByConnectionName(auth0Conn.name) || {};
-    if (!this.usernameStyle && (auth0ConnStrategy.name === 'ad' || auth0ConnStrategy.name === 'auth0-adldap')) {
-      this.usernameStyle = 'username';
-    }
-
-  // Ensure usernameStyle
+  // Resolve usernameStyle from connection information
+  // and default
   this.usernameStyle = null != this.usernameStyle ? this.usernameStyle : 'email';
+
+  // override usernameStyle if required by connection
+  var auth0ConnStrategy = this._getClientStrategyByConnectionName(auth0Conn.name) || {};
+  if (!this.usernameStyle && (auth0ConnStrategy.name === 'ad' || auth0ConnStrategy.name === 'auth0-adldap')) {
+    this.usernameStyle = 'username';
+  }
 
   this.state('loaded');
 

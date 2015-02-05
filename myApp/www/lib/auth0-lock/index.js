@@ -79,8 +79,7 @@ function Auth0Lock (clientID, domain, options) {
   // Holds auth0-js' instance
   this.$auth0 = new Auth0({
     clientID: this.$options.clientID,
-    domain: this.$options.domain,
-    useCordovaSocialPlugins: this.$options.useCordovaSocialPlugins
+    domain: this.$options.domain
   });
 
   // use domain as assetsUrl if no assetsUrl provided
@@ -209,7 +208,7 @@ Auth0Lock.prototype.onclientloadsuccess = function() {
 
   // We should use debug and log stuff without console.log
   // and only for debugging
-  if (window.console && console.log) {
+  if (console && console.log) {
     console.log('Client configuration loaded');
   }
 }
@@ -240,7 +239,7 @@ Auth0Lock.prototype.onclientloaderror = function(err) {
   // reset script loading state
   global.window.Auth0.script_tags[this.$options.clientID] = null;
 
-  if (window.console && console.log) {
+  if (console && console.log) {
     console.log(new Error('Failed to load client configuration for ' + this.$options.clientID));
   };
 }
@@ -319,15 +318,13 @@ Auth0Lock.prototype.render = function(tmpl, locals) {
  */
 
 Auth0Lock.prototype.insert = function() {
-  if (this.$container) { return this; }
+  if (this.$container) return this;
 
   var options = this.options;
   var cid = options.container;
   var locals = {
-    options:      options,
-    cordova:      utils.isCordova(),
-    ios:          utils.isIOS(),
-    alt_spinner:  !has_animations() ?
+    options: options,
+    alt_spinner: !has_animations() ?
       (this.$options.cdn + 'img/ajax-loader.gif') :
       null
   };
@@ -335,7 +332,7 @@ Auth0Lock.prototype.insert = function() {
   // widget container
   if (cid) {
     this.$container = document.getElementById(cid);
-    if (!this.$container) { throw new Error('Not found element with \'id\' ' + cid); }
+    if (!this.$container) throw new Error('Not found element with \'id\' ' + cid);
 
     this.$container.innerHTML = this.render(template, locals);
 
@@ -950,9 +947,6 @@ Auth0Lock.prototype._signin = function (panel) {
   var emailD = panel.query('.a0-email');
   var email_input = panel.query('input[name=email]');
 
-  // Send out the signin event, allowing users to dynamically change the options.
-  this.emit('signin submit', this.options, { email: email_input.val() });
-
   var email = null, domain, connection;
 
   var input_email_domain = this.options._extractEmailDomain(email_input.val().toLowerCase());
@@ -1001,8 +995,7 @@ Auth0Lock.prototype._signin = function (panel) {
   var loginOptions = _.extend({}, {
     connection: connection,
     popup: this.options.popup,
-    popupOptions: this.options.popupOptions,
-    sso: this.options.sso,
+    popupOptions: this.options.popupOptions
   }, this.options.authParams);
 
   this.$auth0.login(loginOptions);
@@ -1029,8 +1022,7 @@ Auth0Lock.prototype._signinWithAuth0 = function (panel, connection) {
     username: connection.domain ? username.replace('@' + connection.domain, '') : username,
     password: password,
     popup: self.options.popup,
-    popupOptions: self.options.popupOptions,
-    sso: self.options.sso
+    popupOptions: self.options.popupOptions
   };
 
   // We might be loosing some instance parameters here
@@ -1110,8 +1102,7 @@ Auth0Lock.prototype._signinSocial = function (e, connection, extraParams, panel)
       var loginOptions = _.extend({}, {
         connection: connectionName,
         popup: self.options.popup,
-        popupOptions: self.options.popupOptions,
-        sso: self.options.sso
+        popupOptions: self.options.popupOptions
       }, self.options.authParams, extraParams);
 
       this.$auth0.login(loginOptions);
@@ -1142,8 +1133,7 @@ Auth0Lock.prototype._signinPopupNoRedirect = function (connectionName, popupCall
   var loginOptions = _.extend({}, {
         connection: connectionName,
         popup: self.options.popup,
-        popupOptions: self.options.popupOptions,
-        sso: self.options.sso
+        popupOptions: self.options.popupOptions
       }, options.authParams, extraParams);
 
   if ('function' !== typeof callback) {

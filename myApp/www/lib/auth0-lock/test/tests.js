@@ -1,4 +1,3 @@
-/* global $, bean */
 /**
  * Mocha config
  */
@@ -311,7 +310,7 @@ describe('Auth0Lock', function () {
       };
 
       widget
-      .once('ready', function () {
+      .once('ready', function (mode) {
         bean.fire($('#a0-lock .a0-notloggedin .a0-iconlist [data-strategy="google-oauth2"]')[0], 'click');
       })
       .show({
@@ -472,28 +471,6 @@ describe('Auth0Lock', function () {
       .show({ callbackURL: callbackURL, responseType: 'token', authParams: { access_type: 'offline' } });
     });
 
-    it('should emit signin submit event when signin is starting', function (done) {
-
-      client.login = function (options) {
-        expect(options.login_hint).to.equal('john@fabrikam.com');
-        done();
-      };
-
-      widget
-      .once('ready', function () {
-        $('#a0-lock .a0-notloggedin .a0-emailPassword .a0-email input').val('john@fabrikam.com');
-        $('#a0-lock .a0-notloggedin .a0-emailPassword .a0-password input').val('xyz');
-        $('#a0-lock .a0-notloggedin .a0-emailPassword .a0-action button.a0-primary').trigger('click');
-      })
-      .on('signin submit', function (options, context) {
-        if (!options.authParams) {
-          options.authParams = {};
-        }
-        options.authParams.login_hint = context.email;
-      })
-      .show({ callbackURL: callbackURL, responseType: 'token', authParams: { state: 'foo' }});
-    });
-
     describe('when requires_username is enabled', function() {
 
       beforeEach(function() {
@@ -505,6 +482,7 @@ describe('Auth0Lock', function () {
 
       it('should invalidate an empty username', function (done) {
         var auth0 = widget;
+        var email = 'pepo@example.com';
         var password = '12345';
 
         auth0
@@ -565,13 +543,14 @@ describe('Auth0Lock', function () {
       it('should send valid username on submit', function (done) {
         var auth0 = widget;
         var username = 'pepe';
+        var email = 'pepo@example.com';
         var password = '12345';
 
         client.login = function(options) {
           expect(options.username).to.equal(username);
           expect(options.password).to.equal(password);
           done();
-        };
+        }
 
         auth0
         .once('signin ready', function() {
@@ -593,7 +572,7 @@ describe('Auth0Lock', function () {
           expect(options.username).to.equal(email);
           expect(options.password).to.equal(password);
           done();
-        };
+        }
 
         auth0
         .once('signin ready', function() {
@@ -704,12 +683,12 @@ describe('Auth0Lock', function () {
         expect(hasClass).to.be(!placeholderSupport);
         if (!placeholderSupport) {
           var $fallback = $('#a0-lock .a0-no-placeholder-support .a0-sad-placeholder');
-          expect($fallback).to.not.be.empty();
+          expect($fallback).to.not.be.empty()
           expect($fallback.css('display')).to.equal('block');
-        }
+        };
         done();
       })
-      .show();
+      .show()
     });
 
     it('should not have a0-no-placeholder-support class when supported (' + placeholderSupportPrefix + 'supported)', function(done) {
@@ -721,7 +700,7 @@ describe('Auth0Lock', function () {
           var $fallback = $('#a0-lock .a0-no-placeholder-support .a0-sad-placeholder');
           expect($fallback).to.be.empty();
           expect($('#a0-lock .a0-sad-placeholder').css('display')).to.equal('none');
-        }
+        };
         done();
       })
       .show();

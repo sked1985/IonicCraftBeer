@@ -237,10 +237,5 @@ module.exports = {
         css: 'planningcenter',
         title: 'Planning Center',
         social: true
-    },
-    'exact': {
-        css: 'exact',
-        title: 'Exact',
-        social: true
     }
 };

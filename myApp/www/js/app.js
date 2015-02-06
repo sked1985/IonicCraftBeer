@@ -51,18 +51,64 @@ $scope.showModal = function(templateUrl) {
     };
 })
 //End of image gallery
+//Baltika Image gallery
+.controller('MediaCtrl2', function($scope, $ionicModal) {
+$scope.allImages = [{
+      'src' : 'img/bulmers.jpg'
+  }, {
+      'src' : 'img/blt.jpg'
+  }, {
+      'src' : 'img/blt.jpg'
+  }];
+
+$scope.showImages = function(index) {
+      $scope.activeSlide = index;
+      $scope.showModal('templates/image-popover.html');
+  }
+
+  $scope.clipSrc = 'img/coffee.MOV';
+
+$scope.playVideo = function() {
+    $scope.showModal('templates/video-popover.html');
+}
+
+$scope.showModal = function(templateUrl) {
+      $ionicModal.fromTemplateUrl(templateUrl, {
+          scope: $scope,
+          animation: 'slide-in-up'
+      }).then(function(modal) {
+          $scope.modal = modal;
+          $scope.modal.show();
+      });
+  }
+  // Close the modal
+  $scope.closeModal = function() {
+      $scope.modal.hide();
+      $scope.modal.remove()
+  };
+})
+//End of Baltika image gallery
 //Swipe Cards Review functionality
 .controller('CardsCtrl', function($scope) {
     var cardTypes = [
         { image: 'img/beer.jpg', title: 'Baltika'},
-        { image: 'img/beer.jpg', title: 'Bulmers'},
+        { image: 'img/del7.jpg', title: 'Fantastic?'},
         { image: 'img/bagel.jpg', title: 'Bagel'},
-    { image: 'img/beer.jpg', title: 'So much grass #hippster'},
-        { image: 'img/beer.jpg', title: 'Way too much Sand, right?'},
+        { image: 'img/del1.jpg', title: 'Did you like?'},
+        { image: 'img/del2.jpg', title: 'Tasty, No?'},
+        { image: 'img/del3.jpg', title: 'Swipe left if no'},
+        { image: 'img/del4.jpg', title: 'Surely you like this?'},
+        { image: 'img/del5.jpg', title: 'Freshly made'},
+        { image: 'img/del6.jpg', title: 'delish'},
+        { image: 'img/beer.jpg', title: 'Baltika'},
+        { image: 'img/del7.jpg', title: 'Fantastic?'},
         { image: 'img/bagel.jpg', title: 'Bagel'},
-     { image: 'img/beer.jpg', title: 'So much grass #hippster'},
-        { image: 'img/beer.jpg', title: 'Way too much Sand, right?'},
-        { image: 'img/bagel.jpg', title: 'Bagel'},
+        { image: 'img/del1.jpg', title: 'Did you like?'},
+        { image: 'img/del2.jpg', title: 'Tasty, No?'},
+        { image: 'img/del3.jpg', title: 'Swipe left if no'},
+        { image: 'img/del4.jpg', title: 'Surely you like this?'},
+        { image: 'img/del5.jpg', title: 'Freshly made'},
+        { image: 'img/del6.jpg', title: 'delish'}
     ];
 
     $scope.cards = [];
@@ -73,7 +119,7 @@ $scope.showModal = function(templateUrl) {
         $scope.cards.push(angular.extend({}, newCard));
     }
 
-    for(var i = 0; i < 9; i++) $scope.addCard();
+    for(var i = 0; i < 18; i++) $scope.addCard();
 
     $scope.cardSwipedLeft = function(index) {
         console.log('Left swipe');
@@ -143,6 +189,15 @@ $scope.showModal = function(templateUrl) {
       }
     })
 
+    .state('tab.search', {
+     url: "/search",
+     views: {
+       'tab-home': {
+         templateUrl: "templates/search.html"
+       }
+     }
+   })
+
     .state('tab.browse', {
      url: "/browse",
      views: {
@@ -187,6 +242,15 @@ $scope.showModal = function(templateUrl) {
      }
    }
  })
+
+ .state('tab.baltikaimg', {
+  url: "/baltikaimg",
+  views: {
+    'tab-home': {
+      templateUrl: "templates/baltikaimg.html"
+    }
+  }
+})
 
  .state('tab.dungarvan', {
   url: "/dungarvan",
@@ -271,25 +335,14 @@ $scope.showModal = function(templateUrl) {
  }
 })
 
-    .state('tab.friends', {
-      url: '/friends',
+    .state('tab.help', {
+      url: '/help',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
+        'tab-help': {
+          templateUrl: 'templates/tab-help.html',
         }
       }
     })
-    .state('tab.friend-detail', {
-      url: '/friend/:friendId',
-      views: {
-        'tab-friends': {
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
-        }
-      }
-    })
-
     //This brings you to browse items page
  $stateProvider.state('browse', {
    url: '/browse',

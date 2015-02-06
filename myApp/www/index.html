@@ -53,8 +53,8 @@
 
 
       <!-- Help Tab -->
-      <ion-tab title="Friends" icon="icon ion-help" href="#/tab/friends">
-          <ion-nav-view name="tab-friends"></ion-nav-view>
+      <ion-tab title="Help" icon="icon ion-help" href="#/tab/help">
+          <ion-nav-view name="tab-help"></ion-nav-view>
       </ion-tab>
 
       <!-- Account Tab -->
@@ -68,7 +68,9 @@
 <!--Start of the home page-->
 <script type="text/ng-template" id="templates/home.html">
   <ion-view title="Home">
-      <ion-nav-buttons side="right" ng-show="false">
+  <ion-nav-buttons side="right" ng-show="false">
+    <a class="button button-icon button-clear ion-search" href="#tab/search">
+    </a>
   </ion-nav-buttons>
   <ion-content class="padding">
 
@@ -108,7 +110,7 @@
 <!--End of home page-->
 <!--Start of the browse menu page-->
 <script id="templates/browse.html" type="text/ng-template">
-    <ion-view view-title="Browse">
+    <ion-view title="Browse">
       <ion-content class="padding">
         <div class="list">
           <a class="item item-thumbnail-left" a href="#tab/beers">
@@ -288,12 +290,12 @@
                   Like
               </a>
               <a class="tab-item" href="#">
-                <i class="icon ion-chatbox"></i>
-                  Comment
+                <i class="icon ion-link"></i>
+                  Website
               </a>
-              <a class="tab-item" href="#">
-                <i class="icon ion-share"></i>
-                  Share
+              <a class="tab-item" href="#tab/baltikaimg">
+                <i class="icon ion-images"></i>
+                  Images
               </a>
           </div>
 
@@ -302,6 +304,37 @@
     </ion-view>
 </script>
 <!--End of baltika page-->
+<!--This is the baltika images page-->
+<script id="templates/baltikaimg.html" type="text/ng-template">
+  <ion-view title="Images">
+  <ion-content class="has-header padding" ng-controller="MediaCtrl2">
+    <div class="card">
+      <div class="item item-divider">
+        <b>Blt</b>
+    </div>
+    <div class="item item-text-wrap">
+      Try our delicious Baltika beer
+    </div>
+    </div>
+
+<div class="item item-divider">
+    <i class="ion-images"></i>
+      My Images
+</div>
+<a class="item item-list-detail">
+    <ion-scroll direction="x">
+        <img ng-repeat="image in allImages" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
+    </ion-scroll>
+</a>
+<br><br>
+
+<div class="button-bar">
+  <button class="button button-outline button-positive" ng-click="playVideo()">Play a video</button>
+</div>
+</ion-content>
+    </ion-view>
+</script>
+<!--End of baltika images page-->
 <!--This the dungarven Beer page -->
 <script type="text/ng-template" id="templates/dungarvan.html">
     <ion-view title="Dungarvan">
@@ -754,10 +787,18 @@
 </div>
 <button class="button button-full button-positive">
     Submit Order
-  </button>
+</button>
 
   </ion-content>
 </script>
-
+<!--End of the order page-->
+<!--Search page-->
+<script id="templates/search.html" type="text/ng-template">
+  <ion-view title="Search">
+    <ion-content>
+    This is the search page!!!!!!!!
+    </ion-content>
+    </ion-view>
+</script>
   </body>
 </html>

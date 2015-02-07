@@ -135,6 +135,7 @@ $scope.showModal = function(templateUrl) {
     }
 })
 //End of swipe card functionality
+//Count down timer
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -259,6 +260,15 @@ $scope.showModal = function(templateUrl) {
       templateUrl: "templates/dungarvan.html"
     }
   }
+})
+
+.state('tab.dungarvenimg', {
+ url: "/dungarvenimg",
+ views: {
+   'tab-home': {
+     templateUrl: "templates/dungarvenimg.html"
+   }
+ }
 })
 
 .state('tab.bohemian', {

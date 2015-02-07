@@ -285,9 +285,9 @@
                 </p>
             </div>
            <div class="item tabs tabs-secondary tabs-icon-left">
-              <a class="tab-item" href="#">
-                <i class="icon ion-thumbsup"></i>
-                  Like
+              <a class="tab-item" href="#tab/order">
+                <i class="icon ion-beer"></i>
+                  Order Now
               </a>
               <a class="tab-item" href="#">
                 <i class="icon ion-link"></i>
@@ -357,24 +357,55 @@
   </div>
 
   <div class="item tabs tabs-secondary tabs-icon-left">
-    <a class="tab-item" href="#">
-      <i class="icon ion-thumbsup"></i>
-    Like
-    </a>
-    <a class="tab-item" href="#">
-      <i class="icon ion-chatbox"></i>
-    Comment
-    </a>
-    <a class="tab-item" href="#">
-      <i class="icon ion-share"></i>
-    Share
-    </a>
+  <a class="tab-item" href="#tab/order">
+    <i class="icon ion-beer"></i>
+      Order Now
+  </a>
+  <a class="tab-item" href="#">
+    <i class="icon ion-link"></i>
+      Website
+  </a>
+  <a class="tab-item" href="#tab/dungarvenimg">
+    <i class="icon ion-images"></i>
+      Images
+  </a>
   </div>
 </div>
       </ion-content>
     </ion-view>
 </script>
 <!--End of dungarven page-->
+<!--This is the dungarven images page-->
+<script id="templates/dungarvenimg.html" type="text/ng-template">
+  <ion-view title="Images">
+  <ion-content class="has-header padding" ng-controller="MediaCtrl2">
+    <div class="card">
+      <div class="item item-divider">
+        <b>Blt</b>
+    </div>
+    <div class="item item-text-wrap">
+      Try our delicious Dungarvan beer
+    </div>
+    </div>
+
+<div class="item item-divider">
+    <i class="ion-images"></i>
+      My Images
+</div>
+<a class="item item-list-detail">
+    <ion-scroll direction="x">
+        <img ng-repeat="image in allImages" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
+    </ion-scroll>
+</a>
+<br><br>
+
+<div class="button-bar">
+  <button class="button button-outline button-positive" ng-click="playVideo()">Play a video</button>
+</div>
+</ion-content>
+    </ion-view>
+</script>
+<!--End of baltika images page-->
 <!--This the Bohemian Beer page -->
 <script type="text/ng-template" id="templates/bohemian.html">
     <ion-view title="Bohemian">
@@ -650,146 +681,151 @@
 <!--This is the Order now page-->
 <script type="text/ng-template" id="templates/order.html">
 <ion-view title="Place your Order">
-  <ion-content padding="true">
+<ion-content class="has-header" id="contentBG" ng-controller="AppCtrl">
 <!--Start of beers order list-->
 <div class="list">
-  <div class="item item-divider">
-    <b>Beers</b>
+<div class="item item-divider">
+  <b>Beers</b>
+</div>
+<label class="item item-input item-select">
+  <div class="input-label">
+    Baltika
   </div>
-  <label class="item item-input item-select">
-    <div class="input-label">
-      Baltika
-    </div>
-    <select>
-      <option selected>0</option>
-      <option>1</option>
-      <option>2</option>
-    </select>
-  </label>
-   <label class="item item-input item-select">
-    <div class="input-label">
-      Dungarvan Copper Coast Red
-    </div>
-    <select>
-       <option selected>0</option>
-      <option>1</option>
-      <option>2</option>
-    </select>
-  </label>
-   <label class="item item-input item-select">
-    <div class="input-label">
-      Barefoot Bohemian
-    </div>
-    <select>
-       <option selected>0</option>
-      <option>1</option>
-      <option>2</option>
-    </select>
-  </label>
-   <label class="item item-input item-select">
-    <div class="input-label">
-      Abbey Irish Pale Ale
-    </div>
-    <select>
-       <option selected>0</option>
-      <option>1</option>
-      <option>2</option>
-    </select>
-  </label>
-   <label class="item item-input item-select">
-    <div class="input-label">
-      Curim Wheat Beer
-    </div>
-    <select>
-       <option selected>0</option>
-      <option>1</option>
-      <option>2</option>
-    </select>
-  </label>
-   <label class="item item-input item-select">
-    <div class="input-label">
-      Dungarvan Mine Head
-    </div>
-    <select>
-      <option selected>0</option>
-      <option>1</option>
-      <option>2</option>
-    </select>
-  </label>
+  <select>
+    <option selected>0</option>
+    <option>1</option>
+    <option>2</option>
+  </select>
+</label>
+ <label class="item item-input item-select">
+  <div class="input-label">
+    Dungarvan Copper Coast Red
+  </div>
+  <select>
+     <option selected>0</option>
+    <option>1</option>
+    <option>2</option>
+  </select>
+</label>
+ <label class="item item-input item-select">
+  <div class="input-label">
+    Barefoot Bohemian
+  </div>
+  <select>
+     <option selected>0</option>
+    <option>1</option>
+    <option>2</option>
+  </select>
+</label>
+ <label class="item item-input item-select">
+  <div class="input-label">
+    Abbey Irish Pale Ale
+  </div>
+  <select>
+     <option selected>0</option>
+    <option>1</option>
+    <option>2</option>
+  </select>
+</label>
+ <label class="item item-input item-select">
+  <div class="input-label">
+    Curim Wheat Beer
+  </div>
+  <select>
+     <option selected>0</option>
+    <option>1</option>
+    <option>2</option>
+  </select>
+</label>
+ <label class="item item-input item-select">
+  <div class="input-label">
+    Dungarvan Mine Head
+  </div>
+  <select>
+    <option selected>0</option>
+    <option>1</option>
+    <option>2</option>
+  </select>
+</label>
 
 </div>
 <!--Start of ciders order list-->
 <div class="list">
-  <div class="item item-divider">
-    <b>Ciders</b>
+<div class="item item-divider">
+  <b>Ciders</b>
+</div>
+<label class="item item-input item-select">
+  <div class="input-label">
+    Bulmers
   </div>
-  <label class="item item-input item-select">
-    <div class="input-label">
-      Bulmers
-    </div>
-    <select>
-      <option selected>0</option>
-      <option>1</option>
-      <option>2</option>
-    </select>
-  </label>
-   <label class="item item-input item-select">
-    <div class="input-label">
-      Strongbow
-    </div>
-    <select>
-       <option selected>0</option>
-      <option>1</option>
-      <option>2</option>
-    </select>
-  </label>
-   <label class="item item-input item-select">
-    <div class="input-label">
-      Druids
-    </div>
-    <select>
-       <option selected>0</option>
-      <option>1</option>
-      <option>2</option>
-    </select>
-  </label>
-   <label class="item item-input item-select">
-    <div class="input-label">
-      Scrumpy Jack
-    </div>
-    <select>
-       <option selected>0</option>
-      <option>1</option>
-      <option>2</option>
-    </select>
-  </label>
-   <label class="item item-input item-select">
-    <div class="input-label">
-      Linden Village
-    </div>
-    <select>
-       <option selected>0</option>
-      <option>1</option>
-      <option>2</option>
-    </select>
-  </label>
-   <label class="item item-input item-select">
-    <div class="input-label">
-      Devils Bit
-    </div>
-    <select>
-      <option selected>0</option>
-      <option>1</option>
-      <option>2</option>
-    </select>
-  </label>
+  <select>
+    <option selected>0</option>
+    <option>1</option>
+    <option>2</option>
+  </select>
+</label>
+ <label class="item item-input item-select">
+  <div class="input-label">
+    Strongbow
+  </div>
+  <select>
+     <option selected>0</option>
+    <option>1</option>
+    <option>2</option>
+  </select>
+</label>
+ <label class="item item-input item-select">
+  <div class="input-label">
+    Druids
+  </div>
+  <select>
+     <option selected>0</option>
+    <option>1</option>
+    <option>2</option>
+  </select>
+</label>
+ <label class="item item-input item-select">
+  <div class="input-label">
+    Scrumpy Jack
+  </div>
+  <select>
+     <option selected>0</option>
+    <option>1</option>
+    <option>2</option>
+  </select>
+</label>
+ <label class="item item-input item-select">
+  <div class="input-label">
+    Linden Village
+  </div>
+  <select>
+     <option selected>0</option>
+    <option>1</option>
+    <option>2</option>
+  </select>
+</label>
+ <label class="item item-input item-select">
+  <div class="input-label">
+    Devils Bit
+  </div>
+  <select>
+    <option selected>0</option>
+    <option>1</option>
+    <option>2</option>
+  </select>
+</label>
 
 </div>
-<button class="button button-full button-positive">
-    Submit Order
-</button>
+      <div id="buttons">
+        <button class= "button button-positive button-block" ng-click="timer()">Submit</button>
+      </div>
 
-  </ion-content>
+
+      <div style="width: 100%; background-color:#E0F2F1; height: 50px; margin-top:70px; text-aligh: center; font-size: 40px; line-height:100%;" ng-cloak>
+        <div id="myTimer">{{time}}</div>
+      </div>
+
+    </ion-content>
 </script>
 <!--End of the order page-->
 <!--Search page-->
@@ -800,5 +836,6 @@
     </ion-content>
     </ion-view>
 </script>
+<script src='lib/move/move.min.js'></script>
   </body>
 </html>

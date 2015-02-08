@@ -19,7 +19,7 @@ angular.module('starter', ['ionic',
  $scope.allImages = [{
         'src' : 'img/blt.jpg'
     }, {
-        'src' : 'img/blt.jpg'
+        'src' : 'img/blt2.jpg'
     }, {
         'src' : 'img/blt.jpg'
     }];

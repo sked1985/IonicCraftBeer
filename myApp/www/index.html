@@ -631,11 +631,11 @@
       <br><br>
 
       <div class="button-bar">
-        <button class="button button-outline button-positive" ng-click="playVideo()">Play a video</button>
+        <button class="button button-outline button-balanced" ng-click="playVideo()">Play a video</button>
       </div>
       <br />
       <div class="button-bar">
-      <a class="button button-full button-positive" href="#tab/order">Order</a>
+      <a class="button button-full button-balanced" href="#tab/order">Order</a>
       </div>
     </ion-content>
 </ion-view>
@@ -821,7 +821,7 @@
 
 </div>
       <div id="buttons">
-        <button class= "button button-positive button-block" ng-click="timer()">Submit</button>
+        <button class= "button button-balanced button-block"  ng-click="timer()">Submit</button>
       </div>
 
 
@@ -835,8 +835,19 @@
 <!--Search page-->
 <script id="templates/search.html" type="text/ng-template">
   <ion-view title="Search">
-    <ion-content>
-    This is the search page!!!!!!!!
+    <ion-content ng-controller="PopupCtrl">
+    <button class="button button-dark" ng-click="showPopup()">
+  show
+</button>
+<button class="button button-primary" ng-click="showConfirm()">
+  Confirm
+</button>
+<button class="button button-positive" ng-click="showAlert()">
+  Alert
+</button>
+
+<script id="popup-template.html" type="text/ng-template">
+  <input ng-model="data.wifi" type="text" placeholder="Password">
     </ion-content>
     </ion-view>
 </script>

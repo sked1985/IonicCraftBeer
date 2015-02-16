@@ -91,6 +91,12 @@
             Browse
         </a>
 
+        <a href="#tab/events" class="item item-icon-left">
+            <i class="icon ion-music-note"></i>
+            Upcoming Events
+        </a>
+
+
         <a href="#tab/images" class="item item-icon-left">
             <i class="icon ion-images"></i>
             Gallery
@@ -848,6 +854,32 @@
 
 <script id="popup-template.html" type="text/ng-template">
   <input ng-model="data.wifi" type="text" placeholder="Password">
+    </ion-content>
+    </ion-view>
+</script>
+<!--End of search page-->
+<!--Events page-->
+<script id="templates/events.html" type="text/ng-template">
+  <ion-view title="Upcoming Events">
+    <ion-content class="padding">
+    <div class="list card">
+
+  <div class="item item-avatar">
+    <img src="img/nin_logo.jpg">
+    <h2>Pretty Hate Machine</h2>
+    <p>Nine Inch Nails</p>
+  </div>
+
+  <div class="item item-image">
+    <img src="img/pretty.jpg">
+  </div>
+
+  <a class="item item-icon-left assertive" href="#">
+    <i class="icon ion-music-note"></i>
+    Start listening
+  </a>
+
+</div>
     </ion-content>
     </ion-view>
 </script>

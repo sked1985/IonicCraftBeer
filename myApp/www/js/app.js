@@ -199,6 +199,15 @@ $scope.showModal = function(templateUrl) {
      }
    })
 
+   .state('tab.events', {
+    url: "/events",
+    views: {
+      'tab-home': {
+        templateUrl: "templates/events.html"
+      }
+    }
+  })
+
     .state('tab.browse', {
      url: "/browse",
      views: {

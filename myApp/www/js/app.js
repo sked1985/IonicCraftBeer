@@ -354,11 +354,11 @@ $scope.showModal = function(templateUrl) {
  }
 })
 
-    .state('tab.help', {
-      url: '/help',
+    .state('tab.about', {
+      url: '/about',
       views: {
-        'tab-help': {
-          templateUrl: 'templates/tab-help.html',
+        'tab-about': {
+          templateUrl: 'templates/tab-about.html',
         }
       }
     })

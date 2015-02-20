@@ -199,6 +199,15 @@ $scope.showModal = function(templateUrl) {
      }
    })
 
+   .state('tab.comments', {
+    url: "/comments",
+    views: {
+      'tab-home': {
+        templateUrl: "templates/comments.html"
+      }
+    }
+  })
+
    .state('tab.events', {
     url: "/events",
     views: {
@@ -207,6 +216,15 @@ $scope.showModal = function(templateUrl) {
       }
     }
   })
+
+  .state('tab.upcomingevents', {
+   url: "/upcomingevents",
+   views: {
+     'tab-home': {
+       templateUrl: "templates/upcomingevents.html"
+     }
+   }
+ })
 
     .state('tab.browse', {
      url: "/browse",

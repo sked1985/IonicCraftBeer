@@ -68,10 +68,6 @@
 <!--Start of the home page-->
 <script type="text/ng-template" id="templates/home.html">
   <ion-view title="Home">
-  <ion-nav-buttons side="right" ng-show="false">
-    <a class="button button-icon button-clear ion-search" href="#tab/search">
-    </a>
-  </ion-nav-buttons>
   <ion-content class="padding">
 
       <div class="list card">
@@ -108,6 +104,13 @@
         </a>
 
         </div>
+
+      <div class="card">
+      <a href="#tab/comments" class="item item-icon-left">
+          <i class="icon ion-chatbubble"></i>
+          Comments
+      </a>
+    </div>
 </div>
 
     </ion-content>
@@ -304,7 +307,15 @@
                   Images
               </a>
           </div>
-
+        </div>
+        <div class="item item-toggle">
+          <h2>{{vm.following ? "Following" : "Not Following"}}</h2>
+            <label class="toggle toggle-energized">
+              <input type="checkbox" ng-model="vm.following">
+                <div class="track">
+                  <div class="handle"></div>
+                </div>
+            </lablel>
         </div>
       </ion-content>
     </ion-view>
@@ -377,6 +388,15 @@
   </a>
   </div>
 </div>
+<div class="item item-toggle">
+  <h2>{{vm.following ? "Following" : "Not Following"}}</h2>
+    <label class="toggle toggle-energized">
+      <input type="checkbox" ng-model="vm.following">
+        <div class="track">
+          <div class="handle"></div>
+        </div>
+    </lablel>
+</div>
       </ion-content>
     </ion-view>
 </script>
@@ -411,7 +431,7 @@
 </ion-content>
     </ion-view>
 </script>
-<!--End of baltika images page-->
+<!--End of dungarven images page-->
 <!--This the Bohemian Beer page -->
 <script type="text/ng-template" id="templates/bohemian.html">
     <ion-view title="Bohemian">
@@ -447,6 +467,15 @@
     Find
     </a>
   </div>
+</div>
+<div class="item item-toggle">
+  <h2>{{vm.following ? "Following" : "Not Following"}}</h2>
+    <label class="toggle toggle-energized">
+      <input type="checkbox" ng-model="vm.following">
+        <div class="track">
+          <div class="handle"></div>
+        </div>
+    </lablel>
 </div>
       </ion-content>
     </ion-view>
@@ -488,6 +517,15 @@
     </a>
   </div>
 </div>
+<div class="item item-toggle">
+  <h2>{{vm.following ? "Following" : "Not Following"}}</h2>
+    <label class="toggle toggle-energized">
+      <input type="checkbox" ng-model="vm.following">
+        <div class="track">
+          <div class="handle"></div>
+        </div>
+    </lablel>
+</div>
       </ion-content>
     </ion-view>
 </script>
@@ -527,6 +565,15 @@
     Share
     </a>
   </div>
+</div>
+<div class="item item-toggle">
+  <h2>{{vm.following ? "Following" : "Not Following"}}</h2>
+    <label class="toggle toggle-energized">
+      <input type="checkbox" ng-model="vm.following">
+        <div class="track">
+          <div class="handle"></div>
+        </div>
+    </lablel>
 </div>
       </ion-content>
     </ion-view>
@@ -568,6 +615,15 @@
     </a>
   </div>
 </div>
+<div class="item item-toggle">
+  <h2>{{vm.following ? "Following" : "Not Following"}}</h2>
+    <label class="toggle toggle-energized">
+      <input type="checkbox" ng-model="vm.following">
+        <div class="track">
+          <div class="handle"></div>
+        </div>
+    </lablel>
+</div>
       </ion-content>
     </ion-view>
 </script>
@@ -607,6 +663,15 @@
     Share
     </a>
   </div>
+</div>
+<div class="item item-toggle">
+  <h2>{{vm.following ? "Following" : "Not Following"}}</h2>
+    <label class="toggle toggle-energized">
+      <input type="checkbox" ng-model="vm.following">
+        <div class="track">
+          <div class="handle"></div>
+        </div>
+    </lablel>
 </div>
       </ion-content>
     </ion-view>
@@ -860,29 +925,152 @@
 <!--End of search page-->
 <!--Events page-->
 <script id="templates/events.html" type="text/ng-template">
-  <ion-view title="Upcoming Events">
-    <ion-content class="padding">
-    <div class="list card">
+  <ion-view title="Events">
+  <ion-content class="has-header padding">
+  <div class="list">
 
-  <div class="item item-avatar">
-    <img src="img/nin_logo.jpg">
-    <h2>Pretty Hate Machine</h2>
-    <p>Nine Inch Nails</p>
-  </div>
+ <div class="item item-divider">
+   Todays Events
+ </div>
 
-  <div class="item item-image">
-    <img src="img/pretty.jpg">
-  </div>
+ <a class="item" href="#">
+   Happy Hour, 5:00pm
+ </a>
 
-  <a class="item item-icon-left assertive" href="#">
-    <i class="icon ion-music-note"></i>
-    Start listening
-  </a>
+ <a class="item" href="#">
+   Table Quiz, 7:00pm
+ </a>
 
+ <a class="item" href="#">
+   Live Music, 9:00pm
+ </a>
+
+ <a class="item" href="#">
+   DJ Windows 98, 11:30pm
+ </a>
 </div>
-    </ion-content>
+
+<div class="item item-divider">
+  Saturday
+</div>
+
+<a class="item" href="#">
+  Happy Hour, 5:00pm
+</a>
+
+<a class="item" href="#">
+  Table Quiz, 7:00pm
+</a>
+
+<a class="item" href="#">
+  Live Music, 9:00pm
+</a>
+<a class="item button button-positive button-block" a href="#tab/upcomingevents">See all events</a>
+</div>
+ </ion-content>
     </ion-view>
 </script>
+<!--End of events page-->
+<!--Events page-->
+<script id="templates/upcomingevents.html" type="text/ng-template">
+  <ion-view title="Upcoming Events">
+  <ion-content>
+  <div class="list">
+    <div class="item item-divider">
+      Sunday
+    </div>
+    <a class="item" href="#">
+      Butterfinger
+    </a>
+    <a class="item" href="#">
+      Butterfinger
+    </a>
+    <a class="item" href="#">
+      Butterfinger
+    </a>
+    <a class="item" href="#">
+      Butterfinger
+    </a>
+</div>
+<div class="item item-divider">
+  Monday
+</div>
+<a class="item" href="#">
+  Butterfinger
+</a>
+<a class="item" href="#">
+  Butterfinger
+</a>
+</div>
+<div class="item item-divider">
+  Tuesday
+</div>
+<a class="item" href="#">
+  Butterfinger
+</a>
+<a class="item" href="#">
+  Butterfinger
+</a>
+</div>
+<div class="item item-divider">
+  Wednesday
+</div>
+<a class="item" href="#">
+  Butterfinger
+</a>
+<a class="item" href="#">
+  Butterfinger
+</a>
+<a class="item" href="#">
+  Butterfinger
+</a>
+<a class="item" href="#">
+  Butterfinger
+</a>
+</div>
+<div class="item item-divider">
+  Thursday
+</div>
+<a class="item" href="#">
+  Butterfinger
+</a>
+<a class="item" href="#">
+  Butterfinger
+</a>
+</div>
+
+ </ion-content>
+    </ion-view>
+</script>
+<!--End of Upcoming events page-->
+<!--Comments page-->
+<script id="templates/comments.html" type="text/ng-template">
+  <ion-view title="Send us a Comment">
+  <ion-content class="comments">
+  <div class="list card">
+    <div class="item">
+      <div class="item-label">Message</div>
+    </div>
+    <div class="item item-input">
+      <textarea ng-model="comment.message" name="message" rows="10"></textarea>
+    </div>
+    <div class="item">
+      <div class="item-label">Rate your experience</div>
+    </div>
+    <div class="item range range-balanced">
+      <input type="range" ng-model="comment.rating" name="rating" min="1" max="5">
+      <i class="icon ion-ios7-heart"></i>
+      <i class="icon" ng-class="{'ion-ios7-heart': comment.rating > 1, 'ion-ios7-heart-outline': comment.rating < 2}"></i>
+      <i class="icon" ng-class="{'ion-ios7-heart': comment.rating > 2, 'ion-ios7-heart-outline': comment.rating < 3}"></i>
+      <i class="icon" ng-class="{'ion-ios7-heart': comment.rating > 3, 'ion-ios7-heart-outline': comment.rating < 4}"></i>
+      <i class="icon" ng-class="{'ion-ios7-heart': comment.rating > 4, 'ion-ios7-heart-outline': comment.rating < 5}"></i>
+    </div>
+    <button class="button button-block button-balanced" ng-click="sendComments()">Send</button>
+  </div>
+</ion-content>
+    </ion-view>
+</script>
+<!--End of comments page-->
 <script src='lib/move/move.min.js'></script>
   </body>
 </html>

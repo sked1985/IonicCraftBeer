@@ -8,11 +8,19 @@
 angular.module('starter', ['ionic',
   'starter.controllers',
   'starter.services',
+  'firebase',
   'auth0',
   'angular-storage',
   'angular-jwt',
   'ionic.contrib.ui.tinderCards'
   ])
+
+  .factory('MenuService', function ($firebase) {
+      var firebase = new Firebase('https://craftbeerproject.firebaseio.com/menu');
+      var service = $firebase(firebase);
+      return service;
+    })
+
 
   //Image gallery
 .controller('MediaCtrl', function($scope, $ionicModal) {
@@ -150,7 +158,6 @@ $scope.showModal = function(templateUrl) {
     }
   });
 })
-
 .config(function($stateProvider, $urlRouterProvider, authProvider, $httpProvider,
   jwtInterceptorProvider) {
 
@@ -190,11 +197,12 @@ $scope.showModal = function(templateUrl) {
       }
     })
 
-    .state('tab.search', {
-     url: "/search",
+    .state('tab.food', {
+     url: "/food",
      views: {
        'tab-home': {
-         templateUrl: "templates/search.html"
+         templateUrl: "templates/food.html",
+         controller: 'FoodCtrl'
        }
      }
    })
@@ -380,15 +388,6 @@ $scope.showModal = function(templateUrl) {
         }
       }
     })
-    //This brings you to browse items page
- $stateProvider.state('browse', {
-   url: '/browse',
-   views: {
-     home: {
-       templateUrl: 'templates/browse.html'
-     }
-   }
- })
 
     .state('tab.account', {
       url: '/account',
@@ -399,7 +398,6 @@ $scope.showModal = function(templateUrl) {
         }
       }
     });
-
 
 
   // Configure Auth0

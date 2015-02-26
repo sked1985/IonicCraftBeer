@@ -1,0 +1,36 @@
+{
+  "menu": [
+    {
+      "meal": "Beers",
+      "items": [
+        { "item": "Baltika", "price": 3.99 },
+        { "item": "Dungarvan Copper Coast Red", "price": 3.39 },
+        { "item": "Barefoot Bohemian", "price": 2.29 },
+        { "item": "Abbey Irish Pale Ale", "price": 5.50 },
+        { "item": "Curim Wheat Beer", "price": 3.09 },
+        { "item": "Dungarvan Mine head", "price": 3.49 }
+      ]
+    },
+    {
+      "meal": "Ciders",
+      "items": [
+        { "item": "Bulmers", "price": 3.99 },
+        { "item": "Strongbow", "price": 2.50 },
+        { "item": "Barefoot Bohemian", "price": 2.29 },
+        { "item": "Abbey Irish Pale Ale", "price": 3.39 },
+        { "item": "Curim Wheat Beer", "price": 3.09 },
+        { "item": "Dungarvan Mine Head", "price": 3.49 }
+      ]
+    },
+    {
+      "meal": "Sandwiches",
+      "items": [
+        { "item": "Club", "price": 3.59 },
+        { "item": "BLT", "price": 2.99 },
+        { "item": "Turkey Melt", "price": 4.29 },
+        { "item": "Bagels", "price": 3.39 }
+      ]
+    }
+  ]
+
+}

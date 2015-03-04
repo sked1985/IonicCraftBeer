@@ -15,136 +15,6 @@ angular.module('starter', ['ionic',
   'ionic.contrib.ui.tinderCards'
   ])
 
-  .factory('MenuService', function ($firebase) {
-      var firebase = new Firebase('https://craftbeerproject.firebaseio.com/menu');
-      var service = $firebase(firebase);
-      return service;
-    })
-
-
-  //Image gallery
-.controller('MediaCtrl', function($scope, $ionicModal) {
- $scope.allImages = [{
-        'src' : 'img/blt.jpg'
-    }, {
-        'src' : 'img/blt2.jpg'
-    }, {
-        'src' : 'img/blt.jpg'
-    }];
-
- $scope.showImages = function(index) {
-        $scope.activeSlide = index;
-        $scope.showModal('templates/image-popover.html');
-    }
-
-    $scope.clipSrc = 'img/coffee.MOV';
-
-  $scope.playVideo = function() {
-      $scope.showModal('templates/video-popover.html');
-  }
-
-$scope.showModal = function(templateUrl) {
-        $ionicModal.fromTemplateUrl(templateUrl, {
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function(modal) {
-            $scope.modal = modal;
-            $scope.modal.show();
-        });
-    }
-    // Close the modal
-    $scope.closeModal = function() {
-        $scope.modal.hide();
-        $scope.modal.remove()
-    };
-})
-//End of image gallery
-//Baltika Image gallery
-.controller('MediaCtrl2', function($scope, $ionicModal) {
-$scope.allImages = [{
-      'src' : 'img/bulmers.jpg'
-  }, {
-      'src' : 'img/blt.jpg'
-  }, {
-      'src' : 'img/blt.jpg'
-  }];
-
-$scope.showImages = function(index) {
-      $scope.activeSlide = index;
-      $scope.showModal('templates/image-popover.html');
-  }
-
-  $scope.clipSrc = 'img/coffee.MOV';
-
-$scope.playVideo = function() {
-    $scope.showModal('templates/video-popover.html');
-}
-
-$scope.showModal = function(templateUrl) {
-      $ionicModal.fromTemplateUrl(templateUrl, {
-          scope: $scope,
-          animation: 'slide-in-up'
-      }).then(function(modal) {
-          $scope.modal = modal;
-          $scope.modal.show();
-      });
-  }
-  // Close the modal
-  $scope.closeModal = function() {
-      $scope.modal.hide();
-      $scope.modal.remove()
-  };
-})
-//End of Baltika image gallery
-//Swipe Cards Review functionality
-.controller('CardsCtrl', function($scope) {
-    var cardTypes = [
-        { image: 'img/beer.jpg', title: 'Baltika'},
-        { image: 'img/del7.jpg', title: 'Fantastic?'},
-        { image: 'img/bagel.jpg', title: 'Bagel'},
-        { image: 'img/del1.jpg', title: 'Did you like?'},
-        { image: 'img/del2.jpg', title: 'Tasty, No?'},
-        { image: 'img/del3.jpg', title: 'Swipe left if no'},
-        { image: 'img/del4.jpg', title: 'Surely you like this?'},
-        { image: 'img/del5.jpg', title: 'Freshly made'},
-        { image: 'img/del6.jpg', title: 'delish'},
-        { image: 'img/beer.jpg', title: 'Baltika'},
-        { image: 'img/del7.jpg', title: 'Fantastic?'},
-        { image: 'img/bagel.jpg', title: 'Bagel'},
-        { image: 'img/del1.jpg', title: 'Did you like?'},
-        { image: 'img/del2.jpg', title: 'Tasty, No?'},
-        { image: 'img/del3.jpg', title: 'Swipe left if no'},
-        { image: 'img/del4.jpg', title: 'Surely you like this?'},
-        { image: 'img/del5.jpg', title: 'Freshly made'},
-        { image: 'img/del6.jpg', title: 'delish'}
-    ];
-
-    $scope.cards = [];
-
-    $scope.addCard = function(i) {
-        var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
-        newCard.id = Math.random();
-        $scope.cards.push(angular.extend({}, newCard));
-    }
-
-    for(var i = 0; i < 18; i++) $scope.addCard();
-
-    $scope.cardSwipedLeft = function(index) {
-        console.log('Left swipe');
-    }
-
-    $scope.cardSwipedRight = function(index) {
-        console.log('Right swipe');
-    }
-
-    $scope.cardDestroyed = function(index) {
-        $scope.cards.splice(index, 1);
-        console.log('Card removed');
-    }
-})
-//End of swipe card functionality
-//Count down timer
-
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -158,6 +28,7 @@ $scope.showModal = function(templateUrl) {
     }
   });
 })
+
 .config(function($stateProvider, $urlRouterProvider, authProvider, $httpProvider,
   jwtInterceptorProvider) {
 

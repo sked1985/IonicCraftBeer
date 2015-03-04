@@ -12,34 +12,33 @@
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
-    <script src="lib/auth0-lock/build/auth0-lock.js"></script>
+
 
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="lib/angular-cookies/angular-cookies.js"></script>
-
+    <!--<script src="lib/angular-cookies/angular-cookies.js"></script>-->
     <script src="lib/auth0-angular/build/auth0-angular.js"></script>
     <script src="lib/a0-angular-storage/dist/angular-storage.js"></script>
     <script src="lib/angular-jwt/dist/angular-jwt.js"></script>
+    <script src="lib/auth0-lock/build/auth0-lock.js"></script>
 
-
+    <!--Firebase -->
+    <script src="js/firebase.js"></script>
+    <script src="js/angularfire.min.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
     <script src="js/auth0-variables.js"></script>
-    <script src="js/firebase.js"></script>
-    <script src="js/angularfire.min.js"></script>
-    <script src="https://cdn.firebase.com/js/client/2.2.0/firebase.js"></script>
     <script src="js/app.js"></script>
     <script src="lib/collide/collide.js"></script>
     <script src="lib/ionic-contrib-tinder-cards/ionic.tdcards.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
-    <script src="js/food.js"></script>
   </head>
 
+<!--start of the application-->
 <body ng-app="starter" animation="slide-left-right-ios7">
     <ion-nav-bar class="bar-positive">
       <ion-nav-back-button class="button-icon ion-arrow-left-c">
@@ -47,25 +46,21 @@
     </ion-nav-bar>
 
 <ion-nav-view></ion-nav-view
-<!--Tabs page-->
+<!--Tabs at the bottom of the apps page-->
 <script id="templates/tabs.html" type="text/ng-template">
     <ion-tabs class="tabs-icon-top tabs-positive">
       <!--Home tab-->
       <ion-tab title="Home" icon="icon ion-home" href="#/tab/home">
           <ion-nav-view name="tab-home"></ion-nav-view>
       </ion-tab>
-
-
       <!-- Help Tab -->
       <ion-tab title="About" icon="icon ion-information" href="#/tab/about">
           <ion-nav-view name="tab-about"></ion-nav-view>
       </ion-tab>
-
       <!-- Account Tab -->
       <ion-tab title="Account" icon="icon ion-gear-b" href="#/tab/account">
           <ion-nav-view name="tab-account"></ion-nav-view>
       </ion-tab>
-
     </ion-tabs>
 </script>
 <!--End of tabs page-->
@@ -77,42 +72,32 @@
   </a>
 </ion-nav-buttons>
   <ion-content class="padding">
-
       <div class="list card">
           <div class="item item-image">
               <img src="img/main2.jpg">
             </div>
-
       <div class="list card">
         <a href="#tab/order" class="item item-icon-left">
             <i class="icon ion-beer"></i>
             Order Now
         </a>
-
-
         <a href="#tab/browse" class="item item-icon-left">
             <i class="icon ion-search"></i>
             Browse
         </a>
-
         <a href="#tab/events" class="item item-icon-left">
             <i class="icon ion-music-note"></i>
             Upcoming Events
         </a>
-
-
         <a href="#tab/images" class="item item-icon-left">
             <i class="icon ion-images"></i>
             Gallery
         </a>
-
         <a href="#tab/review" class="item item-icon-left">
             <i class="icon ion-star"></i>
             Review
         </a>
-
         </div>
-
       <div class="card">
       <a href="#tab/comments" class="item item-icon-left">
           <i class="icon ion-chatbubble"></i>
@@ -120,7 +105,6 @@
       </a>
     </div>
 </div>
-
     </ion-content>
 </ion-view>
 </script>
@@ -135,38 +119,32 @@
               <h2>Beers</h2>
                 <p>Check out our fine selection</p>
           </a>
-
           <a class="item item-thumbnail-left" a href="#tab/ciders">
             <img src="img/cider2.jpg">
               <h2>Ciders</h2>
                 <p>Made from the freshest apples</p>
           </a>
-
           <a class="item item-thumbnail-left" href="#">
             <img src="img/stout.jpg">
               <h2>Stouts</h2>
                 <p>Tastiest around</p>
           </a>
-
           <a class="item item-thumbnail-left" href="#">
             <img src="img/cocktail2.jpg">
               <h2>Cocktails</h2>
                 <p>Party on!!</p>
           </a>
-
           <a class="item item-thumbnail-left" href="#">
             <img src="img/coffee.jpg">
               <h2>Coffees</h2>
                 <p>Delicious and cheap</p>
           </a>
-
           <a class="item item-thumbnail-left" a href="#tab/sandwiches">
             <img src="img/sandwich.jpg">
               <h2>Sandwiches</h2>
                 <p>Try our delicious range</p>
           </a>
         </div>
-
      </ion-content>
 </ion-view>
 </script>
@@ -1090,15 +1068,15 @@
   <h1 class="title">Total: {{order.total | currency}}, Items {{order.items.length}}</h1>
 </ion-header-bar>
 <ion-content>
-  <ion-list>
-    <span ng-repeat="course in menu">
-    <ion-item class="item-divider">{{course.meal}}</ion-item>
-    <ion-item ng-repeat="item in course.items">
-      {{item.item}} <span class="item-note">{{item.price | currency}}
-      <ion-option-button class="button-positive" ng-click="add(item)">Order</ion-option-button>
-    </ion-item>
-    </span>
-  </ion-list>
+<ion-list>
+  <span ng-repeat="course in menu">
+  <ion-item class="item-divider">{{course.meal}}</ion-item>
+  <ion-item ng-repeat="item in course.items">
+    {{item.item}} <span class="item-note">{{item.price | currency}}
+    <ion-option-button class="button-positive" ng-click="add(item)">Order</ion-option-button>
+  </ion-item>
+  </span>
+</ion-list>
 </ion-content>
 </ion-view>
 </script>

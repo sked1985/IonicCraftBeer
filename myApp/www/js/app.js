@@ -5,10 +5,12 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+//Use YOUR Firebase URL (not the one below)
+
 angular.module('starter', ['ionic',
+  'firebase',
   'starter.controllers',
   'starter.services',
-  'firebase',
   'auth0',
   'angular-storage',
   'angular-jwt',

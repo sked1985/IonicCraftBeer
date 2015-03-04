@@ -11,10 +11,6 @@
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
-
-
-
-
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <!--<script src="lib/angular-cookies/angular-cookies.js"></script>-->
@@ -22,13 +18,11 @@
     <script src="lib/a0-angular-storage/dist/angular-storage.js"></script>
     <script src="lib/angular-jwt/dist/angular-jwt.js"></script>
     <script src="lib/auth0-lock/build/auth0-lock.js"></script>
-
     <!--Firebase -->
-    <script src="js/firebase.js"></script>
-    <script src="js/angularfire.min.js"></script>
+    <script src="lib/firebase/firebase.js"></script>
+    <script src="lib/angularfire/dist/angularfire.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
-
     <!-- your app's js -->
     <script src="js/auth0-variables.js"></script>
     <script src="js/app.js"></script>
@@ -44,8 +38,7 @@
       <ion-nav-back-button class="button-icon ion-arrow-left-c">
       </ion-nav-back-button>
     </ion-nav-bar>
-
-<ion-nav-view></ion-nav-view
+<ion-nav-view></ion-nav-view>
 <!--Tabs at the bottom of the apps page-->
 <script id="templates/tabs.html" type="text/ng-template">
     <ion-tabs class="tabs-icon-top tabs-positive">
@@ -77,7 +70,7 @@
               <img src="img/main2.jpg">
             </div>
       <div class="list card">
-        <a href="#tab/order" class="item item-icon-left">
+        <a href="#tab/food" class="item item-icon-left">
             <i class="icon ion-beer"></i>
             Order Now
         </a>
@@ -280,7 +273,7 @@
                 </p>
             </div>
            <div class="item tabs tabs-secondary tabs-icon-left">
-              <a class="tab-item" href="#tab/order">
+              <a class="tab-item" href="#tab/food">
                 <i class="icon ion-beer"></i>
                   Order Now
               </a>
@@ -1058,15 +1051,15 @@
 </script>
 <!--End of comments page-->
 
-<!--This is the order page that I`m trying to get working using json-->
+<!--This is the order page-->
 <script id="templates/food.html" type="text/ng-template">
-<ion-view title="Room Service" class="room-service">
+  <ion-view title="Place your Order" class="room-service">
 <ion-nav-buttons side="right">
   <button class="button button-clear" ng-click="openPreview()">Preview</button>
 </ion-nav-buttons>
-<ion-header-bar align-title="left" class="bar-positive">
+<ion-footer-bar align-title="left" class="bar-positive">
   <h1 class="title">Total: {{order.total | currency}}, Items {{order.items.length}}</h1>
-</ion-header-bar>
+</ion-footer-bar>
 <ion-content>
 <ion-list>
   <span ng-repeat="course in menu">
@@ -1080,7 +1073,7 @@
 </ion-content>
 </ion-view>
 </script>
-
+<!--This is the end of the order page-->
 <script src='lib/move/move.min.js'></script>
   </body>
 </html>

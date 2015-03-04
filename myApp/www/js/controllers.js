@@ -51,7 +51,7 @@ angular.module('starter.controllers', [])
   $scope.sendOrder = function () {
     $ionicPopup.alert({
       title: 'Order submitted',
-      template: 'Your order will be delieved to your room within 30 minutes.',
+      template: 'Your order will be delieved to your table in 5 minutes',
     }).then(function (code) {
       $scope.modal.hide();
     });

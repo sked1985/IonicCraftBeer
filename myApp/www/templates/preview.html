@@ -1,19 +1,19 @@
-<ion-view title="Room Service" class="room-service">
-  <ion-nav-buttons side="right">
-    <button class="button button-clear" ng-click="openPreview()">Preview</button>
-  </ion-nav-buttons>
-  <ion-header-bar align-title="left" class="bar-positive">
-    <h1 class="title">Total: {{order.total | currency}}, Items {{order.items.length}}</h1>
+<ion-modal-view>
+  <ion-header-bar class="bar-dark">
+    <div class="buttons">
+      <button class="button button-positive" ng-click="cancelPreview()">Cancel</button>
+    </div>
+    <h1 class="title">Preview Order</h1>
+    <div class="buttons">
+      <button class="button button-positive"  ng-click="sendOrder()">Submit</button><!--ng-if="order.items.length"-->
+    </div>
   </ion-header-bar>
   <ion-content>
     <ion-list>
-      <span ng-repeat="course in menu">
-      <ion-item class="item-divider">{{course.meal}}</ion-item>
-      <ion-item ng-repeat="item in course.items">
+      <ion-item ng-if="!order.items.length" class="item-divider">No items</ion-item>
+      <ion-item ng-repeat="item in order.items">
         {{item.item}} <span class="item-note">{{item.price | currency}}
-        <ion-option-button class="button-positive" ng-click="add(item)">Order</ion-option-button>
+        <ion-option-button class="button-assertive" ng-click="remove($index)">Remove</ion-option-button>
       </ion-item>
-      </span>
     </ion-list>
-  </ion-content>
-</ion-view>
+</ion-modal-view>

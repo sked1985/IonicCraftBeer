@@ -91,11 +91,10 @@
             Review
         </a>
         </div>
-      <div class="card">
-      <a href="#tab/comments" class="item item-icon-left">
-          <i class="icon ion-chatbubble"></i>
-          Comments
-      </a>
+        <div class="card">
+      <div class="item item-icon-left" ng-click="openComments()">
+        <i class="icon ion-chatbubble"></i> Send us a comment
+      </div>
     </div>
 </div>
     </ion-content>
@@ -732,176 +731,7 @@
     </ion-view>
 </script>
 <!--End of login page-->
-<!--This is the Order now page-->
-<script type="text/ng-template" id="templates/order.html">
-<ion-view title="Place your Order">
-<ion-content class="has-header" id="contentBG" ng-controller="AppCtrl">
-<!--Start of beers order list-->
-<div class="list">
-<div class="item item-divider">
-  <b>Beers</b>
-</div>
-<label class="item item-input item-select">
-  <div class="input-label">
-    Baltika
-  </div>
-  <select>
-    <option selected>0</option>
-    <option>1</option>
-    <option>2</option>
-  </select>
-</label>
- <label class="item item-input item-select">
-  <div class="input-label">
-    Dungarvan Copper Coast Red
-  </div>
-  <select>
-     <option selected>0</option>
-    <option>1</option>
-    <option>2</option>
-  </select>
-</label>
- <label class="item item-input item-select">
-  <div class="input-label">
-    Barefoot Bohemian
-  </div>
-  <select>
-     <option selected>0</option>
-    <option>1</option>
-    <option>2</option>
-  </select>
-</label>
- <label class="item item-input item-select">
-  <div class="input-label">
-    Abbey Irish Pale Ale
-  </div>
-  <select>
-     <option selected>0</option>
-    <option>1</option>
-    <option>2</option>
-  </select>
-</label>
- <label class="item item-input item-select">
-  <div class="input-label">
-    Curim Wheat Beer
-  </div>
-  <select>
-     <option selected>0</option>
-    <option>1</option>
-    <option>2</option>
-  </select>
-</label>
- <label class="item item-input item-select">
-  <div class="input-label">
-    Dungarvan Mine Head
-  </div>
-  <select>
-    <option selected>0</option>
-    <option>1</option>
-    <option>2</option>
-  </select>
-</label>
 
-</div>
-<!--Start of ciders order list-->
-<div class="list">
-<div class="item item-divider">
-  <b>Ciders</b>
-</div>
-<label class="item item-input item-select">
-  <div class="input-label">
-    Bulmers
-  </div>
-  <select>
-    <option selected>0</option>
-    <option>1</option>
-    <option>2</option>
-  </select>
-</label>
- <label class="item item-input item-select">
-  <div class="input-label">
-    Strongbow
-  </div>
-  <select>
-     <option selected>0</option>
-    <option>1</option>
-    <option>2</option>
-  </select>
-</label>
- <label class="item item-input item-select">
-  <div class="input-label">
-    Druids
-  </div>
-  <select>
-     <option selected>0</option>
-    <option>1</option>
-    <option>2</option>
-  </select>
-</label>
- <label class="item item-input item-select">
-  <div class="input-label">
-    Scrumpy Jack
-  </div>
-  <select>
-     <option selected>0</option>
-    <option>1</option>
-    <option>2</option>
-  </select>
-</label>
- <label class="item item-input item-select">
-  <div class="input-label">
-    Linden Village
-  </div>
-  <select>
-     <option selected>0</option>
-    <option>1</option>
-    <option>2</option>
-  </select>
-</label>
- <label class="item item-input item-select">
-  <div class="input-label">
-    Devils Bit
-  </div>
-  <select>
-    <option selected>0</option>
-    <option>1</option>
-    <option>2</option>
-  </select>
-</label>
-
-</div>
-      <div id="buttons">
-        <button class= "button button-balanced button-block"  ng-click="timer()">Submit</button>
-      </div>
-
-
-      <div style="width: 100%; background-color:#E0F2F1; height: 50px; margin-top:70px; text-aligh: center; font-size: 40px; line-height:100%;" ng-cloak>
-        <div id="myTimer">{{time}}</div>
-      </div>
-
-    </ion-content>
-</script>
-<!--End of the order page-->
-<!--Search page-->
-<script id="templates/search.html" type="text/ng-template">
-  <ion-view title="Search">
-    <ion-content ng-controller="PopupCtrl">
-    <button class="button button-dark" ng-click="showPopup()">
-  show
-</button>
-<button class="button button-primary" ng-click="showConfirm()">
-  Confirm
-</button>
-<button class="button button-positive" ng-click="showAlert()">
-  Alert
-</button>
-
-<script id="popup-template.html" type="text/ng-template">
-  <input ng-model="data.wifi" type="text" placeholder="Password">
-    </ion-content>
-    </ion-view>
-</script>
-<!--End of search page-->
 <!--Events page-->
 <script id="templates/events.html" type="text/ng-template">
   <ion-view title="Events">
@@ -1022,34 +852,6 @@
     </ion-view>
 </script>
 <!--End of Upcoming events page-->
-<!--Comments page-->
-<script id="templates/comments.html" type="text/ng-template">
-  <ion-view title="Send us a Comment">
-  <ion-content class="comments">
-  <div class="list card">
-    <div class="item">
-      <div class="item-label">Message</div>
-    </div>
-    <div class="item item-input">
-      <textarea ng-model="comment.message" name="message" rows="10"></textarea>
-    </div>
-    <div class="item">
-      <div class="item-label">Rate your experience</div>
-    </div>
-    <div class="item range range-balanced">
-      <input type="range" ng-model="comment.rating" name="rating" min="1" max="5">
-      <i class="icon ion-ios7-heart"></i>
-      <i class="icon" ng-class="{'ion-ios7-heart': comment.rating > 1, 'ion-ios7-heart-outline': comment.rating < 2}"></i>
-      <i class="icon" ng-class="{'ion-ios7-heart': comment.rating > 2, 'ion-ios7-heart-outline': comment.rating < 3}"></i>
-      <i class="icon" ng-class="{'ion-ios7-heart': comment.rating > 3, 'ion-ios7-heart-outline': comment.rating < 4}"></i>
-      <i class="icon" ng-class="{'ion-ios7-heart': comment.rating > 4, 'ion-ios7-heart-outline': comment.rating < 5}"></i>
-    </div>
-    <button class="button button-block button-balanced" ng-click="sendComments()">Send</button>
-  </div>
-</ion-content>
-    </ion-view>
-</script>
-<!--End of comments page-->
 
 <!--This is the order page-->
 <script id="templates/food.html" type="text/ng-template">

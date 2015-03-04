@@ -60,198 +60,180 @@ angular.module('starter', ['ionic',
 
     // Each tab has its own nav history stack:
 
-    .state('tab.home', {
-      url: '/home',
+        .state('tab.home', {
+          url: '/home',
+          views: {
+            'tab-home': {
+              templateUrl: 'templates/home.html',
+              controller: 'HomeCtrl'
+            }
+          }
+        })
+
+        .state('tab.food', {
+         url: "/food",
+         views: {
+           'tab-home': {
+             templateUrl: "templates/food.html",
+             controller: 'FoodCtrl'
+           }
+         }
+       })
+
+       .state('tab.events', {
+        url: "/events",
+        views: {
+          'tab-home': {
+            templateUrl: "templates/events.html"
+          }
+        }
+      })
+
+      .state('tab.upcomingevents', {
+       url: "/upcomingevents",
+       views: {
+         'tab-home': {
+           templateUrl: "templates/upcomingevents.html"
+         }
+       }
+     })
+
+        .state('tab.browse', {
+         url: "/browse",
+         views: {
+           'tab-home': {
+             templateUrl: "templates/browse.html"
+           }
+         }
+       })
+
+       .state('tab.beers', {
+        url: "/beers",
+        views: {
+          'tab-home': {
+            templateUrl: "templates/beers.html"
+          }
+        }
+      })
+
+      .state('tab.ciders', {
+       url: "/ciders",
+       views: {
+         'tab-home': {
+           templateUrl: "templates/ciders.html"
+         }
+       }
+     })
+
+     .state('tab.sandwiches', {
+      url: "/sandwiches",
       views: {
         'tab-home': {
-          templateUrl: 'templates/home.html',
-          controller: 'HomeCtrl'
+          templateUrl: "templates/sandwiches.html"
         }
       }
     })
 
-    .state('tab.food', {
-     url: "/food",
+      .state('tab.baltika', {
+       url: "/baltika",
+       views: {
+         'tab-home': {
+           templateUrl: "templates/baltika.html"
+         }
+       }
+     })
+
+     .state('tab.baltikaimg', {
+      url: "/baltikaimg",
+      views: {
+        'tab-home': {
+          templateUrl: "templates/baltikaimg.html"
+        }
+      }
+    })
+
+     .state('tab.dungarvan', {
+      url: "/dungarvan",
+      views: {
+        'tab-home': {
+          templateUrl: "templates/dungarvan.html"
+        }
+      }
+    })
+
+    .state('tab.dungarvenimg', {
+     url: "/dungarvenimg",
      views: {
        'tab-home': {
-         templateUrl: "templates/food.html",
-         controller: 'FoodCtrl'
+         templateUrl: "templates/dungarvenimg.html"
        }
      }
-   })
+    })
 
-   .state('tab.comments', {
-    url: "/comments",
-    views: {
-      'tab-home': {
-        templateUrl: "templates/comments.html"
-      }
-    }
-  })
-
-   .state('tab.events', {
-    url: "/events",
-    views: {
-      'tab-home': {
-        templateUrl: "templates/events.html"
-      }
-    }
-  })
-
-  .state('tab.upcomingevents', {
-   url: "/upcomingevents",
-   views: {
-     'tab-home': {
-       templateUrl: "templates/upcomingevents.html"
-     }
-   }
- })
-
-    .state('tab.browse', {
-     url: "/browse",
+    .state('tab.bohemian', {
+     url: "/bohemian",
      views: {
        'tab-home': {
-         templateUrl: "templates/browse.html"
+         templateUrl: "templates/bohemian.html"
        }
      }
-   })
+    })
 
-   .state('tab.beers', {
-    url: "/beers",
-    views: {
-      'tab-home': {
-        templateUrl: "templates/beers.html"
+    .state('tab.bulmers', {
+     url: "/bulmers",
+     views: {
+       'tab-home': {
+         templateUrl: "templates/bulmers.html"
+       }
+     }
+    })
+
+
+    .state('tab.strongbow', {
+     url: "/strongbow",
+     views: {
+       'tab-home': {
+         templateUrl: "templates/strongbow.html"
+       }
+     }
+    })
+
+    .state('tab.club', {
+     url: "/club",
+     views: {
+       'tab-home': {
+         templateUrl: "templates/club.html"
+       }
+     }
+    })
+
+    .state('tab.blt', {
+     url: "/blt",
+     views: {
+       'tab-home': {
+         templateUrl: "templates/blt.html"
+       }
+     }
+    })
+
+
+     .state('tab.images', {
+      url: "/images",
+      views: {
+        'tab-home': {
+          templateUrl: "templates/images.html"
+        }
       }
-    }
-  })
+    })
 
-  .state('tab.ciders', {
-   url: "/ciders",
-   views: {
-     'tab-home': {
-       templateUrl: "templates/ciders.html"
+    .state('tab.review', {
+     url: "/review",
+     views: {
+       'tab-home': {
+         templateUrl: "templates/review.html"
+       }
      }
-   }
- })
-
- .state('tab.sandwiches', {
-  url: "/sandwiches",
-  views: {
-    'tab-home': {
-      templateUrl: "templates/sandwiches.html"
-    }
-  }
-})
-
-  .state('tab.baltika', {
-   url: "/baltika",
-   views: {
-     'tab-home': {
-       templateUrl: "templates/baltika.html"
-     }
-   }
- })
-
- .state('tab.baltikaimg', {
-  url: "/baltikaimg",
-  views: {
-    'tab-home': {
-      templateUrl: "templates/baltikaimg.html"
-    }
-  }
-})
-
- .state('tab.dungarvan', {
-  url: "/dungarvan",
-  views: {
-    'tab-home': {
-      templateUrl: "templates/dungarvan.html"
-    }
-  }
-})
-
-.state('tab.dungarvenimg', {
- url: "/dungarvenimg",
- views: {
-   'tab-home': {
-     templateUrl: "templates/dungarvenimg.html"
-   }
- }
-})
-
-.state('tab.bohemian', {
- url: "/bohemian",
- views: {
-   'tab-home': {
-     templateUrl: "templates/bohemian.html"
-   }
- }
-})
-
-.state('tab.bulmers', {
- url: "/bulmers",
- views: {
-   'tab-home': {
-     templateUrl: "templates/bulmers.html"
-   }
- }
-})
-
-
-.state('tab.strongbow', {
- url: "/strongbow",
- views: {
-   'tab-home': {
-     templateUrl: "templates/strongbow.html"
-   }
- }
-})
-
-.state('tab.club', {
- url: "/club",
- views: {
-   'tab-home': {
-     templateUrl: "templates/club.html"
-   }
- }
-})
-
-.state('tab.blt', {
- url: "/blt",
- views: {
-   'tab-home': {
-     templateUrl: "templates/blt.html"
-   }
- }
-})
-
-
- .state('tab.images', {
-  url: "/images",
-  views: {
-    'tab-home': {
-      templateUrl: "templates/images.html"
-    }
-  }
-})
-
-.state('tab.review', {
- url: "/review",
- views: {
-   'tab-home': {
-     templateUrl: "templates/review.html"
-   }
- }
-})
-
-.state('tab.order', {
- url: "/order",
- views: {
-   'tab-home': {
-     templateUrl: "templates/order.html"
-   }
- }
-})
+    })
 
     .state('tab.about', {
       url: '/about',

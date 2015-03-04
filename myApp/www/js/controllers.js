@@ -1,8 +1,9 @@
 angular.module('starter.controllers', [])
+
 //Login controller
 .controller('LoginCtrl', function($scope, auth, $state, store) {
-  auth.signin({
-    closable: false,
+    auth.signin({
+      closable: false,
     // This asks for the refresh token
     // So that the user never has to log in again
     authParams: {
@@ -18,8 +19,46 @@ angular.module('starter.controllers', [])
   });
 })
 
+//Home Page controller
+.controller('HomeCtrl', function($scope, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup) {
+  var comment = {
+    message: '',
+    rating: 5
+  };
+  $scope.comment = angular.copy(comment);
 
-.controller('HomeCtrl', function($scope, $http) {
+  $scope.sendComments = function () {
+    // Send comment
+    $scope.cancelComments();
+    $ionicPopup.alert({
+      title: 'Thank you!',
+      template: 'We appreciate your comments!',
+      okText: 'Close'
+    });
+  };
+
+  $scope.cancelComments = function () {
+    $scope.comment = angular.copy(comment);
+    $scope.modal.hide();
+  }
+
+  $scope.openComments = function() {
+    $ionicModal.fromTemplateUrl('templates/comments.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+      $scope.modal.show();
+    });
+  };
+
+  //Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    if ($scope.modal) {
+      $scope.modal.remove();
+    }
+  });
+
 
   $scope.callApi = function() {
     // Just call the API as you'd do using $http
@@ -46,6 +85,7 @@ angular.module('starter.controllers', [])
   }
 })
 
+//Order now controller
 .controller('FoodCtrl', function ($scope, $ionicListDelegate, $ionicLoading, $ionicModal, $ionicPopup, MenuService) {
 
   $scope.sendOrder = function () {
@@ -141,7 +181,6 @@ $scope.showModal = function(templateUrl) {
   };
 })
 //End of image gallery
-
 //Baltika Image gallery
 .controller('MediaCtrl2', function($scope, $ionicModal) {
 $scope.allImages = [{

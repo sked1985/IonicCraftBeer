@@ -23,6 +23,35 @@
       ]
     },
     {
+      "meal": "Stouts",
+      "items": [
+        { "item": "Guinness", "price": 3.99 },
+        { "item": "O`haras", "price": 3.50 },
+        { "item": "Trouble Brewing", "price": 4.00 },
+        { "item": "Murphys", "price": 3.39 },
+        { "item": "Dungarvan Mine Head", "price": 3.49 }
+      ]
+    },
+    {
+      "meal": "Cocktails",
+      "items": [
+        { "item": "Whiskey Sour", "price": 5.00 },
+        { "item": "Sex on the beach", "price": 3.50 },
+        { "item": "Mojitos", "price": 6.00 },
+        { "item": "Rasberry Sorbet", "price": 5.39 },
+        { "item": "Mango Sorbet", "price": 2.49 }
+      ]
+    },
+    {
+      "meal": "Coffee",
+      "items": [
+        { "item": "Americano", "price": 2.00 },
+        { "item": "Cappuccino", "price": 2.50 },
+        { "item": "Latte", "price": 2.50 },
+        { "item": "Flat White", "price": 3.00 }
+      ]
+    },
+    {
       "meal": "Sandwiches",
       "items": [
         { "item": "Club", "price": 3.59 },
@@ -31,6 +60,70 @@
         { "item": "Bagels", "price": 3.39 }
       ]
     }
+  ],
+  "events": [
+    {
+      "day": "Sunday",
+      "events": [
+        { "day": "Sunday", "time": "12:00pm",  "location": "Fitness Center", "event": "Celtic V Rangers" },
+        { "day": "Sunday", "time": "2:00pm", "location": "Beach", "event": "Liverpool V Man Utd" },
+        { "day": "Sunday", "time": "4:00pm", "location": "Community Center", "event": "Chelsea V Man City" },
+        { "day": "Sunday", "time": "6:00pm",  "location": "Community Center", "event": "Trad Music Session" },
+        { "day": "Sunday", "time": "8:00pm",  "location": "Community Center", "event": "Wine Tasting" },
+        { "day": "Sunday", "time": "9:00pm",  "location": "Front Desk", "event": "RTable Quiz" },
+        { "day": "Sunday", "time": "10:00pm",  "location": "Pool 2", "event": "Late Disco" },
+        { "day": "Sunday", "time": "12:00pm",  "location": "Dock", "event": "Happy Hour" }
+      ]
+    },
+    {
+      "day": "Monday",
+      "events": [
+        { "day": "Monday", "time": "8:00pm",  "location": "Front Desk", "event": "Student Happy Hour" },
+        { "day": "Monday", "time": "10:00pm",  "location": "Community Center", "event": "Live DJ" },
+        { "day": "Monday", "time": "12:00pm",  "location": "Pool 3", "event": "Pool Competition" }
+      ]
+    },
+    {
+      "day": "Tuesday",
+      "events": [
+        { "day": "Tuesday", "time": "8:00pm",  "location": "Pool 3", "event": "Champions League Football" },
+        { "day": "Tuesday", "time": "10:00pm",  "location": "Dock", "event": "Live Music" }
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "events": [
+        { "day": "Wednesday", "time": "8:00pm",  "location": "Pool 3", "event": "Champions League Football" },
+        { "day": "Wednesday", "time": "10:00pm",  "location": "Beach", "event": "Live Music" }
+      ]
+    },
+    {
+      "day": "Thursday",
+      "events": [
+        { "day": "Thursday", "time": "8:00pm",  "location": "Community Center", "event": "Table Quiz" },
+        { "day": "Thursday", "time": "9:00pm",  "location": "Front Desk", "event": "Open Mic Night" },
+        { "day": "Thursday", "time": "11:00pm",  "location": "Community Center", "event": "Student Disco" },
+        { "day": "Thursday", "time": "1:00am",  "location": "Pool 3", "event": "Live Magician" }
+      ]
+    },
+    {
+      "day": "Friday",
+      "events": [
+        { "day": "Friday", "time": "6:00pm",  "location": "Pool 1", "event": "Pool Competition" },
+        { "day": "Friday", "time": "7:00pm",  "location": "Front Desk", "event": "Darts Competition" },
+        { "day": "Friday", "time": "8:00pm",  "location": "Community Center", "event": "Happy Hour" },
+        { "day": "Friday", "time": "10:00pm",  "location": "Pool 3", "event": "Live Music" }
+      ]
+    },
+    {
+      "day": "Saturday",
+      "events": [
+        { "day": "Saturday", "time": "5:00pm",  "location": "Community Center", "event": "Arsenal V Spurs" },
+        { "day": "Saturday", "time": "7:00pm",  "location": "Community Center", "event": "Happy Hour" },
+        { "day": "Saturday", "time": "8:00pm",  "location": "Front Desk", "event": "Best of the 90s" },
+        { "day": "Saturday", "time": "9:00pm",  "location": "Beach", "event": "Live Music" },
+        { "day": "Saturday", "time": "11:00pm",  "location": "Dock", "event": "DJ till late" }
+      ]
+    }
   ]
-
 }

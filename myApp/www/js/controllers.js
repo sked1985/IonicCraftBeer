@@ -29,7 +29,7 @@ angular.module('starter.controllers', [])
 })
 
 //Home Page controller
-.controller('HomeCtrl', function($scope, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup) {
+.controller('HomeCtrl', function($scope, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup, EventsService) {
   var comment = {
     message: '',
     rating: 5
@@ -68,6 +68,11 @@ angular.module('starter.controllers', [])
     }
   });
 
+  var events = EventsService.$asArray();
+  events.$loaded().then(function () {
+    $scope.today = events[new Date().getDay()];
+  });
+
 
   $scope.callApi = function() {
     // Just call the API as you'd do using $http
@@ -82,6 +87,7 @@ angular.module('starter.controllers', [])
   }
 })
 
+
 //Logout controller
 .controller('AccountCtrl', function($scope, auth, $state, store) {
 
@@ -93,6 +99,23 @@ angular.module('starter.controllers', [])
     $state.go('login');
   }
 })
+
+//Events controller
+.controller('EventsCtrl', function ($scope, EventsService) {
+
+  var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  var day = new Date().getDay();
+  var index = 0;
+  $scope.events = EventsService.$asArray();
+
+  $scope.events.$loaded().then(function () {
+    while (day != index && index < 7) {
+      $scope.events.push($scope.events.shift());
+      index++;
+    }
+  });
+})
+
 
 //Order now controller
 .controller('FoodCtrl', function ($scope, $ionicListDelegate, $ionicLoading, $ionicModal, $ionicPopup, MenuService) {

@@ -84,7 +84,8 @@ angular.module('starter', ['ionic',
         url: "/events",
         views: {
           'tab-home': {
-            templateUrl: "templates/events.html"
+            templateUrl: "templates/events.html",
+            controller: 'EventsCtrl'
           }
         }
       })

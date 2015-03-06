@@ -35,9 +35,8 @@
 <!--start of the application-->
 <body ng-app="starter" animation="slide-left-right-ios7">
 
-
+<!--This the start of the side menus functionality-->
 <ion-side-menus>
-
         <ion-side-menu-content ng-controller="NavCtrl">
           <ion-nav-bar class="bar-positive">
             <ion-nav-back-button class="button-icon ion-arrow-left-c">
@@ -47,7 +46,6 @@
               <button class="button button-icon button-clear ion-navicon" ng-click="showMenu()">
               </button>
             </ion-nav-buttons>
-
             <!--<ion-nav-buttons side="right">
               <button class="button button-icon button-clear ion-ios7-gear" ng-click="showRightMenu()">
               </button>
@@ -55,7 +53,6 @@
           </ion-nav-bar>
           <ion-nav-view animation="slide-left-right"></ion-nav-view>
         </ion-side-menu-content>
-
         <ion-side-menu side="left">
           <ion-header-bar class="bar bar-header bar-energized">
             <h1 class="title">Craft Beer App</h1>
@@ -72,7 +69,6 @@
             </ion-list>
           </ion-content>
         </ion-side-menu>
-
       <!--  <ion-side-menu side="right">
           <ion-header-bar class="bar bar-header bar-dark">
             <h1 class="title">Right Menu</h1>
@@ -88,8 +84,8 @@
             </ul>
           </ion-content>
         </ion-side-menu>-->
-
       </ion-side-menus>
+<!--End of the side menus-->
 <!--Tabs at the bottom of the apps page-->
 <script id="templates/tabs.html" type="text/ng-template">
     <ion-tabs class="tabs-icon-top">
@@ -112,30 +108,35 @@
 <script type="text/ng-template" id="templates/home.html">
   <ion-view title="Home">
   <ion-content class="padding">
-      <div class="list card">
-          <div class="item item-image">
-              <img src="img/main2.jpg">
-            </div>
-      <div class="list card">
-        <a href="#tab/food" class="item item-icon-left">
-            <i class="icon ion-beer"></i>
-            Order Now
-        </a>
-        <a href="#tab/browse" class="item item-icon-left">
-            <i class="icon ion-search"></i>
-            Browse
-        </a>
-        <a href="#tab/events" class="item item-icon-left">
-            <i class="icon ion-music-note"></i>
-            Upcoming Events
-        </a>
+  <div class="card">
+        <div class="item item-divider">Welcome to the Craft Beer Store</div>
+        <div class="item item-text-wrap">
+          We hope you enjoy our delicious variety of craft beers! Browse our menu to find
+          the perfect drink for you. Warning, some of our drinks contain high levels of alcohol.
+          Check out below the free entertainment that is happening today.
         </div>
-        <div class="card">
-      <div class="item item-icon-left" ng-click="openComments()">
-        <i class="icon ion-chatbubble"></i> Send us a comment
       </div>
-    </div>
-</div>
+      <!--<div class="card">
+        <div class="item item-divider">Current Weather</div>
+        <div class="item" ng-if="!weather"><span class="icon ion-loading-d"></span></div>
+        <div class="item item-text-wrap">
+          <p>Currently {{weather.main.temp}}&deg;F and {{weather.weather[0].description}}.</p>
+        </div>
+        <a class="item button button-positive button-block" href="#/weather">See Forecast</a>
+      </div>-->
+
+      <div class="card">
+        <div class="item item-divider">Todays Events</div>
+        <div class="item" ng-if="!today"><span class="icon ion-loading-d"></span></div>
+        <div class="item" ng-repeat="item in today.events">{{item.event}}, {{item.time}}</div>
+        <a class="item button button-positive button-block" href="#/tab/events">See all events</a>
+      </div>
+
+      <div class="card">
+        <div class="item item-icon-left" ng-click="openComments()">
+          <i class="icon ion-chatbubble"></i> Send us a comment
+        </div>
+      </div>
     </ion-content>
 </ion-view>
 </script>
@@ -773,50 +774,18 @@
 
 <!--Events page-->
 <script id="templates/events.html" type="text/ng-template">
-  <ion-view title="Events">
-  <ion-content class="has-header padding">
-  <div class="list">
-
- <div class="item item-divider">
-   Todays Events
- </div>
-
- <a class="item" href="#">
-   Happy Hour, 5:00pm
- </a>
-
- <a class="item" href="#">
-   Table Quiz, 7:00pm
- </a>
-
- <a class="item" href="#">
-   Live Music, 9:00pm
- </a>
-
- <a class="item" href="#">
-   DJ Windows 98, 11:30pm
- </a>
-</div>
-
-<div class="item item-divider">
-  Saturday
-</div>
-
-<a class="item" href="#">
-  Happy Hour, 5:00pm
-</a>
-
-<a class="item" href="#">
-  Table Quiz, 7:00pm
-</a>
-
-<a class="item" href="#">
-  Live Music, 9:00pm
-</a>
-<a class="item button button-positive button-block" a href="#tab/upcomingevents">See all events</a>
-</div>
- </ion-content>
-    </ion-view>
+<ion-view title="Upcoming Events">
+  <ion-content>
+    <ul class="list">
+      <span ng-repeat="day in events">
+      <li class="item item-divider">{{day.day}}</li>
+      <li class="item" ng-repeat="event in day.events">
+        <h2>{{event.event}}</h2>
+        <p>{{event.time}}, {{event.location}}</p>
+      </li>
+    </ul>
+  </ion-content>
+</ion-view>
 </script>
 <!--End of events page-->
 <!--Events page-->

@@ -19,6 +19,15 @@ angular.module('starter.controllers', [])
   });
 })
 
+.controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
+  $scope.showMenu = function () {
+    $ionicSideMenuDelegate.toggleLeft();
+  };
+  $scope.showRightMenu = function () {
+    $ionicSideMenuDelegate.toggleRight();
+  };
+})
+
 //Home Page controller
 .controller('HomeCtrl', function($scope, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup) {
   var comment = {

@@ -34,7 +34,6 @@
 
 <!--start of the application-->
 <body ng-app="starter" animation="slide-left-right-ios7">
-
 <!--This the start of the side menus functionality-->
 <ion-side-menus>
         <ion-side-menu-content ng-controller="NavCtrl">
@@ -88,13 +87,13 @@
 <!--End of the side menus-->
 <!--Tabs at the bottom of the apps page-->
 <script id="templates/tabs.html" type="text/ng-template">
-    <ion-tabs class="tabs-icon-top">
+    <ion-tabs class="tabs-icon-top tabs-positive">
       <!--Home tab-->
       <ion-tab title="Home" icon="icon ion-home" href="#/tab/home">
           <ion-nav-view name="tab-home"></ion-nav-view>
       </ion-tab>
       <!-- Help Tab -->
-      <ion-tab title="About" icon="icon ion-information" href="#/tab/about">
+      <ion-tab title="About" icon="ion-information-circled" href="#/tab/about">
           <ion-nav-view name="tab-about"></ion-nav-view>
       </ion-tab>
       <!-- Account Tab -->
@@ -106,7 +105,7 @@
 <!--End of tabs page-->
 <!--Start of the home page-->
 <script type="text/ng-template" id="templates/home.html">
-  <ion-view title="Home">
+  <ion-view title="Home" hide-back-button="true">
   <ion-content class="padding">
   <div class="card">
         <div class="item item-divider">Welcome to the Craft Beer Store</div>
@@ -311,7 +310,7 @@
                 <a href="#" class="subdued">5 Comments</a>
                 </p>
             </div>
-           <div class="item tabs tabs-secondary tabs-icon-left">
+           <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
               <a class="tab-item" href="#tab/food">
                 <i class="icon ion-beer"></i>
                   Order Now
@@ -320,7 +319,7 @@
                 <i class="icon ion-link"></i>
                   Website
               </a>
-              <a class="tab-item" href="#tab/baltikaimg">
+              <a class="tab-item" ng-click="openModal()">
                 <i class="icon ion-images"></i>
                   Images
               </a>
@@ -339,37 +338,20 @@
     </ion-view>
 </script>
 <!--End of baltika page-->
-<!--This is the baltika images page-->
-<script id="templates/baltikaimg.html" type="text/ng-template">
-  <ion-view title="Images">
-  <ion-content class="has-header padding" ng-controller="MediaCtrl2">
-    <div class="card">
-      <div class="item item-divider">
-        <b>Blt</b>
-    </div>
-    <div class="item item-text-wrap">
-      Try our delicious Baltika beer
-    </div>
-    </div>
-
-<div class="item item-divider">
-    <i class="ion-images"></i>
-      My Images
-</div>
-<a class="item item-list-detail">
-    <ion-scroll direction="x">
-        <img ng-repeat="image in allImages" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
-    </ion-scroll>
-</a>
-<br><br>
-
-<div class="button-bar">
-  <button class="button button-outline button-positive" ng-click="playVideo()">Play a video</button>
-</div>
-</ion-content>
-    </ion-view>
-</script>
-<!--End of baltika images page-->
+<!--Start of baltika image page-->
+<script id="image-modal.html" type="text/ng-template">
+              <div class="modal image-modal transparent"
+                   ng-click="closeModal()">
+                <ion-slide-box on-slide-changed="slideChanged(index)"
+                               show-pager="false">
+                  <ion-slide ng-repeat="oImage in aImages">
+                    <img ng-src="{{oImage.src}}" class="fullscreen-image" />
+                    <p class="info">{{oImage.msg}}</p>
+                  </ion-slide>
+                </ion-slide-box>
+              </div>
+          </script>
+<!--End of Baltika image page-->
 <!--This the dungarven Beer page -->
 <script type="text/ng-template" id="templates/dungarvan.html">
     <ion-view title="Dungarvan">
@@ -695,18 +677,12 @@
     </ion-view>
 </script>
 <!--End of the blt page-->
-<!--This the Images page -->
+<!--This is
+the Images page -->
 <script type="text/ng-template" id="templates/images.html">
     <ion-view title="Gallery">
         <ion-content class="has-header padding" ng-controller="MediaCtrl">
-          <div class="card">
-            <div class="item item-divider">
-              <b>Blt</b>
-          </div>
-          <div class="item item-text-wrap">
-            Try our delicious BLT!!!!!
-          </div>
-          </div>
+
 
       <div class="item item-divider">
           <i class="ion-images"></i>
@@ -717,14 +693,24 @@
               <img ng-repeat="image in allImages" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
           </ion-scroll>
       </a>
+      <a class="item item-list-detail">
+          <ion-scroll direction="x">
+              <img ng-repeat="image in allImages1" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
+          </ion-scroll>
+      </a>
+      <a class="item item-list-detail">
+          <ion-scroll direction="x">
+              <img ng-repeat="image in allImages2" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
+          </ion-scroll>
+      </a>
       <br><br>
 
       <div class="button-bar">
-        <button class="button button-outline button-balanced" ng-click="playVideo()">Play a video</button>
+        <button class="button button-outline button-positive" ng-click="playVideo()">Play a video</button>
       </div>
-      <br />
+
       <div class="button-bar">
-      <a class="button button-full button-balanced" href="#tab/order">Order</a>
+      <a class="button button-full button-positive" href="#tab/food">Order</a>
       </div>
     </ion-content>
 </ion-view>
@@ -788,79 +774,6 @@
 </ion-view>
 </script>
 <!--End of events page-->
-<!--Events page-->
-<script id="templates/upcomingevents.html" type="text/ng-template">
-  <ion-view title="Upcoming Events">
-  <ion-content>
-  <div class="list">
-    <div class="item item-divider">
-      Sunday
-    </div>
-    <a class="item" href="#">
-      Butterfinger
-    </a>
-    <a class="item" href="#">
-      Butterfinger
-    </a>
-    <a class="item" href="#">
-      Butterfinger
-    </a>
-    <a class="item" href="#">
-      Butterfinger
-    </a>
-</div>
-<div class="item item-divider">
-  Monday
-</div>
-<a class="item" href="#">
-  Butterfinger
-</a>
-<a class="item" href="#">
-  Butterfinger
-</a>
-</div>
-<div class="item item-divider">
-  Tuesday
-</div>
-<a class="item" href="#">
-  Butterfinger
-</a>
-<a class="item" href="#">
-  Butterfinger
-</a>
-</div>
-<div class="item item-divider">
-  Wednesday
-</div>
-<a class="item" href="#">
-  Butterfinger
-</a>
-<a class="item" href="#">
-  Butterfinger
-</a>
-<a class="item" href="#">
-  Butterfinger
-</a>
-<a class="item" href="#">
-  Butterfinger
-</a>
-</div>
-<div class="item item-divider">
-  Thursday
-</div>
-<a class="item" href="#">
-  Butterfinger
-</a>
-<a class="item" href="#">
-  Butterfinger
-</a>
-</div>
-
- </ion-content>
-    </ion-view>
-</script>
-<!--End of Upcoming events page-->
-
 <!--This is the order page-->
 <script id="templates/food.html" type="text/ng-template">
   <ion-view title="Place your Order" class="room-service">

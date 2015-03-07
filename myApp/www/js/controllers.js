@@ -116,6 +116,69 @@ angular.module('starter.controllers', [])
   });
 })
 
+//Baltika Image gallery controller
+.controller('BaltikaCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', function ($scope, $ionicModal, $ionicSlideBoxDelegate) {
+
+  	$scope.aImages = [{
+      	'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+      	'msg' : 'Swipe me to the left. Tap/click to close'
+    	}, {
+        'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+        'msg' : ''
+      }, {
+        'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+        'msg' : ''
+    }];
+
+    $ionicModal.fromTemplateUrl('image-modal.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+
+    $scope.openModal = function() {
+      $scope.modal.show();
+      // Important: This line is needed to update the current ion-slide's width
+      // Try commenting this line, click the button and see what happens
+      $ionicSlideBoxDelegate.update();
+    };
+
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
+
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function() {
+      $scope.modal.remove();
+    });
+    // Execute action on hide modal
+    $scope.$on('modal.hide', function() {
+      // Execute action
+    });
+    // Execute action on remove modal
+    $scope.$on('modal.removed', function() {
+      // Execute action
+    });
+    $scope.$on('modal.shown', function() {
+      console.log('Modal is shown!');
+    });
+
+    // Call this functions if you need to manually control the slides
+    $scope.next = function() {
+      $ionicSlideBoxDelegate.next();
+    };
+
+    $scope.previous = function() {
+      $ionicSlideBoxDelegate.previous();
+    };
+
+    // Called each time the slide changes
+    $scope.slideChanged = function(index) {
+      $scope.slideIndex = index;
+    };
+  }
+])
 
 //Order now controller
 .controller('FoodCtrl', function ($scope, $ionicListDelegate, $ionicLoading, $ionicModal, $ionicPopup, MenuService) {
@@ -181,10 +244,33 @@ angular.module('starter.controllers', [])
 $scope.allImages = [{
       'src' : 'img/blt.jpg'
   }, {
-      'src' : 'img/blt2.jpg'
+      'src' : 'img/del2.jpg'
+  },{
+      'src' : 'img/curim.jpg'
   }, {
-      'src' : 'img/blt.jpg'
+      'src' : 'img/cider2.jpg'
   }];
+
+  $scope.allImages1 = [{
+        'src' : 'img/cider.jpg'
+    }, {
+        'src' : 'img/blt2.jpg'
+    },{
+        'src' : 'img/bulmers.jpg'
+    }, {
+        'src' : 'img/del4.jpg'
+    }];
+
+    $scope.allImages2 = [{
+          'src' : 'img/coffee.jpg'
+      }, {
+          'src' : 'img/cocktail2.jpg'
+      },{
+          'src' : 'img/del3.jpg'
+      }, {
+          'src' : 'img/dun.jpg'
+      }];
+
 
 $scope.showImages = function(index) {
       $scope.activeSlide = index;
@@ -213,43 +299,6 @@ $scope.showModal = function(templateUrl) {
   };
 })
 //End of image gallery
-//Baltika Image gallery
-.controller('MediaCtrl2', function($scope, $ionicModal) {
-$scope.allImages = [{
-      'src' : 'img/bulmers.jpg'
-  }, {
-      'src' : 'img/blt.jpg'
-  }, {
-      'src' : 'img/blt.jpg'
-  }];
-
-$scope.showImages = function(index) {
-      $scope.activeSlide = index;
-      $scope.showModal('templates/image-popover.html');
-  }
-
-  $scope.clipSrc = 'img/coffee.MOV';
-
-$scope.playVideo = function() {
-    $scope.showModal('templates/video-popover.html');
-}
-
-$scope.showModal = function(templateUrl) {
-      $ionicModal.fromTemplateUrl(templateUrl, {
-          scope: $scope,
-          animation: 'slide-in-up'
-      }).then(function(modal) {
-          $scope.modal = modal;
-          $scope.modal.show();
-      });
-  }
-  // Close the modal
-  $scope.closeModal = function() {
-      $scope.modal.hide();
-      $scope.modal.remove()
-  };
-})
-//End of Baltika image gallery
 //Swipe Cards Review functionality
 .controller('CardsCtrl', function($scope) {
     var cardTypes = [

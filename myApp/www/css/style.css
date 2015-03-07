@@ -1,7 +1,6 @@
 /* Empty. Add your own CSS if you like */
 /* This is the swipe card style*/
 /* Card styling */
-
 td-cards {
     display: block;
 }
@@ -86,7 +85,7 @@ td-card img {
 /*IMAGES*/
 .image-list-thumb {
     padding: 2px 2px 2px 2px;
-    height: 100px;
+    height: 70px;
 }
 
 .image-modal {
@@ -133,4 +132,15 @@ td-card img {
     position: fixed;
     right: 0;
     top: 0;
+}
+
+p.info {
+  position: absolute;
+  bottom: 55px;
+  margin: 0 auto;
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 28px;
+  color: #ffffff;
 }

@@ -90,15 +90,6 @@ angular.module('starter', ['ionic',
         }
       })
 
-      .state('tab.upcomingevents', {
-       url: "/upcomingevents",
-       views: {
-         'tab-home': {
-           templateUrl: "templates/upcomingevents.html"
-         }
-       }
-     })
-
         .state('tab.browse', {
          url: "/browse",
          views: {
@@ -144,14 +135,6 @@ angular.module('starter', ['ionic',
        }
      })
 
-     .state('tab.baltikaimg', {
-      url: "/baltikaimg",
-      views: {
-        'tab-home': {
-          templateUrl: "templates/baltikaimg.html"
-        }
-      }
-    })
 
      .state('tab.dungarvan', {
       url: "/dungarvan",

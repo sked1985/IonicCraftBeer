@@ -59,9 +59,9 @@
           <ion-content has-header="true">
             <ion-list>
             <ion-item href="#/tab/home" class="item-icon-left" menu-close><i class="icon ion-home"></i> Home</ion-item>
-            <ion-item href="#/tab/food" class="item-icon-left" menu-close><i class="icon ion-beer"></i> Order Now</ion-item>
-            <ion-item href="#/tab/browse" class="item-icon-left" menu-close><i class="icon ion-search"></i>Browse Menu</ion-item>
-            <ion-item href="#/tab/events" class="item-icon-left" menu-close><i class="icon ion-music-note"></i>Upcoming Events</ion-item>
+            <ion-item href="#/tab/food" class="item-icon-left" menu-close><i class="icon ion-beer"></i> Order</ion-item>
+            <ion-item href="#/tab/browse" class="item-icon-left" menu-close><i class="icon ion-search"></i>Menu</ion-item>
+            <ion-item href="#/tab/events" class="item-icon-left" menu-close><i class="icon ion-music-note"></i>Events</ion-item>
             <ion-item href="#/tab/images" class="item-icon-left" menu-close><i class="icon ion-calendar"></i>Gallery</ion-item>
             <ion-item href="#/tab/review" class="item-icon-left" menu-close> <i class="icon ion-star"></i>Review</ion-item>
             <ion-item href="#/about" class="item-icon-left" menu-close> <i class="icon ion-ios7-information"></i> About</ion-item>
@@ -142,7 +142,7 @@
 <!--End of home page-->
 <!--Start of the browse menu page-->
 <script id="templates/browse.html" type="text/ng-template">
-    <ion-view title="Browse">
+    <ion-view title="Menu">
       <ion-content class="padding">
         <div class="list">
           <a class="item item-thumbnail-left" a href="#tab/beers">
@@ -188,32 +188,32 @@
           <a class="item item-avatar" a href="#tab/baltika">
               <img src="img/baltika.jpg">
                 <h2>Baltika</h2>
-                  <p>3.99</p>
+                  <p>€3.99</p>
           </a>
           <a class="item item-avatar" a href="#tab/dungarvan">
               <img src="img/dun.jpg">
                 <h2>Dungarvan Copper Coast Red</h2>
-                  <p>3.39</p>
+                  <p>€3.39</p>
           </a>
           <a class="item item-avatar" a href="#tab/bohemian">
               <img src="img/bare.jpg">
                 <h2>Barefoot Bohemian</h2>
-                  <p>2.29</p>
+                  <p>€2.29</p>
           </a>
           <a class="item item-avatar" href="#">
               <img src="img/abbey.jpg">
                 <h2>Abbey Irish Pale Ale</h2>
-                  <p>3.39</p>
+                  <p>€3.39</p>
           </a>
           <a class="item item-avatar" href="#">
               <img src="img/curim.jpg">
                 <h2>Curim Wheat Beer</h2>
-                  <p>3.09</p>
+                  <p>€3.09</p>
           </a>
           <a class="item item-avatar" href="#">
               <img src="img/dungarven.jpg">
                 <h2>Dungarvan Mine head</h2>
-                  <p>3.49</p>
+                  <p>€3.49</p>
           </a>
           </div>
     </ion-content>
@@ -228,32 +228,32 @@
  <a class="item item-avatar" a href="#tab/bulmers">
       <img src="img/bulmers.jpg">
     <h2>Bulmers</h2>
-      <p>3.99</p>
+      <p>€3.99</p>
   </a>
   <a class="item item-avatar" a href="#tab/strongbow">
       <img src="img/strongbow.jpg">
     <h2>Strongbow</h2>
-      <p>2.50</p>
+      <p>€2.50</p>
     </a>
   <a class="item item-avatar" href="#">
     <img src="img/bare.jpg">
       <h2>Barefoot Bohemian</h2>
-        <p>2.29</p>
+        <p>€2.29</p>
     </a>
   <a class="item item-avatar" href="#">
     <img src="img/abbey.jpg">
       <h2>Abbey Irish Pale Ale</h2>
-        <p>3.39</p>
+        <p>€3.39</p>
     </a>
   <a class="item item-avatar" href="#">
     <img src="img/curim.jpg">
       <h2>Curim Wheat Beer</h2>
-        <p>3.09</p>
+        <p>€3.09</p>
     </a>
   <a class="item item-avatar" href="#">
     <img src="img/dungarven.jpg">
       <h2>Dungarvan Mine head</h2>
-        <p>3.49</p>
+        <p>€3.49</p>
     </a>
 </div>
         </ion-content>
@@ -268,22 +268,22 @@
  <a class="item item-avatar" a href ="#tab/club">
       <img src="img/club.jpg">
     <h2>Club</h2>
-      <p>3.59</p>
+      <p>€3.59</p>
   </a>
   <a class="item item-avatar" a href ="#tab/blt">
       <img src="img/blt.jpg">
     <h2>BLT</h2>
-      <p>2.99</p>
+      <p>€2.99</p>
     </a>
   <a class="item item-avatar" href="#">
     <img src="img/turk.jpg">
       <h2>Turkey Melt</h2>
-        <p>4.29</p>
+        <p>€4.29</p>
     </a>
   <a class="item item-avatar" href="#">
     <img src="img/bagel.jpg">
       <h2>Bagels</h2>
-        <p>3.39</p>
+        <p>€3.39</p>
     </a>
 </div>
         </ion-content>
@@ -301,14 +301,19 @@
                       <p>Brewed in Russia, 1994</p>
             </div>
             <div class="item item-body">
-                <img class="full-image" src="img/fun.jpg">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et risus molestie, pretium tortor ut, pellentesque sem.
-                Sed mattis auctor mauris. Donec ac urna imperdiet, fringilla neque
-                auctor, fringilla lorem.</p>
-                <p>
-                <a href="#" class="subdued">1 Like</a>
-                <a href="#" class="subdued">5 Comments</a>
-                </p>
+                <img class="full-image" src="img/baltika1.jpg">
+                <p>Baltika is a "Dark Beer" and comes in at 5.6% alcohol by volume.
+                The flavor is toward the sweet side, with a malty character matched
+                to a big body and culminating in a dry finish.</p>
+                <div class="item item-toggle">
+                  {{vm.following ? "Following" : "Not Following"}}
+                    <label class="toggle toggle-energized">
+                      <input type="checkbox" ng-model="vm.following">
+                        <div class="track">
+                          <div class="handle"></div>
+                        </div>
+                    </lablel>
+                </div>
             </div>
            <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
               <a class="tab-item" href="#tab/food">
@@ -325,15 +330,7 @@
               </a>
           </div>
         </div>
-        <div class="item item-toggle">
-          <h2>{{vm.following ? "Following" : "Not Following"}}</h2>
-            <label class="toggle toggle-energized">
-              <input type="checkbox" ng-model="vm.following">
-                <div class="track">
-                  <div class="handle"></div>
-                </div>
-            </lablel>
-        </div>
+
       </ion-content>
     </ion-view>
 </script>
@@ -781,15 +778,15 @@ the Images page -->
   <button class="button button-clear" ng-click="openPreview()">Preview</button>
 </ion-nav-buttons>
 <ion-footer-bar align-title="left" class="bar-positive">
-  <h1 class="title">Total: {{order.total | currency}}, Items {{order.items.length}}</h1>
+  <h1 class="title">Total: {{order.total | currency:"€"}}, Items {{order.items.length}}</h1>
 </ion-footer-bar>
 <ion-content>
 <ion-list>
   <span ng-repeat="course in menu">
   <ion-item class="item-divider">{{course.meal}}</ion-item>
   <ion-item ng-repeat="item in course.items">
-    {{item.item}} <span class="item-note">{{item.price | currency}}
-    <ion-option-button class="button-positive" ng-click="add(item)">Order</ion-option-button>
+    {{item.item}} <span class="item-note">{{item.price | currency:"€"}}
+    <ion-option-button class="button-energized" ng-click="add(item)">Order</ion-option-button>
   </ion-item>
   </span>
 </ion-list>

@@ -18,7 +18,7 @@ angular.module('starter.controllers', [])
     console.log("There was an error logging in", error);
   });
 })
-
+//Side menu controller
 .controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
   $scope.showMenu = function () {
     $ionicSideMenuDelegate.toggleLeft();
@@ -29,7 +29,7 @@ angular.module('starter.controllers', [])
 })
 
 //Home Page controller
-.controller('HomeCtrl', function($scope, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup, EventsService) {
+.controller('HomeCtrl', function($scope, $http, $timeout, $ionicModal, $ionicActionSheet, $ionicLoading, $ionicPopup, EventsService) {
   var comment = {
     message: '',
     rating: 5
@@ -51,6 +51,7 @@ angular.module('starter.controllers', [])
     $scope.modal.hide();
   }
 
+
   $scope.openComments = function() {
     $ionicModal.fromTemplateUrl('templates/comments.html', {
       scope: $scope,
@@ -60,6 +61,29 @@ angular.module('starter.controllers', [])
       $scope.modal.show();
     });
   };
+
+  $scope.showOptions = function () {
+   var sheet = $ionicActionSheet.show({
+     buttons: [
+       {text: 'Toggle Favorite'}
+     ],
+     cancelText: 'Cancel',
+     buttonClicked: function (index) {
+       if (index === 0) {
+         Favorites.toggle($stateParams);
+       }
+       if (index === 1) {
+         Favorites.primary($stateParams);
+       }
+       if (index === 2) {
+         $scope.showModal();
+       }
+       return true;
+     }
+   });
+ };
+
+
 
   //Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function() {
@@ -74,17 +98,7 @@ angular.module('starter.controllers', [])
   });
 
 
-  $scope.callApi = function() {
-    // Just call the API as you'd do using $http
-    $http({
-      url: 'http://auth0-nodejsapi-sample.herokuapp.com/secured/ping',
-      method: 'GET'
-    }).then(function() {
-      alert("We got the secured data successfully");
-    }, function() {
-      alert("Please download the API seed so that you can call it.");
-    });
-  }
+
 })
 
 
@@ -177,6 +191,39 @@ angular.module('starter.controllers', [])
     $scope.slideChanged = function(index) {
       $scope.slideIndex = index;
     };
+
+
+  }
+])
+
+//ActionSheet controller
+.controller('ActionCtrl', ['$scope', '$ionicActionSheet',  function ($scope, $ionicActionSheet) {
+
+  $scope.showOptions = function () {
+     var sheet = $ionicActionSheet.show({
+       buttons: [
+         {text: 'Toggle Favorite'},
+         {text: 'Set as Primary'},
+         {text: 'Sunrise Sunset Chart'}
+       ],
+       cancelText: 'Cancel',
+       buttonClicked: function (index) {
+         if (index === 0) {
+           Locations.toggle($stateParams);
+         }
+         if (index === 1) {
+           Locations.primary($stateParams);
+         }
+         if (index === 2) {
+           $scope.showModal();
+         }
+         return true;
+       }
+     });
+   };
+
+
+
   }
 ])
 

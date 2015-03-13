@@ -200,7 +200,6 @@ angular.module('starter', ['ionic',
      }
     })
 
-
      .state('tab.images', {
       url: "/images",
       views: {
@@ -224,16 +223,6 @@ angular.module('starter', ['ionic',
       views: {
         'tab-about': {
           templateUrl: 'templates/tab-about.html',
-        }
-      }
-    })
-
-    .state('tab.account', {
-      url: '/account',
-      views: {
-        'tab-account': {
-          templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
         }
       }
     })

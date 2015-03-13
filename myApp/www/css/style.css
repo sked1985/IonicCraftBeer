@@ -35,6 +35,10 @@ td-card img {
     border-radius: 6px;
 }
 
+.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+    color: #3090C7;
+}
+
 /* Overlay styling*/
 
 .overlayBox {

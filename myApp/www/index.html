@@ -89,26 +89,30 @@
 <!--End of the side menus-->
 <!--Tabs at the bottom of the apps page-->
 <script id="templates/tabs.html" type="text/ng-template">
-    <ion-tabs class="tabs-icon-top tabs-positive">
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive">
       <!--Home tab-->
-      <ion-tab title="Home" icon="icon ion-home" href="#/tab/home">
+
+      <ion-tab title="Home" icon-off="ion-home" icon-on="ion-home"  href="#/tab/home">
           <ion-nav-view name="tab-home"></ion-nav-view>
       </ion-tab>
-      <!-- Help Tab -->
-      <ion-tab title="About" icon="ion-information-circled" href="#/tab/about">
+
+      <!-- About Tab -->
+      <ion-tab title="About" icon-off="ion-information-circled" icon-on="ion-information-circled" href="#/tab/about">
           <ion-nav-view name="tab-about"></ion-nav-view>
-      </ion-tab>
-      <!-- Account Tab -->
-      <ion-tab title="Account" icon="icon ion-gear-b" href="#/tab/account">
-          <ion-nav-view name="tab-account"></ion-nav-view>
       </ion-tab>
     </ion-tabs>
 </script>
 <!--End of tabs page-->
 <!--Start of the home page-->
 <script type="text/ng-template" id="templates/home.html">
-  <ion-view title="Home" hide-back-button="true">
+  <ion-view title="Home" hide-back-button="true"/>
+  <ion-nav-buttons side="right">
+    <button class="button" ng-click="logout()">
+      Log out
+    </button>
+  </ion-nav-buttons>
   <ion-content class="padding">
+
   <div class="card">
         <div class="item item-divider">Welcome to the Craft Beer Store</div>
         <div class="item item-text-wrap">

@@ -29,13 +29,14 @@ angular.module('starter.controllers', [])
 })
 
 //Home Page controller
-.controller('HomeCtrl', function($scope, $http, $timeout, $ionicModal, $ionicActionSheet, $ionicLoading, $ionicPopup, EventsService) {
+.controller('HomeCtrl', function($scope, auth, $http, $timeout, $ionicModal, $ionicActionSheet, $ionicLoading, $ionicPopup, EventsService, $state, store) {
   var comment = {
     message: '',
     rating: 5
   };
   $scope.comment = angular.copy(comment);
 
+  //Sends the comments
   $scope.sendComments = function () {
     // Send comment
     $scope.cancelComments();
@@ -46,12 +47,13 @@ angular.module('starter.controllers', [])
     });
   };
 
+  //Closes the comments page
   $scope.cancelComments = function () {
     $scope.comment = angular.copy(comment);
     $scope.modal.hide();
   }
 
-
+  //Opens the comments page
   $scope.openComments = function() {
     $ionicModal.fromTemplateUrl('templates/comments.html', {
       scope: $scope,
@@ -62,6 +64,16 @@ angular.module('starter.controllers', [])
     });
   };
 
+  //logout function
+  $scope.logout = function() {
+   auth.signout();
+   store.remove('token');
+   store.remove('profile');
+   store.remove('refreshToken');
+   $state.go('login');
+ }
+
+  //Favorite function on Baltika page
   $scope.showOptions = function () {
    var sheet = $ionicActionSheet.show({
      buttons: [
@@ -101,18 +113,6 @@ angular.module('starter.controllers', [])
 
 })
 
-
-//Logout controller
-.controller('AccountCtrl', function($scope, auth, $state, store) {
-
-  $scope.logout = function() {
-    auth.signout();
-    store.remove('token');
-    store.remove('profile');
-    store.remove('refreshToken');
-    $state.go('login');
-  }
-})
 
 //Events controller
 .controller('EventsCtrl', function ($scope, EventsService) {

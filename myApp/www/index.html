@@ -25,6 +25,7 @@
     <script src="cordova.js"></script>
     <!-- your app's js -->
     <script src="js/auth0-variables.js"></script>
+    <script src="lib/ionic-ion-header-shrink/ionic.headerShrink.js"></script>
     <script src="js/app.js"></script>
     <script src="lib/collide/collide.js"></script>
     <script src="lib/ionic-contrib-tinder-cards/ionic.tdcards.js"></script>
@@ -57,6 +58,7 @@
             <h1 class="title">Craft Beer App</h1>
           </ion-header-bar>
           <ion-content has-header="true">
+            <div style="height: 50px;"></div>
           <ion-list>
             <ion-item href="#/tab/home" class="item-icon-left" menu-close><i class="icon ion-home"></i> Home</ion-item>
             <ion-item href="#/tab/food" class="item-icon-left" menu-close><i class="icon ion-beer"></i> Order</ion-item>
@@ -111,8 +113,8 @@
       Log out
     </button>
   </ion-nav-buttons>
-  <ion-content class="padding">
-
+  <ion-content class="padding" header-shrink scroll-event-interval="5">
+  <div style="height: 50px;"></div>
   <div class="card">
         <div class="item item-divider">Welcome to the Craft Beer Store</div>
         <div class="item item-text-wrap">
@@ -149,7 +151,8 @@
 <!--Start of the browse menu page-->
 <script id="templates/browse.html" type="text/ng-template">
     <ion-view title="Menu">
-      <ion-content class="padding">
+      <ion-content class="padding" header-shrink scroll-event-interval="5">
+      <div style="height: 50px;"></div>
         <div class="list">
           <a class="item item-thumbnail-left" a href="#tab/beers">
             <img src="img/beer1.jpg">
@@ -190,6 +193,7 @@
 <script id="templates/beers.html" type="text/ng-template">
     <ion-view title="Beers">
         <ion-content class="padding">
+        <div style="height: 50px;"></div>
      <div class="list">
           <a class="item item-avatar" a href="#tab/baltika">
               <img src="img/baltika.jpg">
@@ -230,6 +234,7 @@
 <script id="templates/ciders.html" type="text/ng-template">
     <ion-view title="Ciders">
     <ion-content class="padding">
+    <div style="height: 50px;"></div>
      <div class="list">
  <a class="item item-avatar" a href="#tab/bulmers">
       <img src="img/bulmers.jpg">
@@ -270,6 +275,7 @@
 <script id="templates/sandwiches.html" type="text/ng-template">
     <ion-view title="Sandwiches">
     <ion-content class="padding">
+    <div style="height: 50px;"></div>
      <div class="list">
  <a class="item item-avatar" a href ="#tab/club">
       <img src="img/club.jpg">
@@ -302,7 +308,8 @@
       <ion-nav-buttons side="right">
         <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
         </ion-nav-buttons>
-      <ion-content padding="true">
+      <ion-content padding="true" header-shrink scroll-event-interval="5">
+      <div style="height: 50px;"></div>
           <div class="list card">
             <div class="item item-avatar">
                 <img src="img/baltika.jpg">
@@ -362,7 +369,7 @@
 <!--This the dungarven Beer page -->
 <script type="text/ng-template" id="templates/dungarvan.html">
     <ion-view title="Dungarvan">
-      <ion-content padding="true">
+      <ion-content padding="true" header-shrink scroll-event-interval="5">
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/baltika.jpg">
@@ -785,12 +792,13 @@ the Images page -->
 <script id="templates/food.html" type="text/ng-template">
   <ion-view title="Place your Order" class="room-service">
 <ion-nav-buttons side="right">
-  <button class="button button-light" ng-click="openPreview()">Preview</button>
+  <button class="button button-positive" ng-click="openPreview()">Preview</button>
 </ion-nav-buttons>
 <ion-footer-bar align-title="left" class="bar-positive">
   <h1 class="title">Total: {{order.total | currency:"€"}}, Items {{order.items.length}}</h1>
 </ion-footer-bar>
-<ion-content>
+<ion-content header-shrink scroll-event-interval="5">
+<div style="height: 50px;"></div>
 <ion-list>
   <span ng-repeat="course in menu">
   <ion-item class="item-divider">{{course.meal}}</ion-item>

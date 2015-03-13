@@ -1,14 +1,15 @@
 <ion-modal-view>
   <ion-header-bar class="bar-energized">
     <div class="buttons">
-      <button class="button button-light" ng-click="cancelPreview()">Cancel</button>
+      <button class="button button-energized" ng-click="cancelPreview()">Cancel</button>
     </div>
     <h1 class="title">Preview Order</h1>
     <div class="buttons">
-      <button class="button button-light" ng-if="order.items.length"  ng-click="sendOrder()">Submit</button><!--ng-if="order.items.length"-->
+      <button class="button button-energized" ng-if="order.items.length"  ng-click="sendOrder()">Submit</button><!--ng-if="order.items.length"-->
     </div>
   </ion-header-bar>
   <ion-content>
+    <div style="height: 50px;"></div>
     <ion-list>
       <ion-item ng-if="!order.items.length" class="item-divider">No items</ion-item>
       <ion-item ng-repeat="item in order.items">

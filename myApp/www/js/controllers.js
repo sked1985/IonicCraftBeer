@@ -13,7 +13,7 @@ angular.module('starter.controllers', [])
     store.set('profile', profile);
     store.set('token', idToken);
     store.set('refreshToken', refreshToken);
-    $state.go('tab.home');
+    $state.go('tour');
   }, function(error) {
     console.log("There was an error logging in", error);
   });

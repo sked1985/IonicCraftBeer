@@ -311,9 +311,10 @@
                 The flavor is toward the sweet side, with a malty character matched
                 to a big body and culminating in a dry finish.</p>
                 <div class="item item-toggle">
+
                   {{vm.following ? "Following" : "Not Following"}}
-                    <label class="toggle toggle-energized">
-                      <input type="checkbox" ng-model="vm.following">
+                    <label class="toggle toggle-energized" >
+                      <input type="checkbox" ng-click="vm.toggleFollow()">
                         <div class="track">
                           <div class="handle"></div>
                         </div>

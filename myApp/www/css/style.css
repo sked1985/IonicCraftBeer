@@ -144,3 +144,15 @@ p.info {
   font-size: 28px;
   color: #ffffff;
 }
+
+#tour .slider {
+  height: 100%;
+}
+#tour .slider-slide {
+  padding-top: 100px;
+  text-align: center;
+}
+#tour .icon-slide {
+  font-size: 20em;
+  display: inline-block;
+}

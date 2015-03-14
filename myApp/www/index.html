@@ -322,10 +322,9 @@
                 The flavor is toward the sweet side, with a malty character matched
                 to a big body and culminating in a dry finish.</p>
                 <div class="item item-toggle">
-
-                  {{vm.following ? "Following" : "Not Following"}}
-                    <label class="toggle toggle-energized" >
-                      <input type="checkbox" ng-click="vm.toggleFollow()">
+                  <h2>{{vm.following ? "Following" : "Not Following"}}</h2>
+                    <label class="toggle toggle-energized">
+                      <input type="checkbox" ng-model="vm.following">
                         <div class="track">
                           <div class="handle"></div>
                         </div>
@@ -370,6 +369,7 @@
 <script type="text/ng-template" id="templates/dungarvan.html">
     <ion-view title="Dungarvan">
       <ion-content padding="true" header-shrink scroll-event-interval="5">
+      <div style="height: 50px;"></div>
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/baltika.jpg">
@@ -419,6 +419,7 @@
 <script id="templates/dungarvenimg.html" type="text/ng-template">
   <ion-view title="Images">
   <ion-content class="has-header padding" ng-controller="MediaCtrl2">
+  <div style="height: 50px;"></div>
     <div class="card">
       <div class="item item-divider">
         <b>Blt</b>
@@ -450,6 +451,7 @@
 <script type="text/ng-template" id="templates/bohemian.html">
     <ion-view title="Bohemian">
       <ion-content padding="true">
+      <div style="height: 50px;"></div>
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/bare.jpg">
@@ -499,6 +501,7 @@
 <script type="text/ng-template" id="templates/bulmers.html">
     <ion-view title="Bulmers">
       <ion-content padding="true">
+      <div style="height: 50px;"></div>
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/bulmers.jpg">
@@ -548,6 +551,7 @@
 <script type="text/ng-template" id="templates/strongbow.html">
     <ion-view title="Strongbow">
       <ion-content padding="true">
+      <div style="height: 50px;"></div>
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/strongbow.jpg">
@@ -597,6 +601,7 @@
 <script type="text/ng-template" id="templates/club.html">
     <ion-view title="Club">
       <ion-content padding="true">
+      <div style="height: 50px;"></div>
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/club.jpg">
@@ -646,6 +651,7 @@
 <script type="text/ng-template" id="templates/blt.html">
     <ion-view title="BLT">
       <ion-content padding="true">
+      <div style="height: 50px;"></div>
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/blt.jpg">
@@ -697,7 +703,7 @@ the Images page -->
     <ion-view title="Gallery">
         <ion-content class="has-header padding" ng-controller="MediaCtrl">
 
-
+        <div style="height: 50px;"></div>
       <div class="item item-divider">
           <i class="ion-images"></i>
             My Images
@@ -767,6 +773,7 @@ the Images page -->
 <script id="login.html" type="text/ng-template">
   <ion-view title="Login">
     <ion-content>
+    <div style="height: 50px;"></div>
     </ion-content>
     </ion-view>
 </script>
@@ -775,7 +782,8 @@ the Images page -->
 <!--Events page-->
 <script id="templates/events.html" type="text/ng-template">
 <ion-view title="Upcoming Events">
-  <ion-content>
+  <ion-content header-shrink scroll-event-interval="5">
+  <div style="height: 50px;"></div>
     <ul class="list">
       <span ng-repeat="day in events">
       <li class="item item-divider">{{day.day}}</li>

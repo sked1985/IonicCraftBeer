@@ -1,5 +1,8 @@
 /* Empty. Add your own CSS if you like */
 /* This is the swipe card style*/
+ion-content {
+  top: 0 !important;
+}
 /* Card styling */
 td-cards {
     display: block;

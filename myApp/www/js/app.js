@@ -71,6 +71,26 @@ angular.module('starter', ['ionic',
           }
         })
 
+        .state('tab.discover', {
+            url: '/discover',
+            views: {
+              'tab-discover': {
+                templateUrl: 'templates/discover.html',
+                controller: 'DiscoverCtrl'
+              }
+            }
+          })
+
+          .state('tab.favorites', {
+            url: '/favorites',
+            views: {
+              'tab-favorites': {
+                templateUrl: 'templates/favorites.html',
+                controller: 'FavoritesCtrl'
+              }
+            }
+          })
+
         .state('tab.food', {
          url: "/food",
          views: {
@@ -222,8 +242,8 @@ angular.module('starter', ['ionic',
     .state('tab.about', {
       url: '/about',
       views: {
-        'tab-about': {
-          templateUrl: 'templates/tab-about.html',
+        'tab-home': {
+          templateUrl: 'templates/about.html',
         }
       }
     })

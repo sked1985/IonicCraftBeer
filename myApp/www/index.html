@@ -62,31 +62,14 @@
           <ion-list>
             <ion-item href="#/tab/home" class="item-icon-left" menu-close><i class="icon ion-home"></i> Home</ion-item>
             <ion-item href="#/tab/food" class="item-icon-left" menu-close><i class="icon ion-beer"></i> Order</ion-item>
-            <ion-item href="#/tab/browse" class="item-icon-left" menu-close><i class="icon ion-search"></i>Menu</ion-item>
+            <ion-item href="#/tab/browse" class="item-icon-left" menu-close><i class="icon ion-document"></i>Menu</ion-item>
             <ion-item href="#/tab/events" class="item-icon-left" menu-close><i class="icon ion-music-note"></i>Events</ion-item>
             <ion-item href="#/tab/images" class="item-icon-left" menu-close><i class="icon ion-calendar"></i>Gallery</ion-item>
             <ion-item href="#/tab/review" class="item-icon-left" menu-close> <i class="icon ion-star"></i>Review</ion-item>
             <ion-item href="#/tab/about" class="item-icon-left" menu-close> <i class="icon ion-ios7-information"></i> About</ion-item>
-            <ion-item class="item-divider" class="item-icon-left" menu-close>Favorites</ion-item>
-            <ion-item class="item-icon-left" ui-sref="" menu-close ng-repeat="favorite in favorites"><span class="icon ion-star"></span> {{favorite.title}}</ion-item>
           </ion-list>
           </ion-content>
         </ion-side-menu>
-      <!--  <ion-side-menu side="right">
-          <ion-header-bar class="bar bar-header bar-dark">
-            <h1 class="title">Right Menu</h1>
-          </ion-header-bar>
-          <ion-content>
-            <ul class="list">
-              <li>
-                <a class="item" menu-close nav-clear href="#/search">Search</a>
-              </li>
-              <li>
-                <a class="item" menu-close nav-clear href="#/settings">Settings</a>
-              </li>
-            </ul>
-          </ion-content>
-        </ion-side-menu>-->
       </ion-side-menus>
 <!--End of the side menus-->
 <!--Tabs at the bottom of the apps page-->
@@ -98,10 +81,19 @@
           <ion-nav-view name="tab-home"></ion-nav-view>
       </ion-tab>
 
-      <!-- About Tab -->
-      <ion-tab title="About" icon-off="ion-information-circled" icon-on="ion-information-circled" href="#/tab/about">
-          <ion-nav-view name="tab-about"></ion-nav-view>
+
+
+      <!-- Discover Tab -->
+      <ion-tab title="Discover" icon-off="ion-search" icon-on="ion-search" href="#/tab/discover">
+        <ion-nav-view name="tab-discover"></ion-nav-view>
       </ion-tab>
+
+
+      <!-- Favorites Tab -->
+      <ion-tab title="Favorites" icon-off="icon ion-star" icon-on="icon ion-star" href="#/tab/favorites">
+        <ion-nav-view name="tab-favorites"></ion-nav-view>
+      </ion-tab>
+
     </ion-tabs>
 </script>
 <!--End of tabs page-->
@@ -820,6 +812,24 @@ the Images page -->
 </ion-view>
 </script>
 <!--This is the end of the order page-->
+<script id="templates/about.html" type="text/ng-template">
+<ion-view title="About">
+  <ion-content class="padding">
+    <div style="height: 50px;"></div>
+    <p>App built as an example for demonstrating many features of the Ionic Framework. Built by Barry Mc Gettigan.</p>
+    <h3>Projects Used</h3>
+    <ul>
+      <li><a href="http://ionicframework.com">Ionic Framework</a></li>
+      <li><a href="http://angularjs.org">AngularJS</a></li>
+      <li><a href="https://angular-ui.github.io/ui-router">AngularUI ui-router</a></li>
+      <li><a href="https://cordova.apache.org">Cordova</a></li>
+    </ul>
+    <p>Help me make improvements by throwing me loads of money!!!!!!</p>
+  </ion-content>
+</ion-view>
+
+</script>
+
 <script src='lib/move/move.min.js'></script>
   </body>
 </html>

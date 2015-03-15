@@ -113,6 +113,67 @@ angular.module('starter.controllers', [])
 
 })
 
+  .controller('DiscoverCtrl', function($scope, $timeout, User) {
+    // our first three songs
+    $scope.songs = [
+       {
+          "title":"Fishers",
+          "artist":"Beer",
+          "image_small":"http://bptrade.asia/staging/tippletown_15/wp-content/uploads/2014/12/beer_flight_-_fishers_stitungsbrau_erdinger_weissbrau_erdinger_oktoberfest_brew_erdinger_dunkel_31.jpg",
+          "image_large":"http://bptrade.asia/staging/tippletown_15/wp-content/uploads/2014/12/beer_flight_-_fishers_stitungsbrau_erdinger_weissbrau_erdinger_oktoberfest_brew_erdinger_dunkel_31.jpg"
+       },
+       {
+          "title":"Venom - Original Mix",
+          "artist":"Ziggy",
+          "image_small":"http://www.48thparallelbrewing.com/uploads/3/1/4/6/31462091/1043639.jpg?1406856041",
+          "image_large":"http://www.48thparallelbrewing.com/uploads/3/1/4/6/31462091/1043639.jpg?1406856041"
+       },
+       {
+          "title":"Do It",
+          "artist":"Rootkit",
+          "image_small":"https://i.scdn.co/image/398df9a33a6019c0e95e3be05fbaf19be0e91138",
+          "image_large":"https://i.scdn.co/image/4e47ee3f6214fabbbed2092a21e62ee2a830058a"
+       }
+    ];
+
+    $scope.currentSong = angular.copy($scope.songs[0]);
+
+    $scope.sendFeedback = function (bool) {
+      if(bool) User.addSongToFavorites($scope.currentSong);
+
+     // set variable for the correct animation sequence
+     $scope.currentSong.rated = bool;
+     $scope.currentSong.hide = true;
+
+     $timeout(function() {
+       // $timeout to allow animation to complete before changing to next song
+       // set the current song to one of our three songs
+       var randomSong = Math.round(Math.random() * ($scope.songs.length - 1));
+
+       // update current song in scope
+       $scope.currentSong = angular.copy($scope.songs[randomSong]);
+
+     }, 250);
+   }
+
+   $scope.removeSong = function(song, index){
+     User.removeSongFromFavorites(song, index);
+   }
+
+
+
+})
+
+
+/*
+Controller for the favorites page
+*/
+.controller('FavoritesCtrl', function($scope, User) {
+
+  $scope.favorites = User.favorites;
+
+})
+
 
 //Events controller
 .controller('EventsCtrl', function ($scope, EventsService) {

@@ -12,4 +12,30 @@ angular.module('starter.services', [])
      var firebase = new Firebase('https://craftbeerproject.firebaseio.com/menu');
      var service = $firebase(firebase);
      return service;
+   })
+
+   .factory('User', function(){
+
+     var o = {
+       favorites: []
+     }
+
+     o.addSongToFavorites = function(song){
+
+       if(!song) return false;
+
+       o.favorites.unshift(song);
+
+     }
+
+     o.removeSongFromFavorites = function(song, index){
+
+       if (!song) return false;
+
+       o.favorites.splice(index, 1);
+
+     }
+
+     return o;
+
    });

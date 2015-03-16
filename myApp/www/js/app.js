@@ -52,6 +52,7 @@ angular.module('starter', ['ionic',
     .state('tab', {
       url: "/tab",
       abstract: true,
+      controller: 'TabsCtrl',
       templateUrl: "templates/tabs.html",
       // The tab requires user login
       data: {
@@ -80,6 +81,7 @@ angular.module('starter', ['ionic',
               }
             }
           })
+
 
           .state('tab.favorites', {
             url: '/favorites',

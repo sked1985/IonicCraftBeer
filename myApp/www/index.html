@@ -74,6 +74,7 @@
 <!--End of the side menus-->
 <!--Tabs at the bottom of the apps page-->
 <script id="templates/tabs.html" type="text/ng-template">
+
     <ion-tabs class="tabs-icon-top tabs-color-active-positive">
       <!--Home tab-->
 
@@ -90,7 +91,7 @@
 
 
       <!-- Favorites Tab -->
-      <ion-tab title="Favorites" icon-off="icon ion-star" icon-on="icon ion-star" href="#/tab/favorites">
+      <ion-tab title="Favorites" icon-off="icon ion-star" icon-on="icon ion-star" badge="favCount()" badge-style="badge-assertive" on-select="enteringFavorites()" on-deselect="leavingFavorites()"  href="#/tab/favorites">
         <ion-nav-view name="tab-favorites"></ion-nav-view>
       </ion-tab>
 
@@ -110,7 +111,7 @@
   <div class="card">
         <div class="item item-divider">Welcome to the Craft Beer Store</div>
         <div class="item item-text-wrap">
-          We hope you enjoy our delicious variety of craft beers! Browse our menu to find
+          Browse our menu to find
           the perfect drink for you. Warning, some of our drinks contain high levels of alcohol.
           Check out below the free entertainment that is happening today.
         </div>
@@ -314,27 +315,28 @@
                 The flavor is toward the sweet side, with a malty character matched
                 to a big body and culminating in a dry finish.</p>
                 <div class="item item-toggle">
-                  <h2>{{vm.following ? "Following" : "Not Following"}}</h2>
+                  {{vm.following ? "Following" : "Not Following"}}
                     <label class="toggle toggle-energized">
                       <input type="checkbox" ng-model="vm.following">
                         <div class="track">
                           <div class="handle"></div>
                         </div>
-                    </lablel>
+                    </label>
                 </div>
             </div>
            <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
-              <a class="tab-item" href="#tab/food">
-                <i class="icon ion-beer"></i>
-                  Order Now
-              </a>
+              
+           <a class="tab-item" ng-click="openModal()">
+             <i class="icon ion-images"></i>
+               Images
+           </a>
               <a class="tab-item" href="#">
                 <i class="icon ion-link"></i>
                   Website
               </a>
-              <a class="tab-item" ng-click="openModal()">
-                <i class="icon ion-images"></i>
-                  Images
+              <a class="tab-item" href="#tab/food">
+                <i class="icon ion-beer"></i>
+                  Order Now
               </a>
           </div>
         </div>

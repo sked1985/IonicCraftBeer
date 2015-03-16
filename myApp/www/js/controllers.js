@@ -28,6 +28,14 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('TabsCtrl', function($scope, User) {
+  $scope.favCount = User.favoriteCount;
+
+  $scope.enteringFavorites = function(){
+    User.newFavorites = 0;
+  }
+})
+
 //Home Page controller
 .controller('HomeCtrl', function($scope, auth, $http, $timeout, $ionicModal, $ionicActionSheet, $ionicLoading, $ionicPopup, EventsService, $state, store) {
   var comment = {

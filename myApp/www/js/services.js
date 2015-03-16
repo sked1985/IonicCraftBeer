@@ -17,7 +17,8 @@ angular.module('starter.services', [])
    .factory('User', function(){
 
      var o = {
-       favorites: []
+       favorites: [],
+       newFavorites: 0
      }
 
      o.addSongToFavorites = function(song){
@@ -25,7 +26,12 @@ angular.module('starter.services', [])
        if(!song) return false;
 
        o.favorites.unshift(song);
+       o.newFavorites ++;
 
+     }
+
+     o.favoriteCount = function(){
+       return o.newFavorites;
      }
 
      o.removeSongFromFavorites = function(song, index){

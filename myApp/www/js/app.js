@@ -35,7 +35,8 @@ angular.module('starter', ['ionic',
 .config(function($stateProvider, $urlRouterProvider, authProvider, $httpProvider,
   jwtInterceptorProvider) {
 
-  // Ionic uses AngularUI Router which uses the concept of states
+
+  // Ionic uses AngularUI Router which uses the concept of st$ionicConfigProvidertes
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
@@ -284,6 +285,7 @@ angular.module('starter', ['ionic',
       return idToken;
     }
   }
+
 
   $httpProvider.interceptors.push('jwtInterceptor');
 }).run(function($rootScope, auth, store) {

@@ -75,7 +75,7 @@
 <!--Tabs at the bottom of the apps page-->
 <script id="templates/tabs.html" type="text/ng-template">
 
-    <ion-tabs class="tabs-icon-top tabs-color-active-positive">
+    <ion-tabs class="tabs-icon-top tabs-clear tabs-color-active-positive">
       <!--Home tab-->
 
       <ion-tab title="Home" icon-off="ion-home" icon-on="ion-home"  href="#/tab/home">
@@ -144,7 +144,7 @@
 <!--Start of the browse menu page-->
 <script id="templates/browse.html" type="text/ng-template">
     <ion-view title="Menu">
-      <ion-content class="padding" header-shrink scroll-event-interval="5">
+      <ion-content class="padding">
       <div style="height: 50px;"></div>
         <div class="list">
           <a class="item item-thumbnail-left" a href="#tab/beers">
@@ -325,7 +325,7 @@
                 </div>
             </div>
            <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
-              
+
            <a class="tab-item" ng-click="openModal()">
              <i class="icon ion-images"></i>
                Images

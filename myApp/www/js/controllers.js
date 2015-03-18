@@ -27,7 +27,7 @@ angular.module('starter.controllers', [])
     $ionicSideMenuDelegate.toggleRight();
   };
 })
-
+//Controller for the tabs
 .controller('TabsCtrl', function($scope, User) {
   $scope.favCount = User.favoriteCount;
 
@@ -35,7 +35,6 @@ angular.module('starter.controllers', [])
     User.newFavorites = 0;
   }
 })
-
 //Home Page controller
 .controller('HomeCtrl', function($scope, auth, $http, $timeout, $ionicModal, $ionicActionSheet, $ionicLoading, $ionicPopup, EventsService, $state, store) {
   var comment = {
@@ -103,8 +102,6 @@ angular.module('starter.controllers', [])
    });
  };
 
-
-
   //Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function() {
     if ($scope.modal) {
@@ -117,10 +114,9 @@ angular.module('starter.controllers', [])
     $scope.today = events[new Date().getDay()];
   });
 
-
-
 })
 
+//Controller for the discover items tabs
   .controller('DiscoverCtrl', function($scope, $timeout, User) {
     // our first three songs
     $scope.songs = [
@@ -168,8 +164,6 @@ angular.module('starter.controllers', [])
      User.removeSongFromFavorites(song, index);
    }
 
-
-
 })
 
 
@@ -181,7 +175,6 @@ Controller for the favorites page
   $scope.favorites = User.favorites;
 
 })
-
 
 //Events controller
 .controller('EventsCtrl', function ($scope, EventsService) {
@@ -290,8 +283,6 @@ Controller for the favorites page
        }
      });
    };
-
-
 
   }
 ])

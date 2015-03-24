@@ -65,7 +65,6 @@
             <ion-item href="#/tab/browse" class="item-icon-left" menu-close><i class="icon ion-document"></i>Menu</ion-item>
             <ion-item href="#/tab/events" class="item-icon-left" menu-close><i class="icon ion-music-note"></i>Events</ion-item>
             <ion-item href="#/tab/images" class="item-icon-left" menu-close><i class="icon ion-calendar"></i>Gallery</ion-item>
-            <ion-item href="#/tab/review" class="item-icon-left" menu-close> <i class="icon ion-star"></i>Review</ion-item>
             <ion-item href="#/tab/about" class="item-icon-left" menu-close> <i class="icon ion-ios7-information"></i> About</ion-item>
           </ion-list>
           </ion-content>
@@ -100,7 +99,7 @@
 <!--End of tabs page-->
 <!--Start of the home page-->
 <script type="text/ng-template" id="templates/home.html">
-  <ion-view title="Home" hide-back-button="true"/>
+  <ion-view title='<img class="title-image" src="http://www.ionicframework.com/img/ionic-logo-white.svg" width="123" height="35" />' hide-back-button="true"/>
   <ion-nav-buttons side="right">
     <button class="button" ng-click="logout()">
       Log out
@@ -298,9 +297,7 @@
 <!--This is the start of the baltika page-->
 <script type="text/ng-template" id="templates/baltika.html">
     <ion-view title="Baltika" ng-controller="HomeCtrl">
-      <ion-nav-buttons side="right">
-        <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
-        </ion-nav-buttons>
+
       <ion-content padding="true" header-shrink scroll-event-interval="5">
       <div style="height: 50px;"></div>
           <div class="list card">

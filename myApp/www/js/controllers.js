@@ -117,26 +117,82 @@ angular.module('starter.controllers', [])
 })
 
 //Controller for the discover items tabs
-  .controller('DiscoverCtrl', function($scope, $timeout, User) {
+  .controller('DiscoverCtrl', function($scope, $timeout, User, $ionicPopup) {
+
+    // An alert dialog
+      $scope.showAlert = function() {
+      var alertPopup = $ionicPopup.alert({
+      title: 'Welcome to the Discover Page!',
+      type: 'button-positive',
+      template: 'Favorite the ones you like, Skip the ones you hate! Enjoy'
+      });
+      alertPopup.then(function(res) {
+      console.log('Thank you for liking');
+      });
+      };
+
+
     // our first three songs
     $scope.songs = [
        {
           "title":"Fishers",
           "artist":"Beer",
-          "image_small":"http://bptrade.asia/staging/tippletown_15/wp-content/uploads/2014/12/beer_flight_-_fishers_stitungsbrau_erdinger_weissbrau_erdinger_oktoberfest_brew_erdinger_dunkel_31.jpg",
-          "image_large":"http://bptrade.asia/staging/tippletown_15/wp-content/uploads/2014/12/beer_flight_-_fishers_stitungsbrau_erdinger_weissbrau_erdinger_oktoberfest_brew_erdinger_dunkel_31.jpg"
+          "image_small":"http://i38.tinypic.com/zx8d1i.jpg",
+          "image_large":"http://i38.tinypic.com/zx8d1i.jpg"
        },
        {
-          "title":"Venom - Original Mix",
-          "artist":"Ziggy",
-          "image_small":"http://www.48thparallelbrewing.com/uploads/3/1/4/6/31462091/1043639.jpg?1406856041",
-          "image_large":"http://www.48thparallelbrewing.com/uploads/3/1/4/6/31462091/1043639.jpg?1406856041"
+          "title":"Guinness",
+          "artist":"Stout",
+          "image_small":"http://www.redfm.ie/wp-content/uploads/2014/08/guinness1.jpg",
+          "image_large":"http://www.redfm.ie/wp-content/uploads/2014/08/guinness1.jpg"
        },
        {
-          "title":"Do It",
-          "artist":"Rootkit",
-          "image_small":"https://i.scdn.co/image/398df9a33a6019c0e95e3be05fbaf19be0e91138",
-          "image_large":"https://i.scdn.co/image/4e47ee3f6214fabbbed2092a21e62ee2a830058a"
+          "title":"Trouble Brewing",
+          "artist":"Stout",
+          "image_small":"http://thegreenmanstudio.com/wp-content/uploads/2011/11/darkarts.jpg",
+          "image_large":"http://thegreenmanstudio.com/wp-content/uploads/2011/11/darkarts.jpg"
+       },
+       {
+          "title":"Club",
+          "artist":"Sandwich",
+          "image_small":"http://i.huffpost.com/gen/1107767/images/o-CLUB-SANDWICH-facebook.jpg",
+          "image_large":"http://i.huffpost.com/gen/1107767/images/o-CLUB-SANDWICH-facebook.jpg"
+       },
+       {
+          "title":"Americano",
+          "artist":"Coffee",
+          "image_small":"https://ardyssrecipes.files.wordpress.com/2012/12/black_coffee_cup_nice-1680x1050.jpg",
+          "image_large":"https://ardyssrecipes.files.wordpress.com/2012/12/black_coffee_cup_nice-1680x1050.jpg"
+       },
+       {
+          "title":"BLT",
+          "artist":"Sandwich",
+          "image_small":"http://i38.http://upload.wikimedia.org/wikipedia/commons/f/f1/BLT_sandwich_(1).jpg.com/zx8d1i.jpg",
+          "image_large":"http://i38.http://upload.wikimedia.org/wikipedia/commons/f/f1/BLT_sandwich_(1).jpg.com/zx8d1i.jpg"
+       },
+       {
+          "title":"Fishers",
+          "artist":"Beer",
+          "image_small":"https://s-media-cache-ak0.pinimg.com/originals/32/21/6c/32216ccffb6f3f2184a54ce11f537a11.jpg",
+          "image_large":"https://s-media-cache-ak0.pinimg.com/originals/32/21/6c/32216ccffb6f3f2184a54ce11f537a11.jpg"
+       },
+       {
+          "title":"Whiskey Sour",
+          "artist":"Cocktails",
+          "image_small":"http://www.betcheslovethis.com/files/uploads/images/whiskeys.jpg",
+          "image_large":"http://www.betcheslovethis.com/files/uploads/images/whiskeys.jpg"
+       },
+       {
+          "title":"Baltika",
+          "artist":"Beer",
+          "image_small":"http://3.bp.blogspot.com/-rpQ7MkjZURE/T8EoQYBjQJI/AAAAAAAADdk/OKIC67DYSOk/s1600/Zombie+Dust.jpg",
+          "image_large":"http://3.bp.blogspot.com/-rpQ7MkjZURE/T8EoQYBjQJI/AAAAAAAADdk/OKIC67DYSOk/s1600/Zombie+Dust.jpg"
+       },
+       {
+          "title":"Dungarven",
+          "artist":"Beer",
+          "image_small":"http://drinkwiththewench.com/wp-content/uploads/2013/01/12244_10102418352089945_1869374664_n.jpg",
+          "image_large":"http://drinkwiththewench.com/wp-content/uploads/2013/01/12244_10102418352089945_1869374664_n.jpg"
        }
     ];
 

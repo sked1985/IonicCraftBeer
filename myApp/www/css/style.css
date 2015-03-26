@@ -1,5 +1,9 @@
 /* Empty. Add your own CSS if you like */
 /*fake status bar*/
+.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+    color: #4a87ee;
+}
+
 .fake-statusbar {
   height: 20px;
   max-height: 20px;

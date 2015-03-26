@@ -22,6 +22,7 @@
     <script src="lib/firebase/firebase.js"></script>
     <script src="lib/angularfire/dist/angularfire.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
+    <script src="js/ng-cordova.min.js"></script>
     <script src="cordova.js"></script>
     <!-- your app's js -->
     <script src="js/auth0-variables.js"></script>
@@ -106,7 +107,7 @@
       Log out
     </button>
   </ion-nav-buttons>
-  <ion-content class="padding" header-shrink scroll-event-interval="5">
+  <ion-content class="padding">
   <div style="height: 64px;"></div>
   <div class="card">
         <div class="item item-divider">Welcome to the Craft Beer Store</div>
@@ -299,8 +300,8 @@
 <script type="text/ng-template" id="templates/baltika.html">
     <ion-view title="Baltika" ng-controller="HomeCtrl">
 
-      <ion-content padding="true" header-shrink scroll-event-interval="5">
-      <div style="height: 60px;"></div>
+      <ion-content padding="true">
+      <div style="height: 50px;"></div>
           <div class="list card">
             <div class="item item-avatar">
                 <img src="img/baltika.jpg">
@@ -765,7 +766,7 @@ the Images page -->
   <h1 class="title">Total: {{order.total | currency:"€"}}, Items {{order.items.length}}</h1>
 </ion-footer-bar>
 <ion-content header-shrink scroll-event-interval="5">
-<div style="height: 60px;"></div>
+<div style="height: 65px;"></div>
 <ion-list>
   <span ng-repeat="course in menu">
   <ion-item class="item-divider">{{course.meal}}</ion-item>

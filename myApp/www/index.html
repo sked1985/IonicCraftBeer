@@ -36,6 +36,7 @@
 <!--start of the application-->
 <body ng-app="starter" animation="slide-left-right-ios7">
 <!--This the start of the side menus functionality-->
+<fake-statusbar></fake-statusbar>
 <ion-side-menus>
         <ion-side-menu-content ng-controller="NavCtrl">
           <ion-nav-bar class="bar-positive">
@@ -58,7 +59,7 @@
             <h1 class="title">Craft Beer App</h1>
           </ion-header-bar>
           <ion-content has-header="true">
-            <div style="height: 50px;"></div>
+            <div style="height: 60px;"></div>
           <ion-list>
             <ion-item href="#/tab/home" class="item-icon-left" menu-close><i class="icon ion-home"></i> Home</ion-item>
             <ion-item href="#/tab/food" class="item-icon-left" menu-close><i class="icon ion-beer"></i> Order</ion-item>
@@ -106,7 +107,7 @@
     </button>
   </ion-nav-buttons>
   <ion-content class="padding" header-shrink scroll-event-interval="5">
-  <div style="height: 50px;"></div>
+  <div style="height: 64px;"></div>
   <div class="card">
         <div class="item item-divider">Welcome to the Craft Beer Store</div>
         <div class="item item-text-wrap">
@@ -144,7 +145,7 @@
 <script id="templates/browse.html" type="text/ng-template">
     <ion-view title="Menu">
       <ion-content class="padding">
-      <div style="height: 50px;"></div>
+      <div style="height: 60px;"></div>
         <div class="list">
           <a class="item item-thumbnail-left" a href="#tab/beers">
             <img src="img/beer1.jpg">
@@ -185,7 +186,7 @@
 <script id="templates/beers.html" type="text/ng-template">
     <ion-view title="Beers">
         <ion-content class="padding">
-        <div style="height: 50px;"></div>
+        <div style="height: 60px;"></div>
      <div class="list">
           <a class="item item-avatar" a href="#tab/baltika">
               <img src="img/baltika.jpg">
@@ -226,7 +227,7 @@
 <script id="templates/ciders.html" type="text/ng-template">
     <ion-view title="Ciders">
     <ion-content class="padding">
-    <div style="height: 50px;"></div>
+    <div style="height: 60px;"></div>
      <div class="list">
  <a class="item item-avatar" a href="#tab/bulmers">
       <img src="img/bulmers.jpg">
@@ -267,7 +268,7 @@
 <script id="templates/sandwiches.html" type="text/ng-template">
     <ion-view title="Sandwiches">
     <ion-content class="padding">
-    <div style="height: 50px;"></div>
+    <div style="height: 60px;"></div>
      <div class="list">
  <a class="item item-avatar" a href ="#tab/club">
       <img src="img/club.jpg">
@@ -299,7 +300,7 @@
     <ion-view title="Baltika" ng-controller="HomeCtrl">
 
       <ion-content padding="true" header-shrink scroll-event-interval="5">
-      <div style="height: 50px;"></div>
+      <div style="height: 60px;"></div>
           <div class="list card">
             <div class="item item-avatar">
                 <img src="img/baltika.jpg">
@@ -360,7 +361,7 @@
 <script type="text/ng-template" id="templates/dungarvan.html">
     <ion-view title="Dungarvan">
       <ion-content padding="true" header-shrink scroll-event-interval="5">
-      <div style="height: 50px;"></div>
+      <div style="height: 60px;"></div>
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/baltika.jpg">
@@ -410,7 +411,7 @@
 <script id="templates/dungarvenimg.html" type="text/ng-template">
   <ion-view title="Images">
   <ion-content class="has-header padding" ng-controller="MediaCtrl2">
-  <div style="height: 50px;"></div>
+  <div style="height: 60px;"></div>
     <div class="card">
       <div class="item item-divider">
         <b>Blt</b>
@@ -442,7 +443,7 @@
 <script type="text/ng-template" id="templates/bohemian.html">
     <ion-view title="Bohemian">
       <ion-content padding="true">
-      <div style="height: 50px;"></div>
+      <div style="height: 60px;"></div>
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/bare.jpg">
@@ -542,7 +543,7 @@
 <script type="text/ng-template" id="templates/strongbow.html">
     <ion-view title="Strongbow">
       <ion-content padding="true">
-      <div style="height: 50px;"></div>
+      <div style="height: 60px;"></div>
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/strongbow.jpg">
@@ -592,7 +593,7 @@
 <script type="text/ng-template" id="templates/club.html">
     <ion-view title="Club">
       <ion-content padding="true">
-      <div style="height: 50px;"></div>
+      <div style="height: 60px;"></div>
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/club.jpg">
@@ -642,7 +643,7 @@
 <script type="text/ng-template" id="templates/blt.html">
     <ion-view title="BLT">
       <ion-content padding="true">
-      <div style="height: 50px;"></div>
+      <div style="height: 60px;"></div>
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/blt.jpg">
@@ -694,7 +695,7 @@ the Images page -->
     <ion-view title="Gallery">
         <ion-content class="has-header padding" ng-controller="MediaCtrl">
 
-        <div style="height: 50px;"></div>
+        <div style="height: 60px;"></div>
       <div class="item item-divider">
           <i class="ion-images"></i>
             My Images
@@ -727,44 +728,11 @@ the Images page -->
 </ion-view>
 </script>
 <!--End of images page-->
-<!--Review page-->
-<script type="text/ng-template" id="templates/review.html">
-<ion-view title="Review">
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
-<div class="card">
-  <div class="item item-divider">
-    <b>Welcome</b>
-  </div>
-  <div class="item item-text-wrap">
-    Welcome to our review page. If you like what you swipe righy, otherwise swope left!!!
-  </div>
-</div>
-     <ion-pane ng-controller="CardsCtrl">
-          <td-cards>
-              <td-card id="td-card" ng-repeat="card in cards" on-destroy="cardDestroyed($index)"
-              on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)"
-              on-partial-swipe="cardPartialSwipe(amt)">
-                  <div class="title">
-                      {{card.title}}
-                  </div>
-                  <div class="image">
-                      <div class="no-text overlayBox"><div class="noBox boxed">No</div></div>
-                      <img ng-src="{{card.image}}">
-                      <div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Yes</div></div>
-                  </div>
-              </td-card>
-          </td-cards>
-      </ion-pane>
-  </ion-view>
-
-</script>
 <!--login page-->
 <script id="login.html" type="text/ng-template">
   <ion-view title="Login">
     <ion-content>
-    <div style="height: 50px;"></div>
+    <div style="height: 60px;"></div>
     </ion-content>
     </ion-view>
 </script>
@@ -774,7 +742,7 @@ the Images page -->
 <script id="templates/events.html" type="text/ng-template">
 <ion-view title="Upcoming Events">
   <ion-content header-shrink scroll-event-interval="5">
-  <div style="height: 50px;"></div>
+  <div style="height: 60px;"></div>
     <ul class="list">
       <span ng-repeat="day in events">
       <li class="item item-divider">{{day.day}}</li>
@@ -797,7 +765,7 @@ the Images page -->
   <h1 class="title">Total: {{order.total | currency:"€"}}, Items {{order.items.length}}</h1>
 </ion-footer-bar>
 <ion-content header-shrink scroll-event-interval="5">
-<div style="height: 50px;"></div>
+<div style="height: 60px;"></div>
 <ion-list>
   <span ng-repeat="course in menu">
   <ion-item class="item-divider">{{course.meal}}</ion-item>
@@ -814,7 +782,7 @@ the Images page -->
 <script id="templates/about.html" type="text/ng-template">
 <ion-view title="About">
   <ion-content class="padding">
-    <div style="height: 50px;"></div>
+    <div style="height: 60px;"></div>
     <p>App built as an example for demonstrating many features of the Ionic Framework. Built by Barry Mc Gettigan.</p>
     <h3>Projects Used</h3>
     <ul>

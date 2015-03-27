@@ -191,6 +191,33 @@ angular.module('starter', ['ionic',
        }
      })
 
+     .state('tab.stouts', {
+      url: "/stouts",
+      views: {
+        'tab-home': {
+          templateUrl: "templates/stouts.html"
+        }
+      }
+    })
+
+    .state('tab.cocktails', {
+     url: "/cocktails",
+     views: {
+       'tab-home': {
+         templateUrl: "templates/cocktails.html"
+       }
+     }
+   })
+
+   .state('tab.coffees', {
+    url: "/coffees",
+    views: {
+      'tab-home': {
+        templateUrl: "templates/coffees.html"
+      }
+    }
+  })
+
      .state('tab.sandwiches', {
       url: "/sandwiches",
       views: {
@@ -217,15 +244,6 @@ angular.module('starter', ['ionic',
           templateUrl: "templates/dungarvan.html"
         }
       }
-    })
-
-    .state('tab.dungarvenimg', {
-     url: "/dungarvenimg",
-     views: {
-       'tab-home': {
-         templateUrl: "templates/dungarvenimg.html"
-       }
-     }
     })
 
     .state('tab.bohemian', {

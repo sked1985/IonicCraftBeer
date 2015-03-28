@@ -5,14 +5,15 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Craft Beer Application</title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
+
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+
     <!--<script src="lib/angular-cookies/angular-cookies.js"></script>-->
     <script src="lib/auth0-angular/build/auth0-angular.js"></script>
     <script src="lib/a0-angular-storage/dist/angular-storage.js"></script>
@@ -642,6 +643,273 @@
     </ion-view>
 </script>
 <!--End of strongbow page-->
+<!--Start of the guinness page-->
+<script type="text/ng-template" id="templates/guinness.html">
+    <ion-view title="Guinness">
+      <ion-content padding="true">
+      <div style="height: 60px;"></div>
+<div class="list card">
+  <div class="item item-avatar">
+    <img src="img/guinness.jpg">
+      <h2>Guinness</h2>
+        <p>Pint of the black stuff?</p>
+    </div>
+    <div class="item item-body">
+        <img class="full-image" src="img/guinness2.jpg">
+        <p>Our pints of guinness are the creamiest around and are regullarly checked by our quality team. Try it today!!!</p>
+        <div class="item item-toggle">
+          {{vm.following ? "Following" : "Not Following"}}
+            <label class="toggle toggle-energized">
+              <input type="checkbox" ng-model="vm.following">
+                <div class="track">
+                  <div class="handle"></div>
+                </div>
+            </label>
+        </div>
+    </div>
+    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+
+    <a class="tab-item" ng-click="openModal()">
+     <i class="icon ion-images"></i>
+       Images
+    </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-link"></i>
+          Website
+      </a>
+      <a class="tab-item" href="#tab/food">
+        <i class="icon ion-beer"></i>
+          Order Now
+      </a>
+    </div>
+</div>
+</ion-content>
+    </ion-view>
+</script>
+<!--End of guinness page-->
+<!--Start of the guinness page-->
+<script type="text/ng-template" id="templates/oharas.html">
+    <ion-view title="O Haras">
+      <ion-content padding="true">
+      <div style="height: 60px;"></div>
+<div class="list card">
+  <div class="item item-avatar">
+    <img src="img/oharas.jpg">
+      <h2>O Haras</h2>
+        <p>Strong stout</p>
+    </div>
+    <div class="item item-body">
+        <img class="full-image" src="img/oharas2.jpg">
+        <p>Our pints of o haras are the creamiest around and are regullarly checked by our quality team. Try it today!!!</p>
+        <div class="item item-toggle">
+          {{vm.following ? "Following" : "Not Following"}}
+            <label class="toggle toggle-energized">
+              <input type="checkbox" ng-model="vm.following">
+                <div class="track">
+                  <div class="handle"></div>
+                </div>
+            </label>
+        </div>
+    </div>
+    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+
+    <a class="tab-item" ng-click="openModal()">
+     <i class="icon ion-images"></i>
+       Images
+    </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-link"></i>
+          Website
+      </a>
+      <a class="tab-item" href="#tab/food">
+        <i class="icon ion-beer"></i>
+          Order Now
+      </a>
+    </div>
+</div>
+</ion-content>
+    </ion-view>
+</script>
+<!--End of oharas page-->
+<!--Start of the whiskey sour page-->
+<script type="text/ng-template" id="templates/whiskey.html">
+    <ion-view title="Whiskey Sour">
+      <ion-content padding="true">
+      <div style="height: 60px;"></div>
+<div class="list card">
+  <div class="item item-avatar">
+    <img src="img/whiskey.jpg">
+      <h2>Whiskey Sour</h2>
+        <p>Take your time with these</p>
+    </div>
+    <div class="item item-body">
+        <img class="full-image" src="img/whiskey2.jpg">
+        <p>The whiskey sour is a mixed drink containing whiskey, lemon juice, sugar,
+         and optionally, a dash of egg white. With the egg white, it is sometimes called
+          a Boston Sour.</p>
+        <div class="item item-toggle">
+          {{vm.following ? "Following" : "Not Following"}}
+            <label class="toggle toggle-energized">
+              <input type="checkbox" ng-model="vm.following">
+                <div class="track">
+                  <div class="handle"></div>
+                </div>
+            </label>
+        </div>
+    </div>
+    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+
+    <a class="tab-item" ng-click="openModal()">
+     <i class="icon ion-images"></i>
+       Images
+    </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-link"></i>
+          Website
+      </a>
+      <a class="tab-item" href="#tab/food">
+        <i class="icon ion-beer"></i>
+          Order Now
+      </a>
+    </div>
+</div>
+</ion-content>
+    </ion-view>
+</script>
+<!--this is the end of the whiskey sour page-->
+<!--Start of the sex on the beach page-->
+<script type="text/ng-template" id="templates/sex.html">
+    <ion-view title="Sex on the beach">
+      <ion-content padding="true">
+      <div style="height: 60px;"></div>
+<div class="list card">
+  <div class="item item-avatar">
+    <img src="img/sex.jpg">
+      <h2>Sex on the beach</h2>
+        <p>These are very moreish</p>
+    </div>
+    <div class="item item-body">
+        <img class="full-image" src="img/sex2.jpg">
+        <p>The summer is here so why not try our beautiful sex on the beach cocktails. Contains plenty of
+        alcohol so take your time.</p>
+        <div class="item item-toggle">
+          {{vm.following ? "Following" : "Not Following"}}
+            <label class="toggle toggle-energized">
+              <input type="checkbox" ng-model="vm.following">
+                <div class="track">
+                  <div class="handle"></div>
+                </div>
+            </label>
+        </div>
+    </div>
+    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+
+    <a class="tab-item" ng-click="openModal()">
+     <i class="icon ion-images"></i>
+       Images
+    </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-link"></i>
+          Website
+      </a>
+      <a class="tab-item" href="#tab/food">
+        <i class="icon ion-beer"></i>
+          Order Now
+      </a>
+    </div>
+</div>
+</ion-content>
+    </ion-view>
+</script>
+<!--this is the end of the sex on the beach page-->
+<!--Start of the americano page-->
+<script type="text/ng-template" id="templates/americano.html">
+    <ion-view title="Americano">
+      <ion-content padding="true">
+      <div style="height: 60px;"></div>
+<div class="list card">
+  <div class="item item-avatar">
+    <img src="img/americano.jpg">
+      <h2>Americano</h2>
+        <p>This will soon wake you up</p>
+    </div>
+    <div class="item item-body">
+        <img class="full-image" src="img/americano2.jpg">
+        <p>All our coffees are made fresh to order here. We use only the finest coffee beans.</p>
+        <div class="item item-toggle">
+          {{vm.following ? "Following" : "Not Following"}}
+            <label class="toggle toggle-energized">
+              <input type="checkbox" ng-model="vm.following">
+                <div class="track">
+                  <div class="handle"></div>
+                </div>
+            </label>
+        </div>
+    </div>
+    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+
+    <a class="tab-item" ng-click="openModal()">
+     <i class="icon ion-images"></i>
+       Images
+    </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-link"></i>
+          Website
+      </a>
+      <a class="tab-item" href="#tab/food">
+        <i class="icon ion-beer"></i>
+          Order Now
+      </a>
+    </div>
+</div>
+</ion-content>
+    </ion-view>
+</script>
+<!--this is the end of the americano page-->
+<!--Start of the capacino page-->
+<script type="text/ng-template" id="templates/cappuccino.html">
+    <ion-view title="Cappuccino">
+      <ion-content padding="true">
+      <div style="height: 60px;"></div>
+<div class="list card">
+  <div class="item item-avatar">
+    <img src="img/cappuccino.jpg">
+      <h2>Cappuccino</h2>
+        <p>The best around</p>
+    </div>
+    <div class="item item-body">
+        <img class="full-image" src="img/cappuccino2.jpg">
+        <p>All our coffees are made fresh to order here. We use only the finest coffee beans.</p>
+        <div class="item item-toggle">
+          {{vm.following ? "Following" : "Not Following"}}
+            <label class="toggle toggle-energized">
+              <input type="checkbox" ng-model="vm.following">
+                <div class="track">
+                  <div class="handle"></div>
+                </div>
+            </label>
+        </div>
+    </div>
+    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+
+    <a class="tab-item" ng-click="openModal()">
+     <i class="icon ion-images"></i>
+       Images
+    </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-link"></i>
+          Website
+      </a>
+      <a class="tab-item" href="#tab/food">
+        <i class="icon ion-beer"></i>
+          Order Now
+      </a>
+    </div>
+</div>
+</ion-content>
+    </ion-view>
+</script>
+<!--this is the end of the cappacino page-->
 <!--This the club sandwich page -->
 <script type="text/ng-template" id="templates/club.html">
     <ion-view title="Club">

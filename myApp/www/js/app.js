@@ -32,6 +32,7 @@ angular.module('starter', ['ionic',
   });
 })
 
+//This is the controller for the fake status bar on the app
 .directive('fakeStatusbar', function() {
   return {
     restrict: 'E',
@@ -40,6 +41,7 @@ angular.module('starter', ['ionic',
   }
 })
 
+//This is the controller for the header shrink animation in the application
 .directive('headerShrink', function($document) {
   var fadeAmt;
 
@@ -270,6 +272,60 @@ angular.module('starter', ['ionic',
      views: {
        'tab-home': {
          templateUrl: "templates/strongbow.html"
+       }
+     }
+    })
+
+    .state('tab.guinness', {
+     url: "/guinness",
+     views: {
+       'tab-home': {
+         templateUrl: "templates/guinness.html"
+       }
+     }
+    })
+
+    .state('tab.oharas', {
+     url: "/oharas",
+     views: {
+       'tab-home': {
+         templateUrl: "templates/oharas.html"
+       }
+     }
+    })
+
+    .state('tab.whiskey', {
+     url: "/whiskey",
+     views: {
+       'tab-home': {
+         templateUrl: "templates/whiskey.html"
+       }
+     }
+    })
+
+    .state('tab.sex', {
+     url: "/sex",
+     views: {
+       'tab-home': {
+         templateUrl: "templates/sex.html"
+       }
+     }
+    })
+
+    .state('tab.americano', {
+     url: "/americano",
+     views: {
+       'tab-home': {
+         templateUrl: "templates/americano.html"
+       }
+     }
+    })
+
+    .state('tab.cappuccino', {
+     url: "/cappuccino",
+     views: {
+       'tab-home': {
+         templateUrl: "templates/cappuccino.html"
        }
      }
     })

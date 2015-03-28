@@ -1,4 +1,12 @@
 {
   "name": "CraftBeerApp",
-  "app_id": "50cb6d88"
+  "app_id": "50cb6d88",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }

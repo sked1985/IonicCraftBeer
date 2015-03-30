@@ -233,7 +233,8 @@ angular.module('starter', ['ionic',
        url: "/baltika",
        views: {
          'tab-home': {
-           templateUrl: "templates/baltika.html"
+           templateUrl: "templates/baltika.html",
+           controller: 'HomeCtrl'
          }
        }
      })
@@ -243,7 +244,8 @@ angular.module('starter', ['ionic',
       url: "/dungarvan",
       views: {
         'tab-home': {
-          templateUrl: "templates/dungarvan.html"
+          templateUrl: "templates/dungarvan.html",
+          controller: 'HomeCtrl'
         }
       }
     })
@@ -252,7 +254,8 @@ angular.module('starter', ['ionic',
      url: "/bohemian",
      views: {
        'tab-home': {
-         templateUrl: "templates/bohemian.html"
+         templateUrl: "templates/bohemian.html",
+         controller: 'HomeCtrl'
        }
      }
     })
@@ -261,7 +264,8 @@ angular.module('starter', ['ionic',
      url: "/bulmers",
      views: {
        'tab-home': {
-         templateUrl: "templates/bulmers.html"
+         templateUrl: "templates/bulmers.html",
+         controller: 'HomeCtrl'
        }
      }
     })
@@ -271,7 +275,8 @@ angular.module('starter', ['ionic',
      url: "/strongbow",
      views: {
        'tab-home': {
-         templateUrl: "templates/strongbow.html"
+         templateUrl: "templates/strongbow.html",
+         controller: 'HomeCtrl'
        }
      }
     })
@@ -280,7 +285,8 @@ angular.module('starter', ['ionic',
      url: "/guinness",
      views: {
        'tab-home': {
-         templateUrl: "templates/guinness.html"
+         templateUrl: "templates/guinness.html",
+         controller: 'HomeCtrl'
        }
      }
     })
@@ -289,7 +295,8 @@ angular.module('starter', ['ionic',
      url: "/oharas",
      views: {
        'tab-home': {
-         templateUrl: "templates/oharas.html"
+         templateUrl: "templates/oharas.html",
+         controller: 'HomeCtrl'
        }
      }
     })
@@ -298,7 +305,8 @@ angular.module('starter', ['ionic',
      url: "/whiskey",
      views: {
        'tab-home': {
-         templateUrl: "templates/whiskey.html"
+         templateUrl: "templates/whiskey.html",
+         controller: 'HomeCtrl'
        }
      }
     })
@@ -307,7 +315,8 @@ angular.module('starter', ['ionic',
      url: "/sex",
      views: {
        'tab-home': {
-         templateUrl: "templates/sex.html"
+         templateUrl: "templates/sex.html",
+         controller: 'HomeCtrl'
        }
      }
     })
@@ -316,7 +325,8 @@ angular.module('starter', ['ionic',
      url: "/americano",
      views: {
        'tab-home': {
-         templateUrl: "templates/americano.html"
+         templateUrl: "templates/americano.html",
+         controller: 'HomeCtrl'
        }
      }
     })
@@ -325,7 +335,8 @@ angular.module('starter', ['ionic',
      url: "/cappuccino",
      views: {
        'tab-home': {
-         templateUrl: "templates/cappuccino.html"
+         templateUrl: "templates/cappuccino.html",
+         controller: 'HomeCtrl'
        }
      }
     })
@@ -334,7 +345,8 @@ angular.module('starter', ['ionic',
      url: "/club",
      views: {
        'tab-home': {
-         templateUrl: "templates/club.html"
+         templateUrl: "templates/club.html",
+         controller: 'HomeCtrl'
        }
      }
     })
@@ -343,7 +355,8 @@ angular.module('starter', ['ionic',
      url: "/blt",
      views: {
        'tab-home': {
-         templateUrl: "templates/blt.html"
+         templateUrl: "templates/blt.html",
+         controller: 'HomeCtrl'
        }
      }
     })

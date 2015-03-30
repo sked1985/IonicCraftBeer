@@ -36,7 +36,23 @@ angular.module('starter.controllers', [])
   }
 })
 //Home Page controller
-.controller('HomeCtrl', function($scope, auth, $http, $timeout, $ionicModal, $ionicActionSheet, $ionicLoading, $ionicPopup, EventsService, $state, store) {
+.controller('HomeCtrl', function($scope, auth, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup, EventsService, $state, store) {
+
+  $scope.data = {}
+
+  $scope.data = {}
+
+   // Triggered on a button click, or some other target
+   $scope.showPopup = function() {
+     var alertPopup = $ionicPopup.alert({
+       title: 'Like what you see?',
+       template: 'Press the order now button'
+     });
+     alertPopup.then(function(res) {
+       console.log('Thank you for not eating my delicious ice cream cone');
+     });
+  }
+
   var comment = {
     message: '',
     rating: 5
@@ -80,27 +96,7 @@ angular.module('starter.controllers', [])
    $state.go('login');
  }
 
-  //Favorite function on Baltika page
-  $scope.showOptions = function () {
-   var sheet = $ionicActionSheet.show({
-     buttons: [
-       {text: 'Toggle Favorite'}
-     ],
-     cancelText: 'Cancel',
-     buttonClicked: function (index) {
-       if (index === 0) {
-         Favorites.toggle($stateParams);
-       }
-       if (index === 1) {
-         Favorites.primary($stateParams);
-       }
-       if (index === 2) {
-         $scope.showModal();
-       }
-       return true;
-     }
-   });
- };
+
 
   //Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function() {
@@ -115,6 +111,8 @@ angular.module('starter.controllers', [])
   });
 
 })
+
+
 
 //Controller for the discover items tabs
   .controller('DiscoverCtrl', function($scope, $timeout, User, $ionicPopup) {
@@ -313,6 +311,335 @@ Controller for the favorites page
 
   }
 ])
+
+//Bulmers Image gallery controller
+.controller('BulmersCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', function ($scope, $ionicModal, $ionicSlideBoxDelegate) {
+
+  	$scope.aImages = [{
+      	'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+      	'msg' : 'This was easier than expected'
+    	}, {
+        'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+        'msg' : ''
+      }, {
+        'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+        'msg' : ''
+    }];
+
+    $ionicModal.fromTemplateUrl('image-modal2.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+
+    $scope.openModal = function() {
+      $scope.modal.show();
+      // Important: This line is needed to update the current ion-slide's width
+      // Try commenting this line, click the button and see what happens
+      $ionicSlideBoxDelegate.update();
+    };
+
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
+
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function() {
+      $scope.modal.remove();
+    });
+    // Execute action on hide modal
+    $scope.$on('modal.hide', function() {
+      // Execute action
+    });
+    // Execute action on remove modal
+    $scope.$on('modal.removed', function() {
+      // Execute action
+    });
+    $scope.$on('modal.shown', function() {
+      console.log('Modal is shown!');
+    });
+
+    // Call this functions if you need to manually control the slides
+    $scope.next = function() {
+      $ionicSlideBoxDelegate.next();
+    };
+
+    $scope.previous = function() {
+      $ionicSlideBoxDelegate.previous();
+    };
+
+    // Called each time the slide changes
+    $scope.slideChanged = function(index) {
+      $scope.slideIndex = index;
+    };
+
+
+  }
+])
+
+//Guinness Image gallery controller
+.controller('GuinnessCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', function ($scope, $ionicModal, $ionicSlideBoxDelegate) {
+
+  	$scope.aImages = [{
+      	'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+      	'msg' : 'Pint of Guinness '
+    	}, {
+        'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+        'msg' : ''
+      }, {
+        'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+        'msg' : ''
+    }];
+
+    $ionicModal.fromTemplateUrl('image-modal3.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+
+    $scope.openModal = function() {
+      $scope.modal.show();
+      // Important: This line is needed to update the current ion-slide's width
+      // Try commenting this line, click the button and see what happens
+      $ionicSlideBoxDelegate.update();
+    };
+
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
+
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function() {
+      $scope.modal.remove();
+    });
+    // Execute action on hide modal
+    $scope.$on('modal.hide', function() {
+      // Execute action
+    });
+    // Execute action on remove modal
+    $scope.$on('modal.removed', function() {
+      // Execute action
+    });
+    $scope.$on('modal.shown', function() {
+      console.log('Modal is shown!');
+    });
+
+    // Call this functions if you need to manually control the slides
+    $scope.next = function() {
+      $ionicSlideBoxDelegate.next();
+    };
+
+    $scope.previous = function() {
+      $ionicSlideBoxDelegate.previous();
+    };
+
+    // Called each time the slide changes
+    $scope.slideChanged = function(index) {
+      $scope.slideIndex = index;
+    };
+
+
+  }
+])
+//Guinness Image gallery controller
+.controller('CocktailsCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', function ($scope, $ionicModal, $ionicSlideBoxDelegate) {
+
+  	$scope.aImages = [{
+      	'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+      	'msg' : 'Beautiful Cocktails '
+    	}, {
+        'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+        'msg' : ''
+      }, {
+        'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+        'msg' : ''
+    }];
+
+    $ionicModal.fromTemplateUrl('image-modal4.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+
+    $scope.openModal = function() {
+      $scope.modal.show();
+      // Important: This line is needed to update the current ion-slide's width
+      // Try commenting this line, click the button and see what happens
+      $ionicSlideBoxDelegate.update();
+    };
+
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
+
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function() {
+      $scope.modal.remove();
+    });
+    // Execute action on hide modal
+    $scope.$on('modal.hide', function() {
+      // Execute action
+    });
+    // Execute action on remove modal
+    $scope.$on('modal.removed', function() {
+      // Execute action
+    });
+    $scope.$on('modal.shown', function() {
+      console.log('Modal is shown!');
+    });
+
+    // Call this functions if you need to manually control the slides
+    $scope.next = function() {
+      $ionicSlideBoxDelegate.next();
+    };
+
+    $scope.previous = function() {
+      $ionicSlideBoxDelegate.previous();
+    };
+
+    // Called each time the slide changes
+    $scope.slideChanged = function(index) {
+      $scope.slideIndex = index;
+    };
+
+
+  }
+])
+//Coffees Image gallery controller
+.controller('CoffeesCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', function ($scope, $ionicModal, $ionicSlideBoxDelegate) {
+
+  	$scope.aImages = [{
+      	'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+      	'msg' : 'Pictures of delicious coffee'
+    	}, {
+        'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+        'msg' : ''
+      }, {
+        'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+        'msg' : ''
+    }];
+
+    $ionicModal.fromTemplateUrl('image-modal5.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+
+    $scope.openModal = function() {
+      $scope.modal.show();
+      // Important: This line is needed to update the current ion-slide's width
+      // Try commenting this line, click the button and see what happens
+      $ionicSlideBoxDelegate.update();
+    };
+
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
+
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function() {
+      $scope.modal.remove();
+    });
+    // Execute action on hide modal
+    $scope.$on('modal.hide', function() {
+      // Execute action
+    });
+    // Execute action on remove modal
+    $scope.$on('modal.removed', function() {
+      // Execute action
+    });
+    $scope.$on('modal.shown', function() {
+      console.log('Modal is shown!');
+    });
+
+    // Call this functions if you need to manually control the slides
+    $scope.next = function() {
+      $ionicSlideBoxDelegate.next();
+    };
+
+    $scope.previous = function() {
+      $ionicSlideBoxDelegate.previous();
+    };
+
+    // Called each time the slide changes
+    $scope.slideChanged = function(index) {
+      $scope.slideIndex = index;
+    };
+
+
+  }
+])
+//Coffees Image gallery controller
+.controller('SandwichesCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', function ($scope, $ionicModal, $ionicSlideBoxDelegate) {
+
+  	$scope.aImages = [{
+      	'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+      	'msg' : 'Tasty'
+    	}, {
+        'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+        'msg' : ''
+      }, {
+        'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+        'msg' : ''
+    }];
+
+    $ionicModal.fromTemplateUrl('image-modal6.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+
+    $scope.openModal = function() {
+      $scope.modal.show();
+      // Important: This line is needed to update the current ion-slide's width
+      // Try commenting this line, click the button and see what happens
+      $ionicSlideBoxDelegate.update();
+    };
+
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
+
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function() {
+      $scope.modal.remove();
+    });
+    // Execute action on hide modal
+    $scope.$on('modal.hide', function() {
+      // Execute action
+    });
+    // Execute action on remove modal
+    $scope.$on('modal.removed', function() {
+      // Execute action
+    });
+    $scope.$on('modal.shown', function() {
+      console.log('Modal is shown!');
+    });
+
+    // Call this functions if you need to manually control the slides
+    $scope.next = function() {
+      $ionicSlideBoxDelegate.next();
+    };
+
+    $scope.previous = function() {
+      $ionicSlideBoxDelegate.previous();
+    };
+
+    // Called each time the slide changes
+    $scope.slideChanged = function(index) {
+      $scope.slideIndex = index;
+    };
+
+
+  }
+])
+
+
 
 //ActionSheet controller
 .controller('ActionCtrl', ['$scope', '$ionicActionSheet',  function ($scope, $ionicActionSheet) {

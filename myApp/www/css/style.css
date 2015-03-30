@@ -1,9 +1,13 @@
 /* Empty. Add your own CSS if you like */
-
+h2 {
+    color:#0099CC;
+    font-weight: bold;
+}
 /*fake status bar*/
 .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
-    color:  #057b6c;
+    color:  #0099CC;
 }
+
 
 .fake-statusbar {
   height: 20px;

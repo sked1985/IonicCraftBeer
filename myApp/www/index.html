@@ -111,32 +111,24 @@
   <ion-content class="padding">
   <div style="height: 64px;"></div>
   <div class="card">
-        <div class="item item-divider">Welcome to the Craft Beer Store</div>
+        <div class="item item-divider item-positive">Welcome to the Craft Beer Store</div>
         <div class="item item-text-wrap">
           Browse our menu to find
           the perfect drink for you. Warning, some of our drinks contain high levels of alcohol.
           Check out below the free entertainment that is happening today.
         </div>
       </div>
-      <!--<div class="card">
-        <div class="item item-divider">Current Weather</div>
-        <div class="item" ng-if="!weather"><span class="icon ion-loading-d"></span></div>
-        <div class="item item-text-wrap">
-          <p>Currently {{weather.main.temp}}&deg;F and {{weather.weather[0].description}}.</p>
-        </div>
-        <a class="item button button-positive button-block" href="#/weather">See Forecast</a>
-      </div>-->
 
       <div class="card">
-        <div class="item item-divider">Todays Events</div>
+        <div class="item item-divider item-positive">Todays Events</div>
         <div class="item" ng-if="!today"><span class="icon ion-loading-d"></span></div>
         <div class="item" ng-repeat="item in today.events">{{item.event}}, {{item.time}}</div>
         <a class="item button button-positive button-block" href="#/tab/events">See all events</a>
       </div>
 
       <div class="card">
-        <div class="item item-icon-left" ng-click="openComments()">
-          <i class="icon ion-chatbubble"></i> Send us a comment
+        <div class="item item-icon-left assertive" ng-click="openComments()">
+          <i class="icon ion-chatbubble-working"></i><b>Send us a comment</b>
         </div>
       </div>
     </ion-content>
@@ -151,32 +143,32 @@
         <div class="list">
           <a class="item item-thumbnail-left" a href="#tab/beers">
             <img src="img/beer1.jpg">
-              <h2>Beers</h2>
+              <h2><b>Beers</b></h2>
                 <p>Check out our fine selection</p>
           </a>
           <a class="item item-thumbnail-left" a href="#tab/ciders">
             <img src="img/cider2.jpg">
-              <h2>Ciders</h2>
+              <h2><b>Ciders</b></h2>
                 <p>Made from the freshest apples</p>
           </a>
           <a class="item item-thumbnail-left" href="#tab/stouts">
             <img src="img/stout.jpg">
-              <h2>Stouts</h2>
+              <h2><b>Stouts</b></h2>
                 <p>Tastiest around</p>
           </a>
           <a class="item item-thumbnail-left" href="#tab/cocktails">
             <img src="img/cocktail2.jpg">
-              <h2>Cocktails</h2>
+              <h2><b>Cocktails</b></h2>
                 <p>Party on!!</p>
           </a>
           <a class="item item-thumbnail-left" href="#tab/coffees">
             <img src="img/coffee.jpg">
-              <h2>Coffees</h2>
+              <h2><b>Coffees</b></h2>
                 <p>Delicious and cheap</p>
           </a>
           <a class="item item-thumbnail-left" a href="#tab/sandwiches">
             <img src="img/sandwich.jpg">
-              <h2>Sandwiches</h2>
+              <h2><b>Sandwiches</b</h2>
                 <p>Try our delicious range</p>
           </a>
         </div>
@@ -403,8 +395,11 @@
 <!--This is the end of the sandwiches page-->
 <!--This is the start of the baltika page-->
 <script type="text/ng-template" id="templates/baltika.html">
-    <ion-view title="Baltika" ng-controller="HomeCtrl">
-
+    <ion-view title="Baltika">
+    <ion-nav-buttons side="right">
+      <button ng-click="showPopup()" class="button icon ion-help-circled">
+    </button>
+    </ion-nav-buttons>
       <ion-content padding="true">
       <div style="height: 50px;"></div>
           <div class="list card">
@@ -466,6 +461,10 @@
 <!--This the dungarven Beer page -->
 <script type="text/ng-template" id="templates/dungarvan.html">
     <ion-view title="Dungarvan">
+    <ion-nav-buttons side="right">
+      <button ng-click="showPopup()" class="button icon ion-help-circled">
+    </button>
+    </ion-nav-buttons>
       <ion-content padding="true" header-shrink scroll-event-interval="5">
       <div style="height: 60px;"></div>
 <div class="list card">
@@ -512,6 +511,10 @@
 <!--This the Bohemian Beer page -->
 <script type="text/ng-template" id="templates/bohemian.html">
     <ion-view title="Bohemian">
+    <ion-nav-buttons side="right">
+      <button ng-click="showPopup()" class="button icon ion-help-circled">
+    </button>
+    </ion-nav-buttons>
       <ion-content padding="true">
       <div style="height: 60px;"></div>
           <div class="list card">
@@ -558,8 +561,12 @@
 <!--This the bulmers page -->
 <script type="text/ng-template" id="templates/bulmers.html">
     <ion-view title="Bulmers">
+    <ion-nav-buttons side="right">
+      <button ng-click="showPopup()" class="button icon ion-help-circled">
+    </button>
+    </ion-nav-buttons>
       <ion-content padding="true">
-      <div style="height: 50px;"></div>
+      <div style="height: 60px;"></div>
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/bulmers.jpg">
@@ -579,7 +586,7 @@
             </label>
         </div>
     </div>
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BulmersCtrl">
 
     <a class="tab-item" ng-click="openModal()">
      <i class="icon ion-images"></i>
@@ -599,9 +606,27 @@
     </ion-view>
 </script>
 <!--This is the end of the bulmers page-->
+<!--Start of Bulmers image page-->
+<script id="image-modal2.html" type="text/ng-template">
+              <div class="modal image-modal transparent"
+                   ng-click="closeModal()">
+                <ion-slide-box on-slide-changed="slideChanged(index)"
+                               show-pager="false">
+                  <ion-slide ng-repeat="oImage in aImages">
+                    <img ng-src="{{oImage.src}}" class="fullscreen-image" />
+                    <p class="info">{{oImage.msg}}</p>
+                  </ion-slide>
+                </ion-slide-box>
+              </div>
+          </script>
+<!--End of Bukmers image page-->
 <!--This the strongbow page -->
 <script type="text/ng-template" id="templates/strongbow.html">
     <ion-view title="Strongbow">
+    <ion-nav-buttons side="right">
+      <button ng-click="showPopup()" class="button icon ion-help-circled">
+    </button>
+    </ion-nav-buttons>
       <ion-content padding="true">
       <div style="height: 60px;"></div>
 <div class="list card">
@@ -623,7 +648,7 @@
             </label>
         </div>
     </div>
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BulmersCtrl">
 
     <a class="tab-item" ng-click="openModal()">
      <i class="icon ion-images"></i>
@@ -646,6 +671,10 @@
 <!--Start of the guinness page-->
 <script type="text/ng-template" id="templates/guinness.html">
     <ion-view title="Guinness">
+    <ion-nav-buttons side="right">
+      <button ng-click="showPopup()" class="button icon ion-help-circled">
+    </button>
+    </ion-nav-buttons>
       <ion-content padding="true">
       <div style="height: 60px;"></div>
 <div class="list card">
@@ -667,7 +696,7 @@
             </label>
         </div>
     </div>
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="GuinnessCtrl">
 
     <a class="tab-item" ng-click="openModal()">
      <i class="icon ion-images"></i>
@@ -687,9 +716,27 @@
     </ion-view>
 </script>
 <!--End of guinness page-->
-<!--Start of the guinness page-->
+<!--Start of Guinness image page-->
+<script id="image-modal3.html" type="text/ng-template">
+              <div class="modal image-modal transparent"
+                   ng-click="closeModal()">
+                <ion-slide-box on-slide-changed="slideChanged(index)"
+                               show-pager="false">
+                  <ion-slide ng-repeat="oImage in aImages">
+                    <img ng-src="{{oImage.src}}" class="fullscreen-image" />
+                    <p class="info">{{oImage.msg}}</p>
+                  </ion-slide>
+                </ion-slide-box>
+              </div>
+          </script>
+<!--End of Guinness image page-->
+<!--Start of the oharas page-->
 <script type="text/ng-template" id="templates/oharas.html">
     <ion-view title="O Haras">
+    <ion-nav-buttons side="right">
+      <button ng-click="showPopup()" class="button icon ion-help-circled">
+    </button>
+    </ion-nav-buttons>
       <ion-content padding="true">
       <div style="height: 60px;"></div>
 <div class="list card">
@@ -711,7 +758,7 @@
             </label>
         </div>
     </div>
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="GuinnessCtrl">
 
     <a class="tab-item" ng-click="openModal()">
      <i class="icon ion-images"></i>
@@ -734,6 +781,10 @@
 <!--Start of the whiskey sour page-->
 <script type="text/ng-template" id="templates/whiskey.html">
     <ion-view title="Whiskey Sour">
+    <ion-nav-buttons side="right">
+      <button ng-click="showPopup()" class="button icon ion-help-circled">
+    </button>
+    </ion-nav-buttons>
       <ion-content padding="true">
       <div style="height: 60px;"></div>
 <div class="list card">
@@ -757,7 +808,7 @@
             </label>
         </div>
     </div>
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="CocktailsCtrl">
 
     <a class="tab-item" ng-click="openModal()">
      <i class="icon ion-images"></i>
@@ -777,9 +828,27 @@
     </ion-view>
 </script>
 <!--this is the end of the whiskey sour page-->
+<!--Start of Cocktails image page-->
+<script id="image-modal4.html" type="text/ng-template">
+              <div class="modal image-modal transparent"
+                   ng-click="closeModal()">
+                <ion-slide-box on-slide-changed="slideChanged(index)"
+                               show-pager="false">
+                  <ion-slide ng-repeat="oImage in aImages">
+                    <img ng-src="{{oImage.src}}" class="fullscreen-image" />
+                    <p class="info">{{oImage.msg}}</p>
+                  </ion-slide>
+                </ion-slide-box>
+              </div>
+          </script>
+<!--End of Cocktails image page-->
 <!--Start of the sex on the beach page-->
 <script type="text/ng-template" id="templates/sex.html">
     <ion-view title="Sex on the beach">
+    <ion-nav-buttons side="right">
+      <button ng-click="showPopup()" class="button icon ion-help-circled">
+    </button>
+    </ion-nav-buttons>
       <ion-content padding="true">
       <div style="height: 60px;"></div>
 <div class="list card">
@@ -825,6 +894,10 @@
 <!--Start of the americano page-->
 <script type="text/ng-template" id="templates/americano.html">
     <ion-view title="Americano">
+    <ion-nav-buttons side="right">
+      <button ng-click="showPopup()" class="button icon ion-help-circled">
+    </button>
+    </ion-nav-buttons>
       <ion-content padding="true">
       <div style="height: 60px;"></div>
 <div class="list card">
@@ -846,7 +919,7 @@
             </label>
         </div>
     </div>
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="CoffeesCtrl">
 
     <a class="tab-item" ng-click="openModal()">
      <i class="icon ion-images"></i>
@@ -866,9 +939,27 @@
     </ion-view>
 </script>
 <!--this is the end of the americano page-->
+<!--Start of Coffees image page-->
+<script id="image-modal5.html" type="text/ng-template">
+              <div class="modal image-modal transparent"
+                   ng-click="closeModal()">
+                <ion-slide-box on-slide-changed="slideChanged(index)"
+                               show-pager="false">
+                  <ion-slide ng-repeat="oImage in aImages">
+                    <img ng-src="{{oImage.src}}" class="fullscreen-image" />
+                    <p class="info">{{oImage.msg}}</p>
+                  </ion-slide>
+                </ion-slide-box>
+              </div>
+          </script>
+<!--End of Cocktails image page-->
 <!--Start of the capacino page-->
 <script type="text/ng-template" id="templates/cappuccino.html">
     <ion-view title="Cappuccino">
+    <ion-nav-buttons side="right">
+      <button ng-click="showPopup()" class="button icon ion-help-circled">
+    </button>
+    </ion-nav-buttons>
       <ion-content padding="true">
       <div style="height: 60px;"></div>
 <div class="list card">
@@ -890,7 +981,7 @@
             </label>
         </div>
     </div>
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="CoffeesCtrl">
 
     <a class="tab-item" ng-click="openModal()">
      <i class="icon ion-images"></i>
@@ -913,6 +1004,10 @@
 <!--This the club sandwich page -->
 <script type="text/ng-template" id="templates/club.html">
     <ion-view title="Club">
+      <ion-nav-buttons side="right">
+        <button ng-click="showPopup()" class="button icon ion-help-circled">
+      </button>
+      </ion-nav-buttons>
       <ion-content padding="true">
       <div style="height: 60px;"></div>
 <div class="list card">
@@ -934,7 +1029,8 @@
             </label>
         </div>
     </div>
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+
+    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="SandwichesCtrl">
 
     <a class="tab-item" ng-click="openModal()">
      <i class="icon ion-images"></i>
@@ -954,11 +1050,29 @@
     </ion-view>
 </script>
 <!--End of club sandwich page-->
+<!--Start of Sandwiches image page-->
+<script id="image-modal6.html" type="text/ng-template">
+              <div class="modal image-modal transparent"
+                   ng-click="closeModal()">
+                <ion-slide-box on-slide-changed="slideChanged(index)"
+                               show-pager="false">
+                  <ion-slide ng-repeat="oImage in aImages">
+                    <img ng-src="{{oImage.src}}" class="fullscreen-image" />
+                    <p class="info">{{oImage.msg}}</p>
+                  </ion-slide>
+                </ion-slide-box>
+              </div>
+          </script>
+<!--End of Sandwiches image page-->
 <!--This the blt sandwich page -->
 <script type="text/ng-template" id="templates/blt.html">
-    <ion-view title="BLT">
+  <ion-view title="BLT">
+    <ion-nav-buttons side="right">
+      <button ng-click="showPopup()" class="button icon ion-help-circled">
+    </button>
+    </ion-nav-buttons>
       <ion-content padding="true">
-      <div style="height: 60px;"></div>
+  <div style="height: 60px;"></div>
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/blt.jpg">

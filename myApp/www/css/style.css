@@ -24,6 +24,8 @@ h2 {
     max-height: 70px;
     width: 100%; }
 
+    
+
 /*fake status bar*/
 .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
     color:  #0099CC;

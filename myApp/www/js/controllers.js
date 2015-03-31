@@ -36,13 +36,11 @@ angular.module('starter.controllers', [])
   }
 })
 //Home Page controller
-.controller('HomeCtrl', function($scope, auth, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup, EventsService, $state, store) {
+.controller('HomeCtrl', function($scope, auth, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup, EventsService, $state, store, CommentsService, $rootScope) {
 
   $scope.data = {}
 
-  $scope.data = {}
-
-   // Triggered on a button click, or some other target
+   // This is the help button on the items page alert
    $scope.showPopup = function() {
      var alertPopup = $ionicPopup.alert({
        title: 'Like what you see?',
@@ -53,6 +51,11 @@ angular.module('starter.controllers', [])
      });
   }
 
+  //This is the start of the comments
+  $scope.comments = CommentsService;
+
+  $scope.comment = {};
+
   var comment = {
     message: '',
     rating: 5
@@ -60,7 +63,14 @@ angular.module('starter.controllers', [])
   $scope.comment = angular.copy(comment);
 
   //Sends the comments
-  $scope.sendComments = function () {
+  $scope.addComment = function(comment) {
+    $scope.comments.$add({content: message});
+    //we reset the text input field to an empty string
+
+  };
+
+  $scope.sendComments = function() {
+
     // Send comment
     $scope.cancelComments();
     $ionicPopup.alert({

@@ -5,7 +5,7 @@
     </div>
     <h1 class="title">Preview Order</h1>
     <div class="buttons">
-      <button class="button button-energized" ng-if="order.items.length"  ng-click="sendOrder()">Submit</button><!--ng-if="order.items.length"-->
+      <button class="button button-energized" ng-if="order.items.length"  ng-model="forward" ng-click="sendOrder()">Submit</button>
     </div>
   </ion-header-bar>
   <ion-content>

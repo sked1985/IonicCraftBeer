@@ -673,12 +673,15 @@ Controller for the favorites page
 //Order now controller
 .controller('FoodCtrl', function ($scope, $ionicListDelegate, $ionicLoading, $ionicModal, $ionicPopup, MenuService) {
 
+  $scope.forward = {};
+
   $scope.sendOrder = function () {
     $ionicPopup.alert({
       title: 'Order submitted',
       template: 'Your order will be delieved to your table in 5 minutes',
     }).then(function (code) {
       $scope.modal.hide();
+      console.log("This is logged" , $scope.forward);
     });
   }
 

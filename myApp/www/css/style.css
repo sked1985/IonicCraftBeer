@@ -1,8 +1,29 @@
 /* Empty. Add your own CSS if you like */
+/*styling for all the h2 elements in the app*/
 h2 {
     color:#0099CC;
     font-weight: bold;
 }
+
+/*styling for the badges on the menu page*/
+.item .icon .icon-badge {
+  position: absolute;
+  top: 3px;
+  right: 0px;
+  font-size: 8px;
+}
+
+.item-thumbnail-left, .item-thumbnail-left .item-content {
+  padding-left: 106px;
+  min-height: 90px; }
+  .item-thumbnail-left > img:first-child, .item-thumbnail-left .item-image, .item-thumbnail-left .item-content > img:first-child, .item-thumbnail-left .item-content .item-image {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    max-width: 70px;
+    max-height: 70px;
+    width: 100%; }
+
 /*fake status bar*/
 .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
     color:  #0099CC;

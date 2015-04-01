@@ -51,24 +51,28 @@ angular.module('starter.controllers', [])
      });
   }
 
+  var message = {
+    rating: 5
+  };
+
   //This is the start of the comments
   $scope.comments = CommentsService;
 
   $scope.comment = {};
 
-  var comment = {
-    message: '',
-    rating: 5
-  };
-  $scope.comment = angular.copy(comment);
+
+
+  $scope.comment = angular.copy(message);
 
   //Sends the comments
   $scope.addComment = function(comment) {
-    $scope.comments.$add({content: message});
+    $scope.comments.$add({content: comment});
     //we reset the text input field to an empty string
+    $scope.comment.theComment = "";
 
   };
 
+  //This is the function that displays the message when comments have been sent
   $scope.sendComments = function() {
 
     // Send comment
@@ -82,7 +86,7 @@ angular.module('starter.controllers', [])
 
   //Closes the comments page
   $scope.cancelComments = function () {
-    $scope.comment = angular.copy(comment);
+  
     $scope.modal.hide();
   }
 
@@ -105,8 +109,6 @@ angular.module('starter.controllers', [])
    store.remove('refreshToken');
    $state.go('login');
  }
-
-
 
   //Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function() {

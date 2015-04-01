@@ -9,9 +9,9 @@ angular.module('starter.services', [])
 
     //Comments Service
   .factory('CommentsService', function($firebase, $rootScope){
-    var firebase = new Firebase('https://skedchat.firebaseio.com/');
-    var service = $firebase(firebase);
-    return service;
+
+    var ref = new Firebase("https://skedchat.firebaseio.com/");
+       return $firebase(ref.limitToLast(10)).$asArray();
   })
 
  //Menu Service that is to return some data
@@ -20,6 +20,7 @@ angular.module('starter.services', [])
      var service = $firebase(firebase);
      return service;
    })
+
 //User Service for favorites
    .factory('User', function(){
 

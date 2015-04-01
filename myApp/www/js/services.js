@@ -10,7 +10,7 @@ angular.module('starter.services', [])
     //Comments Service
   .factory('CommentsService', function($firebase, $rootScope){
 
-    var ref = new Firebase("https://skedchat.firebaseio.com/");
+    var ref = new Firebase("https://craftbeerproject.firebaseio.com/");
        return $firebase(ref.limitToLast(10)).$asArray();
   })
 

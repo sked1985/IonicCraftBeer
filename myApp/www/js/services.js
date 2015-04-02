@@ -14,6 +14,13 @@ angular.module('starter.services', [])
        return $firebase(ref.limitToLast(10)).$asArray();
   })
 
+  //Comments Service
+  .factory('OrderService', function($firebase, $rootScope){
+
+    var ref = new Firebase("https://skedchat.firebaseio.com/");
+      return $firebase(ref.limitToLast(10)).$asArray();
+    })
+
  //Menu Service that is to return some data
  .factory('MenuService', function ($firebase) {
      var firebase = new Firebase('https://craftbeerproject.firebaseio.com/menu');

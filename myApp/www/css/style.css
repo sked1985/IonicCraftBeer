@@ -15,7 +15,8 @@ h2 {
 
 .item-thumbnail-left, .item-thumbnail-left .item-content {
   padding-left: 106px;
-  min-height: 90px; }
+  min-height: 70px; }
+
   .item-thumbnail-left > img:first-child, .item-thumbnail-left .item-image, .item-thumbnail-left .item-content > img:first-child, .item-thumbnail-left .item-content .item-image {
     position: absolute;
     top: 10px;
@@ -24,7 +25,7 @@ h2 {
     max-height: 70px;
     width: 100%; }
 
-    
+
 
 /*fake status bar*/
 .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {

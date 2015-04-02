@@ -86,7 +86,7 @@ angular.module('starter.controllers', [])
 
   //Closes the comments page
   $scope.cancelComments = function () {
-  
+
     $scope.modal.hide();
   }
 
@@ -651,52 +651,33 @@ Controller for the favorites page
   }
 ])
 
-
-
-//ActionSheet controller
-.controller('ActionCtrl', ['$scope', '$ionicActionSheet',  function ($scope, $ionicActionSheet) {
-
-  $scope.showOptions = function () {
-     var sheet = $ionicActionSheet.show({
-       buttons: [
-         {text: 'Toggle Favorite'},
-         {text: 'Set as Primary'},
-         {text: 'Sunrise Sunset Chart'}
-       ],
-       cancelText: 'Cancel',
-       buttonClicked: function (index) {
-         if (index === 0) {
-           Locations.toggle($stateParams);
-         }
-         if (index === 1) {
-           Locations.primary($stateParams);
-         }
-         if (index === 2) {
-           $scope.showModal();
-         }
-         return true;
-       }
-     });
-   };
-
-  }
-])
-
 //Order now controller
-.controller('FoodCtrl', function ($scope, $ionicListDelegate, $ionicLoading, $ionicModal, $ionicPopup, MenuService) {
+.controller('FoodCtrl', function ($scope, $ionicListDelegate, $ionicLoading, $ionicModal, $ionicPopup, MenuService, OrderService) {
 
-  $scope.forward = {};
 
+
+  $scope.orders = OrderService;
+
+  $scope.order = {};
+
+  $scope.addOrder = function(order){
+    $scope.orders.$add({content: order});
+
+    $scope.order.theOrder = "";
+  };
+
+  //This displays the submitted order message
   $scope.sendOrder = function () {
     $ionicPopup.alert({
       title: 'Order submitted',
       template: 'Your order will be delieved to your table in 5 minutes',
     }).then(function (code) {
       $scope.modal.hide();
-      console.log("This is logged" , $scope.forward);
+      console.log("This is logged" , $scope.order);
     });
   }
 
+  //This opens the preview order page
   $scope.openPreview = function() {
     $ionicModal.fromTemplateUrl('templates/preview.html', {
       scope: $scope,
@@ -707,6 +688,7 @@ Controller for the favorites page
     });
   };
 
+  //This cancels the preview order page
   $scope.cancelPreview = function () {
     $scope.modal.hide();
   };
@@ -743,7 +725,7 @@ Controller for the favorites page
   });
 
 })
-
+//End of the order controller
 //Image gallery
 .controller('MediaCtrl', function($scope, $ionicModal) {
 $scope.allImages = [{
@@ -802,106 +784,5 @@ $scope.showModal = function(templateUrl) {
       $scope.modal.hide();
       $scope.modal.remove()
   };
-})
-//End of image gallery
-//Swipe Cards Review functionality
-.controller('CardsCtrl', function($scope) {
-    var cardTypes = [
-        { image: 'img/beer.jpg', title: 'Baltika'},
-        { image: 'img/del7.jpg', title: 'Fantastic?'},
-        { image: 'img/bagel.jpg', title: 'Bagel'},
-        { image: 'img/del1.jpg', title: 'Did you like?'},
-        { image: 'img/del2.jpg', title: 'Tasty, No?'},
-        { image: 'img/del3.jpg', title: 'Swipe left if no'},
-        { image: 'img/del4.jpg', title: 'Surely you like this?'},
-        { image: 'img/del5.jpg', title: 'Freshly made'},
-        { image: 'img/del6.jpg', title: 'delish'},
-        { image: 'img/beer.jpg', title: 'Baltika'},
-        { image: 'img/del7.jpg', title: 'Fantastic?'},
-        { image: 'img/bagel.jpg', title: 'Bagel'},
-        { image: 'img/del1.jpg', title: 'Did you like?'},
-        { image: 'img/del2.jpg', title: 'Tasty, No?'},
-        { image: 'img/del3.jpg', title: 'Swipe left if no'},
-        { image: 'img/del4.jpg', title: 'Surely you like this?'},
-        { image: 'img/del5.jpg', title: 'Freshly made'},
-        { image: 'img/del6.jpg', title: 'delish'}
-    ];
-
-    $scope.cards = [];
-
-    $scope.addCard = function(i) {
-        var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
-        newCard.id = Math.random();
-        $scope.cards.push(angular.extend({}, newCard));
-    }
-
-    for(var i = 0; i < 18; i++) $scope.addCard();
-
-    $scope.cardSwipedLeft = function(index) {
-        console.log('Left swipe');
-    }
-
-    $scope.cardSwipedRight = function(index) {
-        console.log('Right swipe');
-    }
-
-    $scope.cardDestroyed = function(index) {
-        $scope.cards.splice(index, 1);
-        console.log('Card removed');
-    }
-})
-//End of swipe card functionality
-//Countdown controller
-.controller('AppCtrl', function($scope, $timeout) {
-    $scope.moveButtons = function() {
-        var buttons = document.getElementById('buttons');
-
-        move(buttons)
-        .ease('in-out')
-        .y(200)
-        .duration('0.5s')
-        .end();
-    };
-    $scope.blink = function(){
-      var bg = document.getElementById('contentBG');
-
-      var highlightBack = move(bg)
-      .set('background','#FFFFFF')
-      .duration('0.2s')
-      .end();
-
-      var highlight = move(bg)
-      .set('background', '#B9F6CA')
-      .duration('0.2s')
-      .then(highlightBack)
-      .end();
-    };
-    $scope.timer = function(){
-      if($scope.timerTimeout){
-        $timeout.cancel($scope.timerTimeout);
-      }
-    $scope.time=0;
-    $scope.timerTimeout = $timeout(onTimerTimeout,0);
-  };
-  function onTimerTimeout(){
-    $scope.time++;
-    var timer = document.getElementById('myTimer');
-
-    move(timer)
-    .ease('snap')
-    .set('opacity',1)
-    .scale(1.4)
-    .duration('0s')
-    .end();
-
-    move(timer)
-    .ease('out')
-    .x(150)
-    .rotate(140)
-    .scale(.1)
-    .set('opacity',0)
-    .duration('1s')
-    .end();
-    $scope.timerTimeout = $timeout(onTimerTimeout,1000);
-  };
 });
+//End of image gallery

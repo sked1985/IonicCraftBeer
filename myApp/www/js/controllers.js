@@ -66,7 +66,7 @@ angular.module('starter.controllers', [])
 
   //Sends the comments
   $scope.addComment = function(comment) {
-    $scope.comments.$add({content: comment});
+    $scope.comments.$add({message: comment});
     //we reset the text input field to an empty string
     $scope.comment.theComment = "";
 

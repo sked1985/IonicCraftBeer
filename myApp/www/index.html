@@ -110,10 +110,13 @@
       Log out
     </button>
   </ion-nav-buttons>
+  <ion-header-bar class="bar bar-subheader bar-energized">
+          <h1 class="title">The Craft Beer Store</h1>
+        </ion-header-bar>
   <ion-content class="padding">
-  <div style="height: 64px;"></div>
+  <div style="height: 90px;"></div>
   <div class="card">
-        <div class="item item-divider item-positive">Welcome to the Craft Beer Store</div>
+        <div class="item item-divider item-positive">Welcome</div>
         <div class="item item-text-wrap">
           Browse our menu to find
           the perfect drink for you. Warning, some of our drinks contain high levels of alcohol.
@@ -140,7 +143,7 @@
 <!--Start of the browse menu page-->
 <script id="templates/browse.html" type="text/ng-template">
     <ion-view title="Menu"
-      <ion-content class="padding">
+      <ion-content class="padding" header-shrink scroll-event-interval="5" has-bouncing="false">
       <div style="height: 60px;"></div>
         <div class="list">
           <a class="item item-thumbnail-left" a href="#tab/beers">

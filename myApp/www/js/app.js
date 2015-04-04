@@ -1,11 +1,4 @@
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-//Use YOUR Firebase URL (not the one below)
 
 angular.module('starter', ['ionic',
   'firebase',
@@ -14,10 +7,11 @@ angular.module('starter', ['ionic',
   'auth0',
   'angular-storage',
   'angular-jwt',
-  'ionic.ion.headerShrink',
-  'ionic.contrib.ui.tinderCards'
+  'ionic.ion.headerShrink'
   ])
 
+
+//Runs the application
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -32,7 +26,7 @@ angular.module('starter', ['ionic',
   });
 })
 
-//This is the controller for the fake status bar on the app
+//This is the directive for the fake status bar on the app
 .directive('fakeStatusbar', function() {
   return {
     restrict: 'E',
@@ -41,7 +35,7 @@ angular.module('starter', ['ionic',
   }
 })
 
-//This is the controller for the header shrink animation in the application
+//This is the directive for the header shrink animation in the application
 .directive('headerShrink', function($document) {
   var fadeAmt;
 

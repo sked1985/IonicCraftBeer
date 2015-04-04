@@ -38,6 +38,8 @@ angular.module('starter.controllers', [])
 //Home Page controller
 .controller('HomeCtrl', function($scope, auth, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup, EventsService, $state, store, CommentsService, $rootScope) {
 
+
+
   $scope.data = {}
 
    // This is the help button on the items page alert
@@ -90,9 +92,30 @@ angular.module('starter.controllers', [])
     $scope.modal.hide();
   }
 
+
+
   //Opens the comments page
   $scope.openComments = function() {
     $ionicModal.fromTemplateUrl('templates/comments.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+      $scope.modal.show();
+    });
+  };
+
+  //Closes the comments page
+  $scope.cancelBeerChat = function () {
+
+    $scope.modal.hide();
+  }
+
+
+
+  //Opens the comments page
+  $scope.openBeerChat = function() {
+    $ionicModal.fromTemplateUrl('templates/beerchat.html', {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function(modal) {
@@ -271,6 +294,8 @@ Controller for the favorites page
         'src' : 'http://ionicframework.com/img/ionic_logo.svg',
         'msg' : ''
     }];
+
+
 
     $ionicModal.fromTemplateUrl('image-modal.html', {
       scope: $scope,

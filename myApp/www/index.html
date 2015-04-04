@@ -29,10 +29,10 @@
     <script src="cordova.js"></script>
     <!-- your app's js -->
     <script src="js/auth0-variables.js"></script>
+    <!--Script for the header shrink feature -->
     <script src="lib/ionic-ion-header-shrink/ionic.headerShrink.js"></script>
     <script src="js/app.js"></script>
     <script src="lib/collide/collide.js"></script>
-    <script src="lib/ionic-contrib-tinder-cards/ionic.tdcards.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
   </head>
@@ -440,9 +440,9 @@
              <i class="icon ion-images"></i>
                Images
            </a>
-              <a class="tab-item" href="#">
-                <i class="icon ion-link"></i>
-                  Website
+              <a class="tab-item" ng-click="openBeerChat()">
+                <i class="icon ion-chatbubbles"></i>
+                  Chats
               </a>
               <a class="tab-item" href="#tab/food">
                 <i class="icon ion-beer"></i>

@@ -77,12 +77,14 @@ angular.module('starter.controllers', [])
   //This is the function that displays the message when comments have been sent
   $scope.sendComments = function() {
 
+    console.log("This is logged" , $scope.comment);
     // Send comment
     $scope.cancelComments();
     $ionicPopup.alert({
       title: 'Thank you!',
       template: 'We appreciate your comments!',
       okText: 'Close'
+
     });
   };
 
@@ -809,5 +811,20 @@ $scope.showModal = function(templateUrl) {
       $scope.modal.hide();
       $scope.modal.remove()
   };
-});
+})
 //End of image gallery
+//Beer chat controller
+.controller('chatController', ["$scope", "beerChat", function($scope, beerChat ) {
+    //Set messages to chatMessages factory which returns the firebase data
+    $scope.messages = beerChat;
+
+    //Initialize message object
+    $scope.message = {};
+
+    //Add message to the firebase data
+    $scope.addMessage = function(message) {
+      $scope.messages.$add({content: message});
+      //we reset the text input field to an empty string
+      $scope.message.theMessage = "";
+    };
+}]);

@@ -1,5 +1,4 @@
-<ion-modal-view>
-  <fake-statusbar></fake-statusbar>
+<ion-modal-view ng-controller="chatController">
   <ion-header-bar class="bar-royal">
     <h1 class="title">Tell us what you think!!</h1>
     <div class="buttons">
@@ -22,7 +21,7 @@
                          <input type="text" ng-model="message.theMessage" placeholder="Type your message..."
                          />
                      </label>
-                     <button class="button button-block button-dark" action="submit">
+                     <button class="button button-block button-royal" action="submit">
                          Send
                      </button>
                  </form>

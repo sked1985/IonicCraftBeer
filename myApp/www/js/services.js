@@ -28,6 +28,16 @@ angular.module('starter.services', [])
      return service;
    })
 
+   //Baltika beer chat service
+   .factory("beerChat", ['$firebase', "$rootScope", function($firebase, $rootScope){
+     // create a reference to the Firebase where we will store our data
+     var ref = new Firebase("https://craftbeerproject.firebaseio.com/");
+
+     // this uses AngularFire to create the synchronized array
+     // We limit the results to 10
+     return $firebase(ref.child('beerchat')).$asArray();
+   }])
+
 //User Service for favorites
    .factory('User', function(){
 

@@ -79,7 +79,7 @@
 <!--Tabs at the bottom of the apps page-->
 <script id="templates/tabs.html" type="text/ng-template">
 
-    <ion-tabs class="tabs-icon-top tabs-clear tabs-color-active-positive">
+    <ion-tabs ng-class="{'tabs-item-hide': $root.hideTabs}" class="tabs-icon-top tabs-clear tabs-color-active-positive">
       <!--Home tab-->
 
       <ion-tab title="Home" icon-off="ion-home" icon-on="ion-home"  href="#/tab/home">
@@ -142,7 +142,7 @@
 <!--End of home page-->
 <!--Start of the browse menu page-->
 <script id="templates/browse.html" type="text/ng-template">
-    <ion-view title="Menu">
+    <ion-view title="Menu" hide-tabs='true'>
       <ion-content class="padding" header-shrink scroll-event-interval="5" has-bouncing="false">
       <div style="height: 60px;"></div>
         <div class="list">
@@ -189,7 +189,7 @@
 <!--End of browse menu page-->
 <!--Start of the beers page-->
 <script id="templates/beers.html" type="text/ng-template">
-    <ion-view title="Beers">
+    <ion-view title="Beers" hide-tabs='true'>
         <ion-content class="padding">
         <div style="height: 60px;"></div>
      <div class="list">
@@ -230,7 +230,7 @@
 <!--End of beers list page-->
 <!--This is ciders items page-->
 <script id="templates/ciders.html" type="text/ng-template">
-    <ion-view title="Ciders">
+    <ion-view title="Ciders" hide-tabs='true'>
         <ion-content class="padding">
           <div style="height: 60px;"></div>
             <div class="list">
@@ -271,7 +271,7 @@
 <!--End of ciders page-->
 <!--This is the stouts page-->
 <script id="templates/stouts.html" type="text/ng-template">
-    <ion-view title="Stouts">
+    <ion-view title="Stouts" hide-tabs='true'>
         <ion-content class="padding">
           <div style="height: 60px;"></div>
             <div class="list">
@@ -307,7 +307,7 @@
 <!--End of stouts page-->
 <!--This is the cocktails page-->
 <script id="templates/cocktails.html" type="text/ng-template">
-    <ion-view title="Cocktails">
+    <ion-view title="Cocktails" hide-tabs='true'>
         <ion-content class="padding">
           <div style="height: 60px;"></div>
             <div class="list">
@@ -343,7 +343,7 @@
 <!--End of cocktails page-->
 <!--This is the coffees page-->
 <script id="templates/coffees.html" type="text/ng-template">
-    <ion-view title="Coffees">
+    <ion-view title="Coffees" hide-tabs='true'>
         <ion-content class="padding">
           <div style="height: 60px;"></div>
             <div class="list">
@@ -375,7 +375,7 @@
 <!--End of coffees page-->
 <!--This is the sandwiches items page-->
 <script id="templates/sandwiches.html" type="text/ng-template">
-    <ion-view title="Sandwiches">
+    <ion-view title="Sandwiches" hide-tabs='true'>
     <ion-content class="padding">
     <div style="height: 60px;"></div>
      <div class="list">
@@ -406,7 +406,7 @@
 <!--This is the end of the sandwiches page-->
 <!--This is the start of the baltika page-->
 <script type="text/ng-template" id="templates/baltika.html">
-    <ion-view title="Baltika">
+    <ion-view title="Baltika" hide-tabs='true'>
     <ion-nav-buttons side="right">
       <button ng-click="showPopup()" class="button icon ion-help-circled">
     </button>
@@ -471,7 +471,7 @@
 <!--End of Baltika image page-->
 <!--This the dungarven Beer page -->
 <script type="text/ng-template" id="templates/dungarvan.html">
-    <ion-view title="Dungarvan">
+    <ion-view title="Dungarvan" hide-tabs='true'>
     <ion-nav-buttons side="right">
       <button ng-click="showPopup()" class="button icon ion-help-circled">
     </button>
@@ -521,7 +521,7 @@
 <!--End of dungarven page-->
 <!--This the Bohemian Beer page -->
 <script type="text/ng-template" id="templates/bohemian.html">
-    <ion-view title="Bohemian">
+    <ion-view title="Bohemian" hide-tabs='true'>
     <ion-nav-buttons side="right">
       <button ng-click="showPopup()" class="button icon ion-help-circled">
     </button>
@@ -571,7 +571,7 @@
 <!--End of Bohemian page-->
 <!--This the bulmers page -->
 <script type="text/ng-template" id="templates/bulmers.html">
-    <ion-view title="Bulmers">
+    <ion-view title="Bulmers" hide-tabs='true'>
     <ion-nav-buttons side="right">
       <button ng-click="showPopup()" class="button icon ion-help-circled">
     </button>
@@ -633,7 +633,7 @@
 <!--End of Bukmers image page-->
 <!--This the strongbow page -->
 <script type="text/ng-template" id="templates/strongbow.html">
-    <ion-view title="Strongbow">
+    <ion-view title="Strongbow" hide-tabs='true'>
     <ion-nav-buttons side="right">
       <button ng-click="showPopup()" class="button icon ion-help-circled">
     </button>
@@ -681,7 +681,7 @@
 <!--End of strongbow page-->
 <!--Start of the guinness page-->
 <script type="text/ng-template" id="templates/guinness.html">
-    <ion-view title="Guinness">
+    <ion-view title="Guinness" hide-tabs='true'>
     <ion-nav-buttons side="right">
       <button ng-click="showPopup()" class="button icon ion-help-circled">
     </button>
@@ -743,7 +743,7 @@
 <!--End of Guinness image page-->
 <!--Start of the oharas page-->
 <script type="text/ng-template" id="templates/oharas.html">
-    <ion-view title="O Haras">
+    <ion-view title="O Haras" hide-tabs='true'>
     <ion-nav-buttons side="right">
       <button ng-click="showPopup()" class="button icon ion-help-circled">
     </button>
@@ -791,7 +791,7 @@
 <!--End of oharas page-->
 <!--Start of the whiskey sour page-->
 <script type="text/ng-template" id="templates/whiskey.html">
-    <ion-view title="Whiskey Sour">
+    <ion-view title="Whiskey Sour" hide-tabs='true'>
     <ion-nav-buttons side="right">
       <button ng-click="showPopup()" class="button icon ion-help-circled">
     </button>
@@ -855,7 +855,7 @@
 <!--End of Cocktails image page-->
 <!--Start of the sex on the beach page-->
 <script type="text/ng-template" id="templates/sex.html">
-    <ion-view title="Sex on the beach">
+    <ion-view title="Sex on the beach" hide-tabs='true'>
     <ion-nav-buttons side="right">
       <button ng-click="showPopup()" class="button icon ion-help-circled">
     </button>
@@ -904,7 +904,7 @@
 <!--this is the end of the sex on the beach page-->
 <!--Start of the americano page-->
 <script type="text/ng-template" id="templates/americano.html">
-    <ion-view title="Americano">
+    <ion-view title="Americano" hide-tabs='true'>
     <ion-nav-buttons side="right">
       <button ng-click="showPopup()" class="button icon ion-help-circled">
     </button>
@@ -966,7 +966,7 @@
 <!--End of Cocktails image page-->
 <!--Start of the capacino page-->
 <script type="text/ng-template" id="templates/cappuccino.html">
-    <ion-view title="Cappuccino">
+    <ion-view title="Cappuccino" hide-tabs='true'>
     <ion-nav-buttons side="right">
       <button ng-click="showPopup()" class="button icon ion-help-circled">
     </button>
@@ -1014,7 +1014,7 @@
 <!--this is the end of the cappacino page-->
 <!--This the club sandwich page -->
 <script type="text/ng-template" id="templates/club.html">
-    <ion-view title="Club">
+    <ion-view title="Club" hide-tabs='true'>
       <ion-nav-buttons side="right">
         <button ng-click="showPopup()" class="button icon ion-help-circled">
       </button>
@@ -1077,7 +1077,7 @@
 <!--End of Sandwiches image page-->
 <!--This the blt sandwich page -->
 <script type="text/ng-template" id="templates/blt.html">
-  <ion-view title="BLT">
+  <ion-view title="BLT" hide-tabs='true'>
     <ion-nav-buttons side="right">
       <button ng-click="showPopup()" class="button icon ion-help-circled">
     </button>

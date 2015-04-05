@@ -107,7 +107,7 @@ angular.module('starter.controllers', [])
     });
   };
 
-  //Closes the comments page
+  //Closes the beerchat page
   $scope.cancelBeerChat = function () {
 
     $scope.modal.hide();
@@ -115,9 +115,28 @@ angular.module('starter.controllers', [])
 
 
 
-  //Opens the comments page
+  //Opens the beerchat page
   $scope.openBeerChat = function() {
     $ionicModal.fromTemplateUrl('templates/beerchat.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+      $scope.modal.show();
+    });
+  };
+
+  //Closes the ciderchat page
+  $scope.cancelCiderChat = function () {
+
+    $scope.modal.hide();
+  }
+
+
+
+  //Opens the beerchat page
+  $scope.openCiderChat = function() {
+    $ionicModal.fromTemplateUrl('templates/ciderchat.html', {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function(modal) {
@@ -688,9 +707,8 @@ Controller for the favorites page
   $scope.order = {};
 
   $scope.addOrder = function(order){
-    $scope.orders.$add({content: order});
+    $scope.orders.$add({content: $scope.order});
 
-    $scope.order.theOrder = "";
   };
 
   //This displays the submitted order message
@@ -817,6 +835,22 @@ $scope.showModal = function(templateUrl) {
 .controller('chatController', ["$scope", "beerChat", function($scope, beerChat ) {
     //Set messages to chatMessages factory which returns the firebase data
     $scope.messages = beerChat;
+
+    //Initialize message object
+    $scope.message = {};
+
+    //Add message to the firebase data
+    $scope.addMessage = function(message) {
+      $scope.messages.$add({content: message});
+      //we reset the text input field to an empty string
+      $scope.message.theMessage = "";
+    };
+}])
+
+//Beer chat controller
+.controller('chatController1', ["$scope", "ciderChat", function($scope, ciderChat ) {
+    //Set messages to chatMessages factory which returns the firebase data
+    $scope.messages = ciderChat;
 
     //Initialize message object
     $scope.message = {};

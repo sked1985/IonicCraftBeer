@@ -142,7 +142,7 @@
 <!--End of home page-->
 <!--Start of the browse menu page-->
 <script id="templates/browse.html" type="text/ng-template">
-    <ion-view title="Menu"
+    <ion-view title="Menu">
       <ion-content class="padding" header-shrink scroll-event-interval="5" has-bouncing="false">
       <div style="height: 60px;"></div>
         <div class="list">
@@ -555,10 +555,10 @@
            <i class="icon ion-images"></i>
              Images
           </a>
-            <a class="tab-item" href="#">
-              <i class="icon ion-link"></i>
-                Website
-            </a>
+          <a class="tab-item" ng-click="openBeerChat()">
+            <i class="icon ion-chatbubbles"></i>
+              Chats
+          </a>
             <a class="tab-item" href="#tab/food">
               <i class="icon ion-beer"></i>
                 Order Now
@@ -603,10 +603,10 @@
      <i class="icon ion-images"></i>
        Images
     </a>
-      <a class="tab-item" href="#">
-        <i class="icon ion-link"></i>
-          Website
-      </a>
+    <a class="tab-item" ng-click="openCiderChat()">
+      <i class="icon ion-chatbubbles"></i>
+        Chats
+    </a>
       <a class="tab-item" href="#tab/food">
         <i class="icon ion-beer"></i>
           Order Now

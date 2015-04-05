@@ -17,8 +17,8 @@ angular.module('starter.services', [])
   //Comments Service
   .factory('OrderService', function($firebase, $rootScope){
 
-    var ref = new Firebase("https://skedchat.firebaseio.com/");
-      return $firebase(ref.child('orders')).$asArray();
+    var ref = new Firebase("https://craftbeerproject.firebaseio.com/");
+    return $firebase(ref.child('orders')).$asArray();
     })
 
  //Menu Service that is to return some data
@@ -36,6 +36,16 @@ angular.module('starter.services', [])
      // this uses AngularFire to create the synchronized array
      // We limit the results to 10
      return $firebase(ref.child('beerchat')).$asArray();
+   }])
+
+   //Baltika beer chat service
+   .factory("ciderChat", ['$firebase', "$rootScope", function($firebase, $rootScope){
+     // create a reference to the Firebase where we will store our data
+     var ref = new Firebase("https://craftbeerproject.firebaseio.com/");
+
+     // this uses AngularFire to create the synchronized array
+     // We limit the results to 10
+     return $firebase(ref.child('ciderchat')).$asArray();
    }])
 
 //User Service for favorites

@@ -83,7 +83,7 @@
     <ion-tabs ng-class="{'tabs-item-hide': $root.hideTabs}" class="tabs-icon-top tabs-clear tabs-color-active-positive">
       <!--Home tab-->
 
-      <ion-tab title="Home" icon-off="ion-home" icon-on="ion-home"  href="#/tab/home">
+      <ion-tab title="Home" icon-off="ion-home" icon-on="ion-home"  href="#/tab/home" class="ng-hide">
           <ion-nav-view name="tab-home"></ion-nav-view>
       </ion-tab>
 
@@ -120,7 +120,8 @@
   <ion-list>
     <div class="item item-avatar">
       <img ng-src="{{auth.profile.picture}}">
-      <h2><span ng-bind = "auth.profile.name"></span></h2>
+      <h2 class="h2"><span ng-bind = "auth.profile.name"></span></h2>
+      <h3><span ng-bind = "auth.profile.email"></span></h3>
     </div>
   </ion-list>
   <div class="card">
@@ -155,37 +156,37 @@
         <div class="list">
           <a class="item item-thumbnail-left" a href="#tab/beers">
             <img src="img/beer1.jpg">
-              <h2><b>Beers</b></h2>
+              <h2 class="h2"><b>Beers</b></h2>
                 <p>A fine selection</p>
                 <span class="badge badge-energized icon-badge">6</span>
           </a>
           <a class="item item-thumbnail-left" a href="#tab/ciders">
             <img src="img/cider2.jpg">
-              <h2><b>Ciders</b></h2>
+              <h2 class="h2"><b>Ciders</b></h2>
                 <p>Refreshing Cider </p>
                 <span class="badge badge-energized icon-badge">6</span>
           </a>
           <a class="item item-thumbnail-left" href="#tab/stouts">
             <img src="img/stout.jpg">
-              <h2><b>Stouts</b></h2>
+              <h2 class="h2"><b>Stouts</b></h2>
                 <p>Tastiest around</p>
                 <span class="badge badge-energized icon-badge">5</span>
           </a>
           <a class="item item-thumbnail-left" href="#tab/cocktails">
             <img src="img/cocktail2.jpg">
-              <h2><b>Cocktails</b></h2>
+              <h2 class="h2"><b>Cocktails</b></h2>
                 <p>Party on!!</p>
                 <span class="badge badge-energized icon-badge">5</span>
           </a>
           <a class="item item-thumbnail-left" href="#tab/coffees">
             <img src="img/coffee.jpg">
-              <h2><b>Coffees</b></h2>
+              <h2 class="h2"><b>Coffees</b></h2>
                 <p>Delicious and cheap</p>
                 <span class="badge badge-energized icon-badge">4</span>
           </a>
           <a class="item item-thumbnail-left" a href="#tab/sandwiches">
             <img src="img/sandwich.jpg">
-              <h2><b>Sandwiches</b></h2>
+              <h2 class="h2"><b>Sandwiches</b></h2>
                 <p>Try our delicious range</p>
                 <span class="badge badge-energized icon-badge">4</span>
           </a>
@@ -423,7 +424,7 @@
           <div class="list card">
             <div class="item item-avatar">
                 <img src="img/baltika.jpg">
-                    <h2>Baltika Beer</h2>
+                    <h2 class="h2">Baltika Beer</h2>
                       <p>Brewed in Russia, 1994</p>
             </div>
             <div class="item item-body">
@@ -488,7 +489,7 @@
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/baltika.jpg">
-      <h2>Dungarvan Beer</h2>
+      <h2 class="h2">Dungarvan Beer</h2>
         <p>Brewed in Ireland, 2002</p>
     </div>
     <div class="item item-body">
@@ -538,7 +539,7 @@
           <div class="list card">
             <div class="item item-avatar">
               <img src="img/bare.jpg">
-                <h2>Bohemian Beer</h2>
+                <h2 class="h2">Bohemian Beer</h2>
                   <p>This beer is currently unavaialble</p>
               </div>
     <div class="item item-body">
@@ -588,7 +589,7 @@
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/bulmers.jpg">
-      <h2>Bulmers</h2>
+      <h2 class="h2">Bulmers</h2>
         <p>It may not be craft but its a classic</p>
     </div>
     <div class="item item-body">
@@ -650,7 +651,7 @@
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/strongbow.jpg">
-      <h2>Strongbow</h2>
+      <h2 class="h2">Strongbow</h2>
         <p>It is ridiculously cheap</p>
     </div>
     <div class="item item-body">
@@ -698,7 +699,7 @@
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/guinness.jpg">
-      <h2>Guinness</h2>
+      <h2 class="h2">Guinness</h2>
         <p>Pint of the black stuff?</p>
     </div>
     <div class="item item-body">
@@ -760,7 +761,7 @@
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/oharas.jpg">
-      <h2>O Haras</h2>
+      <h2 class="h2">O Haras</h2>
         <p>Strong stout</p>
     </div>
     <div class="item item-body">
@@ -808,7 +809,7 @@
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/whiskey.jpg">
-      <h2>Whiskey Sour</h2>
+      <h2 class="h2">Whiskey Sour</h2>
         <p>Take your time with these</p>
     </div>
     <div class="item item-body">
@@ -872,7 +873,7 @@
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/sex.jpg">
-      <h2>Sex on the beach</h2>
+      <h2 class="h2">Sex on the beach</h2>
         <p>These are very moreish</p>
     </div>
     <div class="item item-body">
@@ -921,7 +922,7 @@
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/americano.jpg">
-      <h2>Americano</h2>
+      <h2 class="h2">Americano</h2>
         <p>This will soon wake you up</p>
     </div>
     <div class="item item-body">
@@ -983,7 +984,7 @@
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/cappuccino.jpg">
-      <h2>Cappuccino</h2>
+      <h2 class="h2">Cappuccino</h2>
         <p>The best around</p>
     </div>
     <div class="item item-body">
@@ -1031,7 +1032,7 @@
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/club.jpg">
-      <h2>Club Sandwich</h2>
+      <h2 class="h2">Club Sandwich</h2>
         <p>Absolutely delish</p>
     </div>
     <div class="item item-body">
@@ -1094,7 +1095,7 @@
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/blt.jpg">
-      <h2>BLT Sandwich</h2>
+      <h2 class="h2">BLT Sandwich</h2>
         <p>Goes great with a pint</p>
     </div>
     <div class="item item-body">
@@ -1188,7 +1189,7 @@ the Images page -->
       <span ng-repeat="day in events">
       <li class="item item-divider">{{day.day}}</li>
       <li class="item" ng-repeat="event in day.events">
-        <h2>{{event.event}}</h2>
+        <h2 class="h2">{{event.event}}</h2>
         <p>{{event.time}}, {{event.location}}</p>
       </li>
     </ul>

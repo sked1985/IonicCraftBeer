@@ -1,6 +1,5 @@
 /* Empty. Add your own CSS if you like */
 
-
 .chatbox {
     position:absolute;
     bottom: 0px;
@@ -20,7 +19,7 @@
     overflow: hidden;
 }
 /*styling for all the h2 elements in the app*/
-h2 {
+.h2 {
     color:#0099CC;
     font-weight: bold;
 }

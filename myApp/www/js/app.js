@@ -401,8 +401,8 @@ angular.module('starter', ['ionic',
 
   // Configure Auth0
   authProvider.init({
-    domain: AUTH0_DOMAIN,
-    clientID: AUTH0_CLIENT_ID,
+    domain: 'sked.auth0.com',
+    clientID: 'cbJWSrBQY1BQfLqfgYVCjPxH644mZAFL',
     loginState: 'login'
   });
 

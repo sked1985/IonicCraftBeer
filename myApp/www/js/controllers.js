@@ -2,21 +2,28 @@ angular.module('starter.controllers', [])
 
 //Login controller
 .controller('LoginCtrl', function($scope, auth, $state, store) {
+  function doAuth() {
     auth.signin({
       closable: false,
-    // This asks for the refresh token
-    // So that the user never has to log in again
-    authParams: {
-      scope: 'openid offline_access'
-    }
-  }, function(profile, idToken, accessToken, state, refreshToken) {
-    store.set('profile', profile);
-    store.set('token', idToken);
-    store.set('refreshToken', refreshToken);
-    $state.go('tour');
-  }, function(error) {
-    console.log("There was an error logging in", error);
+      // This asks for the refresh token
+      // So that the user never has to log in again
+      authParams: {
+        scope: 'openid offline_access'
+      }
+    },function(profile,token, accessToken, state, refreshToken){
+      store.set('profile',profile);
+      store.set('token',token);
+      store.set('refreshToken',refreshToken);
+      $state.go('tour');
+    },function(){
+      console.log('There was an error');
+    });
+  }
+
+  $scope.$on('$ionic.reconnectScope', function() {
+    doAuth();
   });
+  doAuth();
 })
 //Side menu controller
 .controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
@@ -38,6 +45,7 @@ angular.module('starter.controllers', [])
 //Home Page controller
 .controller('HomeCtrl', function($scope, auth, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup, EventsService, $state, store, CommentsService, $rootScope) {
 
+  $scope.auth = auth;
 
 
   $scope.data = {}

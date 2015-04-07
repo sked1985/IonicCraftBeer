@@ -69,7 +69,8 @@
             <ion-item href="#/tab/food" class="item-icon-left" menu-close><i class="icon ion-beer"></i> Order</ion-item>
             <ion-item href="#/tab/browse" class="item-icon-left" menu-close><i class="icon ion-document"></i>Menu</ion-item>
             <ion-item href="#/tab/events" class="item-icon-left" menu-close><i class="icon ion-music-note"></i>Events</ion-item>
-            <ion-item href="#/tab/images" class="item-icon-left" menu-close><i class="icon ion-calendar"></i>Gallery</ion-item>
+            <ion-item href="#/tab/images" class="item-icon-left" menu-close><i class="icon ion-images"></i>Gallery</ion-item>
+            <ion-item href="#/tab/discover" class="item-icon-left" menu-close><i class="icon ion-search"></i>Discover</ion-item>
             <ion-item href="#/tab/about" class="item-icon-left" menu-close> <i class="icon ion-ios7-information"></i> About</ion-item>
           </ion-list>
           </ion-content>
@@ -104,7 +105,7 @@
 <!--End of tabs page-->
 <!--Start of the home page-->
 <script type="text/ng-template" id="templates/home.html">
-  <ion-view title='<img class="title-image" src="http://www.ionicframework.com/img/ionic-logo-white.svg" width="123" height="35" />' hide-back-button="true"/>
+  <ion-view title='<img class="title-image" src="http://www.ionicframework.com/img/ionic-logo-white.svg" width="123" height="35" />' hide-back-button="true" hide-tabs='true'/>
   <ion-nav-buttons side="right">
     <button class="button" ng-click="logout()">
       Log out
@@ -115,12 +116,18 @@
         </ion-header-bar>
   <ion-content class="padding">
   <div style="height: 90px;"></div>
+  <br/>
+  <ion-list>
+    <div class="item item-avatar">
+      <img ng-src="{{auth.profile.picture}}">
+      <h2><span ng-bind = "auth.profile.name"></span></h2>
+    </div>
+  </ion-list>
   <div class="card">
-        <div class="item item-divider item-positive">Welcome</div>
+        <div class="item item-divider item-positive">Welcome <span ng-bind="auth.profile.given_name"></span></div>
         <div class="item item-text-wrap">
           Browse our menu to find
-          the perfect drink for you. Warning, some of our drinks contain high levels of alcohol.
-          Check out below the free entertainment that is happening today.
+          the perfect drink for you. Check out below the free entertainment that is happening today.
         </div>
       </div>
 

@@ -76,7 +76,7 @@ angular.module('starter.controllers', [])
 
   //Sends the comments
   $scope.addComment = function(comment) {
-    $scope.comments.$add({message: comment});
+    $scope.comments.$add({message: $scope.comment});
     //we reset the text input field to an empty string
     $scope.comment.theComment = "";
 
@@ -105,6 +105,7 @@ angular.module('starter.controllers', [])
 
 
   //Opens the comments page
+
   $scope.openComments = function() {
     $ionicModal.fromTemplateUrl('templates/comments.html', {
       scope: $scope,
@@ -714,13 +715,10 @@ Controller for the favorites page
 
   $scope.order = {};
 
-  $scope.addOrder = function(order){
-    $scope.orders.$add({content: $scope.order});
-
-  };
 
   //This displays the submitted order message
-  $scope.sendOrder = function () {
+  $scope.sendOrder = function (order) {
+    $scope.orders.$add({content: $scope.order});
     $ionicPopup.alert({
       title: 'Order submitted',
       template: 'Your order will be delieved to your table in 5 minutes',

@@ -46,6 +46,8 @@ angular.module('starter.controllers', [])
 .controller('HomeCtrl', function($scope, auth, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup, EventsService, $state, store, CommentsService, $rootScope) {
 
   $scope.auth = auth;
+  $scope.postAuthor = auth.profile.name;
+  $scope.postAuthorPic = auth.profile.picture;
 
 
   $scope.data = {}
@@ -57,7 +59,7 @@ angular.module('starter.controllers', [])
        template: 'Press the order now button'
      });
      alertPopup.then(function(res) {
-       console.log('Thank you for not eating my delicious ice cream cone');
+       console.log('');
      });
   }
 
@@ -76,7 +78,9 @@ angular.module('starter.controllers', [])
 
   //Sends the comments
   $scope.addComment = function(comment) {
-    $scope.comments.$add({message: $scope.comment});
+    $scope.comments.$add({message: $scope.comment,
+                          postAuthor:$scope.postAuthor,
+                          postAuthorPic:$scope.postAuthorPic});
     //we reset the text input field to an empty string
     $scope.comment.theComment = "";
 
@@ -707,18 +711,28 @@ Controller for the favorites page
 ])
 
 //Order now controller
-.controller('FoodCtrl', function ($scope, $ionicListDelegate, $ionicLoading, $ionicModal, $ionicPopup, MenuService, OrderService) {
+.controller('FoodCtrl', function ($scope, auth, $ionicListDelegate, $ionicLoading, $ionicModal, $ionicPopup, MenuService, OrderService) {
 
+
+  $scope.auth = auth;
+  $scope.postAuthor = auth.profile.name;
+  $scope.postAuthorPic = auth.profile.picture;
 
 
   $scope.orders = OrderService;
 
-  $scope.order = {};
-
+  $scope.order = {
+    items: [],
+    total: 0,
+    table: []
+  };
 
   //This displays the submitted order message
   $scope.sendOrder = function (order) {
-    $scope.orders.$add({content: $scope.order});
+    $scope.orders.$add({content: $scope.order,
+      postAuthor:$scope.postAuthor,
+      postAuthorPic:$scope.postAuthorPic});
+
     $ionicPopup.alert({
       title: 'Order submitted',
       template: 'Your order will be delieved to your table in 5 minutes',
@@ -750,10 +764,7 @@ Controller for the favorites page
     }
   });
 
-  $scope.order = {
-    items: [],
-    total: 0
-  };
+
 
   $scope.add = function (item) {
     $ionicListDelegate.closeOptionButtons();

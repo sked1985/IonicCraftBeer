@@ -7,7 +7,8 @@ angular.module('starter', ['ionic',
   'auth0',
   'angular-storage',
   'angular-jwt',
-  'ionic.ion.headerShrink'
+  'ionic.ion.headerShrink',
+  'ngCordova'
   ])
 
 

@@ -711,7 +711,7 @@ Controller for the favorites page
 ])
 
 //Order now controller
-.controller('FoodCtrl', function ($scope, auth, $ionicListDelegate, $ionicLoading, $ionicModal, $ionicPopup, MenuService, OrderService) {
+.controller('FoodCtrl', function ($scope, auth, $cordovaLocalNotification, $ionicListDelegate, $ionicLoading, $ionicModal, $ionicPopup, MenuService, OrderService) {
 
 
   $scope.auth = auth;
@@ -723,8 +723,7 @@ Controller for the favorites page
 
   $scope.order = {
     items: [],
-    total: 0,
-    table: []
+    total: 0
   };
 
   //This displays the submitted order message
@@ -740,6 +739,17 @@ Controller for the favorites page
       $scope.modal.hide();
       console.log("This is logged" , $scope.order);
     });
+    var alarmTime = new Date();
+       alarmTime.setSeconds(alarmTime.getSeconds() + 15);
+       $cordovaLocalNotification.add({
+           id: "1234",
+           date: alarmTime,
+           message: "Your drink should be arriving now",
+           title: "Craft beer bar",
+           autoCancel: true
+       }).then(function () {
+           console.log("The notification has been set");
+       });
   }
 
   //This opens the preview order page

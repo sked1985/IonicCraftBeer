@@ -147,6 +147,25 @@ angular.module('starter.controllers', [])
 
 
 
+  //Opens the stoutchat page
+  $scope.openStoutChat = function() {
+    $ionicModal.fromTemplateUrl('templates/stoutchat.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+      $scope.modal.show();
+    });
+  };
+
+  //Closes the stoutchat page
+  $scope.cancelStoutChat = function () {
+
+    $scope.modal.hide();
+  }
+
+
+
   //Opens the beerchat page
   $scope.openCiderChat = function() {
     $ionicModal.fromTemplateUrl('templates/ciderchat.html', {
@@ -740,12 +759,12 @@ Controller for the favorites page
       console.log("This is logged" , $scope.order);
     });
     var alarmTime = new Date();
-       alarmTime.setSeconds(alarmTime.getSeconds() + 15);
+       alarmTime.setSeconds(alarmTime.getSeconds() + 10);
        $cordovaLocalNotification.add({
            id: "1234",
            date: alarmTime,
-           message: "Your drink should be arriving now",
-           title: "Craft beer bar",
+           message: "Your drink should be arriving any second now. Enjoy!!",
+           title: "Thank you for the order",
            autoCancel: true
        }).then(function () {
            console.log("The notification has been set");
@@ -874,10 +893,26 @@ $scope.showModal = function(templateUrl) {
     };
 }])
 
-//Beer chat controller
+//Cider chat controller
 .controller('chatController1', ["$scope", "ciderChat", function($scope, ciderChat ) {
     //Set messages to chatMessages factory which returns the firebase data
     $scope.messages = ciderChat;
+
+    //Initialize message object
+    $scope.message = {};
+
+    //Add message to the firebase data
+    $scope.addMessage = function(message) {
+      $scope.messages.$add({content: message});
+      //we reset the text input field to an empty string
+      $scope.message.theMessage = "";
+    };
+}])
+
+//Cider chat controller
+.controller('chatController2', ["$scope", "stoutChat", function($scope, stoutChat ) {
+    //Set messages to chatMessages factory which returns the firebase data
+    $scope.messages = stoutChat;
 
     //Initialize message object
     $scope.message = {};

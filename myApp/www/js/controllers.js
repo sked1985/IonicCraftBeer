@@ -147,9 +147,9 @@ angular.module('starter.controllers', [])
 
 
 
-  //Opens the stoutchat page
-  $scope.openStoutChat = function() {
-    $ionicModal.fromTemplateUrl('templates/stoutchat.html', {
+  //Opens the ciderchat page
+  $scope.openCiderChat = function() {
+    $ionicModal.fromTemplateUrl('templates/ciderchat.html', {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function(modal) {
@@ -166,9 +166,9 @@ angular.module('starter.controllers', [])
 
 
 
-  //Opens the beerchat page
-  $scope.openCiderChat = function() {
-    $ionicModal.fromTemplateUrl('templates/ciderchat.html', {
+  //Opens the stoutchat page
+  $scope.openStoutChat = function() {
+    $ionicModal.fromTemplateUrl('templates/stoutchat.html', {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function(modal) {
@@ -176,6 +176,26 @@ angular.module('starter.controllers', [])
       $scope.modal.show();
     });
   };
+
+  //Closes the coffeechat page
+  $scope.cancelCoffeeChat = function () {
+
+    $scope.modal.hide();
+  }
+
+
+
+  //Opens the coffeechat page
+  $scope.openCoffeeChat = function() {
+    $ionicModal.fromTemplateUrl('templates/coffeechat.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+      $scope.modal.show();
+    });
+  };
+
 
   //logout function
   $scope.logout = function() {
@@ -892,7 +912,7 @@ $scope.showModal = function(templateUrl) {
       $scope.message.theMessage = "";
     };
 }])
-
+//End of beer chat controller
 //Cider chat controller
 .controller('chatController1', ["$scope", "ciderChat", function($scope, ciderChat ) {
     //Set messages to chatMessages factory which returns the firebase data
@@ -908,11 +928,31 @@ $scope.showModal = function(templateUrl) {
       $scope.message.theMessage = "";
     };
 }])
-
-//Cider chat controller
+//end of cider chat
+//Stout chat controller
 .controller('chatController2', ["$scope", "stoutChat", function($scope, stoutChat ) {
     //Set messages to chatMessages factory which returns the firebase data
+
+
     $scope.messages = stoutChat;
+
+    //Initialize message object
+    $scope.message = {};
+
+    //Add message to the firebase data
+    $scope.addMessage = function(message) {
+      $scope.messages.$add({content: message});
+      //we reset the text input field to an empty string
+      $scope.message.theMessage = "";
+    };
+}])
+
+//Stout chat controller
+.controller('chatController3', ["$scope", "coffeeChat", function($scope, coffeeChat ) {
+    //Set messages to chatMessages factory which returns the firebase data
+
+
+    $scope.messages = coffeeChat;
 
     //Initialize message object
     $scope.message = {};

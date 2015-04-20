@@ -26,13 +26,24 @@ angular.module('starter.controllers', [])
   doAuth();
 })
 //Side menu controller
-.controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
+.controller('NavCtrl', function($scope, $ionicSideMenuDelegate, $cordovaSocialSharing) {
   $scope.showMenu = function () {
     $ionicSideMenuDelegate.toggleLeft();
   };
   $scope.showRightMenu = function () {
     $ionicSideMenuDelegate.toggleRight();
   };
+  $scope.shareAnywhere = function() {
+      $cordovaSocialSharing.share("This is your message", "This is your subject", "www/imagefile.png", "http://blog.nraboy.com");
+  }
+
+  $scope.shareViaTwitter = function(message, image, link) {
+      $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
+          $cordovaSocialSharing.shareViaTwitter(message, image, link);
+      }, function(error) {
+          alert("Cannot share on Twitter");
+      });
+  }
 })
 //Controller for the tabs
 .controller('TabsCtrl', function($scope, User) {
@@ -43,7 +54,19 @@ angular.module('starter.controllers', [])
   }
 })
 //Home Page controller
-.controller('HomeCtrl', function($scope, auth, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup, EventsService, $state, store, CommentsService, $rootScope) {
+.controller('HomeCtrl', function($scope, $cordovaSocialSharing, auth, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup, EventsService, $state, store, CommentsService, $rootScope) {
+
+  $scope.shareAnywhere = function() {
+      $cordovaSocialSharing.share("This is your message", "This is your subject", "www/imagefile.png", "http://blog.nraboy.com");
+  }
+
+  $scope.shareViaTwitter = function(message, image, link) {
+      $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
+          $cordovaSocialSharing.shareViaTwitter(message, image, link);
+      }, function(error) {
+          alert("Cannot share on Twitter");
+      });
+  }
 
   $scope.auth = auth;
   $scope.postAuthor = auth.profile.name;

@@ -9,7 +9,7 @@
     <!-- compiled css output -->
     <link href="css/ionic.app.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
+    <link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -62,6 +62,22 @@
           <ion-header-bar class="bar bar-header bar-dark">
             <h1 class="title">Craft Beer Store</h1>
           </ion-header-bar>
+      <ion-footer-bar>
+         <div class="tabs tabs-dark tabs-icon-only">
+            <a class="tab-item">
+                <i class="icon ion-ios7-person"></i>
+                  <span class="badge badge-assertive">0</span>
+                  </a>
+                <a class="tab-item">
+                <i class="icon ion-star"></i>
+
+              </a>
+              <a class="tab-item">
+                <i class="icon ion-gear-a"></i>
+
+              </a>
+</div>
+          </ion-footer-bar>
           <ion-content has-header="true">
             <div style="height: 60px;"></div>
           <ion-list>
@@ -72,7 +88,8 @@
             <ion-item href="#/tab/images" class="item-icon-left" menu-close><i class="icon ion-images"></i>Gallery</ion-item>
             <ion-item href="#/tab/discover" class="item-icon-left" menu-close><i class="icon ion-search"></i>Discover</ion-item>
             <ion-item href="#/tab/about" class="item-icon-left" menu-close> <i class="icon ion-ios7-information"></i> About</ion-item>
-            <ion-item href="" class="item-icon-left positive" menu-close> <i class="icon ion-social-twitter-outline"></i>Share us on Twitter</ion-item>
+            <ion-item ng-click="shareViaTwitter('Check out the craft beer bar. Awesome place', null, 'http://blog.nraboy.com')" class="item-icon-left positive" menu-close> <i class="icon ion-social-twitter-outline"></i>Twitter</ion-item>
+            <ion-item href="#/tab/discover" class="item-icon-left royal" menu-close><i class="icon ion-social-facebook"></i>Facebook</ion-item>
           </ion-list>
           </ion-content>
         </ion-side-menu>
@@ -112,24 +129,22 @@
       Log out
     </button>
   </ion-nav-buttons>
-  <ion-header-bar class="bar bar-subheader bar-energized">
-          <h1 class="title">Craft Beer Store</h1>
-        </ion-header-bar>
+
   <ion-content class="padding">
-  <div style="height: 90px;"></div>
+  <div style="height: 60px;"></div>
   <br/>
   <ion-list>
     <div class="item item-avatar">
       <img ng-src="{{auth.profile.picture}}">
       <h2 class="h2"><span ng-bind = "auth.profile.name"></span></h2>
-      <h3><span ng-bind = "auth.profile.email"></span></h3>
+      <p><span ng-bind = "auth.profile.email"></span></p>
     </div>
   </ion-list>
   <div class="card">
         <div class="item item-divider item-positive">Welcome <span ng-bind="auth.profile.given_name"></span></div>
         <div class="item item-text-wrap">
           Browse our menu to find
-          the perfect drink for you. Check out below the free entertainment that is happening today.
+          the perfect drink for you. Check out the free entertainment that is happening today.
         </div>
       </div>
 
@@ -137,7 +152,7 @@
         <div class="item item-divider item-positive">Todays Events</div>
         <div class="item" ng-if="!today"><span class="icon ion-loading-d"></span></div>
         <div class="item" ng-repeat="item in today.events">{{item.event}}, {{item.time}}</div>
-        <a class="item button button-positive button-block" href="#/tab/events">See all events</a>
+        <a class="item button button-positive button-block" href="#/tab/events">Upcoming Events</a>
       </div>
 
       <div class="card">
@@ -145,6 +160,8 @@
           <i class="icon ion-chatbubble-working"></i><b>Send us a comment</b>
         </div>
       </div>
+
+      <button class="button icon-left icon ion-social-twitter-outline button-block button-outline button-positive" ng-click="shareViaTwitter('Check out the Craft Beer Bar. It`s a great place to go!!', null, 'http://ionicframework.com/')">Share on Twitter</button>
     </ion-content>
 </ion-view>
 </script>
@@ -204,32 +221,32 @@
      <div class="list">
           <a class="item item-avatar" a href="#tab/baltika">
               <img src="img/baltika.jpg">
-                <h2>Baltika</h2>
+                <p class="p">Baltika</p>
                   <p>€3.99</p>
           </a>
           <a class="item item-avatar" a href="#tab/dungarvan">
               <img src="img/dun.jpg">
-                <h2>Dungarvan Copper Coast Red</h2>
+                <p class="p">Dungarvan Copper Coast Red</p>
                   <p>€3.39</p>
           </a>
           <a class="item item-avatar" a href="#tab/bohemian">
               <img src="img/bare.jpg">
-                <h2>Barefoot Bohemian</h2>
+                <p class="p">Barefoot Bohemian</p>
                   <p>€2.29</p>
           </a>
           <a class="item item-avatar" href="#">
               <img src="img/abbey.jpg">
-                <h2>Abbey Irish Pale Ale</h2>
+                <p class="p">Abbey Irish Pale Ale</p>
                   <p>€3.39</p>
           </a>
           <a class="item item-avatar" href="#">
               <img src="img/curim.jpg">
-                <h2>Curim Wheat Beer</h2>
+                <p class="p">Curim Wheat Beer</p>
                   <p>€3.09</p>
           </a>
           <a class="item item-avatar" href="#">
               <img src="img/dungarven.jpg">
-                <h2>Dungarvan Mine head</h2>
+                <p class="p">Dungarvan Mine head</p>
                   <p>€3.49</p>
           </a>
           </div>
@@ -245,32 +262,32 @@
             <div class="list">
               <a class="item item-avatar" a href="#tab/bulmers">
                 <img src="img/bulmers.jpg">
-                  <h2>Bulmers</h2>
+                  <p class="p">Bulmers</p>
                     <p>€3.99</p>
                   </a>
                <a class="item item-avatar" a href="#tab/strongbow">
                   <img src="img/strongbow.jpg">
-                    <h2>Strongbow</h2>
+                    <p class="p">Strongbow</p>
                     <p>€2.50</p>
                   </a>
               <a class="item item-avatar" href="#">
                   <img src="img/bare.jpg">
-                    <h2>Barefoot Bohemian</h2>
+                    <p class="p">Barefoot Bohemian</p>
                     <p>€2.29</p>
               </a>
               <a class="item item-avatar" href="#">
                 <img src="img/abbey.jpg">
-                  <h2>Abbey Irish Pale Ale</h2>
+                  <p class="p">Abbey Irish Pale Ale</p>
                     <p>€3.39</p>
                 </a>
               <a class="item item-avatar" href="#">
                 <img src="img/curim.jpg">
-                  <h2>Curim Wheat Beer</h2>
+                  <p class="p">Curim Wheat Beer</p>
                     <p>€3.09</p>
                 </a>
               <a class="item item-avatar" href="#">
                 <img src="img/dungarven.jpg">
-                  <h2>Dungarvan Mine head</h2>
+                  <p class="p">Dungarvan Mine head</p>
                     <p>€3.49</p>
                 </a>
               </div>
@@ -286,27 +303,27 @@
             <div class="list">
               <a class="item item-avatar" a href="#tab/guinness">
                 <img src="img/guinness.jpg">
-                  <h2>Guinness</h2>
+                  <p class="p">Guinness</p>
                     <p>€3.99</p>
                   </a>
                <a class="item item-avatar" a href="#tab/oharas">
                   <img src="img/oharas.jpg">
-                    <h2>OHaras</h2>
+                    <p class="p">OHaras</p>
                     <p>€3.50</p>
                   </a>
               <a class="item item-avatar" href="#">
                   <img src="img/trouble.jpg">
-                    <h2>Trouble Brewing</h2>
+                    <p class="p">Trouble Brewing</p>
                     <p>€4.00</p>
               </a>
               <a class="item item-avatar" href="#">
                 <img src="img/murphy.jpg">
-                  <h2>Murphys</h2>
+                  <p class="p">Murphys</p>
                     <p>€3.39</p>
                 </a>
               <a class="item item-avatar" href="#">
                 <img src="img/dungarvan.jpg">
-                  <h2>Dungarvan Mine Head</h2>
+                  <p class="p">Dungarvan Mine Head</p>
                     <p>€3.49</p>
                 </a>
               </div>
@@ -322,27 +339,27 @@
             <div class="list">
               <a class="item item-avatar" a href="#tab/whiskey">
                 <img src="img/whiskey.jpg">
-                  <h2>Whiskey Sour</h2>
+                  <p class="p">Whiskey Sour</p>
                     <p>€5.00</p>
                   </a>
                <a class="item item-avatar" a href="#tab/sex">
                   <img src="img/sex.jpg">
-                    <h2>Sex on the beach</h2>
+                    <p class="p">Sex on the beach</p>
                     <p>€3.50</p>
                   </a>
               <a class="item item-avatar" href="#">
                   <img src="img/mojito.jpg">
-                    <h2>Mojitos</h2>
+                    <p class="p">Mojitos</p>
                     <p>€6.00</p>
               </a>
               <a class="item item-avatar" href="#">
                 <img src="img/sorbet.jpg">
-                  <h2>Rasberry Sorbet</h2>
+                  <p class="p">Rasberry Sorbet</p>
                     <p>€5.39</p>
                 </a>
               <a class="item item-avatar" href="#">
                 <img src="img/mango.jpg">
-                  <h2>Mango Sorbet</h2>
+                  <p class="p">Mango Sorbet</p>
                     <p>€2.49</p>
                 </a>
               </div>
@@ -358,22 +375,22 @@
             <div class="list">
               <a class="item item-avatar" a href="#tab/americano">
                 <img src="img/americano.jpg">
-                  <h2>Americano</h2>
+                  <p class="p">Americano</p>
                     <p>€2.00</p>
                   </a>
                <a class="item item-avatar" a href="#tab/cappuccino">
                   <img src="img/cap.jpg">
-                    <h2>Cappuccino</h2>
+                    <p class="p">Cappuccino</p>
                     <p>€2.50</p>
                   </a>
               <a class="item item-avatar" href="#">
                   <img src="img/latte.jpg">
-                    <h2>Latte</h2>
+                    <p class="p">Latte</p>
                     <p>€2.50</p>
               </a>
               <a class="item item-avatar" href="#">
                 <img src="img/flat.jpg">
-                  <h2>Flat White</h2>
+                  <p class="p">Flat White</p>
                     <p>€3.00</p>
                 </a>
 
@@ -390,22 +407,22 @@
      <div class="list">
  <a class="item item-avatar" a href ="#tab/club">
       <img src="img/club.jpg">
-    <h2>Club</h2>
+    <p class="p">Club</p>
       <p>€3.59</p>
   </a>
   <a class="item item-avatar" a href ="#tab/blt">
       <img src="img/blt.jpg">
-    <h2>BLT</h2>
+    <p class="p">BLT</p>
       <p>€2.99</p>
     </a>
   <a class="item item-avatar" href="#">
     <img src="img/turk.jpg">
-      <h2>Turkey Melt</h2>
+      <p class="p">Turkey Melt</p>
         <p>€4.29</p>
     </a>
   <a class="item item-avatar" href="#">
     <img src="img/bagel.jpg">
-      <h2>Bagels</h2>
+      <p class="p">Bagels</p>
         <p>€3.39</p>
     </a>
 </div>

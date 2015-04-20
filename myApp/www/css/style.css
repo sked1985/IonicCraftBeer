@@ -1,3 +1,13 @@
+
+@import url(http://fonts.googleapis.com/css?family=Karla:400,700);
+
+
+body , input, select, textarea,h1 {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+  font-family: 'Karla', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  font-weight:400
+}
 /* Empty. Add your own CSS if you like */
 
 .chatbox {
@@ -22,6 +32,11 @@
 .h2 {
     color:#0099CC;
     font-weight: bold;
+}
+
+.p{
+  font-weight: bold;
+  font-size: 28px;
 }
 
 /*styling for the badges on the menu page*/

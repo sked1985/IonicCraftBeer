@@ -1,13 +1,13 @@
 angular.module('starter.services', [])
 
-  //Events service that returns some data
+  //Events service that returns the Events data
   .factory('EventsService', function ($firebase) {
       var firebase = new Firebase('https://craftbeerproject.firebaseio.com/events');
       var service = $firebase(firebase);
       return service;
     })
 
-    //Comments Service
+    //Comments Service that sends the comments data
   .factory('CommentsService', function($firebase, $rootScope){
 
     var ref = new Firebase("https://craftbeerproject.firebaseio.com/");

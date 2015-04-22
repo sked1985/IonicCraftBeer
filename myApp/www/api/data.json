@@ -71,7 +71,7 @@
     {
       "day": "Sunday",
       "events": [
-        { "day": "Sunday", "time": "12:00pm",  "location": "Fitness Center", "event": "Celtic V Rangers" },
+        { "day": "Sunday", "time": "12:00pm",  "location": "Lounge", "event": "Celtic V Rangers" },
         { "day": "Sunday", "time": "2:00pm", "location": "Beach", "event": "Liverpool V Man Utd" },
         { "day": "Sunday", "time": "4:00pm", "location": "Community Center", "event": "Chelsea V Man City" },
         { "day": "Sunday", "time": "6:00pm",  "location": "Community Center", "event": "Trad Music Session" },

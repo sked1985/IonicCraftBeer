@@ -236,6 +236,7 @@ angular.module('starter.controllers', [])
     }
   });
 
+  //Loads the Upcoming Events into an array and then displays them
   var events = EventsService.$asArray();
   events.$loaded().then(function () {
     $scope.today = events[new Date().getDay()];

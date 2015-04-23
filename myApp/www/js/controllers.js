@@ -95,8 +95,6 @@ angular.module('starter.controllers', [])
 
   $scope.comment = {};
 
-
-
   $scope.comment = angular.copy(message);
 
   //Sends the comments

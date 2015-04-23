@@ -185,6 +185,15 @@ angular.module('starter', ['ionic',
          }
        })
 
+       .state('tab.dashboard', {
+        url: "/dashboard",
+        views: {
+          'tab-home': {
+            templateUrl: "templates/dashboard.html"
+          }
+        }
+      })
+
        .state('tab.beers', {
         url: "/beers",
         views: {

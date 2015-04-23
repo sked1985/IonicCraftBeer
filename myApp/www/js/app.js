@@ -194,6 +194,15 @@ angular.module('starter', ['ionic',
         }
       })
 
+      .state('tab.staff', {
+       url: "/staff",
+       views: {
+         'tab-home': {
+           templateUrl: "templates/staff.html"
+         }
+       }
+     })
+
        .state('tab.beers', {
         url: "/beers",
         views: {

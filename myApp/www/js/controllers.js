@@ -26,7 +26,10 @@ angular.module('starter.controllers', [])
   doAuth();
 })
 //Side menu controller
-.controller('NavCtrl', function($scope, $ionicSideMenuDelegate, $cordovaSocialSharing) {
+.controller('NavCtrl', function($scope, auth, $ionicSideMenuDelegate, $cordovaSocialSharing) {
+
+  $scope.auth = auth;
+
   $scope.showMenu = function () {
     $ionicSideMenuDelegate.toggleLeft();
   };

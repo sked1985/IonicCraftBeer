@@ -60,12 +60,12 @@
         </ion-side-menu-content>
         <ion-side-menu side="left">
           <ion-header-bar class="bar bar-header bar-dark">
-            <h1 class="title">Craft Beer Store</h1>
+            <img ng-src="{{auth.profile.picture}}" width="30" /><h1 class="title">Craft Beer Store</h1>
           </ion-header-bar>
       <ion-footer-bar>
          <div class="tabs tabs-dark tabs-icon-only">
-            <a class="tab-item">
-                <i class="icon ion-ios7-person"></i>
+            <a class="tab-item" href="#/tab/staff" menu-close>
+                <i class="icon ion-ios7-person" ></i>
                 <span class="badge badge-assertive">0</span>
                   </a>
                 <a class="tab-item">

@@ -888,36 +888,41 @@ Controller for the favorites page
 })
 //End of the order controller
 //Image gallery
+
 .controller('MediaCtrl', function($scope, $ionicModal) {
-$scope.allImages = [{
-      'src' : 'img/blt.jpg'
+
+  $scope.allImages = [{
+      'src' : 'img/club.jpg'
   }, {
-      'src' : 'img/del2.jpg'
-  },{
-      'src' : 'img/curim.jpg'
-  }, {
-      'src' : 'img/cider2.jpg'
+      'src' : 'img/come.jpg'
+  },
+    {
+      'src' : 'img/baltika1.jpg'
   }];
 
   $scope.allImages1 = [{
-        'src' : 'img/cider.jpg'
+        'src' : 'img/bulmers2.jpg'
     }, {
-        'src' : 'img/blt2.jpg'
+        'src' : 'img/cappuccino.jpg'
     },{
-        'src' : 'img/bulmers.jpg'
-    }, {
         'src' : 'img/del4.jpg'
     }];
 
     $scope.allImages2 = [{
-          'src' : 'img/coffee.jpg'
-      }, {
-          'src' : 'img/cocktail2.jpg'
-      },{
-          'src' : 'img/del3.jpg'
+          'src' : 'img/cocktail.jpg'
       }, {
           'src' : 'img/dun.jpg'
+      },{
+          'src' : 'img/guinness2.jpg'
       }];
+
+      $scope.allImages3 = [{
+            'src' : 'img/cocktail.jpg'
+        }, {
+            'src' : 'img/dun.jpg'
+        },{
+            'src' : 'img/guinness2.jpg'
+        }];
 
 
 $scope.showImages = function(index) {

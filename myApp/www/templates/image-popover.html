@@ -5,4 +5,16 @@
         </ion-slide>
 
     </ion-slide-box>
+    <ion-slide-box on-slide-changed="slideChanged(index1)" show-pager="true" active-slide="activeSlide">
+        <ion-slide ng-repeat="image in allImages1">
+            <img ng-src="{{image.src1}}" class="fullscreen-image1"/>
+        </ion-slide>
+
+    </ion-slide-box>
+    <ion-slide-box on-slide-changed="slideChanged(index2)" show-pager="true" active-slide="activeSlide">
+        <ion-slide ng-repeat="image in allImages2">
+            <img ng-src="{{image.src2}}" class="fullscreen-image2"/>
+        </ion-slide>
+
+    </ion-slide-box>
 </div>

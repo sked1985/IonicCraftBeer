@@ -203,6 +203,15 @@ angular.module('starter', ['ionic',
        }
      })
 
+     .state('tab.popular', {
+      url: "/popular",
+      views: {
+        'tab-home': {
+          templateUrl: "templates/popular.html"
+        }
+      }
+    })
+
        .state('tab.beers', {
         url: "/beers",
         views: {

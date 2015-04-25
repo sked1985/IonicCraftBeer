@@ -19,7 +19,7 @@
     <script src="lib/a0-angular-storage/dist/angular-storage.js"></script>
     <script src="lib/angular-jwt/dist/angular-jwt.js"></script>
     <script src="lib/auth0-lock/build/auth0-lock.js"></script>
-
+    <script src="lib/ionic.ion.imagecachefactory.js"></script>
     <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
     <!-- AngularFire -->
@@ -60,13 +60,13 @@
         </ion-side-menu-content>
         <ion-side-menu side="left">
           <ion-header-bar class="bar bar-header bar-dark">
-            <img src="img/main.jpg" width="30" /><h1 class="title">Craft Beer Store</h1>
+            <img src="img/main.jpg" height="35" width="35" /><h1 class="title">Craft Beer Store</h1>
           </ion-header-bar>
       <ion-footer-bar>
          <div class="tabs tabs-dark tabs-icon-only">
             <a class="tab-item" href="#/tab/staff" menu-close>
                 <i class="icon ion-ios7-person"></i>
-                <span class="badge badge-assertive">0</span>
+                <span class="badge badge-assertive">3</span>
                   </a>
                 <a class="tab-item" href="#/tab/popular" menu-close>
                 <i class="icon ion-star"></i>
@@ -85,10 +85,10 @@
             <ion-item href="#/tab/events" class="item-icon-left" menu-close><i class="icon ion-music-note"></i>Events</ion-item>
             <ion-item href="#/tab/images" class="item-icon-left" menu-close><i class="icon ion-images"></i>Gallery</ion-item>
             <ion-item href="#/tab/discover" class="item-icon-left" menu-close><i class="icon ion-search"></i>Discover</ion-item>
-            <ion-item href="#/tab/about" class="item-icon-left" menu-close> <i class="icon ion-ios7-information"></i> About</ion-item>
             <ion-item ng-click="shareViaTwitter('Check out the craft beer bar. Awesome place', null, 'http://blog.nraboy.com')" class="item-icon-left positive" menu-close> <i class="icon ion-social-twitter-outline"></i>Twitter</ion-item>
             <ion-item href="#/tab/discover" class="item-icon-left royal" menu-close><i class="icon ion-social-facebook"></i>Facebook</ion-item>
-          </ion-list>
+            <ion-item href="#/tab/about" class="item-icon-left" menu-close> <i class="icon ion-ios7-information"></i> About</ion-item>
+        </ion-list>
           </ion-content>
         </ion-side-menu>
       </ion-side-menus>
@@ -1181,7 +1181,7 @@
 <!--End of images page-->
 <!--login page-->
 <script id="login.html" type="text/ng-template">
-  <ion-view title="Login">
+  <ion-view title="Login" hide-nav-bar="true">
     <ion-content>
     <div style="height: 60px;"></div>
     </ion-content>

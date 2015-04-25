@@ -8,7 +8,8 @@ angular.module('starter', ['ionic',
   'angular-storage',
   'angular-jwt',
   'ionic.ion.headerShrink',
-  'ngCordova'
+  'ngCordova',
+  'ionic.ion.imageCacheFactory'
   ])
 
 

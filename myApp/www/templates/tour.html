@@ -1,15 +1,14 @@
-<ion-view title="Welcome" id="tour" hide-back-button="true">
-  <ion-nav-buttons side="right">
-    <a class="button button-positive" href="#tab/home" nav-clear>Start</a>
-  </ion-nav-buttons>
+<ion-view title="Welcome" id ="tour" hide-back-button="true" hide-nav-bar="true" ng-controller = "TourCtrl">
+
   <ion-slide-box>
-    <ion-slide>
+
+  <!--  <ion-slide>
         <h3></h3>
            <img src="img/main.jpg" width="350">
-       </ion-slide>
+       </ion-slide>-->
     <ion-slide>
       <span class="icon icon-slide ion-document-text"></span>
-      <h3>Reserve a Table</h3>
+      <h3>Reserve a Party</h3>
     </ion-slide>
     <ion-slide>
       <span class="icon icon-slide ion-calendar"></span>
@@ -18,7 +17,7 @@
     <ion-slide>
       <span class="icon icon-slide ion-beer"></span>
       <h3>Have Fun!!!</h3>
-      
+      <button class="button button-block button-positive"ng-click="login1()">Get Started</button>
     </ion-slide>
   </ion-slide-box>
 

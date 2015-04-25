@@ -25,6 +25,30 @@ angular.module('starter.controllers', [])
   });
   doAuth();
 })
+
+//tour controller
+.controller('TourCtrl', function ($scope, $location, $ionicPopup) {
+
+  $scope.login1 = function () {
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Please confirm?',
+      template: 'Are you 18 years Old?'
+    }).then(function (code) {
+      // Login with code
+      localStorage.setItem('firstVisit', '1');
+      $location.url('/tab/home');
+    });
+    confirmPopup.then(function(res) {
+      if(res) {
+        console.log('Yes');
+      } else {
+        console.log('No');
+      }
+    });
+  }
+
+})
+
 //Side menu controller
 .controller('NavCtrl', function($scope, auth, $ionicSideMenuDelegate, $cordovaSocialSharing) {
 
@@ -248,7 +272,7 @@ angular.module('starter.controllers', [])
 
 
 //Controller for the discover items tabs
-  .controller('DiscoverCtrl', function($scope, $timeout, User, $ionicPopup) {
+  .controller('DiscoverCtrl', function($scope, $timeout, User, $ionicPopup, $ImageCacheFactory) {
 
     // An alert dialog
       $scope.showAlert = function() {
@@ -790,9 +814,10 @@ Controller for the favorites page
     total: 0
   };
 
-  //This displays the submitted order message
+  //This sends the order displays the submitted order message
   $scope.sendOrder = function (order) {
     $scope.orders.$add({content: $scope.order,
+  //Posts name and picture of the user who sent order
       postAuthor:$scope.postAuthor,
       postAuthorPic:$scope.postAuthorPic});
 

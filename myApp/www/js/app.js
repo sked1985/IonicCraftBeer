@@ -204,6 +204,15 @@ angular.module('starter', ['ionic',
        }
      })
 
+     .state('tab.staffcontent', {
+      url: "/staffcontent",
+      views: {
+        'tab-home': {
+          templateUrl: "templates/staffcontent.html"
+        }
+      }
+    })
+
      .state('tab.popular', {
       url: "/popular",
       views: {

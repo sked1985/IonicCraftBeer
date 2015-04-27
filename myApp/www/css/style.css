@@ -41,6 +41,16 @@ body , input, select, textarea,h1 {
     color:#0099CC;
     font-weight: bold;
 }
+
+.h21 {
+    color:#FFBB33;
+    font-weight: bold;
+}
+
+.h3 {
+    color:#0099CC;
+    font-weight: bold;
+}
 /* Custom paragraph styling */
 .p{
   font-weight: bold;
@@ -284,6 +294,7 @@ text-align: center;
 position: absolute;
 z-index: 80;
 }
+
 
 #tour .slider {
   height: 100%;

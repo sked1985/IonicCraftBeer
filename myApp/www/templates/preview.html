@@ -1,11 +1,11 @@
 <ion-modal-view>
   <ion-header-bar class="bar-energized">
     <div class="buttons">
-      <button class="button button-energized" ng-click="cancelPreview()">Cancel</button>
+      <button class="button button-clear" ng-click="cancelPreview()">Cancel</button>
     </div>
     <h1 class="title">Preview Order</h1>
     <div class="buttons">
-      <button class="button button-energized" ng-if="order.items.length"  ng-model="order.theOrder" ng-click="sendOrder()" action="submit">Submit</button>
+      <button class="button button-clear" ng-if="order.items.length"  ng-model="order.theOrder" ng-click="sendOrder()" action="submit">Submit</button>
     </div>
   </ion-header-bar>
   <form name="myform" ng-submit="addOrder(order.theOrder)">

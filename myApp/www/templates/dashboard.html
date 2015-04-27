@@ -1,6 +1,6 @@
 <ion-view title="Profile" ng-controller = "HomeCtrl" hide-tabs='true'>
   <ion-nav-buttons side="right">
-     <button class="button" ng-click="logout()">
+     <button class="button button-clear" ng-click="logout()">
        Log out
      </button>
    </ion-nav-buttons>
@@ -8,7 +8,8 @@
       <div id="profile-bg"></div>
       <div id="content">
         <div id="profile-info">
-          <img ng-src="{{auth.profile.picture}}" id="profile-image" >
+          <!--<img ng-src="{{auth.profile.picture}}" id="profile-image" >-->
+          <img src ="img/sked.jpg" id="profile-image">
           <h3 id="profile-name"><span ng-bind = "auth.profile.name"></span></h2>
           <p id="profile-description"><span ng-bind = "auth.profile.email"></span></p>
         </div>
@@ -28,11 +29,7 @@
                 <label class="item item-input">
                     <span class="input-label">Phone</span>
                     <input ng-model="user.phone" type="text" placeholder="085 - 2536684">
-                </label>
-                <label class="item item-input">
-                    <span class="input-label">Birthday</span>
-                    <input ng-model="user.dobObj" type="date" placeholder="">
-                </label>
+                </label>n
                 <label class="item item-input em-gender">
                     <span class="input-label">Gender</span>
                     <ion-checkbox class="em-gender-cb" ng-model="isMale" ng-change="isMale ? user.gender='M' : user.gender = 'F';

@@ -60,17 +60,6 @@ angular.module('starter.controllers', [])
   $scope.showRightMenu = function () {
     $ionicSideMenuDelegate.toggleRight();
   };
-  $scope.shareAnywhere = function() {
-      $cordovaSocialSharing.share("This is your message", "This is your subject", "www/imagefile.png", "http://blog.nraboy.com");
-  }
-
-  $scope.shareViaTwitter = function(message, image, link) {
-      $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
-          $cordovaSocialSharing.shareViaTwitter(message, image, link);
-      }, function(error) {
-          alert("Cannot share on Twitter");
-      });
-  }
 })
 //Controller for the tabs
 .controller('TabsCtrl', function($scope, User) {
@@ -83,17 +72,21 @@ angular.module('starter.controllers', [])
 //Home Page controller
 .controller('HomeCtrl', function($scope, $cordovaSocialSharing, auth, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup, EventsService, $state, store, CommentsService, $rootScope) {
 
-  $scope.shareAnywhere = function() {
-      $cordovaSocialSharing.share("This is your message", "This is your subject", "www/imagefile.png", "http://blog.nraboy.com");
-  }
-
   $scope.shareViaTwitter = function(message, image, link) {
-      $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
-          $cordovaSocialSharing.shareViaTwitter(message, image, link);
-      }, function(error) {
-          alert("Cannot share on Twitter");
-      });
-  }
+       $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
+           $cordovaSocialSharing.shareViaTwitter(message, image, link);
+       }, function(error) {
+           alert("Cannot share on Twitter");
+       });
+   }
+
+   $scope.shareViaTwitter1 = function(message, image, link) {
+        $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
+            $cordovaSocialSharing.shareViaTwitter(message, image, link);
+        }, function(error) {
+            alert("Cannot share on Twitter");
+        });
+    }
 
   $scope.auth = auth;
   $scope.postAuthor = auth.profile.name;

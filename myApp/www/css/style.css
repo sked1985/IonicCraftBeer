@@ -42,6 +42,10 @@ body , input, select, textarea,h1 {
     font-weight: bold;
 }
 
+.p1{
+    color:#ef4e3a;
+}
+
 .h21 {
     color:#FFBB33;
     font-weight: bold;

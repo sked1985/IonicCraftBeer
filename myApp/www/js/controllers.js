@@ -400,10 +400,10 @@ Controller for the favorites page
 .controller('BaltikaCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', function ($scope, $ionicModal, $ionicSlideBoxDelegate) {
 
   	$scope.aImages = [{
-      	'src' : 'http://ionicframework.com/img/ionic_logo.svg',
-      	'msg' : 'Swipe me to the left. Tap/click to close'
+      	'src' : 'img/bare.png',
+      	'msg' : ''
     	}, {
-        'src' : 'http://ionicframework.com/img/ionic_logo.svg',
+        'src' : 'img/beerImage.png',
         'msg' : ''
       }, {
         'src' : 'http://ionicframework.com/img/ionic_logo.svg',

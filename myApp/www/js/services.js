@@ -14,6 +14,13 @@ angular.module('starter.services', [])
        return $firebase(ref.child('reviews')).$asArray();
   })
 
+  //Staff Comments Service that sends the comments about staff members
+.factory('StaffCommentsService', function($firebase, $rootScope){
+
+  var ref = new Firebase("https://craftbeerproject.firebaseio.com/");
+     return $firebase(ref.child('staffcomments')).$asArray();
+})
+
   //Submitting order service Service
   .factory('OrderService', function($firebase, $rootScope){
 

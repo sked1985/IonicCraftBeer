@@ -32,7 +32,9 @@ angular.module('starter.controllers', [])
   $scope.login1 = function () {
     var confirmPopup = $ionicPopup.confirm({
       title: 'Please confirm?',
-      template: 'Are you 18 years Old?'
+      template: 'Are you 18 years Old?',
+      cancelText:'No',
+      okText: 'Yes'
     }).then(function (code) {
       // Login with code
       localStorage.setItem('firstVisit', '1');
@@ -945,6 +947,68 @@ $scope.showModal = function(templateUrl) {
   };
 })
 //End of image gallery
+.controller('staffController', function($scope, auth, $ionicModal, $ionicPopup, $state, store, StaffCommentsService, $rootScope) {
+
+  $scope.auth = auth;
+  $scope.postAuthor = auth.profile.name;
+  $scope.postAuthorPic = auth.profile.picture;
+
+  var message = {
+  rating: 5
+};
+
+//This is the start of the comments
+$scope.comments = StaffCommentsService;
+
+$scope.comment = {};
+
+$scope.comment = angular.copy(message);
+
+//Sends the comments
+$scope.addComment = function(comment) {
+  $scope.comments.$add({message: $scope.comment,
+                        postAuthor:$scope.postAuthor,
+                        postAuthorPic:$scope.postAuthorPic});
+  //we reset the text input field to an empty string
+  $scope.comment.theComment = "";
+
+};
+
+//This is the function that displays the message when comments have been sent
+$scope.sendComments = function() {
+
+  console.log("This is logged" , $scope.comment);
+  // Send comment
+  $scope.cancelComments();
+  $ionicPopup.alert({
+    title: 'Thank you!',
+    template: 'We appreciate your comments!',
+    okText: 'Close'
+
+  });
+};
+
+//Closes the comments page
+$scope.cancelComments = function () {
+
+  $scope.modal.hide();
+}
+
+
+
+//Opens the comments page
+
+$scope.openComments = function() {
+  $ionicModal.fromTemplateUrl('templates/staffcomments.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+    $scope.modal.show();
+  });
+};
+
+})
 //Beer chat controller
 .controller('chatController', ["$scope", "beerChat", function($scope, beerChat ) {
     //Set messages to chatMessages factory which returns the firebase data

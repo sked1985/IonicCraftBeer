@@ -9,6 +9,17 @@
     </div>
   </ion-header-bar>
   <form name="myform" ng-submit="addOrder(order.theOrder)">
+    <ion-footer-bar align-title="left" class="bar-energized" ng-if="order.items.length">
+    <ul class="list">
+          <select-box ng-Selected-Value="selectedValue"
+                ng-Selected-Id="selectedId"
+                ng-Item-Name="name"
+                ng-Item-Id="id"
+                ng-title="What is your table number?!"
+                ng-data="devList"
+                ng-placeholder="&nbsp;Table"></select-box>
+      </ul>
+    </ion-footer-bar>
   <ion-content>
     <div style="height: 60px;"></div>
     <ion-list>
@@ -18,5 +29,6 @@
         <ion-option-button class="button-assertive" ng-click="remove($index)">Remove</ion-option-button>
       </ion-item>
     </ion-list>
+
   </form>
 </ion-modal-view>

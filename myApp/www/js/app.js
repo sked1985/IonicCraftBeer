@@ -9,7 +9,8 @@ angular.module('starter', ['ionic',
   'angular-jwt',
   'ionic.ion.headerShrink',
   'ngCordova',
-  'ionic.ion.imageCacheFactory'
+  'ionic.ion.imageCacheFactory',
+  '$selectBox'
   ])
 
 

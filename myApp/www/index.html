@@ -20,6 +20,7 @@
     <script src="lib/angular-jwt/dist/angular-jwt.js"></script>
     <script src="lib/auth0-lock/build/auth0-lock.js"></script>
     <script src="lib/ionic.ion.imagecachefactory.js"></script>
+    <script src="lib/SelectBox.js"></script>
     <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
     <!-- AngularFire -->
@@ -496,10 +497,9 @@
 <script type="text/ng-template" id="templates/dungarvan.html">
     <ion-view title="Dungarvan" hide-tabs='true'>
     <ion-nav-buttons side="right">
-      <button ng-click="showPopup()" class="button button-clear icon ion-help-circled">
-    </button>
-    </ion-nav-buttons>
-      <ion-content padding="true" header-shrink scroll-event-interval="5">
+    <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
+  </ion-nav-buttons>
+      <ion-content padding="true">
       <div style="height: 60px;"></div>
 <div class="list card">
   <div class="item item-avatar">

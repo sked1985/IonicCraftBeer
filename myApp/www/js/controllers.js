@@ -72,8 +72,9 @@ angular.module('starter.controllers', [])
   }
 })
 //Home Page controller
-.controller('HomeCtrl', function($scope, $cordovaSocialSharing, auth, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup, EventsService, $state, store, CommentsService, $rootScope) {
+.controller('HomeCtrl', function($scope, $cordovaSocialSharing, auth, $http, $timeout, $ionicModal, $ionicActionSheet, $ionicLoading, $ionicPopup, EventsService, $state, store, CommentsService, $rootScope) {
 
+  //Shares data via Twitter
   $scope.shareViaTwitter = function(message, image, link) {
        $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
            $cordovaSocialSharing.shareViaTwitter(message, image, link);
@@ -82,6 +83,7 @@ angular.module('starter.controllers', [])
        });
    }
 
+   //Shares data via twitter on items page
    $scope.shareViaTwitter1 = function(message, image, link) {
         $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
             $cordovaSocialSharing.shareViaTwitter(message, image, link);
@@ -90,10 +92,10 @@ angular.module('starter.controllers', [])
         });
     }
 
+  //This code uses auth0 to identify a user
   $scope.auth = auth;
   $scope.postAuthor = auth.profile.name;
   $scope.postAuthorPic = auth.profile.picture;
-
 
   $scope.data = {}
 
@@ -108,11 +110,12 @@ angular.module('starter.controllers', [])
      });
   }
 
+
+  //This is the start of the comments
   var message = {
     rating: 5
   };
 
-  //This is the start of the comments
   $scope.comments = CommentsService;
 
   $scope.comment = {};
@@ -162,6 +165,31 @@ angular.module('starter.controllers', [])
       $scope.modal.show();
     });
   };
+
+  //This is the code that displays the action sheet on the items page
+  $scope.showOptions = function () {
+   var sheet = $ionicActionSheet.show({
+     titleText: 'Choose an action',
+     buttons: [
+         { text: '<i class="icon ion-social-twitter"></i> Share on Twitter' },
+         { text: '<i class="icon ion-social-facebook"></i> Share on Facebook' },
+       ],
+       destructiveText: 'Cancel',
+
+       buttonClicked: function(index, message, image, link) {
+        $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
+            $cordovaSocialSharing.shareViaTwitter(message, image, link);
+        }, function(error) {
+            alert("Cannot share on Twitter");
+        });
+        return true;
+    },
+       destructiveButtonClicked: function() {
+         console.log('Cancelled');
+         return true;
+       }
+     });
+   };
 
   //Closes the beerchat page
   $scope.cancelBeerChat = function () {
@@ -241,13 +269,28 @@ angular.module('starter.controllers', [])
 
 
   //logout function
-  $scope.logout = function() {
-   auth.signout();
-   store.remove('token');
-   store.remove('profile');
-   store.remove('refreshToken');
-   $state.go('login');
- }
+  $scope.logOut = function () {
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Please confirm?',
+      template: 'Are you  sure you want to logout?',
+      cancelText:'Cancel',
+      okText: 'Logout'
+    }).then(function (code) {
+      // Login with code
+      auth.signout();
+        store.remove('token');
+        store.remove('profile');
+        store.remove('refreshToken');
+        $state.go('login');
+    });
+    confirmPopup.then(function(res) {
+      if(res) {
+        console.log('Yes');
+      } else {
+        console.log('No');
+      }
+    });
+  }
 
   //Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function() {
@@ -798,8 +841,17 @@ Controller for the favorites page
 
 
   $scope.auth = auth;
-  $scope.postAuthor = auth.profile.name;
-  $scope.postAuthorPic = auth.profile.picture;
+  $scope.postCustomer = auth.profile.name;
+  $scope.postCustomerPic = auth.profile.picture;
+
+
+  $scope.devList =[
+   {name: "Table0", id:"0"},
+   {name: "Table1", id:"1"},
+   {name: "Table2", id:"2"},
+   {name: "Table3", id:"3"},
+   {name: "Table4", id:"4"},
+];
 
 
   $scope.orders = OrderService;
@@ -813,8 +865,9 @@ Controller for the favorites page
   $scope.sendOrder = function (order) {
     $scope.orders.$add({content: $scope.order,
   //Posts name and picture of the user who sent order
-      postAuthor:$scope.postAuthor,
-      postAuthorPic:$scope.postAuthorPic});
+      Customer:$scope.postCustomer,
+      CustomerPic:$scope.postCustomerPic,
+      TableNumber:  $scope.devList});
 
     $ionicPopup.alert({
       title: 'Order submitted',
@@ -824,11 +877,11 @@ Controller for the favorites page
       console.log("This is logged" , $scope.order);
     });
     var alarmTime = new Date();
-       alarmTime.setSeconds(alarmTime.getSeconds() + 10);
+       alarmTime.setSeconds(alarmTime.getSeconds() + 5);
        $cordovaLocalNotification.add({
            id: "1234",
            date: alarmTime,
-           message: "Your drink should be arriving any second now. Enjoy!!",
+           message: "Your order should be arriving any second now. Enjoy!!",
            title: "Thank you for the order",
            autoCancel: true
        }).then(function () {
@@ -947,6 +1000,7 @@ $scope.showModal = function(templateUrl) {
   };
 })
 //End of image gallery
+//Staff comments controller
 .controller('staffController', function($scope, auth, $ionicModal, $ionicPopup, $state, store, StaffCommentsService, $rootScope) {
 
   $scope.auth = auth;

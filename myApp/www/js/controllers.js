@@ -52,16 +52,17 @@ angular.module('starter.controllers', [])
 })
 
 //Side menu controller
-.controller('NavCtrl', function($scope, auth, $ionicSideMenuDelegate, $cordovaSocialSharing) {
+.controller('NavCtrl', function($scope, auth, $state, store, $ionicSideMenuDelegate) {
 
-  $scope.auth = auth;
 
+  //This code uses auth0 to identify a user
   $scope.showMenu = function () {
     $ionicSideMenuDelegate.toggleLeft();
   };
-  $scope.showRightMenu = function () {
-    $ionicSideMenuDelegate.toggleRight();
-  };
+
+
+  $scope.auth = auth;
+  $scope.data = {};
 })
 //Controller for the tabs
 .controller('TabsCtrl', function($scope, User) {
@@ -97,7 +98,7 @@ angular.module('starter.controllers', [])
   $scope.postAuthor = auth.profile.name;
   $scope.postAuthorPic = auth.profile.picture;
 
-  $scope.data = {}
+  $scope.data = {};
 
    // This is the help button on the items page alert
    $scope.showPopup = function() {

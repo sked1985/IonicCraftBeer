@@ -2,23 +2,26 @@
 
   <ion-slide-box>
 
-  <!--  <ion-slide>
-        <h3></h3>
-           <img src="img/main.jpg" width="350">
-       </ion-slide>-->
+  <ion-slide>
+    <class="logo"><span class="icon icon-slide ion-beer positive"></span></a>
+           <h1 style="color: white;text-align: center;">Craft Beer Store</h1>
+           <p class="tagline">where everybody knows your name</p>
+       </ion-slide>
     <ion-slide>
-      <span class="icon icon-slide ion-document-text"></span>
-      <h3>Reserve a Party</h3>
+      <span class="icon icon-slide ion-document-text positive"></span>
+      <h1 style="color: #FFF;text-align: center;">Reserve your party</h1>
+         <p class="tagline">Book your party with us now.</p>
     </ion-slide>
     <ion-slide>
-      <span class="icon icon-slide ion-calendar"></span>
-      <h3>View upcoming events</h3>
-    </ion-slide>
-    <ion-slide>
-      <span class="icon icon-slide ion-beer"></span>
-      <h3>Have Fun!!!</h3>
-      <button class="button button-block button-positive"ng-click="login1()">Get Started</button>
+      <span class="icon icon-slide ion-calendar positive"></span>
+      <h1 style="color: #FFF;text-align: center;">View Events</h1>
+         <p class="tagline">Check out all the free entertainement we have lined up.</p>
     </ion-slide>
   </ion-slide-box>
-
+  <ion-footer-bar align-title="left" class="bar-clear">
+  <h1 class="title"></h1>
+  <div class="buttons" ng-click="login1()">
+    <button class="button button-positive">Get Started</button>
+  </div>
+</ion-footer-bar>
 </ion-view>

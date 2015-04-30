@@ -293,12 +293,15 @@ p.info {
 /*This is the start of the tour CSS*/
 
 #tour{
-background-color: #ADD8E6;
+background-image: url('../img/bg-intro.jpg');
+background-size: cover;
 text-align: center;
 position: absolute;
 z-index: 80;
 }
 
+.background-dark {
+  background: #212121; }
 
 #tour .slider {
   height: 100%;
@@ -312,6 +315,25 @@ z-index: 80;
   font-size: 20em;
   display: inline-block;
 }
+
+#tour .tagline {
+  text-align: center;
+  color: #FFF;
+  margin-bottom: 50px; }
+
+#tour .slider {
+  height: 95%; }
+
+#tour .slider-slide {
+  padding-top: 40px;
+  color: #FFF;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.05); }
+
+#tour .slider-pager-page i {
+  color: #FFF; }
+
+
 /*dashboard css*/
 #profile-bg {
         position: fixed;

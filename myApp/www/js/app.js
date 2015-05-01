@@ -1,5 +1,3 @@
-
-
 angular.module('starter', ['ionic',
   'firebase',
   'starter.controllers',

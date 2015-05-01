@@ -1067,6 +1067,11 @@ $scope.openComments = function() {
 //Beer chat controller
 .controller('chatController', ["$scope", "beerChat", function($scope, beerChat ) {
     //Set messages to chatMessages factory which returns the firebase data
+    $scope.hideTime = true;
+
+    var alternate,
+      isIOS = ionic.Platform.isWebView() && ionic.Platform.isIOS();
+
     $scope.messages = beerChat;
 
     //Initialize message object
@@ -1074,10 +1079,22 @@ $scope.openComments = function() {
 
     //Add message to the firebase data
     $scope.addMessage = function(message) {
+
+      alternate = !alternate;
+
+      var d = new Date();
+        d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
+
       $scope.messages.$add({content: message});
       //we reset the text input field to an empty string
-      $scope.message.theMessage = "";
+      userId: alternate ? '12345' : '54321';
+      text:$scope.message.theMessage = "";
+      time: d;
+      console.log("This is logged" , $scope.message, $scope.myId);
     };
+
+    $scope.data = {};
+    $scope.myId = '12345';
 }])
 //End of beer chat controller
 //Cider chat controller
@@ -1094,6 +1111,7 @@ $scope.openComments = function() {
       //we reset the text input field to an empty string
       $scope.message.theMessage = "";
     };
+
 }])
 //end of cider chat
 //Stout chat controller

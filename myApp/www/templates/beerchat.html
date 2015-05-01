@@ -1,31 +1,38 @@
-<ion-modal-view ng-controller="chatController">
-  <ion-header-bar class="bar-royal">
-    <h1 class="title">Tell us what you think!!</h1>
+<ion-modal-view ng-controller="chatController" id ="chats">
+  <ion-header-bar class="bar-positive">
+    <img ng-src="{{auth.profile.picture}}" id="profile-image1">
+    <h1 class="title">Beer chat!!</h1>
     <div class="buttons">
-      <button class="button button-light" ng-click="cancelBeerChat()">Cancel</button>
+      <button class="button button-clear" ng-click="cancelBeerChat()">Close</button>
     </div>
   </ion-header-bar>
-  <ion-content>
-    <div style="height: 60px;"></div>
-         <div class="row row-bottom">
-             <div class="col">
-                 <div class="chatbox-container">
-                     <ul class="chatbox">
-                         <!-- We output the messages -->
-                         <li ng-repeat="msg in messages">{{msg.content}}</li>
-                     </ul>
-                 </div>
-                 <form name="myform" ng-submit="addMessage(message.theMessage)">
-                     <label class="item item-input message-input">
-                         <!-- the input text field is bound to message.theMessage -->
-                         <input type="text" ng-model="message.theMessage" placeholder="Type your message..."
-                         />
-                     </label>
-                     <button class="button button-block button-royal" action="submit">
-                         Send
-                     </button>
-                 </form>
-             </div>
-         </div>
-     </ion-content>
+  <ion-content class="content-stable" id ="chat"
+                 on-swipe-left="hideTime = false"
+                 on-swipe-right="hideTime = true">
+                 <div style="height: 65px;"></div>
+
+      <div ng-repeat="msg in messages"
+           ng-class="{other: msg.userId != myId}"
+           class="messages">
+
+        <div class="message" ng-class="{'slide-right': hideTime, '': !hideTime}">
+          <span>{{ msg.content }}</span>
+        </div>
+
+        <div class="time" ng-class="{'slide-right': hideTime, '': !hideTime}">{{message.time}}</div>
+
+
+      </div>
+
+    </ion-content>
+     <form name="myform" ng-submit="addMessage(message.theMessage)">
+     <ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
+      <label class="item-input-wrapper">
+        <input type="text" placeholder="Type your message" ng-model="message.theMessage"  on-return="sendMessage(); closeKeyboard()" ng-model="data.message" on-focus="inputUp()" on-blur="inputDown()" />
+      </label>
+      <button class="button button-clear" action="submit">
+        Send
+      </button>
+    </ion-footer-bar>
+  </form>
 </ion-modal-view>

@@ -4,16 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Craft Beer Application</title>
-
-
     <!-- compiled css output -->
     <link href="css/ionic.app.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
-
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-
     <!--<script src="lib/angular-cookies/angular-cookies.js"></script>-->
     <script src="lib/auth0-angular/build/auth0-angular.js"></script>
     <script src="lib/a0-angular-storage/dist/angular-storage.js"></script>
@@ -37,34 +33,30 @@
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
   </head>
-
 <!--start of the application-->
 <body ng-app="starter" animation="slide-left-right-ios7">
-<!--This the start of the side menus functionality-->
 <fake-statusbar></fake-statusbar>
+<!--This the start of the side menus functionality-->
 <ion-side-menus>
         <ion-side-menu-content ng-controller="NavCtrl">
           <ion-nav-bar class="bar-positive">
             <ion-nav-back-button class="button-icon ion-arrow-left-c">
             </ion-nav-back-button>
-
             <ion-nav-buttons side="left">
               <button class="button button-icon button-clear ion-navicon" ng-click="showMenu()">
               </button>
             </ion-nav-buttons>
-
-            <!--<ion-nav-buttons side="right">
-              <button class="button button-icon button-clear ion-ios7-gear" ng-click="showRightMenu()">
-              </button>
-            </ion-nav-buttons>-->
           </ion-nav-bar>
           <ion-nav-view animation="slide-left-right"></ion-nav-view>
         </ion-side-menu-content>
+        <!--Start of the side menu content-->
         <ion-side-menu side="left">
           <ion-header-bar class="bar bar-header bar-dark"  ng-controller="NavCtrl">
+                <!--profile picture in the side menu-->
                 <img ng-src="{{auth.profile.picture}}" id="profile-image1">
             <h1 class="title">Craft Beer Store</h1>
           </ion-header-bar>
+          <!--Footer bar in side menu-->
       <ion-footer-bar>
          <div class="tabs tabs-dark tabs-icon-only">
             <a class="tab-item" href="#/tab/staff" menu-close>
@@ -81,6 +73,7 @@
           </ion-footer-bar>
           <ion-content class="has-footer">
             <div style="height: 60px;"></div>
+            <!--Side menu list-->
           <ion-list>
             <ion-item href="#/tab/home" class="item-icon-left" menu-close><i class="icon ion-home"></i> Home</ion-item>
             <ion-item href="#/tab/food" class="item-icon-left" menu-close><i class="icon ion-beer"></i> Order</ion-item>
@@ -97,54 +90,47 @@
         </ion-side-menu>
       </ion-side-menus>
 <!--End of the side menus-->
-<!--Tabs at the bottom of the apps page-->
+<!--Tabs at the bottom of the apps page. I decided to hide these from the finished application-->
 <script id="templates/tabs.html" type="text/ng-template">
-
     <ion-tabs ng-class="{'tabs-item-hide': $root.hideTabs}" class="tabs-icon-top tabs-clear tabs-color-active-positive">
       <!--Home tab-->
-
       <ion-tab title="Home" icon-off="ion-home" icon-on="ion-home"  href="#/tab/home" class="ng-hide">
           <ion-nav-view name="tab-home"></ion-nav-view>
       </ion-tab>
-
-
-
       <!-- Discover Tab -->
       <ion-tab title="Discover" icon-off="ion-search" icon-on="ion-search" href="#/tab/discover">
         <ion-nav-view name="tab-discover"></ion-nav-view>
       </ion-tab>
-
-
       <!-- Favorites Tab -->
       <ion-tab title="Favorites" icon-off="icon ion-star" icon-on="icon ion-star" badge="favCount()" badge-style="badge-energized" on-select="enteringFavorites()" on-deselect="leavingFavorites()"  href="#/tab/favorites">
         <ion-nav-view name="tab-favorites"></ion-nav-view>
       </ion-tab>
-
     </ion-tabs>
 </script>
 <!--End of tabs page-->
-<!--Start of the home page-->
+<!--Start of the Main menu page of the application-->
 <script type="text/ng-template" id="templates/home.html">
-  <ion-view title='<img class="title-image" src="http://www.ionicframework.com/img/ionic-logo-white.svg" width="123" height="35" />' hide-back-button="true" hide-tabs='true'/>
+<ion-view title='<img class="title-image" src="http://www.ionicframework.com/img/ionic-logo-white.svg" width="123" height="35" />' hide-back-button="true" hide-tabs='true'/>
   <ion-content class="padding">
-  <div style="height: 45px;"></div>
-    <!--  <h2 class="h21"><span ng-bind = "auth.profile.name"></span></h2>
+    <div style="height: 45px;"></div>
+    <!-- <h2 class="h21"><span ng-bind = "auth.profile.name"></span></h2>
       <p><span ng-bind = "auth.profile.email"></span></p>-->
+  <!--This is the welcome message on the main menu-->
   <div class="card">
         <div class="item item-divider item-positive">Welcome <span ng-bind="auth.profile.given_name"></span></div>
-        <div class="item item-text-wrap">
-          Browse our menu to find
-          the perfect drink for you. Check out the free entertainment that is happening today.
-        </div>
+          <div class="item item-text-wrap">
+            Browse our menu to find
+            the perfect drink for you. Check out the free entertainment that is happening today.
+          </div>
       </div>
-
+      <!--This displays the events data on the main menu-->
       <div class="card">
         <div class="item item-divider item-positive">Todays Events</div>
         <div class="item" ng-if="!today"><span class="icon ion-loading-d"></span></div>
         <div class="item" ng-repeat="item in today.events">{{item.event}}, {{item.time}}</div>
         <a class="item button button-positive button-block" href="#/tab/events">Upcoming Events</a>
       </div>
-
+      <!--This opens the comments page-->
       <div class="card">
         <div class="item item-icon-left energized" ng-click="openComments()">
           <i class="icon ion-chatbubble-working"></i><b>Send us a Comment</b>
@@ -389,34 +375,34 @@
 <!--End of coffees page-->
 <!--This is the sandwiches items page-->
 <script id="templates/sandwiches.html" type="text/ng-template">
-    <ion-view title="Sandwiches" hide-tabs='true'>
-    <ion-content class="padding">
-    <div style="height: 60px;"></div>
+<ion-view title="Sandwiches" hide-tabs='true'>
+      <ion-content class="padding">
+          <div style="height: 60px;"></div>
      <div class="list">
- <a class="item item-avatar" a href ="#tab/club">
-      <img src="img/club.jpg">
-    <p class="p">Club</p>
-      <p>€3.59</p>
-  </a>
-  <a class="item item-avatar" a href ="#tab/blt">
-      <img src="img/blt.jpg">
-    <p class="p">BLT</p>
-      <p>€2.99</p>
-    </a>
-  <a class="item item-avatar" href="#">
-    <img src="img/turk.jpg">
-      <p class="p">Turkey Melt</p>
-        <p>€4.29</p>
-    </a>
-  <a class="item item-avatar" href="#">
-    <img src="img/bagel.jpg">
-      <p class="p">Bagels</p>
-        <p>€3.39</p>
-    </a>
-</div>
-        </ion-content>
-      </ion-view>
-    </script>
+        <a class="item item-avatar" a href ="#tab/club">
+          <img src="img/club.jpg">
+            <p class="p">Club</p>
+              <p>€3.59</p>
+        </a>
+        <a class="item item-avatar" a href ="#tab/blt">
+          <img src="img/blt.jpg">
+            <p class="p">BLT</p>
+              <p>€2.99</p>
+        </a>
+        <a class="item item-avatar" href="#">
+          <img src="img/turk.jpg">
+            <p class="p">Turkey Melt</p>
+              <p>€4.29</p>
+          </a>
+        <a class="item item-avatar" href="#">
+          <img src="img/bagel.jpg">
+            <p class="p">Bagels</p>
+              <p>€3.39</p>
+          </a>
+      </div>
+    </ion-content>
+</ion-view>
+</script>
 <!--This is the end of the sandwiches page-->
 <!--This is the start of the baltika page-->
 <script type="text/ng-template" id="templates/baltika.html">
@@ -518,10 +504,10 @@
      <i class="icon ion-images"></i>
        Images
    </a>
-      <a class="tab-item" href="#">
-        <i class="icon ion-link"></i>
-          Website
-      </a>
+   <a class="tab-item" ng-click="openBeerChat()">
+     <i class="icon ion-chatbubbles"></i>
+       Chats
+   </a>
       <a class="tab-item" href="#tab/food">
         <i class="icon ion-beer"></i>
           Order Now
@@ -838,10 +824,10 @@
      <i class="icon ion-images"></i>
        Images
     </a>
-      <a class="tab-item" href="#">
-        <i class="icon ion-link"></i>
-          Website
-      </a>
+    <a class="tab-item" ng-click="openCocktailChat()">
+      <i class="icon ion-chatbubbles"></i>
+        Chats
+    </a>
       <a class="tab-item" href="#tab/food">
         <i class="icon ion-beer"></i>
           Order Now
@@ -901,10 +887,10 @@
      <i class="icon ion-images"></i>
        Images
     </a>
-      <a class="tab-item" href="#">
-        <i class="icon ion-link"></i>
-          Website
-      </a>
+    <a class="tab-item" ng-click="openSCocktailChat()">
+      <i class="icon ion-chatbubbles"></i>
+        Chats
+    </a>
       <a class="tab-item" href="#tab/food">
         <i class="icon ion-beer"></i>
           Order Now

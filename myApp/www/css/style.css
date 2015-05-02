@@ -426,7 +426,8 @@ z-index: 80;
       }
 
       /* Chats css */
-$stable: #f8f8f8 !default;
+#chats $stable:
+ #f8f8f8 !default;
 
 #chats .scroll {
   padding: 10px 0 50px !important;
@@ -446,7 +447,7 @@ $stable: #f8f8f8 !default;
   -ms-flex-align: center !important;
   align-items: center !important;
   margin-bottom: 20px !important;
-  .message {
+.message {
     -webkit-box-flex: 1 !important;
     -moz-box-flex: 1 !important;
     -webkit-flex: 1 1 auto !important;
@@ -485,7 +486,7 @@ $stable: #f8f8f8 !default;
     transform: translate3d(130px, 0, 0) !important;
   }
 }
-//This will change
+
 #chats .messages.other {
   .message {
     -webkit-transform: translate3d(0, 0, 0) !important;

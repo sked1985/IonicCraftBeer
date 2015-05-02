@@ -268,6 +268,26 @@ angular.module('starter.controllers', [])
     });
   };
 
+  //Closes the coffeechat page
+  $scope.cancelCocktailChat = function () {
+
+    $scope.modal.hide();
+  }
+
+
+
+  //Opens the coffeechat page
+  $scope.openCocktailChat = function() {
+    $ionicModal.fromTemplateUrl('templates/cocktailchat.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+      $scope.modal.show();
+    });
+  };
+
+
 
   //logout function
   $scope.logOut = function () {
@@ -1066,35 +1086,33 @@ $scope.openComments = function() {
 })
 //Beer chat controller
 .controller('chatController', ["$scope", "beerChat", function($scope, beerChat ) {
-    //Set messages to chatMessages factory which returns the firebase data
-    $scope.hideTime = true;
 
+
+  $scope.messages = beerChat;
+    //Set messages to chatMessages factory which returns the firebase data
     var alternate,
       isIOS = ionic.Platform.isWebView() && ionic.Platform.isIOS();
 
-    $scope.messages = beerChat;
-
-    //Initialize message object
-    $scope.message = {};
+      //Initialize message object
+      $scope.message = {};
+      $scope.data = {};
+      $scope.myId = '12345';
 
     //Add message to the firebase data
     $scope.addMessage = function(message) {
 
       alternate = !alternate;
 
-      var d = new Date();
-        d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
+      userId: alternate ? '12345' : '54321';
 
       $scope.messages.$add({content: message});
+
+
       //we reset the text input field to an empty string
-      userId: alternate ? '12345' : '54321';
       text:$scope.message.theMessage = "";
-      time: d;
-      console.log("This is logged" , $scope.message, $scope.myId);
+
     };
 
-    $scope.data = {};
-    $scope.myId = '12345';
 }])
 //End of beer chat controller
 //Cider chat controller
@@ -1138,6 +1156,24 @@ $scope.openComments = function() {
 
 
     $scope.messages = coffeeChat;
+
+    //Initialize message object
+    $scope.message = {};
+
+    //Add message to the firebase data
+    $scope.addMessage = function(message) {
+      $scope.messages.$add({content: message});
+      //we reset the text input field to an empty string
+      $scope.message.theMessage = "";
+    };
+}])
+
+//Stout chat controller
+.controller('chatController4', ["$scope", "cocktailChat", function($scope, cocktailChat ) {
+    //Set messages to chatMessages factory which returns the firebase data
+
+
+    $scope.messages = cocktailChat;
 
     //Initialize message object
     $scope.message = {};

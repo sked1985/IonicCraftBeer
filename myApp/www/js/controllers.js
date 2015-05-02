@@ -174,23 +174,39 @@ angular.module('starter.controllers', [])
      buttons: [
          { text: '<i class="icon ion-social-twitter"></i> Share on Twitter' },
          { text: '<i class="icon ion-social-facebook"></i> Share on Facebook' },
+         { text: 'More information'}
        ],
        destructiveText: 'Cancel',
 
-       buttonClicked: function(index, message, image, link) {
-        $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
-            $cordovaSocialSharing.shareViaTwitter(message, image, link);
-        }, function(error) {
-            alert("Cannot share on Twitter");
-        });
+       buttonClicked: function (index) {
+        if (index === 0) {
+        }
+        if (index === 1) {
+
+        }
+        if (index === 2) {
+          $scope.showModal();
+        }
         return true;
-    },
-       destructiveButtonClicked: function() {
-         console.log('Cancelled');
-         return true;
-       }
-     });
-   };
+      }
+    });
+  };
+
+  $scope.showModal = function() {
+    $ionicModal.fromTemplateUrl('templates/info-chart.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+      $scope.modal.show();
+    });
+  };
+
+
+  $scope.hideModal = function () {
+    $scope.modal.hide();
+  };
+
 
   //Closes the beerchat page
   $scope.cancelBeerChat = function () {

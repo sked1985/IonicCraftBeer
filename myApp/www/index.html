@@ -54,17 +54,17 @@
           <ion-header-bar class="bar bar-header bar-dark"  ng-controller="NavCtrl">
                 <!--profile picture in the side menu-->
                 <img ng-src="{{auth.profile.picture}}" id="profile-image1">
-            <h1 class="title">Craft Beer Store</h1>
+                <h1 class="title"><span ng-bind = "auth.profile.name"></span></h1>
           </ion-header-bar>
           <!--Footer bar in side menu-->
       <ion-footer-bar>
          <div class="tabs tabs-dark tabs-icon-only">
             <a class="tab-item" href="#/tab/staff" menu-close>
                 <i class="icon ion-ios7-person"></i>
-                <span class="badge badge-assertive">3</span>
                   </a>
                 <a class="tab-item" href="#/tab/popular" menu-close>
                 <i class="icon ion-star"></i>
+                <span class="badge badge-assertive">3</span>
               </a>
               <a class="tab-item" href="#/tab/dashboard" menu-close>
                 <i class="icon ion-gear-a"></i>

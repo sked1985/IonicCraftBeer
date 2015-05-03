@@ -95,8 +95,8 @@ angular.module('starter.controllers', [])
 
   //This code uses auth0 to identify a user
   $scope.auth = auth;
-  $scope.postAuthor = auth.profile.name;
-  $scope.postAuthorPic = auth.profile.picture;
+  $scope.postReviewer = auth.profile.name;
+  $scope.postReviewerPic = auth.profile.picture;
 
   $scope.data = {};
 
@@ -126,8 +126,8 @@ angular.module('starter.controllers', [])
   //Sends the comments
   $scope.addComment = function(comment) {
     $scope.comments.$add({message: $scope.comment,
-                          postAuthor:$scope.postAuthor,
-                          postAuthorPic:$scope.postAuthorPic});
+                          Reviewer:$scope.postReviewer,
+                          ReviewerPic:$scope.postReviewerPic});
     //we reset the text input field to an empty string
     $scope.comment.theComment = "";
 

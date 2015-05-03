@@ -15,6 +15,23 @@ body , input, select, textarea,h1 {
     font-weight: bold;
     /*text-align: center !important;*/
 
+}/*title bar css*/
+.bar .title1 {
+    font-size: 18px;
+    color: white;
+    margin-left: 10px;
+
+
+
+    /*text-align: center !important;*/
+
+}
+
+/*title bar css*/
+.bar .title {
+    font-weight: bold;
+    /*text-align: center !important;*/
+
 }
 
 /*styling for all the h2 elements in the app color:#13EDAE;*/

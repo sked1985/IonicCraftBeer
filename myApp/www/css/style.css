@@ -75,6 +75,8 @@ line-height: 49px;
 
 }
 
+
+
 /*styling for all the h2 elements in the app color:#13EDAE;*/
 .h2 {
     color:#0099CC;
@@ -424,12 +426,13 @@ z-index: 80;
         margin: 30px auto 0;
         box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
       }
+
       #profile-image1 {
         top: -2px;
         border-radius: 100px;
-        border: 1px solid #444;
-        width: 45px;
-        height: 45px;
+        border: 3px solid #ffffff;
+        width: 42px;
+        height: 42px;
         box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
         position: relative;
         top: -7px;

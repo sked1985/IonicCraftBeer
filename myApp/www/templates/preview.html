@@ -10,14 +10,15 @@
   </ion-header-bar>
   <form name="myform" ng-submit="addOrder(order.theOrder)">
     <ion-footer-bar align-title="left" class="bar-energized" ng-if="order.items.length">
+      <h1 class="title">Table</h1>
     <ul class="list">
-          <select-box ng-Selected-Value="selectedValue"
+          <select-box  ng-Selected-Value="order.Table"
                 ng-Selected-Id="selectedId"
                 ng-Item-Name="name"
                 ng-Item-Id="id"
                 ng-title="What is your table number?!"
                 ng-data="devList"
-                ng-placeholder="&nbsp;Table"></select-box>
+                ng-placeholder="&nbsp; &nbsp; &nbsp;Table"></select-box>
       </ul>
     </ion-footer-bar>
   <ion-content>

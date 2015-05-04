@@ -900,11 +900,10 @@ Controller for the favorites page
 
 
   $scope.devList =[
-   {name: "Table0", id:"0"},
-   {name: "Table1", id:"1"},
-   {name: "Table2", id:"2"},
-   {name: "Table3", id:"3"},
-   {name: "Table4", id:"4"},
+   {name: "Table 1", id:"1"},
+   {name: "Table 2", id:"2"},
+   {name: "Table 3", id:"3"},
+   {name: "Table 4", id:"4"},
 ];
 
 
@@ -912,7 +911,8 @@ Controller for the favorites page
 
   $scope.order = {
     items: [],
-    total: 0
+    total: 0,
+    table: []
   };
 
   //This sends the order displays the submitted order message
@@ -920,8 +920,7 @@ Controller for the favorites page
     $scope.orders.$add({content: $scope.order,
   //Posts name and picture of the user who sent order
       Customer:$scope.postCustomer,
-      CustomerPic:$scope.postCustomerPic,
-      TableNumber:  $scope.devList});
+      CustomerPic:$scope.postCustomerPic});
 
     $ionicPopup.alert({
       title: 'Order submitted',

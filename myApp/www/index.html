@@ -68,8 +68,8 @@
             <ion-item href="#/tab/discover" class="item-icon-left" menu-close><i class="icon ion-search"></i>Discover</ion-item>
             <ion-item href="#/tab/about" class="item-icon-left" menu-close> <i class="icon ion-ios7-information"></i> About</ion-item>
             <ion-item class="item-divider">Social Media</ion-item>
-            <ion-item href="#" onClick="window.open('https://twitter.com/BarryGettigan','_blank','location=yes');return false;" class="item-icon-left positive" menu-close> <i class="icon ion-social-twitter"></i>Twitter</ion-item>
-            <ion-item href="#" onClick="window.open('https://www.facebook.com/barry.gettigan','_blank','location=yes');return false;" class="item-icon-left royal" menu-close><i class="icon ion-social-facebook"></i>Facebook</ion-item>
+            <ion-item href="#" onClick="window.open('https://twitter.com/BarryGettigan','_blank','location=yes');return false;" class="item-icon-left positive" menu-close> <i class="icon ion-social-twitter"></i>Twitter<br/><p>Follow us</p></ion-item>
+            <ion-item href="#" onClick="window.open('https://www.facebook.com/barry.gettigan','_blank','location=yes');return false;" class="item-icon-left royal" menu-close><i class="icon ion-social-facebook"></i>Facebook<br/><p>Like our page</p></ion-item>
           </ion-list>
           </ion-content>
           <!--Footer bar in side menu-->
@@ -113,7 +113,7 @@
 <ion-view title='<img class="title-image" src="http://www.ionicframework.com/img/ionic-logo-white.svg" width="123" height="35" />' hide-back-button="true" hide-tabs='true'/>
   <ion-content class="padding">
     <div style="height: 45px;"></div>
-    <!-- <h2 class="h21"><span ng-bind = "auth.profile.name"></span></h2>
+    <!-- <h2 class="h2"><span ng-bind = "auth.profile.name"></span></h2>
       <p><span ng-bind = "auth.profile.email"></span></p>-->
   <!--This is the welcome message on the main menu-->
   <div class="card">
@@ -408,15 +408,14 @@
 <script type="text/ng-template" id="templates/baltika.html">
     <ion-view title="Baltika" hide-tabs='true'>
     <ion-nav-buttons side="right">
-      <button ng-click="shareViaTwitter1('Check out this Baltika Beer, It` delicious', null, 'http://craftbeer.com')" class="button button-clear icon ion-social-twitter-outline">
-    </button>
+        <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
     </ion-nav-buttons>
       <ion-content padding="true">
       <div style="height: 50px;"></div>
           <div class="list card">
             <div class="item item-avatar">
                 <img src="img/baltika.jpg">
-                    <h2 class="h21">Baltika Beer</h2>
+                    <h2 class="h2">Baltika Beer</h2>
                       <p>Brewed in Russia, 1994</p>
             </div>
             <div class="item item-body">
@@ -480,7 +479,7 @@
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/baltika.jpg">
-      <h2 class="h21">Dungarvan Beer</h2>
+      <h2 class="h2">Dungarvan Beer</h2>
         <p>Brewed in Ireland, 2002</p>
     </div>
     <div class="item item-body">
@@ -530,7 +529,7 @@
           <div class="list card">
             <div class="item item-avatar">
               <img src="img/bare.jpg">
-                <h2 class="h21">Bohemian Beer</h2>
+                <h2 class="h2">Bohemian Beer</h2>
                   <p class="p1">This beer is currently unavaialble</p>
               </div>
     <div class="item item-body">
@@ -580,7 +579,7 @@
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/bulmers.jpg">
-      <h2 class="h21">Bulmers</h2>
+      <h2 class="h2">Bulmers</h2>
         <p>It may not be craft but its a classic</p>
     </div>
     <div class="item item-body">
@@ -642,7 +641,7 @@
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/strongbow.jpg">
-      <h2 class="h21">Strongbow</h2>
+      <h2 class="h2">Strongbow</h2>
         <p>It is ridiculously cheap</p>
     </div>
     <div class="item item-body">
@@ -690,7 +689,7 @@
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/guinness.jpg">
-      <h2 class="h21">Guinness</h2>
+      <h2 class="h2">Guinness</h2>
         <p>Pint of the black stuff?</p>
     </div>
     <div class="item item-body">
@@ -752,7 +751,7 @@
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/oharas.jpg">
-      <h2 class="h21">O Haras</h2>
+      <h2 class="h2">O Haras</h2>
         <p>Strong stout</p>
     </div>
     <div class="item item-body">
@@ -864,7 +863,7 @@
 <div class="list card">
   <div class="item item-avatar">
     <img src="img/sex.jpg">
-      <h2 class="h21">Sex on the beach</h2>
+      <h2 class="h2">Sex on the beach</h2>
         <p>These are very moreish</p>
     </div>
     <div class="item item-body">

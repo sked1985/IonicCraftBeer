@@ -50,12 +50,28 @@
           <ion-nav-view animation="slide-left-right"></ion-nav-view>
         </ion-side-menu-content>
         <!--Start of the side menu content-->
-        <ion-side-menu side="left">
+        <ion-side-menu side="left" class="left-menu">
           <ion-header-bar class="bar bar-header bar-dark"  ng-controller="NavCtrl">
                 <!--profile picture in the side menu-->
                 <img ng-src="{{auth.profile.picture}}" id="profile-image1">
                 <h1 class="title1"><span ng-bind = "auth.profile.given_name"></span></h1>
           </ion-header-bar>
+          <ion-content class="has-footer" has-tabs="true">
+            <div style="height: 60px;"></div>
+            <!--Side menu list-->
+          <ion-list>
+            <ion-item href="#/tab/home" class="item-icon-left" menu-close><i class="icon ion-home"></i> Home</ion-item>
+            <ion-item href="#/tab/food" class="item-icon-left" menu-close><i class="icon ion-beer"></i> Order</ion-item>
+            <ion-item href="#/tab/browse" class="item-icon-left" menu-close><i class="icon ion-document"></i>Menu</ion-item>
+            <ion-item href="#/tab/events" class="item-icon-left" menu-close><i class="icon ion-music-note"></i>Events</ion-item>
+            <ion-item href="#/tab/images" class="item-icon-left" menu-close><i class="icon ion-images"></i>Gallery</ion-item>
+            <ion-item href="#/tab/discover" class="item-icon-left" menu-close><i class="icon ion-search"></i>Discover</ion-item>
+            <ion-item href="#/tab/about" class="item-icon-left" menu-close> <i class="icon ion-ios7-information"></i> About</ion-item>
+            <ion-item class="item-divider">Social Media</ion-item>
+            <ion-item href="#" onClick="window.open('https://twitter.com/BarryGettigan','_blank','location=yes');return false;" class="item-icon-left positive" menu-close> <i class="icon ion-social-twitter"></i>Twitter</ion-item>
+            <ion-item href="#" onClick="window.open('https://www.facebook.com/barry.gettigan','_blank','location=yes');return false;" class="item-icon-left royal" menu-close><i class="icon ion-social-facebook"></i>Facebook</ion-item>
+          </ion-list>
+          </ion-content>
           <!--Footer bar in side menu-->
       <ion-footer-bar>
          <div class="tabs tabs-dark tabs-icon-only">
@@ -71,22 +87,6 @@
               </a>
             </div>
           </ion-footer-bar>
-          <ion-content class="has-footer">
-            <div style="height: 60px;"></div>
-            <!--Side menu list-->
-          <ion-list>
-            <ion-item href="#/tab/home" class="item-icon-left" menu-close><i class="icon ion-home"></i> Home</ion-item>
-            <ion-item href="#/tab/food" class="item-icon-left" menu-close><i class="icon ion-beer"></i> Order</ion-item>
-            <ion-item href="#/tab/browse" class="item-icon-left" menu-close><i class="icon ion-document"></i>Menu</ion-item>
-            <ion-item href="#/tab/events" class="item-icon-left" menu-close><i class="icon ion-music-note"></i>Events</ion-item>
-            <ion-item href="#/tab/images" class="item-icon-left" menu-close><i class="icon ion-images"></i>Gallery</ion-item>
-            <ion-item href="#/tab/discover" class="item-icon-left" menu-close><i class="icon ion-search"></i>Discover</ion-item>
-            <ion-item href="#/tab/about" class="item-icon-left" menu-close> <i class="icon ion-ios7-information"></i> About</ion-item>
-            <ion-item class="item-divider">Social Media</ion-item>
-            <ion-item href="#" onClick="window.open('https://twitter.com/BarryGettigan','_blank','location=yes');return false;" class="item-icon-left positive" menu-close> <i class="icon ion-social-twitter-outline"></i>Twitter</ion-item>
-            <ion-item href="#" onClick="window.open('https://www.facebook.com/barry.gettigan','_blank','location=yes');return false;" class="item-icon-left royal" menu-close><i class="icon ion-social-facebook"></i>Facebook</ion-item>
-          </ion-list>
-          </ion-content>
         </ion-side-menu>
       </ion-side-menus>
 <!--End of the side menus-->

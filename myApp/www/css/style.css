@@ -10,21 +10,62 @@ body , input, select, textarea,h1 {
 
 }
 
+/*Side menu css*/
+.left-menu .bar.bar-footer{
+ padding:0;
+border-top:1px solid #222
+}
+.left-menu .tabs {
+
+height: 44px;
+line-height: 44px;
+}
+.left-menu .tabs-dark>.tabs, .left-menu .tabs.tabs-dark {
+border-color: #222;
+background-color: #111;
+}
+.left-menu .item-input-wrapper {
+
+border-radius: 0;
+padding-right: 8px;
+padding-left: 8px;
+background: #111;
+font-family: 'Karla', sans-serif;
+}
+.left-menu .bar.item-input-inset .item-input-wrapper input {
+color:#CCC
+}
+
+
+.left-menu .tab-item .icon {
+
+height: 24px;
+font-size: 24px;
+    vertical-align:midlle
+}
+.left-menu .bar.bar-header .tab-item .icon:before {
+
+height: 14px;
+font-size: 16px;
+  vertical-align:top
+}
+.left-menu .tabs-icon-left .tab-item, .left-menu .tabs-icon-right .tab-item {
+font-size: 12px;
+line-height: 49px;
+}
+/*End of side menu css*/
+
 /*title bar css*/
 .bar .title {
     font-weight: bold;
     /*text-align: center !important;*/
 
-}/*title bar css*/
+}/*profile name in side menu css*/
 .bar .title1 {
     font-size: 18px;
     color: white;
-    margin-left: 10px;
-
-
-
+    margin-left: 14px;
     /*text-align: center !important;*/
-
 }
 
 /*title bar css*/

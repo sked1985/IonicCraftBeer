@@ -29,22 +29,28 @@ angular.module('starter.controllers', [])
 //tour controller
 .controller('TourCtrl', function ($scope, $location, $ionicPopup) {
 
+  //This is the popup that asks the user what age they are
   $scope.login1 = function () {
     var confirmPopup = $ionicPopup.confirm({
       title: 'Please confirm?',
       template: 'Are you 18 years Old?',
       cancelText:'No',
       okText: 'Yes'
-    }).then(function (code) {
-      // Login with code
-      localStorage.setItem('firstVisit', '1');
-      $location.url('/tab/home');
-    });
-    confirmPopup.then(function(res) {
-      if(res) {
+    })
+    //Code that grants the user access to app if they click yes
+    confirmPopup.then(function(code) {
+      if(code) {
         console.log('Yes');
+        $location.url('/tab/home');
       } else {
         console.log('No');
+          var alertPopup = $ionicPopup.alert({
+            title: 'Sorry',
+            template: 'You have to be 18 to use this app'
+      });
+        alertPopup.then(function(res) {
+        console.log('');
+    });
       }
     });
   }
@@ -117,6 +123,7 @@ angular.module('starter.controllers', [])
     rating: 5
   };
 
+
   $scope.comments = CommentsService;
 
   $scope.comment = {};
@@ -180,9 +187,20 @@ angular.module('starter.controllers', [])
 
        buttonClicked: function (index) {
         if (index === 0) {
+          $cordovaSocialSharing.canShareVia("twitter", "Check it out").then(function(result) {
+            $cordovaSocialSharing.shareViaTwitter("Check out this amazing drink, It` delicious'!!!!!!!'http://craftbeer.com");
+        }, function(error) {
+            alert("Cannot share on Twitter");
+        });
         }
         if (index === 1) {
-
+          $cordovaSocialSharing
+      .shareViaFacebook("Check out this amazing drink, It` delicious'!!!!!!!'http://craftbeer.com")
+      .then(function(result) {
+        // Success!
+      }, function(err) {
+        alert("Cannot share on Facebook");
+      });
         }
         if (index === 2) {
           $scope.showModal();
@@ -312,17 +330,16 @@ angular.module('starter.controllers', [])
       template: 'Are you  sure you want to logout?',
       cancelText:'Cancel',
       okText: 'Logout'
-    }).then(function (code) {
-      // Login with code
-      auth.signout();
+    })
+    //Confirm to logout code
+    confirmPopup.then(function(code) {
+      if(code) {
+        console.log('Yes');
+        auth.signout();
         store.remove('token');
         store.remove('profile');
         store.remove('refreshToken');
         $state.go('login');
-    });
-    confirmPopup.then(function(res) {
-      if(res) {
-        console.log('Yes');
       } else {
         console.log('No');
       }

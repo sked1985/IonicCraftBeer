@@ -27,7 +27,7 @@ angular.module('starter.controllers', [])
 })
 
 //tour controller
-.controller('TourCtrl', function ($scope, $location, $ionicPopup) {
+.controller('TourCtrl', function ($scope, $location, $ionicPopup, auth, store, $state) {
 
   //This is the popup that asks the user what age they are
   $scope.login1 = function () {
@@ -48,8 +48,15 @@ angular.module('starter.controllers', [])
             title: 'Sorry',
             template: 'You have to be 18 to use this app'
       });
+      //If the user chooses no log them out
         alertPopup.then(function(res) {
         console.log('');
+        auth.signout();
+        store.remove('token');
+        store.remove('profile');
+        store.remove('refreshToken');
+        $state.go('login');
+
     });
       }
     });

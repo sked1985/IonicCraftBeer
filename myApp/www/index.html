@@ -14,7 +14,7 @@
     <script src="lib/auth0-angular/build/auth0-angular.js"></script>
     <script src="lib/a0-angular-storage/dist/angular-storage.js"></script>
     <script src="lib/angular-jwt/dist/angular-jwt.js"></script>
-    <script src="lib/auth0-lock/build/auth0-lock.js"></script>
+    <script src="//cdn.auth0.com/js/lock-7.1.min.js"></script>
     <script src="lib/ionic.ion.imagecachefactory.js"></script>
     <script src="lib/SelectBox.js"></script>
     <!-- Firebase -->
@@ -143,7 +143,7 @@
 <!--Start of the browse menu page-->
 <script id="templates/browse.html" type="text/ng-template">
     <ion-view title="Menu" hide-tabs='true'>
-      <ion-content class="padding" header-shrink scroll-event-interval="5" has-bouncing="false">
+      <ion-content class="padding">
       <div style="height: 60px;"></div>
         <div class="list">
           <a class="item item-thumbnail-left" href="#tab/beers">
@@ -1172,7 +1172,7 @@
 <!--Events page-->
 <script id="templates/events.html" type="text/ng-template">
 <ion-view title="Upcoming Events" hide-tabs='true'>
-  <ion-content header-shrink scroll-event-interval="5">
+  <ion-content>
   <div style="height: 60px;"></div>
     <ul class="list">
       <span ng-repeat="day in events">
@@ -1195,7 +1195,7 @@
 <ion-footer-bar align-title="left" class="bar-positive">
   <h1 class="title">Total: {{order.total | currency:"€"}}, Items {{order.items.length}}</h1>
 </ion-footer-bar>
-<ion-content header-shrink scroll-event-interval="5">
+<ion-content>
 <div style="height: 65px;"></div>
 <ion-list>
   <span ng-repeat="course in menu">
@@ -1227,7 +1227,5 @@
 </ion-view>
 
 </script>
-
-<script src='lib/move/move.min.js'></script>
   </body>
 </html>

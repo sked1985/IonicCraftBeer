@@ -151,6 +151,10 @@ line-height: 49px;
 .bar-header {
   height: 64px !important;
 }
+
+.bar-header1 {
+  height: 64px !important;
+}
 .bar-header > * {
   margin-top: 20px !important;
 }

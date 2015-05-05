@@ -23,6 +23,7 @@ angular.module('starter', ['ionic',
     if(window.StatusBar) {
       StatusBar.overlaysWebView(false);
       StatusBar.backgroundColorByHexString('#387ef5');
+      StatusBar.styleLightContent();
 }
   });
 })

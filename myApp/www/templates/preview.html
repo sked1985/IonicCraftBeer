@@ -25,7 +25,7 @@
     <div style="height: 60px;"></div>
     <ion-list>
       <ion-item ng-if="!order.items.length" class="item-divider">No items</ion-item>
-      <ion-item ng-model="order.theOrder"  ng-repeat="item in order.items">
+      <ion-item click-for-options ng-model="order.theOrder"  ng-repeat="item in order.items">
         {{item.item}} <span class="item-note">{{item.price | currency:"€" }}
         <ion-option-button class="button-assertive" ng-click="remove($index)">Remove</ion-option-button>
       </ion-item>

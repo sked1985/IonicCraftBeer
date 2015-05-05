@@ -1200,7 +1200,7 @@
 <ion-list>
   <span ng-repeat="course in menu">
   <ion-item class="item-divider">{{course.meal}}</ion-item>
-  <ion-item ng-repeat="item in course.items">
+  <ion-item click-for-options ng-repeat="item in course.items">
     {{item.item}} <span class="item-note">{{item.price | currency:"€"}}
     <ion-option-button class="button-energized" ng-click="add(item)">Order</ion-option-button>
   </ion-item>

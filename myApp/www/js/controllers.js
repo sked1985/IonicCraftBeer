@@ -368,124 +368,6 @@ angular.module('starter.controllers', [])
 
 })
 
-
-
-//Controller for the discover items tabs
-  .controller('DiscoverCtrl', function($scope, $timeout, User, $ionicPopup, $ImageCacheFactory) {
-
-    // An alert dialog
-      $scope.showAlert = function() {
-      var alertPopup = $ionicPopup.alert({
-      title: 'Welcome to the Discover Page!',
-      type: 'button-positive',
-      template: 'Favorite the ones you like, Skip the ones you hate! Enjoy'
-      });
-      alertPopup.then(function(res) {
-      console.log('Thank you for liking');
-      });
-      };
-
-
-    // our first three songs
-    $scope.songs = [
-       {
-          "title":"Fishers",
-          "artist":"Beer",
-          "image_small":"http://i38.tinypic.com/zx8d1i.jpg",
-          "image_large":"http://i38.tinypic.com/zx8d1i.jpg"
-       },
-       {
-          "title":"Guinness",
-          "artist":"Stout",
-          "image_small":"http://www.redfm.ie/wp-content/uploads/2014/08/guinness1.jpg",
-          "image_large":"http://www.redfm.ie/wp-content/uploads/2014/08/guinness1.jpg"
-       },
-       {
-          "title":"Trouble Brewing",
-          "artist":"Stout",
-          "image_small":"http://thegreenmanstudio.com/wp-content/uploads/2011/11/darkarts.jpg",
-          "image_large":"http://thegreenmanstudio.com/wp-content/uploads/2011/11/darkarts.jpg"
-       },
-       {
-          "title":"Club",
-          "artist":"Sandwich",
-          "image_small":"http://i.huffpost.com/gen/1107767/images/o-CLUB-SANDWICH-facebook.jpg",
-          "image_large":"http://i.huffpost.com/gen/1107767/images/o-CLUB-SANDWICH-facebook.jpg"
-       },
-       {
-          "title":"Americano",
-          "artist":"Coffee",
-          "image_small":"https://ardyssrecipes.files.wordpress.com/2012/12/black_coffee_cup_nice-1680x1050.jpg",
-          "image_large":"https://ardyssrecipes.files.wordpress.com/2012/12/black_coffee_cup_nice-1680x1050.jpg"
-       },
-       {
-          "title":"BLT",
-          "artist":"Sandwich",
-          "image_small":"http://i38.http://upload.wikimedia.org/wikipedia/commons/f/f1/BLT_sandwich_(1).jpg.com/zx8d1i.jpg",
-          "image_large":"http://i38.http://upload.wikimedia.org/wikipedia/commons/f/f1/BLT_sandwich_(1).jpg.com/zx8d1i.jpg"
-       },
-       {
-          "title":"Fishers",
-          "artist":"Beer",
-          "image_small":"https://s-media-cache-ak0.pinimg.com/originals/32/21/6c/32216ccffb6f3f2184a54ce11f537a11.jpg",
-          "image_large":"https://s-media-cache-ak0.pinimg.com/originals/32/21/6c/32216ccffb6f3f2184a54ce11f537a11.jpg"
-       },
-       {
-          "title":"Whiskey Sour",
-          "artist":"Cocktails",
-          "image_small":"http://www.betcheslovethis.com/files/uploads/images/whiskeys.jpg",
-          "image_large":"http://www.betcheslovethis.com/files/uploads/images/whiskeys.jpg"
-       },
-       {
-          "title":"Baltika",
-          "artist":"Beer",
-          "image_small":"http://3.bp.blogspot.com/-rpQ7MkjZURE/T8EoQYBjQJI/AAAAAAAADdk/OKIC67DYSOk/s1600/Zombie+Dust.jpg",
-          "image_large":"http://3.bp.blogspot.com/-rpQ7MkjZURE/T8EoQYBjQJI/AAAAAAAADdk/OKIC67DYSOk/s1600/Zombie+Dust.jpg"
-       },
-       {
-          "title":"Dungarven",
-          "artist":"Beer",
-          "image_small":"http://drinkwiththewench.com/wp-content/uploads/2013/01/12244_10102418352089945_1869374664_n.jpg",
-          "image_large":"http://drinkwiththewench.com/wp-content/uploads/2013/01/12244_10102418352089945_1869374664_n.jpg"
-       }
-    ];
-
-    $scope.currentSong = angular.copy($scope.songs[0]);
-
-    $scope.sendFeedback = function (bool) {
-      if(bool) User.addSongToFavorites($scope.currentSong);
-
-     // set variable for the correct animation sequence
-     $scope.currentSong.rated = bool;
-     $scope.currentSong.hide = true;
-
-     $timeout(function() {
-       // $timeout to allow animation to complete before changing to next song
-       // set the current song to one of our three songs
-       var randomSong = Math.round(Math.random() * ($scope.songs.length - 1));
-
-       // update current song in scope
-       $scope.currentSong = angular.copy($scope.songs[randomSong]);
-
-     }, 250);
-   }
-
-   $scope.removeSong = function(song, index){
-     User.removeSongFromFavorites(song, index);
-   }
-
-})
-
-
-/*
-Controller for the favorites page
-*/
-.controller('FavoritesCtrl', function($scope, User) {
-
-  $scope.favorites = User.favorites;
-
-})
-
 //Events controller
 .controller('EventsCtrl', function ($scope, EventsService) {
 
@@ -1223,4 +1105,63 @@ $scope.openComments = function() {
       //we reset the text input field to an empty string
       $scope.message.theMessage = "";
     };
-}]);
+}])
+
+.controller('ReservationController', function($scope, $ionicModal, $templateCache, auth, ReservationService, $ionicPopup){
+
+      $scope.description = "Please fill out the details below for your reservation. Thank you"
+
+      $scope.reservations = ReservationService;
+
+      $scope.user = {
+        Name: "Joe Bloggs",
+        Age: 18,
+        email: "example@example.com",
+        rating: 50,
+        choice: "Band",
+        food: "No",
+        vegeterian: "Yes",
+        message: "We need......."
+      }
+
+
+
+
+      $scope.settingsList = [
+        { text: "Vegeterian?", checked: false }
+      ];
+
+      $scope.sendReservation = function(user){
+        $scope.reservations.$add({content: $scope.user});
+
+        $ionicPopup.alert({
+            title: 'Reservation submitted',
+            template: 'We will send you a message to confirm your booking',
+            }).then(function (code) {
+              $scope.modal.hide();
+              console.log("This is logged" , $scope.user);
+            });
+      }
+
+
+      $ionicModal.fromTemplateUrl('templates/modal.html', {
+        scope: $scope
+      }).then(function(modal){
+        $scope.modal = modal
+      })
+
+      $scope.openModal = function(){
+        console.log("Success")
+
+        $scope.modal.show()
+      }
+
+      $scope.closeModal = function(){
+        $scope.modal.hide()
+      }
+
+      $scope.$on('$destroy', function() {
+       $scope.modal.remove()
+     });
+
+});

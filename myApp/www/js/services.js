@@ -28,6 +28,13 @@ angular.module('starter.services', [])
     return $firebase(ref.child('orders')).$asArray();
     })
 
+    //Submitting order service Service
+    .factory('ReservationService', function($firebase, $rootScope){
+
+      var ref = new Firebase("https://craftbeerproject.firebaseio.com/");
+      return $firebase(ref.child('reservation')).$asArray();
+      })
+
  //Menu Service that is to return the menu data
  .factory('MenuService', function ($firebase) {
      var firebase = new Firebase('https://craftbeerproject.firebaseio.com/menu');
@@ -85,7 +92,7 @@ angular.module('starter.services', [])
      return $firebase(ref.child('coffeechat')).$asArray();
    }])
 
-   
+
 
 //User Service for favorites
    .factory('User', function(){

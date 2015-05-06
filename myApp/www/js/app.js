@@ -23,7 +23,7 @@ angular.module('starter', ['ionic',
     if(window.StatusBar) {
       StatusBar.overlaysWebView(false);
       StatusBar.backgroundColorByHexString('#387ef5');
-      StatusBar.styleLightContent();
+    
 }
   });
 })
@@ -174,26 +174,6 @@ angular.module('starter', ['ionic',
           }
         })
 
-        .state('tab.discover', {
-            url: '/discover',
-            views: {
-              'tab-discover': {
-                templateUrl: 'templates/discover.html',
-                controller: 'DiscoverCtrl'
-              }
-            }
-          })
-
-
-          .state('tab.favorites', {
-            url: '/favorites',
-            views: {
-              'tab-favorites': {
-                templateUrl: 'templates/favorites.html',
-                controller: 'FavoritesCtrl'
-              }
-            }
-          })
 
         .state('tab.food', {
          url: "/food",
@@ -214,6 +194,17 @@ angular.module('starter', ['ionic',
           }
         }
       })
+
+      .state('tab.reservation', {
+       url: "/reservation",
+       views: {
+         'tab-home': {
+           templateUrl: "templates/reservation.html",
+           controller: 'ReservationController'
+         }
+       }
+     })
+
 
         .state('tab.browse', {
          url: "/browse",

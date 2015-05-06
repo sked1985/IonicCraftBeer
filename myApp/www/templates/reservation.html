@@ -1,0 +1,64 @@
+<ion-view title="Make a Reservation" hide-tabs='true' ng-controller="ReservationController">
+  <ion-nav-buttons side="right">
+    <button class="ion-document-text button icon button-clear" ng-click="openModal()"></button>
+  </ion-nav-buttons>
+      <ion-content has-header="true" padding="true">
+        <div style="height: 60px;"></div>
+        <p>{{description}}</p>
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">First Name</span>
+            <input type="text" ng-model="user.Name">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Age</span>
+            <input type="text" ng-model="user.Age">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Email</span>
+            <input type="email" ng-model="user.email">
+          </label>
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Music
+            </div>
+            <select ng-model="user.choice">
+              <option>Band</option>
+              <option selected>DJ</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Food
+            </div>
+            <select ng-model="user.food">
+              <option>Yes</option>
+              <option selected>No</option>
+            </select>
+          </label>
+          <ul class="list">
+            <ion-toggle ng-repeat="item in settingsList"
+                      ng-model="item.checked"
+                      ng-checked="item.checked">
+            {{ item.text }}
+          </ion-toggle>
+        </ul>
+        <div class="item">
+          <div class="item-label">How many people do yo expect?</div>
+        </div>
+        <div class="item range range-assertive">
+          <i class="icon ion-volume-low"></i>
+          <input type="range" ng-model="user.rating" name="rating" min="1" max="100">
+          <i class="icon ion-volume-high"></i><br/>
+          <p>{{user.rating}}</p>
+        </div>
+        <div class="item">
+          <div class="item-label">Anything else required?</div>
+        </div>
+        <div class="item item-input">
+          <textarea name="message" ng-model="user.message" rows="3">{{user.message}}</textarea>
+        </div>
+      </div>
+      </ion-content>
+    </ion-view>

@@ -1,0 +1,40 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-energized">
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeModal()">Cancel</button>
+    </div>
+    <h1 class="title">{{user.Name}} Party Details</h1>
+    <div class="buttons">
+      <button class="button button-clear"  ng-click="sendReservation()" action="submit">Submit</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div style="height: 60px;"></div>
+        <div class="list card">
+          <div class="item item-avatar">
+            <img ng-src="{{auth.profile.picture}}">
+            <h2>{{user.Name}}</h2>
+            <p>{{user.email}}</p>
+          </div>
+          <div class="item item-image">
+            <img src="http://whiskersresort.com/wp-content/uploads/2013/02/Events-party.jpg">
+          </div>
+          <div class="item item-divider">Close to update info</div>
+        </div>
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">  <p>People</p> {{user.rating}}</span>
+          </label>
+          <label class="item item-input">
+            <span class="input-label">  <p>Food</p> {{user.food}}</span>
+          </label>
+          <label class="item item-input">
+            <span class="input-label">  <p>Music</p> {{user.choice}}</span>
+          </label>
+          <label class="item item-input">
+            <span class="input-label">  <p>Extras</p> {{user.message}}</span>
+          </label>
+        </div>
+
+      </ion-content>
+</ion-modal-view>

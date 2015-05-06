@@ -10,6 +10,12 @@ body , input, select, textarea,h1 {
 
 }
 
+.even-more-custom-icon {
+  font-size: 150px;
+  color : #0099CC;
+
+}
+
 /*Side menu css*/
 .left-menu .bar.bar-footer{
  padding:0;

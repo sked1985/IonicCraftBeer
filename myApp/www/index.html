@@ -101,14 +101,14 @@
 <!--End of tabs page-->
 <!--Start of the Main menu page of the application-->
 <script type="text/ng-template" id="templates/home.html">
-<ion-view title='<img class="title-image" src="http://www.ionicframework.com/img/ionic-logo-white.svg" width="123" height="35" />' hide-back-button="true" hide-tabs='true'/>
+<ion-view title='Welcome' hide-back-button="true" hide-tabs='true'/>
   <ion-content class="padding">
     <div style="height: 45px;"></div>
-    <!-- <h2 class="h2"><span ng-bind = "auth.profile.name"></span></h2>
-      <p><span ng-bind = "auth.profile.email"></span></p>-->
+    <i class="icon ion-beer even-more-custom-icon"></i>
+
   <!--This is the welcome message on the main menu-->
   <div class="card">
-        <div class="item item-divider item-positive">Welcome <span ng-bind="auth.profile.given_name"></span></div>
+        <div class="item item-divider item-positive">Hello <span ng-bind="auth.profile.given_name">!!</span></div>
           <div class="item item-text-wrap">
             Browse our menu to find
             the perfect drink for you. Check out the free entertainment that is happening today.

@@ -18,6 +18,9 @@
             <span class="input-label">Email</span>
             <input type="email" ng-model="user.email">
           </label>
+          <ionic-datepicker idate="currentDate" >
+    <button class="button button-block button-energized"> {{ currentDate | date:'dd - MMMM - yyyy' }} </button>
+</ionic-datepicker>
           <label class="item item-input item-select">
             <div class="input-label">
               Music

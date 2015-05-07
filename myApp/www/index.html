@@ -29,6 +29,13 @@
     <script src="js/auth0-variables.js"></script>
     <!--Script for the header shrink feature -->
     <script src="lib/ionic-ion-header-shrink/ionic.headerShrink.js"></script>
+    <link href="lib/ionic-datepicker/dist/style.css" rel="stylesheet">
+    <!-- path to ionic/angularjs js -->
+    <script src="lib/ionic-datepicker/dist/templates.js"></script>
+    <script src="lib/ionic-datepicker/dist/ionic-datepicker.js"></script>
+
+    <!-- path to ionic/angularjs js -->
+
     <script src="js/app.js"></script>
     <script src="lib/collide/collide.js"></script>
     <script src="js/controllers.js"></script>
@@ -61,12 +68,12 @@
             <div style="height: 62px;"></div>
             <!--Side menu list-->
           <ion-list>
-            <ion-item href="#/tab/home" class="item-icon-left" menu-close=""><i class="icon ion-home"></i> Home</ion-item>
-            <ion-item href="#/tab/food" class="item-icon-left" menu-close=""><i class="icon ion-beer"></i> Order</ion-item>
-            <ion-item href="#/tab/browse" class="item-icon-left" menu-close=""><i class="icon ion-document"></i>Menu</ion-item>
-            <ion-item href="#/tab/images" class="item-icon-left" menu-close=""><i class="icon ion-images"></i>Gallery</ion-item>
-            <ion-item href="#/tab/reservation" class="item-icon-left" menu-close=""><i class="icon ion-document-text"></i>Reservation</ion-item>
-            <ion-item href="#/tab/about" class="item-icon-left" menu-close=""> <i class="icon ion-ios7-information"></i> About</ion-item>
+            <ion-item href="#/tab/home" class="item-icon-left" menu-close=""><i class="icon ion-home custom-icon"></i> Home</ion-item>
+            <ion-item href="#/tab/food" class="item-icon-left" menu-close=""><i class="icon ion-beer custom-icon1"></i> Order</ion-item>
+            <ion-item href="#/tab/browse" class="item-icon-left" menu-close=""><i class="icon ion-document custom-icon2"></i>Menu</ion-item>
+            <ion-item href="#/tab/images" class="item-icon-left" menu-close=""><i class="icon ion-images custom-icon2"></i>Gallery</ion-item>
+            <ion-item href="#/tab/reservation" class="item-icon-left" menu-close=""><i class="icon ion-document-text custom-icon3"></i>Reservation</ion-item>
+            <ion-item href="#/tab/about" class="item-icon-left" menu-close=""> <i class="icon ion-ios7-information custom-icon2"></i> About</ion-item>
             <ion-item class="item-divider">Social Media</ion-item>
             <ion-item href="#" onclick="window.open(&apos;https://twitter.com/BarryGettigan&apos;,&apos;_blank&apos;,&apos;location=yes&apos;);return false;" class="item-icon-left positive" menu-close=""> <i class="icon ion-social-twitter"></i>Twitter<br><p>Follow us</p></ion-item>
             <ion-item href="#" onclick="window.open(&apos;https://www.facebook.com/barry.gettigan&apos;,&apos;_blank&apos;,&apos;location=yes&apos;);return false;" class="item-icon-left royal" menu-close=""><i class="icon ion-social-facebook"></i>Facebook<br><p>Like our page</p></ion-item>
@@ -104,8 +111,6 @@
 <ion-view title='Welcome' hide-back-button="true" hide-tabs='true'/>
   <ion-content class="padding">
     <div style="height: 45px;"></div>
-    <i class="icon ion-beer even-more-custom-icon"></i>
-
   <!--This is the welcome message on the main menu-->
   <div class="card">
         <div class="item item-divider item-positive">Hello <span ng-bind="auth.profile.given_name">!!</span></div>
@@ -113,14 +118,14 @@
             Browse our menu to find
             the perfect drink for you. Check out the free entertainment that is happening today.
           </div>
-      </div>
+  </div>
       <!--This displays the events data on the main menu-->
-      <div class="card">
+  <div class="card">
         <div class="item item-divider item-positive">Todays Events</div>
         <div class="item" ng-if="!today"><span class="icon ion-loading-d"></span></div>
         <div class="item" ng-repeat="item in today.events">{{item.event}}, {{item.time}}</div>
-        <a class="item button button-energized button-block" href="#/tab/events">Upcoming Events</a>
-      </div>
+          <a class="item button button-energized button-block" href="#/tab/events">Upcoming Events</a>
+  </div>
       <!--This opens the comments page-->
       <div class="card">
         <div class="item item-icon-left assertive" ng-click="openComments()">
@@ -200,7 +205,7 @@
                   <p>€2.29</p>
           </a>
           <a class="item item-avatar" href="#">
-              <img ng-src="img/abbey.jpg">
+              <img ng-src="img/pale.jpg">
                 <p class="p">Abbey Irish Pale Ale</p>
                   <p>€3.39</p>
           </a>

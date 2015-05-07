@@ -8,7 +8,8 @@ angular.module('starter', ['ionic',
   'ionic.ion.headerShrink',
   'ngCordova',
   'ionic.ion.imageCacheFactory',
-  '$selectBox'
+  '$selectBox',
+  'ionic-datepicker'
   ])
 
 
@@ -23,7 +24,7 @@ angular.module('starter', ['ionic',
     if(window.StatusBar) {
       StatusBar.overlaysWebView(false);
       StatusBar.backgroundColorByHexString('#387ef5');
-    
+
 }
   });
 })
@@ -135,6 +136,9 @@ angular.module('starter', ['ionic',
 
 .config(function($stateProvider, $urlRouterProvider, authProvider, $httpProvider,
   jwtInterceptorProvider) {
+
+
+
 
 
   // Ionic uses AngularUI Router which uses the concept of st$ionicConfigProvidertes

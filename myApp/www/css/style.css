@@ -10,6 +10,26 @@ body , input, select, textarea,h1 {
 
 }
 
+.custom-icon {
+  font-size: 64px;
+  color : #0099CC;
+}
+
+.custom-icon1 {
+  font-size: 64px;
+  color : #FFBB33;
+}
+
+.custom-icon2{
+  font-size: 64px;
+  color : #111111;
+}
+
+.custom-icon3{
+  font-size: 64px;
+  color :  #D50000;
+}
+
 .even-more-custom-icon {
   font-size: 150px;
   color : #0099CC;
@@ -584,4 +604,3 @@ z-index: 80;
   text-align: left !important;
   max-width: 240px !important;
 }
-      /* End of chats css */

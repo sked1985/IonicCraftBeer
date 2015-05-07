@@ -1109,6 +1109,8 @@ $scope.openComments = function() {
 
 .controller('ReservationController', function($scope, $ionicModal, $templateCache, auth, ReservationService, $ionicPopup){
 
+      $scope.currentDate = new Date();
+
       $scope.description = "Please fill out the details below for your reservation. Thank you"
 
       $scope.reservations = ReservationService;

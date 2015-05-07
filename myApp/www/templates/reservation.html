@@ -18,7 +18,7 @@
             <span class="input-label">Email</span>
             <input type="email" ng-model="user.email">
           </label>
-          <ionic-datepicker idate="currentDate" >
+          <ionic-datepicker idate="currentDate">
     <button class="button button-block button-energized"> {{ currentDate | date:'dd - MMMM - yyyy' }} </button>
 </ionic-datepicker>
           <label class="item item-input item-select">
@@ -51,10 +51,10 @@
           <div class="item-label">How many people do yo expect?</div>
         </div>
         <div class="item range range-assertive">
-          <i class="icon ion-volume-low"></i>
+          <i class="icon ion-ios7-person-outline"></i>
           <input type="range" ng-model="user.rating" name="rating" min="1" max="100">
-          <i class="icon ion-volume-high"></i><br/>
-          <p>{{user.rating}}</p>
+          <i class="icon ion-ios7-person"></i><br/>
+          Total:{{user.rating}}
         </div>
         <div class="item">
           <div class="item-label">Anything else required?</div>

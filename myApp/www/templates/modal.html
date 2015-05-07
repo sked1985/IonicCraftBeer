@@ -25,6 +25,10 @@
           <label class="item item-input">
             <span class="input-label">  <p>People</p> {{user.rating}}</span>
           </label>
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">  <p>Date</p>{{ currentDate | date:'dd - MMMM - yyyy' }}</span>
+            </label>
           <label class="item item-input">
             <span class="input-label">  <p>Food</p> {{user.food}}</span>
           </label>

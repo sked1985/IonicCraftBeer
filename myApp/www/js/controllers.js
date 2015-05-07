@@ -162,6 +162,26 @@ angular.module('starter.controllers', [])
   };
 
   //Closes the comments page
+  $scope.cancelAbout = function () {
+
+    $scope.modal.hide();
+  }
+
+
+
+  //Opens the comments page
+
+  $scope.openAbout = function() {
+    $ionicModal.fromTemplateUrl('templates/about.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+      $scope.modal.show();
+    });
+  };
+
+  //Closes the comments page
   $scope.cancelComments = function () {
 
     $scope.modal.hide();
@@ -1122,8 +1142,10 @@ $scope.openComments = function() {
         rating: 50,
         choice: "Band",
         food: "No",
+        date: [],
         vegeterian: "Yes",
         message: "We need......."
+
       }
 
 

@@ -452,15 +452,6 @@ angular.module('starter', ['ionic',
 
 
 
-    .state('tab.about', {
-      url: '/about',
-      views: {
-        'tab-home': {
-          templateUrl: 'templates/about.html',
-        }
-      }
-    })
-
     .state('tour', {
       url: '/tour',
       templateUrl: 'templates/tour.html',

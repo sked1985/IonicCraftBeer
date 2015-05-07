@@ -73,10 +73,10 @@
             <ion-item href="#/tab/browse" class="item-icon-left" menu-close=""><i class="icon ion-document custom-icon2"></i>Menu</ion-item>
             <ion-item href="#/tab/images" class="item-icon-left" menu-close=""><i class="icon ion-images custom-icon2"></i>Gallery</ion-item>
             <ion-item href="#/tab/reservation" class="item-icon-left" menu-close=""><i class="icon ion-document-text custom-icon3"></i>Reservation</ion-item>
-            <ion-item href="#/tab/about" class="item-icon-left" menu-close=""> <i class="icon ion-ios7-information custom-icon2"></i> About</ion-item>
             <ion-item class="item-divider">Social Media</ion-item>
             <ion-item href="#" onclick="window.open(&apos;https://twitter.com/BarryGettigan&apos;,&apos;_blank&apos;,&apos;location=yes&apos;);return false;" class="item-icon-left positive" menu-close=""> <i class="icon ion-social-twitter"></i>Twitter<br><p>Follow us</p></ion-item>
             <ion-item href="#" onclick="window.open(&apos;https://www.facebook.com/barry.gettigan&apos;,&apos;_blank&apos;,&apos;location=yes&apos;);return false;" class="item-icon-left royal" menu-close=""><i class="icon ion-social-facebook"></i>Facebook<br><p>Like our page</p></ion-item>
+            <ion-item href="#" onclick="window.open(&apos;https://www.facebook.com/barry.gettigan&apos;,&apos;_blank&apos;,&apos;location=yes&apos;);return false;" class="item-icon-left assertive" menu-close=""><i class="icon ion-social-youtube"></i>Youtube<br><p>Check our channel</p></ion-item>
           </ion-list>
           </ion-content>
           <!--Footer bar in side menu-->
@@ -109,6 +109,9 @@
 <!--Start of the Main menu page of the application-->
 <script type="text/ng-template" id="templates/home.html">
 <ion-view title='Welcome' hide-back-button="true" hide-tabs='true'/>
+<ion-nav-buttons side="right">
+    <button class="button button-icon" ng-click="openAbout()"><span class="icon ion-ios7-information-outline"></span></button>
+</ion-nav-buttons>
   <ion-content class="padding">
     <div style="height: 45px;"></div>
   <!--This is the welcome message on the main menu-->
@@ -1206,22 +1209,5 @@
 </ion-view>
 </script>
 <!--This is the end of the order page-->
-<script id="templates/about.html" type="text/ng-template">
-<ion-view title="About" hide-tabs='true'>
-  <ion-content class="padding">
-    <div style="height: 60px;"></div>
-    <p>App built as an example for demonstrating many features of the Ionic Framework. Built by Barry Mc Gettigan.</p>
-    <h3>Projects Used</h3>
-    <ul>
-      <li><a href="http://ionicframework.com">Ionic Framework</a></li>
-      <li><a href="http://angularjs.org">AngularJS</a></li>
-      <li><a href="https://angular-ui.github.io/ui-router">AngularUI ui-router</a></li>
-      <li><a href="https://cordova.apache.org">Cordova</a></li>
-    </ul>
-    <p>Help me make improvements by throwing me loads of money!!!!!!</p>
-  </ion-content>
-</ion-view>
-
-</script>
   </body>
 </html>

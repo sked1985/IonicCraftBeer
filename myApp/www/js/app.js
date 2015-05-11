@@ -29,6 +29,7 @@ angular.module('starter', ['ionic',
   });
 })
 
+//Clicking on a item in the list works the same as swiping
 .directive('clickForOptions', ['$ionicGesture', function($ionicGesture) {
 	return {
 		restrict: 'A',
@@ -67,6 +68,7 @@ angular.module('starter', ['ionic',
 	};
 }])
 
+//This is the directive that hides the tabs from the bottom of the page
 .directive('hideTabs', function($rootScope) {
     return {
         restrict: 'A',
@@ -134,12 +136,9 @@ angular.module('starter', ['ionic',
   }
 })
 
+//Applications configuration
 .config(function($stateProvider, $urlRouterProvider, authProvider, $httpProvider,
   jwtInterceptorProvider) {
-
-
-
-
 
   // Ionic uses AngularUI Router which uses the concept of st$ionicConfigProvidertes
   // Learn more here: https://github.com/angular-ui/ui-router

@@ -16,7 +16,7 @@ angular.module('starter.controllers', [])
       store.set('refreshToken',refreshToken);
       $state.go('tour');
     },function(){
-      console.log('There was an error');
+      console.log('This is fucked');
     });
   }
 

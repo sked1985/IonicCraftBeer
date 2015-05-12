@@ -10,6 +10,13 @@ body , input, select, textarea,h1 {
 
 }
 
+.selectInput{
+  cursor: inherit !important;
+}
+
+.bar-footer-list {
+  width: 100%; }
+
 .custom-icon {
   font-size: 64px;
   color : #0099CC;

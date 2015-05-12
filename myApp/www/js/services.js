@@ -28,7 +28,7 @@ angular.module('starter.services', [])
     return $firebase(ref.child('orders')).$asArray();
     })
 
-    //Submitting order service Service
+    //Submitting reservation Service
     .factory('ReservationService', function($firebase, $rootScope){
 
       var ref = new Firebase("https://craftbeerproject.firebaseio.com/");

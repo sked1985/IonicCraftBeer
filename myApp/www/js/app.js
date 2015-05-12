@@ -29,6 +29,8 @@ angular.module('starter', ['ionic',
   });
 })
 
+
+
 //Clicking on a item in the list works the same as swiping
 .directive('clickForOptions', ['$ionicGesture', function($ionicGesture) {
 	return {

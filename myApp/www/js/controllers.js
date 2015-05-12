@@ -88,24 +88,6 @@ angular.module('starter.controllers', [])
 //Home Page controller
 .controller('HomeCtrl', function($scope, $cordovaSocialSharing, auth, $http, $timeout, $ionicModal, $ionicActionSheet, $ionicLoading, $ionicPopup, EventsService, $state, store, CommentsService, $rootScope) {
 
-  //Shares data via Twitter
-  $scope.shareViaTwitter = function(message, image, link) {
-       $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
-           $cordovaSocialSharing.shareViaTwitter(message, image, link);
-       }, function(error) {
-           alert("Cannot share on Twitter");
-       });
-   }
-
-   //Shares data via twitter on items page
-   $scope.shareViaTwitter1 = function(message, image, link) {
-        $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
-            $cordovaSocialSharing.shareViaTwitter(message, image, link);
-        }, function(error) {
-            alert("Cannot share on Twitter");
-        });
-    }
-
   //This code uses auth0 to identify a user
   $scope.auth = auth;
   $scope.postReviewer = auth.profile.name;
@@ -215,18 +197,18 @@ angular.module('starter.controllers', [])
        buttonClicked: function (index) {
         if (index === 0) {
           $cordovaSocialSharing.canShareVia("twitter", "Check it out").then(function(result) {
-            $cordovaSocialSharing.shareViaTwitter("Check out this amazing drink, It` delicious'!!!!!!!'http://craftbeer.com");
+            $cordovaSocialSharing.shareViaTwitter("Check out this amazing drink, It` delicious'!!!!!!!'https://craftbeerproject.firebaseapp.com'");
         }, function(error) {
-            alert("Cannot share on Twitter");
+            alert("Cannot share on Twitter. Have you the application instlled?");
         });
         }
         if (index === 1) {
           $cordovaSocialSharing
-      .shareViaFacebook("Check out this amazing drink, It` delicious'!!!!!!!'http://craftbeer.com")
+      .shareViaFacebook("Check out this amazing drink, It` delicious'!!!!!!!'https://craftbeerproject.firebaseapp.com'")
       .then(function(result) {
         // Success!
       }, function(err) {
-        alert("Cannot share on Facebook");
+        alert("Cannot share on Facebook. Have you the application installed?");
       });
         }
         if (index === 2) {
@@ -1127,7 +1109,7 @@ $scope.openComments = function() {
     };
 }])
 
-.controller('ReservationController', function($scope, $ionicModal, $templateCache, auth, ReservationService, $ionicPopup){
+.controller('ReservationController', function($scope, $ionicPopup,   $location, $ionicModal, $templateCache, auth, ReservationService, $ionicPopup){
 
       $scope.currentDate = new Date();
 
@@ -1137,14 +1119,15 @@ $scope.openComments = function() {
 
       $scope.user = {
         Name: "Joe Bloggs",
-        Age: 18,
-        email: "example@example.com",
+        Age: "18",
+        email: "ex",
+        type: "18th",
         rating: 50,
         choice: "Band",
         food: "No",
-        date: [],
+        currentDate: "",
         vegeterian: "Yes",
-        message: "We need......."
+        message: ""
 
       }
 
@@ -1158,14 +1141,72 @@ $scope.openComments = function() {
       $scope.sendReservation = function(user){
         $scope.reservations.$add({content: $scope.user});
 
-        $ionicPopup.alert({
+        var confirmPopup = $ionicPopup.confirm({
             title: 'Reservation submitted',
-            template: 'We will send you a message to confirm your booking',
-            }).then(function (code) {
-              $scope.modal.hide();
-              console.log("This is logged" , $scope.user);
+            template: 'We will send you a message to confirm your booking. Would you like to invite friends?',
+            cancelText:'No',
+            okText: 'Yes'
+            })
+            confirmPopup.then(function (code) {
+              if(code){
+                console.log('Yes');
+                $scope.modal.hide();
+                $scope.showModal();
+              }else{
+                console.log('No');
+                $scope.modal.hide();
+              }
+
             });
       }
+
+      //This is the function that displays the message when Invite have been sent
+      $scope.sendInvite = function() {
+        console.log("This is logged");
+        // Send comment
+        $ionicPopup.alert({
+          title: 'Sent!',
+          template: 'Your invitation has been sent!',
+          okText: 'Close'
+        }).then(function (modal) {
+      // Login with code
+      $scope.modal.hide();
+    });
+
+      };
+
+        //This is the modal that shows the invite friends page
+        $scope.showModal = function() {
+          $ionicModal.fromTemplateUrl('templates/invite.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+          }).then(function(modal) {
+            $scope.modal = modal;
+            $scope.modal.show();
+          });
+        };
+
+
+        //Closes the modal
+        $scope.hideModal = function () {
+          $scope.modal.hide();
+        };
+
+        //Shows the final invite page before submission
+        $scope.showModal1 = function() {
+          $ionicModal.fromTemplateUrl('templates/finalinvite.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+          }).then(function(modal) {
+            $scope.modal = modal;
+            $scope.modal.show();
+          });
+        };
+
+        $scope.closeSelectModal = function () {
+            $scope.modal.hide();
+        };
+
 
 
       $ionicModal.fromTemplateUrl('templates/modal.html', {
@@ -1187,5 +1228,7 @@ $scope.openComments = function() {
       $scope.$on('$destroy', function() {
        $scope.modal.remove()
      });
+
+
 
 });

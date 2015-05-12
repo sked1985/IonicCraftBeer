@@ -3,64 +3,77 @@
     <button class="ion-document-text button icon button-clear" ng-click="openModal()"></button>
   </ion-nav-buttons>
       <ion-content has-header="true" padding="true">
-        <div style="height: 60px;"></div>
-        <p>{{description}}</p>
-        <div class="list">
-          <label class="item item-input">
-            <span class="input-label">First Name</span>
-            <input type="text" ng-model="user.Name">
-          </label>
-          <label class="item item-input">
-            <span class="input-label">Age</span>
-            <input type="text" ng-model="user.Age">
-          </label>
-          <label class="item item-input">
-            <span class="input-label">Email</span>
-            <input type="email" ng-model="user.email">
-          </label>
+          <div style="height: 60px;"></div>
+              <p>{{description}}</p>
+          <div class="list">
+            <label class="item item-input">
+                <span class="input-label"><p>First Name</p></span>
+                  <input type="text" ng-model="user.Name">
+            </label>
+            <label class="item item-input">
+                <span class="input-label"><p>Age</p></span>
+                  <input type="text" ng-model="user.Age">
+            </label>
+            <label class="item item-input">
+                <span class="input-label"><p>Email</p></span>
+                  <input type="email" ng-model="user.email">
+            </label>
           <ionic-datepicker idate="currentDate">
-    <button class="button button-block button-energized"> {{ currentDate | date:'dd - MMMM - yyyy' }} </button>
-</ionic-datepicker>
+              <button class="button button-block button-energized"> {{ currentDate | date:'dd - MMMM - yyyy' }} </button>
+          </ionic-datepicker>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    <p>Music</p>
+                </div>
+                    <select ng-model="user.choice">
+                      <option>Band</option>
+                      <option selected>DJ</option>
+                      <option>Other</option>
+                    </select>
+            </label>
           <label class="item item-input item-select">
-            <div class="input-label">
-              Music
-            </div>
-            <select ng-model="user.choice">
-              <option>Band</option>
-              <option selected>DJ</option>
-              <option>Other</option>
-            </select>
+                <div class="input-label">
+                    <p>Type</p>
+                </div>
+                  <select ng-model="user.type">
+                      <option>18th</option>
+                      <option selected>21st</option>
+                      <option>30th</option>
+                      <option>Anniversary</option>
+                      <option>Other</option>
+                  </select>
           </label>
           <label class="item item-input item-select">
-            <div class="input-label">
-              Food
-            </div>
-            <select ng-model="user.food">
-              <option>Yes</option>
-              <option selected>No</option>
-            </select>
+              <div class="input-label">
+                  <p>Food</p>
+              </div>
+                <select ng-model="user.food">
+                      <option>Yes</option>
+                      <option selected>No</option>
+              </select>
           </label>
           <ul class="list">
             <ion-toggle ng-repeat="item in settingsList"
-                      ng-model="item.checked"
-                      ng-checked="item.checked">
-            {{ item.text }}
-          </ion-toggle>
+                        ng-model="item.checked"
+                        ng-checked="item.checked">
+                                    <p>{{ item.text }}</p>
+            </ion-toggle>
         </ul>
         <div class="item">
-          <div class="item-label">How many people do yo expect?</div>
+            <div class="item-label">
+              <p>How many people do yo expect?<p></div>
         </div>
         <div class="item range range-assertive">
-          <i class="icon ion-ios7-person-outline"></i>
-          <input type="range" ng-model="user.rating" name="rating" min="1" max="100">
-          <i class="icon ion-ios7-person"></i><br/>
-          Total:{{user.rating}}
+            <i class="icon ion-ios7-person-outline"></i>
+                <input type="range" ng-model="user.rating" name="rating" min="1" max="100">
+            <i class="icon ion-ios7-person"></i><br/>
+                    Total:{{user.rating}}
         </div>
         <div class="item">
-          <div class="item-label">Anything else required?</div>
+              <div class="item-label"><p>Anything else required?</p></div>
         </div>
         <div class="item item-input">
-          <textarea name="message" ng-model="user.message" rows="3">{{user.message}}</textarea>
+              <textarea name="message" ng-model="user.message" rows="3">{{user.message}}</textarea>
         </div>
       </div>
       </ion-content>

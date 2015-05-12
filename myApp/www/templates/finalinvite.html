@@ -1,0 +1,35 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-balanced">
+    <h1 class="title">Invite Friend</h1>
+    <a ng-click="closeSelectModal()" class="button button-icon icon ion-close"></a>
+  </ion-header-bar>
+  <ion-content>
+    <div style="height: 60px;"></div>
+    <div class="list card">
+        <a href="#" class="item item-icon-left">
+            <i class="icon ion-home"></i>
+            Enter home address
+          </a>
+
+          <a href="#" class="item item-icon-left">
+            <i class="icon ion-ios7-telephone"></i>
+            Enter phone number
+          </a>
+
+          <a href="#" class="item item-icon-left">
+            <i class="icon ion-wifi"></i>
+            Enter wireless password
+          </a>
+
+          <a href="#" class="item item-icon-left">
+            <i class="icon ion-card"></i>
+            Enter card information
+          </a>
+
+          <button class="button button-block button-positive" ng-click="sendInvite()">
+            Send
+          </button>
+
+      </div>
+  </ion-content>
+</ion-modal-view>

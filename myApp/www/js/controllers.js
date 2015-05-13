@@ -184,9 +184,9 @@ angular.module('starter.controllers', [])
    var sheet = $ionicActionSheet.show({
      titleText: 'Choose an action',
      buttons: [
-         { text: '<i class="icon ion-social-twitter"></i> Share on Twitter' },
-         { text: '<i class="icon ion-social-facebook"></i> Share on Facebook' },
-         { text: 'More information'}
+         { text: '<i class="icon ion-social-twitter calm"></i> Share on Twitter' },
+         { text: '<i class="icon ion-social-facebook royal"></i> Share on Facebook' },
+         { text: '<i class="icon ion-ios7-information-outline dark"></i>&nbsp;More information'}
        ],
        destructiveText: 'Cancel',
 

@@ -39,7 +39,7 @@ body , input, select, textarea,h1 {
 
 .custom-icon4{
   font-size: 64px;
-  color :   #66cc33;
+  color : #99CC00;
 }
 
 .even-more-custom-icon {
@@ -658,7 +658,7 @@ z-index: 80;
 }
 
 #chats span.g{
-  background:   #66cc33 !important;
+  background:   #99CC00 !important;
   display: inline-block !important;
   color: white !important;
   padding: 10px !important;

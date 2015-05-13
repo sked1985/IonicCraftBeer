@@ -1,13 +1,42 @@
 <ion-modal-view>
-  <ion-header-bar class="bar-dark">
+  <ion-header-bar class="bar-balanced">
     <h1 class="title">Information</h1>
     <button class="button button-clear" ng-click="hideModal()">Close</button>
   </ion-header-bar>
-  <ion-content>
-    <div class="list">
-      <div class="item">
-      jdledjdkj
-      </div>
-    </div>
+  <ion-content class="padding">
+<div style="height: 65px;"></div>
+<div class="card">
+  <div class="item item-divider">
+  Need Help <span ng-bind="auth.profile.given_name"></span>?
+</div>
+  <div class="item item-text-wrap">
+    If you require assistance don`t be afraid to ask a member of staff.
+  </div>
+</div>
+<div class="list card">
+        <a href="" class="item item-icon-left">
+          <i class="icon ion-cash"></i>
+            Price:
+            <span class="badge badge-energized icon-badge">€3.39</span>
+        </a>
+        <a href=""class="item item-icon-left">
+          <i class="icon ion-beer"></i>
+          Alcohol Content:
+          <span class="badge badge-energized icon-badge">5.6%</span>
+        </a>
+        <a href="" class="item item-icon-left">
+          <i class="icon ion-card"></i>
+            Year:
+            <span class="badge badge-energized icon-badge">1994</span>
+        </a>
+        <a href="" class="item item-icon-left">
+          <i class="icon ion-earth"></i>
+          Brewed in:
+          <span class="badge badge-clear icon-badge"><img src="https://www.zeendoc.com/wp-content/themes/zeendoc/img/french_flag_small.jpg"></span>
+        </a>
+</div>
+<a class="button button-block button-positive" href="#/tab/food">
+  Order
+</a>
   </ion-content>
 </ion-modal-view>

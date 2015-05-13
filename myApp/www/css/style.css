@@ -37,6 +37,11 @@ body , input, select, textarea,h1 {
   color :  #D50000;
 }
 
+.custom-icon4{
+  font-size: 64px;
+  color :   #66cc33;
+}
+
 .even-more-custom-icon {
   font-size: 150px;
   color : #0099CC;
@@ -523,7 +528,7 @@ z-index: 80;
           margin-top: 10px !important;
       }
 
-      /* Chats css */
+/* Chats css */
 #chats $stable:
  #f8f8f8 !default;
 
@@ -597,13 +602,63 @@ z-index: 80;
     -moz-transform: translate3d(120px, 0, 0) !important;
     transform: translate3d(120px, 0, 0) !important;
   }
-#chats span {
+#chats span{
     color: black !important;
     background-color: #C7C7CC !important;
   }
 }
 #chats span {
   background: #007AFF !important;
+  display: inline-block !important;
+  color: white !important;
+  padding: 10px !important;
+  border-radius: 10px !important;
+  text-align: left !important;
+  max-width: 240px !important;
+}
+
+#chats span.c {
+  background:  #FFBB33 !important;
+  display: inline-block !important;
+  color: white !important;
+  padding: 10px !important;
+  border-radius: 10px !important;
+  text-align: left !important;
+  max-width: 240px !important;
+}
+
+#chats span.d {
+  background:  #D50000 !important;
+  display: inline-block !important;
+  color: white !important;
+  padding: 10px !important;
+  border-radius: 10px !important;
+  text-align: left !important;
+  max-width: 240px !important;
+}
+
+#chats span.e {
+  background:  #000000 !important;
+  display: inline-block !important;
+  color: white !important;
+  padding: 10px !important;
+  border-radius: 10px !important;
+  text-align: left !important;
+  max-width: 240px !important;
+}
+
+#chats span.f{
+  background:  #f8f8f8 !important;
+  display: inline-block !important;
+  color: #000000 !important;
+  padding: 10px !important;
+  border-radius: 10px !important;
+  text-align: left !important;
+  max-width: 240px !important;
+}
+
+#chats span.g{
+  background:   #66cc33 !important;
   display: inline-block !important;
   color: white !important;
   padding: 10px !important;

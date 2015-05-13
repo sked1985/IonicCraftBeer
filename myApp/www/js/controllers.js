@@ -165,14 +165,10 @@ angular.module('starter.controllers', [])
 
   //Closes the comments page
   $scope.cancelComments = function () {
-
     $scope.modal.hide();
   }
 
-
-
   //Opens the comments page
-
   $scope.openComments = function() {
     $ionicModal.fromTemplateUrl('templates/comments.html', {
       scope: $scope,
@@ -241,8 +237,6 @@ angular.module('starter.controllers', [])
     $scope.modal.hide();
   }
 
-
-
   //Opens the beerchat page
   $scope.openBeerChat = function() {
     $ionicModal.fromTemplateUrl('templates/beerchat.html', {
@@ -259,8 +253,6 @@ angular.module('starter.controllers', [])
 
     $scope.modal.hide();
   }
-
-
 
   //Opens the ciderchat page
   $scope.openCiderChat = function() {
@@ -279,8 +271,6 @@ angular.module('starter.controllers', [])
     $scope.modal.hide();
   }
 
-
-
   //Opens the stoutchat page
   $scope.openStoutChat = function() {
     $ionicModal.fromTemplateUrl('templates/stoutchat.html', {
@@ -298,8 +288,6 @@ angular.module('starter.controllers', [])
     $scope.modal.hide();
   }
 
-
-
   //Opens the coffeechat page
   $scope.openCoffeeChat = function() {
     $ionicModal.fromTemplateUrl('templates/coffeechat.html', {
@@ -313,11 +301,8 @@ angular.module('starter.controllers', [])
 
   //Closes the coffeechat page
   $scope.cancelCocktailChat = function () {
-
     $scope.modal.hide();
   }
-
-
 
   //Opens the coffeechat page
   $scope.openCocktailChat = function() {
@@ -329,6 +314,23 @@ angular.module('starter.controllers', [])
       $scope.modal.show();
     });
   };
+
+  //Closes the sandwichchat page
+  $scope.cancelSandwichChat = function () {
+    $scope.modal.hide();
+  }
+
+  //Opens the sandwichhat page
+  $scope.openSandwichChat = function() {
+    $ionicModal.fromTemplateUrl('templates/sandwichchat.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+      $scope.modal.show();
+    });
+  };
+
 
 
 
@@ -1097,6 +1099,24 @@ $scope.openComments = function() {
 
 
     $scope.messages = cocktailChat;
+
+    //Initialize message object
+    $scope.message = {};
+
+    //Add message to the firebase data
+    $scope.addMessage = function(message) {
+      $scope.messages.$add({content: message});
+      //we reset the text input field to an empty string
+      $scope.message.theMessage = "";
+    };
+}])
+
+//Stout chat controller
+.controller('chatController5', ["$scope", "sandwichChat", function($scope, sandwichChat ) {
+    //Set messages to chatMessages factory which returns the firebase data
+
+
+    $scope.messages = sandwichChat;
 
     //Initialize message object
     $scope.message = {};

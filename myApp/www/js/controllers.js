@@ -820,6 +820,7 @@ angular.module('starter.controllers', [])
     $ionicPopup.alert({
       title: 'Order submitted',
       template: 'Your order will be delieved to your table in 5 minutes',
+      type: 'button-energized',
     }).then(function (code) {
       $scope.modal.hide();
       console.log("This is logged" , $scope.order);
@@ -1171,12 +1172,28 @@ $scope.openComments = function() {
 
       }
 
+      $scope.invite ={
+        FirstName:"",
+        LastName:"",
+        telephone:""
+      }
+
 
 
 
       $scope.settingsList = [
         { text: "Vegeterian?", checked: false }
       ];
+
+      $scope.inviteList = [
+        { text: "Send Invitation by Text?", checked: false }
+      ];
+
+      $scope.inviteList1 = [
+        { text: "Send Invitation by Email?", checked: false }
+      ];
+
+
 
       $scope.sendReservation = function(user){
         $scope.reservations.$add({content: $scope.user});
@@ -1191,29 +1208,16 @@ $scope.openComments = function() {
               if(code){
                 console.log('Yes');
                 $scope.modal.hide();
+                $scope.modal.remove();
                 $scope.showModal();
               }else{
                 console.log('No');
                 $scope.modal.hide();
+                $scope.modal.remove();
               }
 
             });
       }
-
-      //This is the function that displays the message when Invite have been sent
-      $scope.sendInvite = function() {
-        console.log("This is logged");
-        // Send comment
-        $ionicPopup.alert({
-          title: 'Sent!',
-          template: 'Your invitation has been sent!',
-          okText: 'Close'
-        }).then(function (modal) {
-      // Login with code
-      $scope.modal.hide();
-    });
-
-      };
 
         //This is the modal that shows the invite friends page
         $scope.showModal = function() {
@@ -1223,32 +1227,18 @@ $scope.openComments = function() {
           }).then(function(modal) {
             $scope.modal = modal;
             $scope.modal.show();
+
           });
         };
 
 
-        //Closes the modal
+        //Closes the modal on the invite friends
         $scope.hideModal = function () {
           $scope.modal.hide();
         };
 
-        //Shows the final invite page before submission
-        $scope.showModal1 = function() {
-          $ionicModal.fromTemplateUrl('templates/finalinvite.html', {
-            scope: $scope,
-            animation: 'slide-in-up'
-          }).then(function(modal) {
-            $scope.modal = modal;
-            $scope.modal.show();
-          });
-        };
 
-        $scope.closeSelectModal = function () {
-            $scope.modal.hide();
-        };
-
-
-
+        //This opens the final reservation page
       $ionicModal.fromTemplateUrl('templates/modal.html', {
         scope: $scope
       }).then(function(modal){
@@ -1268,6 +1258,22 @@ $scope.openComments = function() {
       $scope.$on('$destroy', function() {
        $scope.modal.remove()
      });
+
+     //This is the function that displays the message when Invite have been sent
+     $scope.sendInvite = function() {
+       console.log("This is logged");
+       // Send comment
+       $ionicPopup.alert({
+         title: 'Sent!',
+         template: 'Your invitation has been sent!',
+         okText: 'Close'
+       }).then(function (modal) {
+     // Login with code
+     $scope.modal.hide();
+   });
+
+     };
+
 
 
 

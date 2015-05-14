@@ -1,10 +1,5 @@
 {
-	"-JlqFtwy8nJBjO8UgiqT":
-		{"content":"Hello. Just like to say we had a wonderful time in your bar. Thanks again."},
-	"-JlqGxbPfqWYmisPqC2P":
-		{"content":"Fuckin awesome bar guys."},
-	"-JlqRdpnb7nsLrvp-Skj":
-		{"content":"Tasty treats"},
+
   "menu": [
     {
       "meal": "Beers",
@@ -12,7 +7,7 @@
         { "item": "Baltika", "price": 3.99 },
         { "item": "Dungarvan Copper Coast Red", "price": 3.39 },
         { "item": "Barefoot Bohemian", "price": 2.29 },
-        { "item": "Abbey Irish Pale Ale", "price": 5.50 },
+        { "item": "Corona", "price": 2.50 },
         { "item": "Curim Wheat Beer", "price": 3.09 },
         { "item": "Dungarvan Mine head", "price": 3.49 }
       ]
@@ -93,7 +88,9 @@
       "day": "Tuesday",
       "events": [
         { "day": "Tuesday", "time": "8:00pm",  "location": "Pool 3", "event": "Champions League Football" },
-        { "day": "Tuesday", "time": "10:00pm",  "location": "Dock", "event": "Live Music" }
+        { "day": "Tuesday", "time": "10:00pm",  "location": "Dock", "event": "Live Music" },
+				{ "day": "Tuesday", "time": "11:00pm",  "location": "Dock", "event": "Live DJ" },
+				{ "day": "Tuesday", "time": "12:00pm",  "location": "Dock", "event": "Happy Hour" }
       ]
     },
     {

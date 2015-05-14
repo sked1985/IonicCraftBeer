@@ -13,36 +13,36 @@
         <div class="list card">
           <div class="item item-avatar">
             <img ng-src="{{auth.profile.picture}}">
-            <h2>Bookers Name: <span ng-bind="auth.profile.given_name"></span></h2>
+            <h2>Bookers Name:<span ng-bind="auth.profile.given_name"></span></h2>
             <p></span>Bookers Email: {{user.bookeremail}}</p>
           </div>
           <div class="item item-image">
             <img src="http://whiskersresort.com/wp-content/uploads/2013/02/Events-party.jpg">
           </div>
-          <div class="item item-divider">Close to update info</div>
+          <div class="item item-divider"><center>Make sure information is correct</center></div>
         </div>
         <div class="list">
           <label class="item item-input">
-            <span class="input-label">  <p>Contact:</p> {{user.contactnumber}}</span>
+            <span class="input-label">  <h2 class="h21">Contact</h2><p>{{user.contactnumber}}</p></span>
           </label>
           <label class="item item-input">
-            <span class="input-label">  <p>People:</p> {{user.people}}</span>
+            <span class="input-label">  <h2 class="h21">People</h2><p>{{user.people}}</p></span>
           </label>
           <div class="list">
             <label class="item item-input">
-              <span class="input-label">  <p>Date:</p>{{ currentDate | date:'dd - MMMM - yyyy'}}</span>
+              <span class="input-label"> <h2 class="h21">Date</h2><p>{{user.partyDate}}</p></span>
             </label>
           <label class="item item-input">
-            <span class="input-label">  <p>Food:</p> {{user.food}}</span>
+            <span class="input-label"> <h2 class="h21">Food</h2><p>{{user.food}}</p></span>
           </label>
           <label class="item item-input">
-            <span class="input-label">  <p>Music:</p> {{user.entertainment}}</span>
+            <span class="input-label">  <h2 class="h21">Music</h2><p>{{user.entertainment}}</p></span>
           </label>
           <label class="item item-input">
-            <span class="input-label">  <p>Type:</p> {{user.type}}</span>
+            <span class="input-label">  <h2 class="h21">Type</h2><p>{{user.type}}</p></span>
           </label>
           <label class="item item-input">
-            <span class="input-label">  <p>Extras:</p> {{user.extras}}</span>
+            <span class="input-label">  <h2 class="h21">Extras</h2><p>{{user.extras}}</p></span>
           </label>
         </div>
 

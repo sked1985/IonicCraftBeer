@@ -341,6 +341,16 @@ angular.module('starter', ['ionic',
      }
     })
 
+    .state('tab.corona', {
+     url: "/corona",
+     views: {
+       'tab-home': {
+         templateUrl: "templates/corona.html",
+         controller: 'HomeCtrl'
+       }
+     }
+    })
+
     .state('tab.bulmers', {
      url: "/bulmers",
      views: {

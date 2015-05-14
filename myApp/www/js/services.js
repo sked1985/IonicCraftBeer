@@ -49,7 +49,7 @@ angular.module('starter.services', [])
 
      // this uses AngularFire to create the synchronized array
      // We limit the results to 10
-     return $firebase(ref.child('Favorites')).$asArray();
+     return $firebase(ref.child('favorites')).$asArray();
    }])
 
    //Beer chat service

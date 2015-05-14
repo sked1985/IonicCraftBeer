@@ -1,9 +1,9 @@
 /* Custom font import*/
-@import url(http://fonts.googleapis.com/css?family=Karla:400,700);
+@import url(https://fonts.googleapis.com/css?family=Karla:400,700);
 
 
 body , input, select, textarea,h1 {
-  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+  cursor: url('https://ionicframework.com/img/finger.png'), auto;
   font-family: 'Karla', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   font-weight:400
@@ -130,6 +130,15 @@ line-height: 49px;
     font-weight: bold;
 }
 
+.h22 {
+    color:#D50000;
+    font-weight: bold;
+}
+
+.h23 {
+    color:#66cc33;
+    font-weight: bold;
+}
 .h3 {
     color:#0099CC;
     font-weight: bold;

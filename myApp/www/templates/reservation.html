@@ -20,10 +20,10 @@
             </label>
             <label class="item item-input">
                 <span class="input-label"><p>Email:</p></span>
-                  <input type="email" ng-model="user.bookeremail">
+                  <input type="email" ng-model="user.bookeremail" placeholder="Your email">
             </label>
           <ionic-datepicker idate="currentDate">
-              <button class="button button-block button-energized"> {{ currentDate | date:'dd - MMMM - yyyy' }} </button>
+              <button class="button button-block button-energized" ng-model="user.partyDate">{{ currentDate | date:'dd - MMMM - yyyy' }} </button>
           </ionic-datepicker>
             <label class="item item-input item-select">
                 <div class="input-label">

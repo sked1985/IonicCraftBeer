@@ -3,23 +3,50 @@
     <h1 class="title">Invite Friends</h1>
     <button class="button button-clear" ng-click="hideModal()">Close</button>
   </ion-header-bar>
-<ion-content>
+<ion-content class="padding">
   <div style="height: 60px;"></div>
     <div class="card">
         <div class="item item-text-wrap">
-          <p>Who would you like to invite?</p>
+          <h2 class="h23"><i class="icon ion-person"></i> Who would you like to invite?</h2>
             <div class="list list-inset">
                 <label class="item item-input">
-                    <input type="text" placeholder="First Name">
+                    <input type="text" placeholder="FirstName" ng-model="invite.FirstName">
                 </label>
                 <label class="item item-input">
-                    <input type="text" placeholder="Last Name">
+                    <input type="text" placeholder="Last Name" ng-model="invite.LastName">
                 </label>
+                <br/>
               </div>
-              <button class="button button-block button-positive" ng-click="showModal1()">
-                Save
-              </button>
           </div>
+            <ul class="list">
+              <ion-toggle ng-repeat="item in inviteList"
+                          ng-model="item.checked"
+                          ng-checked="item.checked">
+                                      <h2 class="h23"> <i class="icon ion-ios7-telephone"></i> {{ item.text }}</h2>
+              </ion-toggle>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Mobile Number">
+                    </label>
+                    {{invite.telephone}}
+              </ul>
+
+              <ul class="list">
+              <ion-toggle ng-repeat="item in inviteList1"
+                          ng-model="item.checked"
+                          ng-checked="item.checked">
+                                      <h2 class="h23"><i class="icon ion-ios7-email"></i> {{ item.text }}</h2>
+              </ion-toggle>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Email">
+                    </label>
+          </ul>
+
+
+</div>
+
       </div>
+      <button class="button button-block button-positive" ng-click="sendInvite()">
+        Send
+      </button>
 </ion-content>
 </ion-modal-view>

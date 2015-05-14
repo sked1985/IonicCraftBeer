@@ -7,7 +7,7 @@
     <!-- compiled css output -->
     <link href="css/ionic.app.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet" type="text/css">
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <!--<script src="lib/angular-cookies/angular-cookies.js"></script>-->
@@ -76,7 +76,7 @@
             <ion-item class="item-divider">Social Media</ion-item>
             <ion-item href="#" onclick="window.open(&apos;https://twitter.com/BarryGettigan&apos;,&apos;_blank&apos;,&apos;location=yes&apos;);return false;" class="item-icon-left positive" menu-close=""> <i class="icon ion-social-twitter"></i>Twitter<br><p>Follow us</p></ion-item>
             <ion-item href="#" onclick="window.open(&apos;https://www.facebook.com/barry.gettigan&apos;,&apos;_blank&apos;,&apos;location=yes&apos;);return false;" class="item-icon-left royal" menu-close=""><i class="icon ion-social-facebook"></i>Facebook<br><p>Like our page</p></ion-item>
-            <ion-item href="#" onclick="window.open(&apos;https://www.facebook.com/barry.gettigan&apos;,&apos;_blank&apos;,&apos;location=yes&apos;);return false;" class="item-icon-left assertive" menu-close=""><i class="icon ion-social-youtube"></i>Youtube<br><p>Check our channel</p></ion-item>
+            <ion-item href="#" onclick="window.open(&apos;https://www.youtube.com/watch?v=ETnlrYq7btE;_blank&apos;,&apos;location=yes&apos;);return false;" class="item-icon-left assertive" menu-close=""><i class="icon ion-social-youtube"></i>Youtube<br><p>Check our channel</p></ion-item>
           </ion-list>
           </ion-content>
           <!--Footer bar in side menu-->
@@ -87,7 +87,7 @@
                   </a>
                 <a class="tab-item" href="#/tab/popular" menu-close="">
                 <i class="icon ion-star"></i>
-                <span class="badge badge-assertive">3</span>
+                <span class="badge badge-assertive">5</span>
               </a>
               <a class="tab-item" href="#/tab/dashboard" menu-close="">
                 <i class="icon ion-gear-a"></i>
@@ -127,7 +127,7 @@
         <div class="item item-divider item-positive">Todays Events</div>
         <div class="item" ng-if="!today"><span class="icon ion-loading-d"></span></div>
         <div class="item" ng-repeat="item in today.events">{{item.event}}, {{item.time}}</div>
-          <a class="item button button-balanced button-block" href="#/tab/events">Upcoming Events</a>
+          <a class="item button button-energized button-block" href="#/tab/events">Upcoming Events</a>
   </div>
       <!--This opens the comments page-->
       <div class="card">
@@ -207,10 +207,10 @@
                 <p class="p">Barefoot Bohemian</p>
                   <p>€2.29</p>
           </a>
-          <a class="item item-avatar" href="#tab/baltika">
-              <img ng-src="img/pale.jpg">
-                <p class="p">Abbey Irish Pale Ale</p>
-                  <p>€3.39</p>
+          <a class="item item-avatar" href="#tab/corona">
+              <img ng-src="img/corona.jpg">
+                <p class="p">Corona</p>
+                  <p>€2.50</p>
           </a>
           <a class="item item-avatar" href="#tab/bohemian">
               <img ng-src="img/curim.jpg">
@@ -565,6 +565,55 @@
 </ion-view>
 </script>
 <!--End of Bohemian page-->
+<!--This the Corona Beer page -->
+<script type="text/ng-template" id="templates/corona.html">
+    <ion-view title="Corona" hide-tabs='true'>
+    <ion-nav-buttons side="right">
+      <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
+    </ion-nav-buttons>
+      <ion-content padding="true">
+      <div style="height: 60px;"></div>
+          <div class="list card">
+            <div class="item item-avatar">
+              <img src="img/corona.jpg">
+                <h2 class="h2">Corona</h2>
+                  <p class="p1">We have it in stock!!!!!!</p>
+              </div>
+    <div class="item item-body">
+        <img class="full-image" src="img/corona2.jpg">
+            <p>Corona is a "Moderate Beer" and comes in at 4.6% alcohol by volume.
+            The flavor is toward the sweet side, with a malty character matched
+            to a big body and culminating in a dry finish.</p>
+            <div class="item item-toggle">
+          {{vm.following ? "Following" : "Not Following"}}
+            <label class="toggle toggle-energized">
+              <input type="checkbox" ng-model="vm.following">
+                <div class="track">
+                  <div class="handle"></div>
+                </div>
+            </label>
+        </div>
+    </div>
+    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+
+          <a class="tab-item" ng-click="openModal()">
+           <i class="icon ion-images"></i>
+             Images
+          </a>
+          <a class="tab-item" ng-click="openBeerChat()">
+            <i class="icon ion-chatbubbles"></i>
+              Chats
+          </a>
+          <a class="tab-item" href="#tab/food">
+            <i class="icon ion-beer"></i>
+              Order Now
+          </a>
+    </div>
+  </div>
+</ion-content>
+</ion-view>
+</script>
+<!--End of Corona page-->
 <!--This the bulmers page -->
 <script type="text/ng-template" id="templates/bulmers.html">
     <ion-view title="Bulmers" hide-tabs='true'>
@@ -1141,7 +1190,7 @@
       </div>
 
       <div class="button-bar">
-      <a class="button button-full button-balanced" href="#tab/food">Order</a>
+      <a class="button button-full button-energized" href="#tab/food">Order</a>
       </div>
     </ion-content>
 </ion-view>

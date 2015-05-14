@@ -3,9 +3,9 @@
     <div class="buttons">
       <button class="button button-clear" ng-click="closeModal()">Cancel</button>
     </div>
-    <h1 class="title">{{user.Name}} Party Details</h1>
+    <h1 class="title">{{user.Name}}`s Party Details</h1>
     <div class="buttons">
-      <button class="button button-clear"  ng-click="sendReservation()" action="submit">Submit</button>
+      <button class="button button-clear" ng-click="sendReservation()" action="submit">Submit</button>
     </div>
   </ion-header-bar>
   <ion-content>
@@ -13,8 +13,8 @@
         <div class="list card">
           <div class="item item-avatar">
             <img ng-src="{{auth.profile.picture}}">
-            <h2>{{user.Name}}</h2>
-            <p>{{user.email}}</p>
+            <h2>Bookers Name: <span ng-bind="auth.profile.given_name"></span></h2>
+            <p></span>Bookers Email: {{user.bookeremail}}</p>
           </div>
           <div class="item item-image">
             <img src="http://whiskersresort.com/wp-content/uploads/2013/02/Events-party.jpg">
@@ -23,23 +23,26 @@
         </div>
         <div class="list">
           <label class="item item-input">
-            <span class="input-label">  <p>People</p> {{user.rating}}</span>
+            <span class="input-label">  <p>Contact:</p> {{user.contactnumber}}</span>
+          </label>
+          <label class="item item-input">
+            <span class="input-label">  <p>People:</p> {{user.people}}</span>
           </label>
           <div class="list">
             <label class="item item-input">
-              <span class="input-label">  <p>Date</p>{{ currentDate | date:'dd - MMMM - yyyy'}}</span>
+              <span class="input-label">  <p>Date:</p>{{ currentDate | date:'dd - MMMM - yyyy'}}</span>
             </label>
           <label class="item item-input">
-            <span class="input-label">  <p>Food</p> {{user.food}}</span>
+            <span class="input-label">  <p>Food:</p> {{user.food}}</span>
           </label>
           <label class="item item-input">
-            <span class="input-label">  <p>Music</p> {{user.choice}}</span>
+            <span class="input-label">  <p>Music:</p> {{user.entertainment}}</span>
           </label>
           <label class="item item-input">
-            <span class="input-label">  <p>Type</p> {{user.type}}</span>
+            <span class="input-label">  <p>Type:</p> {{user.type}}</span>
           </label>
           <label class="item item-input">
-            <span class="input-label">  <p>Extras</p> {{user.message}}</span>
+            <span class="input-label">  <p>Extras:</p> {{user.extras}}</span>
           </label>
         </div>
 

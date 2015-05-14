@@ -7,16 +7,20 @@
               <p>{{description}}</p>
           <div class="list">
             <label class="item item-input">
-                <span class="input-label"><p>First Name</p></span>
-                  <input type="text" ng-model="user.Name">
+                <span class="input-label"><p>First Name:</p></span>
+                  <input type="text" ng-model="user.Name" placeholder="Name">
             </label>
             <label class="item item-input">
-                <span class="input-label"><p>Age</p></span>
-                  <input type="text" ng-model="user.Age">
+                <span class="input-label"><p>Age:</p></span>
+                  <input type="text" ng-model="user.Age" placeholder="Age">
             </label>
             <label class="item item-input">
-                <span class="input-label"><p>Email</p></span>
-                  <input type="email" ng-model="user.email">
+                <span class="input-label"><p>Contact:</p></span>
+                  <input type="text" ng-model="user.contactnumber" placeholder="Your Number">
+            </label>
+            <label class="item item-input">
+                <span class="input-label"><p>Email:</p></span>
+                  <input type="email" ng-model="user.bookeremail">
             </label>
           <ionic-datepicker idate="currentDate">
               <button class="button button-block button-energized"> {{ currentDate | date:'dd - MMMM - yyyy' }} </button>
@@ -25,7 +29,7 @@
                 <div class="input-label">
                     <p>Music</p>
                 </div>
-                    <select ng-model="user.choice">
+                    <select ng-model="user.entertainment">
                       <option>Band</option>
                       <option selected>DJ</option>
                       <option>Other</option>
@@ -65,15 +69,15 @@
         </div>
         <div class="item range range-assertive">
             <i class="icon ion-ios7-person-outline"></i>
-                <input type="range" ng-model="user.rating" name="rating" min="1" max="100">
+                <input type="range" ng-model="user.people" name="people" min="1" max="100">
             <i class="icon ion-ios7-person"></i><br/>
-                    Total:{{user.rating}}
+                    Total:{{user.people}}
         </div>
         <div class="item">
               <div class="item-label"><p>Anything else required?</p></div>
         </div>
         <div class="item item-input">
-              <textarea name="message" ng-model="user.message" rows="3">{{user.message}}</textarea>
+              <textarea name="extras" ng-model="user.extras" rows="3" placeholder="We require....">{{user.extras}}</textarea>
         </div>
       </div>
       </ion-content>

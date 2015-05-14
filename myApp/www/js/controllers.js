@@ -129,6 +129,8 @@ angular.module('starter.controllers', [])
 
   };
 
+
+
   //This is the function that displays the message when comments have been sent
   $scope.sendComments = function() {
 
@@ -1009,6 +1011,23 @@ $scope.openComments = function() {
 };
 
 })
+//Popular controller
+.controller('popularController', ["$scope", "FavoritesService", function($scope, FavoritesService ) {
+    //Set messages to chatMessages factory which returns the firebase data
+    $scope.messages = FavoritesService;
+
+    //Initialize message object
+    $scope.message = {};
+
+    //Add message to the firebase data
+    $scope.addMessage = function(message) {
+      $scope.messages.$add({content: message});
+      //we reset the text input field to an empty string
+      $scope.message.theMessage = "";
+    };
+
+}])
+
 //Beer chat controller
 .controller('chatController', ["$scope", "beerChat", function($scope, beerChat ) {
 
@@ -1138,16 +1157,17 @@ $scope.openComments = function() {
       $scope.reservations = ReservationService;
 
       $scope.user = {
-        Name: "Joe Bloggs",
-        Age: "18",
-        email: "ex",
+        Name: "",
+        Age: "",
+        contactnumber: "",
+        bookeremail: "",
         type: "18th",
-        rating: 50,
-        choice: "Band",
+        people: 50,
+        entertainment: "Band",
         food: "No",
-        currentDate: "",
+        partyDate: "",
         vegeterian: "Yes",
-        message: ""
+        extras: ""
 
       }
 

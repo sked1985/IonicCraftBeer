@@ -16,8 +16,12 @@
     <script src="lib/angular-jwt/dist/angular-jwt.js"></script>
     <script src="lib/auth0-lock/build/auth0-lock.js"></script>
     <script src="//cdn.auth0.com/js/lock-7.1.min.js"></script>
-    <script src="lib/ionic.ion.imagecachefactory.js"></script>
     <script src="lib/SelectBox.js"></script>
+    <!--This is the script for the datepicker in the reservation page-->
+    <link href="lib/ionic-datepicker/dist/style.css" rel="stylesheet">
+    <!-- path to ionic/angularjs js -->
+    <script src="lib/ionic-datepicker/dist/templates.js"></script>
+    <script src="lib/ionic-datepicker/dist/ionic-datepicker.js"></script>
     <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
     <!-- AngularFire -->
@@ -27,22 +31,14 @@
     <script src="cordova.js"></script>
     <!-- your app's js -->
     <script src="js/auth0-variables.js"></script>
-    <!--Script for the header shrink feature -->
-    <script src="lib/ionic-ion-header-shrink/ionic.headerShrink.js"></script>
-    <link href="lib/ionic-datepicker/dist/style.css" rel="stylesheet">
     <!-- path to ionic/angularjs js -->
-    <script src="lib/ionic-datepicker/dist/templates.js"></script>
-    <script src="lib/ionic-datepicker/dist/ionic-datepicker.js"></script>
-
-    <!-- path to ionic/angularjs js -->
-
     <script src="js/app.js"></script>
-    <script src="lib/collide/collide.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
   </head>
 <!--start of the application-->
 <body ng-app="starter" animation="slide-left-right-ios7">
+<!--Fake status bar at the top of the application-->
 <fake-statusbar></fake-statusbar>
 <!--This the start of the side menus functionality-->
 <ion-side-menus>
@@ -62,22 +58,22 @@
           <ion-header-bar class="bar bar-header bar-dark" ng-controller="NavCtrl">
                 <!--profile picture in the side menu-->
                 <img ng-src="{{auth.profile.picture}}" id="profile-image1">
-                <h1 class="title1"><span ng-bind="auth.profile.given_name"></span></h1>
+                  <h1 class="title1"><span ng-bind="auth.profile.given_name"></span></h1>
           </ion-header-bar>
           <ion-content class="has-footer" has-tabs="true">
             <div style="height: 62px;"></div>
             <!--Side menu list-->
-          <ion-list>
-            <ion-item href="#/tab/home" class="item-icon-left" menu-close=""><i class="icon ion-home custom-icon"></i> Home</ion-item>
-            <ion-item href="#/tab/food" class="item-icon-left" menu-close=""><i class="icon ion-beer custom-icon1"></i> Order</ion-item>
-            <ion-item href="#/tab/browse" class="item-icon-left" menu-close=""><i class="icon ion-document custom-icon2"></i>Menu</ion-item>
-            <ion-item href="#/tab/images" class="item-icon-left" menu-close=""><i class="icon ion-images custom-icon4"></i>Gallery</ion-item>
-            <ion-item href="#/tab/reservation" class="item-icon-left" menu-close=""><i class="icon ion-document-text custom-icon3"></i>Reservation</ion-item>
-            <ion-item class="item-divider">Social Media</ion-item>
-            <ion-item href="#" onclick="window.open(&apos;https://twitter.com/BarryGettigan&apos;,&apos;_blank&apos;,&apos;location=yes&apos;);return false;" class="item-icon-left positive" menu-close=""> <i class="icon ion-social-twitter"></i>Twitter<br><p>Follow us</p></ion-item>
-            <ion-item href="#" onclick="window.open(&apos;https://www.facebook.com/barry.gettigan&apos;,&apos;_blank&apos;,&apos;location=yes&apos;);return false;" class="item-icon-left royal" menu-close=""><i class="icon ion-social-facebook"></i>Facebook<br><p>Like our page</p></ion-item>
-            <ion-item href="#" onclick="window.open(&apos;https://www.youtube.com/watch?v=ETnlrYq7btE;_blank&apos;,&apos;location=yes&apos;);return false;" class="item-icon-left assertive" menu-close=""><i class="icon ion-social-youtube"></i>Youtube<br><p>Check our channel</p></ion-item>
-          </ion-list>
+                <ion-list>
+                  <ion-item href="#/tab/home" class="item-icon-left" menu-close=""><i class="icon ion-home custom-icon"></i> Home</ion-item>
+                  <ion-item href="#/tab/food" class="item-icon-left" menu-close=""><i class="icon ion-beer custom-icon1"></i> Order</ion-item>
+                  <ion-item href="#/tab/browse" class="item-icon-left" menu-close=""><i class="icon ion-document custom-icon2"></i>Menu</ion-item>
+                  <ion-item href="#/tab/images" class="item-icon-left" menu-close=""><i class="icon ion-images custom-icon4"></i>Gallery</ion-item>
+                  <ion-item href="#/tab/reservation" class="item-icon-left" menu-close=""><i class="icon ion-document-text custom-icon3"></i>Reservation</ion-item>
+                  <ion-item class="item-divider">Social Media</ion-item>
+                  <ion-item href="#" onclick="window.open(&apos;https://twitter.com/BarryGettigan&apos;,&apos;_blank&apos;,&apos;location=yes&apos;);return false;" class="item-icon-left positive" menu-close=""> <i class="icon ion-social-twitter"></i>Twitter<br><p>Follow us</p></ion-item>
+                  <ion-item href="#" onclick="window.open(&apos;https://www.facebook.com/barry.gettigan&apos;,&apos;_blank&apos;,&apos;location=yes&apos;);return false;" class="item-icon-left royal" menu-close=""><i class="icon ion-social-facebook"></i>Facebook<br><p>Like our page</p></ion-item>
+                  <ion-item href="#" onclick="window.open(&apos;https://www.youtube.com/watch?v=ETnlrYq7btE;_blank&apos;,&apos;location=yes&apos;);return false;" class="item-icon-left assertive" menu-close=""><i class="icon ion-social-youtube"></i>Youtube<br><p>Check our channel</p></ion-item>
+                </ion-list>
           </ion-content>
           <!--Footer bar in side menu-->
       <ion-footer-bar>
@@ -97,7 +93,7 @@
         </ion-side-menu>
       </ion-side-menus>
 <!--End of the side menus-->
-<!--Tabs at the bottom of the apps page. I decided to hide these from the finished application-->
+<!--Tabs at the bottom of the apps page. I decided to hide these from the finished application as explained in my report-->
 <script id="templates/tabs.html" type="text/ng-template">
     <ion-tabs ng-class="{'tabs-item-hide': $root.hideTabs}" class="tabs-icon-top tabs-clear tabs-color-active-positive">
       <!--Home tab-->
@@ -109,33 +105,33 @@
 <!--Start of the Main menu page of the application-->
 <script type="text/ng-template" id="templates/home.html">
 <ion-view title='Welcome' hide-back-button="true" hide-tabs='true'/>
-<ion-nav-buttons side="right">
-    <button class="button button-clear" ng-click="openAbout()"><span class="icon ion-ios7-information-outline"></span></button>
-</ion-nav-buttons>
-  <ion-content class="padding">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="openAbout()"><span class="icon ion-ios7-information-outline"></span></button>
+    </ion-nav-buttons>
+<ion-content class="padding">
     <div style="height: 45px;"></div>
-  <!--This is the welcome message on the main menu-->
-  <div class="card">
-        <div class="item item-divider item-positive">Hello <span ng-bind="auth.profile.given_name">!!</span></div>
-          <div class="item item-text-wrap">
-            Browse our menu to find
-            the perfect drink for you. Check out the free entertainment that is happening today.
-          </div>
-  </div>
-      <!--This displays the events data on the main menu-->
-  <div class="card">
-        <div class="item item-divider item-positive">Todays Events</div>
-        <div class="item" ng-if="!today"><span class="icon ion-loading-d"></span></div>
-        <div class="item" ng-repeat="item in today.events">{{item.event}}, {{item.time}}</div>
-          <a class="item button button-energized button-block" href="#/tab/events">Upcoming Events</a>
-  </div>
-      <!--This opens the comments page-->
-      <div class="card">
-        <div class="item item-icon-left assertive" ng-click="openComments()">
-          <i class="icon ion-chatbubble-working"></i><b>Send us a Comment</b>
+        <!--This is the welcome message on the main menu-->
+        <div class="card">
+              <div class="item item-divider item-positive">Hello <span ng-bind="auth.profile.given_name">!!</span></div>
+                <div class="item item-text-wrap">
+                  Browse our menu to find
+                  the perfect drink for you. Check out the free entertainment that is happening today.
+                </div>
         </div>
+            <!--This displays the events data on the main menu-->
+        <div class="card">
+              <div class="item item-divider item-positive">Todays Events</div>
+              <div class="item" ng-if="!today"><span class="icon ion-loading-d"></span></div>
+              <div class="item" ng-repeat="item in today.events">{{item.event}}, {{item.time}}</div>
+                <a class="item button button-energized button-block" href="#/tab/events">Upcoming Events</a>
+        </div>
+        <!--This opens the comments page-->
+        <div class="card">
+          <div class="item item-icon-left assertive" ng-click="openComments()">
+            <i class="icon ion-chatbubble-working"></i><b>Send us a Comment</b>
+          </div>
       </div>
-    </ion-content>
+</ion-content>
 </ion-view>
 </script>
 <!--End of home page-->
@@ -186,10 +182,10 @@
 </ion-view>
 </script>
 <!--End of browse menu page-->
-<!--Start of the beers page-->
+<!--Start of the list of beers page-->
 <script id="templates/beers.html" type="text/ng-template">
-    <ion-view title="Beers" hide-tabs='true'>
-        <ion-content class="padding">
+<ion-view title="Beers" hide-tabs='true'>
+<ion-content class="padding">
         <div style="height: 60px;"></div>
      <div class="list">
           <a class="item item-avatar" a href="#tab/baltika">
@@ -222,8 +218,8 @@
                 <p class="p">Dungarvan Mine head</p>
                   <p>€3.49</p>
           </a>
-          </div>
-    </ion-content>
+        </div>
+</ion-content>
 </ion-view>
 </script>
 <!--End of beers list page-->
@@ -366,7 +362,6 @@
                   <p class="p">Flat White</p>
                     <p>€3.00</p>
                 </a>
-
               </div>
         </ion-content>
       </ion-view>
@@ -403,7 +398,7 @@
 </ion-view>
 </script>
 <!--This is the end of the sandwiches page-->
-<!--This is the start of the baltika page-->
+<!--This is the start of the baltika beer page-->
 <script type="text/ng-template" id="templates/baltika.html">
     <ion-view title="Baltika" hide-tabs='true'>
     <ion-nav-buttons side="right">
@@ -432,8 +427,7 @@
                     </label>
                 </div>
             </div>
-           <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
-
+      <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
            <a class="tab-item" ng-click="openModal()">
              <i class="icon ion-images"></i>
                Images
@@ -446,96 +440,92 @@
                 <i class="icon ion-beer"></i>
                   Order Now
               </a>
-          </div>
-        </div>
-
-      </ion-content>
-    </ion-view>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
 </script>
 <!--End of baltika page-->
-<!--Start of baltika image page-->
+<!--Start of baltika image page. These images are loaded in from the controller.-->
 <script id="image-modal.html" type="text/ng-template">
-              <div class="modal image-modal transparent"
-                   ng-click="closeModal()">
-                <ion-slide-box on-slide-changed="slideChanged(index)"
-                               show-pager="false">
-                  <ion-slide ng-repeat="oImage in aImages">
-                    <img ng-src="{{oImage.src}}" class="fullscreen-image" />
+    <div class="modal image-modal transparent" ng-click="closeModal()">
+        <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="false">
+            <ion-slide ng-repeat="oImage in aImages">
+                <img ng-src="{{oImage.src}}" class="fullscreen-image" />
                     <p class="info">{{oImage.msg}}</p>
-                  </ion-slide>
-                </ion-slide-box>
-              </div>
-          </script>
+            </ion-slide>
+        </ion-slide-box>
+      </div>
+</script>
 <!--End of Baltika image page-->
 <!--This the dungarven Beer page -->
 <script type="text/ng-template" id="templates/dungarvan.html">
-    <ion-view title="Dungarvan" hide-tabs='true'>
+<ion-view title="Dungarvan" hide-tabs='true'>
     <ion-nav-buttons side="right">
-    <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
-  </ion-nav-buttons>
-      <ion-content padding="true">
-      <div style="height: 60px;"></div>
-<div class="list card">
-  <div class="item item-avatar">
-    <img src="img/baltika.jpg">
-      <h2 class="h2">Dungarvan Beer</h2>
-        <p>Brewed in Ireland, 2002</p>
-    </div>
+          <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
+    </ion-nav-buttons>
+<ion-content padding="true">
+<div style="height: 60px;"></div>
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="img/baltika.jpg">
+          <h2 class="h2">Dungarvan Beer</h2>
+            <p>Brewed in Ireland, 2002</p>
+        </div>
     <div class="item item-body">
-        <img class="full-image" src="img/dun2.jpg">
-        <p>Dungarven is a "Light Beer" and comes in at 4.6% alcohol by volume.
-        The flavor is toward the sweet side, with a malty character matched
-        to a big body and culminating in a dry finish.</p>
+      <img class="full-image" src="img/dun2.jpg">
+            <p>Dungarven is a "Light Beer" and comes in at 4.6% alcohol by volume.
+            The flavor is toward the sweet side, with a malty character matched
+            to a big body and culminating in a dry finish.</p>
         <div class="item item-toggle">
           {{vm.following ? "Following" : "Not Following"}}
             <label class="toggle toggle-energized">
               <input type="checkbox" ng-model="vm.following">
                 <div class="track">
                   <div class="handle"></div>
-                </div>
-            </label>
-        </div>
+          </div>
+        </label>
+      </div>
     </div>
-   <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
-
-   <a class="tab-item" ng-click="openModal()">
-     <i class="icon ion-images"></i>
-       Images
-   </a>
-   <a class="tab-item" ng-click="openBeerChat()">
-     <i class="icon ion-chatbubbles"></i>
-       Chats
-   </a>
-      <a class="tab-item" href="#tab/food">
-        <i class="icon ion-beer"></i>
-          Order Now
-      </a>
-  </div>
-</div>
-      </ion-content>
-    </ion-view>
+        <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+           <a class="tab-item" ng-click="openModal()">
+             <i class="icon ion-images"></i>
+               Images
+           </a>
+           <a class="tab-item" ng-click="openBeerChat()">
+             <i class="icon ion-chatbubbles"></i>
+               Chats
+           </a>
+            <a class="tab-item" href="#tab/food">
+              <i class="icon ion-beer"></i>
+               Order Now
+            </a>
+          </div>
+        </div>
+    </ion-content>
+  </ion-view>
 </script>
 <!--End of dungarven page-->
 <!--This the Bohemian Beer page -->
 <script type="text/ng-template" id="templates/bohemian.html">
-    <ion-view title="Bohemian" hide-tabs='true'>
-    <ion-nav-buttons side="right">
-      <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
-    </ion-nav-buttons>
-      <ion-content padding="true">
+  <ion-view title="Bohemian" hide-tabs='true'>
+        <ion-nav-buttons side="right">
+          <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
+        </ion-nav-buttons>
+<ion-content padding="true">
       <div style="height: 60px;"></div>
           <div class="list card">
             <div class="item item-avatar">
               <img src="img/bare.jpg">
                 <h2 class="h2">Bohemian Beer</h2>
                   <p class="p1">This beer is currently unavaialble</p>
-              </div>
-    <div class="item item-body">
-        <img class="full-image" src="img/bohemian2.jpg">
-            <p>Bohemian is a "Moderate Beer" and comes in at 8.6% alcohol by volume.
-            The flavor is toward the sweet side, with a malty character matched
-            to a big body and culminating in a dry finish.</p>
-            <div class="item item-toggle">
+        </div>
+        <div class="item item-body">
+          <img class="full-image" src="img/bohemian2.jpg">
+              <p>Bohemian is a "Moderate Beer" and comes in at 8.6% alcohol by volume.
+              The flavor is toward the sweet side, with a malty character matched
+              to a big body and culminating in a dry finish.</p>
+         <div class="item item-toggle">
           {{vm.following ? "Following" : "Not Following"}}
             <label class="toggle toggle-energized">
               <input type="checkbox" ng-model="vm.following">
@@ -545,8 +535,7 @@
             </label>
         </div>
     </div>
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
-
+  <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
           <a class="tab-item" ng-click="openModal()">
            <i class="icon ion-images"></i>
              Images
@@ -567,11 +556,11 @@
 <!--End of Bohemian page-->
 <!--This the Corona Beer page -->
 <script type="text/ng-template" id="templates/corona.html">
-    <ion-view title="Corona" hide-tabs='true'>
+<ion-view title="Corona" hide-tabs='true'>
     <ion-nav-buttons side="right">
-      <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
+        <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
     </ion-nav-buttons>
-      <ion-content padding="true">
+<ion-content padding="true">
       <div style="height: 60px;"></div>
           <div class="list card">
             <div class="item item-avatar">
@@ -579,34 +568,33 @@
                 <h2 class="h2">Corona</h2>
                   <p class="p1">We have it in stock!!!!!!</p>
               </div>
-    <div class="item item-body">
+  <div class="item item-body">
         <img class="full-image" src="img/corona2.jpg">
-            <p>Corona is a "Moderate Beer" and comes in at 4.6% alcohol by volume.
-            The flavor is toward the sweet side, with a malty character matched
-            to a big body and culminating in a dry finish.</p>
-            <div class="item item-toggle">
+                <p>Corona is a "Moderate Beer" and comes in at 4.6% alcohol by volume.
+                The flavor is toward the sweet side, with a malty character matched
+                to a big body and culminating in a dry finish.</p>
+          <div class="item item-toggle">
           {{vm.following ? "Following" : "Not Following"}}
             <label class="toggle toggle-energized">
               <input type="checkbox" ng-model="vm.following">
                 <div class="track">
                   <div class="handle"></div>
-                </div>
+            </div>
             </label>
         </div>
     </div>
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
-
+  <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
           <a class="tab-item" ng-click="openModal()">
-           <i class="icon ion-images"></i>
-             Images
+               <i class="icon ion-images"></i>
+                 Images
           </a>
           <a class="tab-item" ng-click="openBeerChat()">
-            <i class="icon ion-chatbubbles"></i>
-              Chats
+                <i class="icon ion-chatbubbles"></i>
+                  Chats
           </a>
           <a class="tab-item" href="#tab/food">
-            <i class="icon ion-beer"></i>
-              Order Now
+                <i class="icon ion-beer"></i>
+                  Order Now
           </a>
     </div>
   </div>

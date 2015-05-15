@@ -5,14 +5,10 @@ angular.module('starter', ['ionic',
   'auth0',
   'angular-storage',
   'angular-jwt',
-  'ionic.ion.headerShrink',
   'ngCordova',
-  'ionic.ion.imageCacheFactory',
   '$selectBox',
   'ionic-datepicker'
   ])
-
-
 //Runs the application
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -25,19 +21,15 @@ angular.module('starter', ['ionic',
       StatusBar.overlaysWebView(false);
       StatusBar.backgroundColorByHexString('#387ef5');
 
-}
+      }
   });
 })
-
-
-
-//Clicking on a item in the list works the same as swiping
+//Clicking on a item in the list works the same as swiping. This is used on the order page!!
 .directive('clickForOptions', ['$ionicGesture', function($ionicGesture) {
 	return {
 		restrict: 'A',
 		link: function (scope, element, attrs) {
 			$ionicGesture.on('tap', function(e){
-
 				// Grab the content
 				var content = element[0].querySelector('.item-content');
 
@@ -69,7 +61,6 @@ angular.module('starter', ['ionic',
 		}
 	};
 }])
-
 //This is the directive that hides the tabs from the bottom of the page
 .directive('hideTabs', function($rootScope) {
     return {
@@ -85,56 +76,12 @@ angular.module('starter', ['ionic',
         }
     };
 })
-
 //This is the directive for the fake status bar on the app
 .directive('fakeStatusbar', function() {
   return {
     restrict: 'E',
     replace: true,
     template: '<div class="fake-statusbar"><div class="pull-left">Carrier</div><div class="time">3:30 PM</div><div class="pull-right">50%</div></div>'
-  }
-})
-
-//This is the directive for the header shrink animation in the application
-.directive('headerShrink', function($document) {
-  var fadeAmt;
-
-  var shrink = function(header, content, amt, max) {
-    amt = Math.min(44, amt);
-    fadeAmt = 1 - amt / 44;
-    ionic.requestAnimationFrame(function() {
-      header.style[ionic.CSS.TRANSFORM] = 'translate3d(0, -' + amt + 'px, 0)';
-      for(var i = 0, j = header.children.length; i < j; i++) {
-        header.children[i].style.opacity = fadeAmt;
-      }
-    });
-  };
-
-  return {
-    restrict: 'A',
-    link: function($scope, $element, $attr) {
-      var starty = $scope.$eval($attr.headerShrink) || 0;
-      var shrinkAmt;
-
-      var header = $document[0].body.querySelector('.bar-header');
-      var headerHeight = header.offsetHeight;
-
-      $element.bind('scroll', function(e) {
-        var scrollTop = null;
-        if(e.detail){
-          scrollTop = e.detail.scrollTop;
-        }else if(e.target){
-          scrollTop = e.target.scrollTop;
-        }
-        if(scrollTop > starty){
-          // Start shrinking
-          shrinkAmt = headerHeight - Math.max(0, (starty + headerHeight) - scrollTop);
-          shrink(header, $element[0], shrinkAmt, headerHeight);
-        } else {
-          shrink(header, $element[0], 0, headerHeight);
-        }
-      });
-    }
   }
 })
 
@@ -154,7 +101,6 @@ angular.module('starter', ['ionic',
       templateUrl: "login.html",
       controller: "LoginCtrl"
     })
-
     // setup an abstract state for the tabs directive
     .state('tab', {
       url: "/tab",
@@ -166,9 +112,7 @@ angular.module('starter', ['ionic',
         requiresLogin: true
       }
     })
-
     // Each tab has its own nav history stack:
-
         .state('tab.home', {
           url: '/home',
           views: {
@@ -178,18 +122,15 @@ angular.module('starter', ['ionic',
             }
           }
         })
-
-
         .state('tab.food', {
          url: "/food",
          views: {
            'tab-home': {
              templateUrl: "templates/food.html",
-             controller: 'FoodCtrl'
+             controller: 'OrderCtrl'
            }
          }
        })
-
        .state('tab.events', {
         url: "/events",
         views: {
@@ -199,7 +140,6 @@ angular.module('starter', ['ionic',
           }
         }
       })
-
       .state('tab.reservation', {
        url: "/reservation",
        views: {
@@ -209,8 +149,6 @@ angular.module('starter', ['ionic',
          }
        }
      })
-
-
         .state('tab.browse', {
          url: "/browse",
          views: {
@@ -219,7 +157,6 @@ angular.module('starter', ['ionic',
            }
          }
        })
-
        .state('tab.dashboard', {
         url: "/dashboard",
         views: {
@@ -228,7 +165,6 @@ angular.module('starter', ['ionic',
           }
         }
       })
-
       .state('tab.staff', {
        url: "/staff",
        views: {
@@ -237,7 +173,6 @@ angular.module('starter', ['ionic',
          }
        }
      })
-
      .state('tab.staffcontent', {
       url: "/staffcontent",
       views: {
@@ -246,7 +181,6 @@ angular.module('starter', ['ionic',
         }
       }
     })
-
      .state('tab.popular', {
       url: "/popular",
       views: {
@@ -255,7 +189,6 @@ angular.module('starter', ['ionic',
         }
       }
     })
-
        .state('tab.beers', {
         url: "/beers",
         views: {
@@ -264,7 +197,6 @@ angular.module('starter', ['ionic',
           }
         }
       })
-
       .state('tab.ciders', {
        url: "/ciders",
        views: {
@@ -273,7 +205,6 @@ angular.module('starter', ['ionic',
          }
        }
      })
-
      .state('tab.stouts', {
       url: "/stouts",
       views: {
@@ -282,7 +213,6 @@ angular.module('starter', ['ionic',
         }
       }
     })
-
     .state('tab.cocktails', {
      url: "/cocktails",
      views: {
@@ -291,7 +221,6 @@ angular.module('starter', ['ionic',
        }
      }
    })
-
    .state('tab.coffees', {
     url: "/coffees",
     views: {
@@ -300,7 +229,6 @@ angular.module('starter', ['ionic',
       }
     }
   })
-
      .state('tab.sandwiches', {
       url: "/sandwiches",
       views: {
@@ -309,7 +237,6 @@ angular.module('starter', ['ionic',
         }
       }
     })
-
       .state('tab.baltika', {
        url: "/baltika",
        views: {
@@ -319,8 +246,6 @@ angular.module('starter', ['ionic',
          }
        }
      })
-
-
      .state('tab.dungarvan', {
       url: "/dungarvan",
       views: {
@@ -330,7 +255,6 @@ angular.module('starter', ['ionic',
         }
       }
     })
-
     .state('tab.bohemian', {
      url: "/bohemian",
      views: {
@@ -340,7 +264,6 @@ angular.module('starter', ['ionic',
        }
      }
     })
-
     .state('tab.corona', {
      url: "/corona",
      views: {
@@ -350,7 +273,6 @@ angular.module('starter', ['ionic',
        }
      }
     })
-
     .state('tab.bulmers', {
      url: "/bulmers",
      views: {
@@ -360,8 +282,6 @@ angular.module('starter', ['ionic',
        }
      }
     })
-
-
     .state('tab.strongbow', {
      url: "/strongbow",
      views: {
@@ -371,7 +291,6 @@ angular.module('starter', ['ionic',
        }
      }
     })
-
     .state('tab.guinness', {
      url: "/guinness",
      views: {
@@ -381,7 +300,6 @@ angular.module('starter', ['ionic',
        }
      }
     })
-
     .state('tab.oharas', {
      url: "/oharas",
      views: {
@@ -391,7 +309,6 @@ angular.module('starter', ['ionic',
        }
      }
     })
-
     .state('tab.whiskey', {
      url: "/whiskey",
      views: {
@@ -401,7 +318,6 @@ angular.module('starter', ['ionic',
        }
      }
     })
-
     .state('tab.sex', {
      url: "/sex",
      views: {
@@ -411,7 +327,6 @@ angular.module('starter', ['ionic',
        }
      }
     })
-
     .state('tab.americano', {
      url: "/americano",
      views: {
@@ -421,7 +336,6 @@ angular.module('starter', ['ionic',
        }
      }
     })
-
     .state('tab.cappuccino', {
      url: "/cappuccino",
      views: {
@@ -431,7 +345,6 @@ angular.module('starter', ['ionic',
        }
      }
     })
-
     .state('tab.club', {
      url: "/club",
      views: {
@@ -441,7 +354,6 @@ angular.module('starter', ['ionic',
        }
      }
     })
-
     .state('tab.blt', {
      url: "/blt",
      views: {
@@ -451,7 +363,6 @@ angular.module('starter', ['ionic',
        }
      }
     })
-
      .state('tab.images', {
       url: "/images",
       views: {
@@ -460,9 +371,6 @@ angular.module('starter', ['ionic',
         }
       }
     })
-
-
-
     .state('tour', {
       url: '/tour',
       templateUrl: 'templates/tour.html',
@@ -471,17 +379,14 @@ angular.module('starter', ['ionic',
       }
     });
 
-
   // Configure Auth0
   authProvider.init({
     domain: 'sked.auth0.com',
     clientID: 'cbJWSrBQY1BQfLqfgYVCjPxH644mZAFL',
     loginState: 'login'
   });
-
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tour');
-
   jwtInterceptorProvider.tokenGetter = function(store, jwtHelper, auth) {
     var idToken = store.get('token');
     var refreshToken = store.get('refreshToken');
@@ -497,8 +402,6 @@ angular.module('starter', ['ionic',
       return idToken;
     }
   }
-
-
   $httpProvider.interceptors.push('jwtInterceptor');
 }).run(function($rootScope, auth, store) {
   $rootScope.$on('$locationChangeStart', function() {
@@ -508,6 +411,6 @@ angular.module('starter', ['ionic',
         auth.authenticate(store.get('profile'), token);
       }
     }
-
   });
 });
+//This the end of app.js

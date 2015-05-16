@@ -869,7 +869,7 @@ angular.module('starter.controllers', [])
     };
 })
 //Popular controller
-.controller('popularController', ["$scope", "FavoritesService", function($scope, FavoritesService ) {
+.controller('popularController', ["$scope", "FavoritesService", "$ionicPopup", function($scope, FavoritesService, $ionicPopup) {
     //Set messages to the favorites service
     $scope.messages = FavoritesService;
     //Initialize message object
@@ -879,6 +879,10 @@ angular.module('starter.controllers', [])
       $scope.messages.$add({content: message});
       //we reset the text input field to an empty string
       $scope.message.theMessage = "";
+      var alertPopup = $ionicPopup.alert({
+        title: 'Thanks',
+        template: 'We appreciate your suggestion'
+  });
     };
 }])
 //Beer chat controller

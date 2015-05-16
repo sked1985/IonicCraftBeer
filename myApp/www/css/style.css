@@ -517,4 +517,17 @@ p.info {
       max-width: 240px !important;
 }
 /*End of chats css*/
+/*Staff image css*/
+.login{
+      background-image: url('../img/logo.jpg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 80%;
+      height: 246px;
+      margin: auto;
+      z-index: 2px;
+      position: relative;
+}
+/*End of staff css*/
 /*End of css*/

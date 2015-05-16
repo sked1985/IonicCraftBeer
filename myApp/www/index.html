@@ -626,49 +626,48 @@
 <!--End of Corona page-->
 <!--This the bulmers page -->
 <script type="text/ng-template" id="templates/bulmers.html">
-    <ion-view title="Bulmers" hide-tabs='true'>
-    <ion-nav-buttons side="right">
-      <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
-    </ion-nav-buttons>
-      <ion-content padding="true">
-      <div style="height: 60px;"></div>
-<div class="list card">
-  <div class="item item-avatar">
-    <img src="img/bulmers.jpg">
-      <h2 class="h2">Bulmers</h2>
-        <p>It may not be craft but its a classic</p>
-    </div>
-    <div class="item item-body">
-        <img class="full-image" src="img/bulmers2.jpg">
-        <p>Bulmers is a classic in its own right. What better way to spend a day than to have a few of these with your friends. Cheers!!!</p>
-        <div class="item item-toggle">
-          {{vm.following ? "Following" : "Not Following"}}
-            <label class="toggle toggle-energized">
-              <input type="checkbox" ng-model="vm.following">
-                <div class="track">
-                  <div class="handle"></div>
+<ion-view title="Bulmers" hide-tabs='true'>
+          <ion-nav-buttons side="right">
+            <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
+          </ion-nav-buttons>
+<ion-content padding="true">
+  <div style="height: 60px;"></div>
+    <div class="list card">
+          <div class="item item-avatar">
+            <img src="img/bulmers.jpg">
+              <h2 class="h2">Bulmers</h2>
+                <p>It may not be craft but its a classic</p>
+            </div>
+            <div class="item item-body">
+                <img class="full-image" src="img/bulmers2.jpg">
+                <p>Bulmers is a classic in its own right. What better way to spend a day than to have a few of these with your friends. Cheers!!!</p>
+                <div class="item item-toggle">
+                  {{vm.following ? "Following" : "Not Following"}}
+                    <label class="toggle toggle-energized">
+                      <input type="checkbox" ng-model="vm.following">
+                        <div class="track">
+                          <div class="handle"></div>
+                        </div>
+                    </label>
                 </div>
-            </label>
-        </div>
+            </div>
+<div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BulmersCtrl">
+            <a class="tab-item" ng-click="openModal()">
+             <i class="icon ion-images"></i>
+               Images
+            </a>
+            <a class="tab-item" ng-click="openCiderChat()">
+              <i class="icon ion-chatbubbles"></i>
+               Chats
+            </a>
+            <a class="tab-item" href="#tab/food">
+                <i class="icon ion-beer"></i>
+                  Order Now
+            </a>
+            </div>
     </div>
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BulmersCtrl">
-
-    <a class="tab-item" ng-click="openModal()">
-     <i class="icon ion-images"></i>
-       Images
-    </a>
-    <a class="tab-item" ng-click="openCiderChat()">
-      <i class="icon ion-chatbubbles"></i>
-        Chats
-    </a>
-      <a class="tab-item" href="#tab/food">
-        <i class="icon ion-beer"></i>
-          Order Now
-      </a>
-    </div>
-    </div>
-      </ion-content>
-    </ion-view>
+  </ion-content>
+</ion-view>
 </script>
 <!--This is the end of the bulmers page-->
 <!--Start of Bulmers image page-->
@@ -687,96 +686,94 @@
 <!--End of Bukmers image page-->
 <!--This the strongbow page -->
 <script type="text/ng-template" id="templates/strongbow.html">
-    <ion-view title="Strongbow" hide-tabs='true'>
-      <ion-nav-buttons side="right">
-        <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
-      </ion-nav-buttons>
-    <ion-content padding="true">
+<ion-view title="Strongbow" hide-tabs='true'>
+          <ion-nav-buttons side="right">
+            <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
+          </ion-nav-buttons>
+<ion-content padding="true">
       <div style="height: 60px;"></div>
 <div class="list card">
-  <div class="item item-avatar">
-    <img src="img/strongbow.jpg">
-      <h2 class="h2">Strongbow</h2>
-        <p>It is ridiculously cheap</p>
-    </div>
-    <div class="item item-body">
-        <img class="full-image" src="img/strongbow2.jpg">
-        <p>Strongbow is a classic in its own right. What better way to spend a day than to have a few of these with your friends. Cheers!!!</p>
-        <div class="item item-toggle">
-          {{vm.following ? "Following" : "Not Following"}}
-            <label class="toggle toggle-energized">
-              <input type="checkbox" ng-model="vm.following">
-                <div class="track">
-                  <div class="handle"></div>
-                </div>
-            </label>
+      <div class="item item-avatar">
+        <img src="img/strongbow.jpg">
+          <h2 class="h2">Strongbow</h2>
+            <p>It is ridiculously cheap</p>
+        </div>
+        <div class="item item-body">
+            <img class="full-image" src="img/strongbow2.jpg">
+            <p>Strongbow is a classic in its own right. What better way to spend a day than to have a few of these with your friends. Cheers!!!</p>
+            <div class="item item-toggle">
+              {{vm.following ? "Following" : "Not Following"}}
+                <label class="toggle toggle-energized">
+                  <input type="checkbox" ng-model="vm.following">
+                    <div class="track">
+                      <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BulmersCtrl">
+            <a class="tab-item" ng-click="openModal()">
+                <i class="icon ion-images"></i>
+                    Images
+            </a>
+            <a class="tab-item" ng-click="openCiderChat()">
+                <i class="icon ion-chatbubbles"></i>
+                    Chats
+            </a>
+              <a class="tab-item" href="#tab/food">
+                <i class="icon ion-beer"></i>
+                    Order Now
+              </a>
         </div>
     </div>
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BulmersCtrl">
-
-    <a class="tab-item" ng-click="openModal()">
-     <i class="icon ion-images"></i>
-       Images
-    </a>
-    <a class="tab-item" ng-click="openCiderChat()">
-      <i class="icon ion-chatbubbles"></i>
-        Chats
-    </a>
-      <a class="tab-item" href="#tab/food">
-        <i class="icon ion-beer"></i>
-          Order Now
-      </a>
-    </div>
-</div>
 </ion-content>
-    </ion-view>
+</ion-view>
 </script>
 <!--End of strongbow page-->
 <!--Start of the guinness page-->
 <script type="text/ng-template" id="templates/guinness.html">
-    <ion-view title="Guinness" hide-tabs='true'>
-      <ion-nav-buttons side="right">
-        <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
-      </ion-nav-buttons>
-      <ion-content padding="true">
-      <div style="height: 60px;"></div>
+  <ion-view title="Guinness" hide-tabs='true'>
+          <ion-nav-buttons side="right">
+            <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
+          </ion-nav-buttons>
+<ion-content padding="true">
+  <div style="height: 60px;"></div>
 <div class="list card">
-  <div class="item item-avatar">
-    <img src="img/guinness.jpg">
-      <h2 class="h2">Guinness</h2>
-        <p>Pint of the black stuff?</p>
-    </div>
+      <div class="item item-avatar">
+        <img src="img/guinness.jpg">
+          <h2 class="h2">Guinness</h2>
+            <p>Pint of the black stuff?</p>
+        </div>
     <div class="item item-body">
         <img class="full-image" src="img/guinness2.jpg">
-        <p>Our pints of guinness are the creamiest around and are regullarly checked by our quality team. Try it today!!!</p>
-        <div class="item item-toggle">
-          {{vm.following ? "Following" : "Not Following"}}
-            <label class="toggle toggle-energized">
-              <input type="checkbox" ng-model="vm.following">
-                <div class="track">
-                  <div class="handle"></div>
+              <p>Our pints of guinness are the creamiest around and are regullarly checked by our quality team. Try it today!!!</p>
+                <div class="item item-toggle">
+                  {{vm.following ? "Following" : "Not Following"}}
+                    <label class="toggle toggle-energized">
+                      <input type="checkbox" ng-model="vm.following">
+                        <div class="track">
+                          <div class="handle"></div>
+                        </div>
+                    </label>
                 </div>
-            </label>
-        </div>
     </div>
     <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="GuinnessCtrl">
-
-    <a class="tab-item" ng-click="openModal()">
-     <i class="icon ion-images"></i>
-       Images
-    </a>
-    <a class="tab-item" ng-click="openStoutChat()">
-      <i class="icon ion-chatbubbles"></i>
-        Chats
-    </a>
-      <a class="tab-item" href="#tab/food">
-        <i class="icon ion-beer"></i>
-          Order Now
-      </a>
+          <a class="tab-item" ng-click="openModal()">
+              <i class="icon ion-images"></i>
+                Images
+          </a>
+          <a class="tab-item" ng-click="openStoutChat()">
+            <i class="icon ion-chatbubbles"></i>
+              Chats
+          </a>
+          <a class="tab-item" href="#tab/food">
+            <i class="icon ion-beer"></i>
+              Order Now
+          </a>
     </div>
 </div>
 </ion-content>
-    </ion-view>
+</ion-view>
 </script>
 <!--End of guinness page-->
 <!--Start of Guinness image page-->
@@ -795,20 +792,20 @@
 <!--End of Guinness image page-->
 <!--Start of the oharas page-->
 <script type="text/ng-template" id="templates/oharas.html">
-    <ion-view title="O Haras" hide-tabs='true'>
-    <ion-nav-buttons side="right">
-      <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
-    </ion-nav-buttons>
-      <ion-content padding="true">
-      <div style="height: 60px;"></div>
+<ion-view title="O Haras" hide-tabs='true'>
+        <ion-nav-buttons side="right">
+          <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
+        </ion-nav-buttons>
+<ion-content padding="true">
+  <div style="height: 60px;"></div>
 <div class="list card">
-  <div class="item item-avatar">
-    <img src="img/oharas.jpg">
-      <h2 class="h2">O Haras</h2>
-        <p>Strong stout</p>
-    </div>
-    <div class="item item-body">
-        <img class="full-image" src="img/oharas2.jpg">
+          <div class="item item-avatar">
+            <img src="img/oharas.jpg">
+              <h2 class="h2">O Haras</h2>
+                <p>Strong stout</p>
+            </div>
+<div class="item item-body">
+    <img class="full-image" src="img/oharas2.jpg">
         <p>Our pints of o haras are the creamiest around and are regullarly checked by our quality team. Try it today!!!</p>
         <div class="item item-toggle">
           {{vm.following ? "Following" : "Not Following"}}
@@ -821,72 +818,70 @@
         </div>
     </div>
     <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="GuinnessCtrl">
-
-    <a class="tab-item" ng-click="openModal()">
-     <i class="icon ion-images"></i>
-       Images
-    </a>
-    <a class="tab-item" ng-click="openStoutChat()">
-      <i class="icon ion-chatbubbles"></i>
-        Chats
-    </a>
-      <a class="tab-item" href="#tab/food">
-        <i class="icon ion-beer"></i>
-          Order Now
-      </a>
+          <a class="tab-item" ng-click="openModal()">
+           <i class="icon ion-images"></i>
+             Images
+          </a>
+          <a class="tab-item" ng-click="openStoutChat()">
+            <i class="icon ion-chatbubbles"></i>
+              Chats
+          </a>
+            <a class="tab-item" href="#tab/food">
+              <i class="icon ion-beer"></i>
+                Order Now
+            </a>
+        </div>
     </div>
-</div>
-</ion-content>
-    </ion-view>
+    </ion-content>
+</ion-view>
 </script>
 <!--End of oharas page-->
 <!--Start of the whiskey sour page-->
 <script type="text/ng-template" id="templates/whiskey.html">
-    <ion-view title="Whiskey Sour" hide-tabs='true'>
-    <ion-nav-buttons side="right">
-        <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
-    </ion-nav-buttons>
-      <ion-content padding="true">
-      <div style="height: 60px;"></div>
-<div class="list card">
-  <div class="item item-avatar">
-    <img src="img/whiskey.jpg">
-      <h2 class="h2">Whiskey Sour</h2>
-        <p>Take your time with these</p>
-    </div>
-    <div class="item item-body">
-        <img class="full-image" src="img/whiskey2.jpg">
-        <p>The whiskey sour is a mixed drink containing whiskey, lemon juice, sugar,
-         and optionally, a dash of egg white. With the egg white, it is sometimes called
-          a Boston Sour.</p>
-        <div class="item item-toggle">
-          {{vm.following ? "Following" : "Not Following"}}
-            <label class="toggle toggle-energized">
-              <input type="checkbox" ng-model="vm.following">
-                <div class="track">
-                  <div class="handle"></div>
-                </div>
-            </label>
-        </div>
-    </div>
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="CocktailsCtrl">
-
-    <a class="tab-item" ng-click="openModal()">
-     <i class="icon ion-images"></i>
-       Images
-    </a>
-    <a class="tab-item" ng-click="openCocktailChat()">
-      <i class="icon ion-chatbubbles"></i>
-        Chats
-    </a>
-      <a class="tab-item" href="#tab/food">
-        <i class="icon ion-beer"></i>
-          Order Now
-      </a>
-    </div>
-</div>
-</ion-content>
-    </ion-view>
+<ion-view title="Whiskey Sour" hide-tabs='true'>
+        <ion-nav-buttons side="right">
+            <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
+        </ion-nav-buttons>
+<ion-content padding="true">
+    <div style="height: 60px;"></div>
+      <div class="list card">
+        <div class="item item-avatar">
+          <img src="img/whiskey.jpg">
+            <h2 class="h2">Whiskey Sour</h2>
+              <p>Take your time with these</p>
+          </div>
+          <div class="item item-body">
+              <img class="full-image" src="img/whiskey2.jpg">
+              <p>The whiskey sour is a mixed drink containing whiskey, lemon juice, sugar,
+               and optionally, a dash of egg white. With the egg white, it is sometimes called
+                a Boston Sour.</p>
+              <div class="item item-toggle">
+                {{vm.following ? "Following" : "Not Following"}}
+                  <label class="toggle toggle-energized">
+                    <input type="checkbox" ng-model="vm.following">
+                      <div class="track">
+                        <div class="handle"></div>
+                      </div>
+                  </label>
+              </div>
+          </div>
+          <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="CocktailsCtrl">
+                <a class="tab-item" ng-click="openModal()">
+                 <i class="icon ion-images"></i>
+                   Images
+                </a>
+                <a class="tab-item" ng-click="openCocktailChat()">
+                  <i class="icon ion-chatbubbles"></i>
+                    Chats
+                </a>
+                  <a class="tab-item" href="#tab/food">
+                    <i class="icon ion-beer"></i>
+                      Order Now
+                  </a>
+          </div>
+      </div>
+  </ion-content>
+</ion-view>
 </script>
 <!--this is the end of the whiskey sour page-->
 <!--Start of Cocktails image page-->
@@ -905,96 +900,94 @@
 <!--End of Cocktails image page-->
 <!--Start of the sex on the beach page-->
 <script type="text/ng-template" id="templates/sex.html">
-    <ion-view title="Sex on the beach" hide-tabs='true'>
-    <ion-nav-buttons side="right">
-        <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
-    </ion-nav-buttons>
-      <ion-content padding="true">
-      <div style="height: 60px;"></div>
-<div class="list card">
-  <div class="item item-avatar">
-    <img src="img/sex.jpg">
-      <h2 class="h2">Sex on the beach</h2>
-        <p>These are very moreish</p>
-    </div>
-    <div class="item item-body">
-        <img class="full-image" src="img/sex2.jpg">
-        <p>The summer is here so why not try our beautiful sex on the beach cocktails. Contains plenty of
-        alcohol so take your time.</p>
-        <div class="item item-toggle">
-          {{vm.following ? "Following" : "Not Following"}}
-            <label class="toggle toggle-energized">
-              <input type="checkbox" ng-model="vm.following">
-                <div class="track">
-                  <div class="handle"></div>
+  <ion-view title="Sex on the beach" hide-tabs='true'>
+      <ion-nav-buttons side="right">
+          <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
+      </ion-nav-buttons>
+<ion-content padding="true">
+  <div style="height: 60px;"></div>
+        <div class="list card">
+          <div class="item item-avatar">
+            <img src="img/sex.jpg">
+              <h2 class="h2">Sex on the beach</h2>
+                <p>These are very moreish</p>
+            </div>
+            <div class="item item-body">
+                <img class="full-image" src="img/sex2.jpg">
+                <p>The summer is here so why not try our beautiful sex on the beach cocktails. Contains plenty of
+                alcohol so take your time.</p>
+                <div class="item item-toggle">
+                  {{vm.following ? "Following" : "Not Following"}}
+                    <label class="toggle toggle-energized">
+                      <input type="checkbox" ng-model="vm.following">
+                        <div class="track">
+                          <div class="handle"></div>
+                        </div>
+                    </label>
                 </div>
-            </label>
+            </div>
+            <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+                    <a class="tab-item" ng-click="openModal()">
+                     <i class="icon ion-images"></i>
+                       Images
+                    </a>
+                    <a class="tab-item" ng-click="openSCocktailChat()">
+                      <i class="icon ion-chatbubbles"></i>
+                        Chats
+                    </a>
+                      <a class="tab-item" href="#tab/food">
+                        <i class="icon ion-beer"></i>
+                          Order Now
+                      </a>
+            </div>
         </div>
-    </div>
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
-
-    <a class="tab-item" ng-click="openModal()">
-     <i class="icon ion-images"></i>
-       Images
-    </a>
-    <a class="tab-item" ng-click="openSCocktailChat()">
-      <i class="icon ion-chatbubbles"></i>
-        Chats
-    </a>
-      <a class="tab-item" href="#tab/food">
-        <i class="icon ion-beer"></i>
-          Order Now
-      </a>
-    </div>
-</div>
-</ion-content>
-    </ion-view>
+    </ion-content>
+  </ion-view>
 </script>
 <!--this is the end of the sex on the beach page-->
 <!--Start of the americano page-->
 <script type="text/ng-template" id="templates/americano.html">
-    <ion-view title="Americano" hide-tabs='true'>
-    <ion-nav-buttons side="right">
-        <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
-    </ion-nav-buttons>
-      <ion-content padding="true">
+<ion-view title="Americano" hide-tabs='true'>
+          <ion-nav-buttons side="right">
+              <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
+          </ion-nav-buttons>
+<ion-content padding="true">
       <div style="height: 60px;"></div>
-<div class="list card">
-  <div class="item item-avatar">
-    <img src="img/americano.jpg">
-      <h2 class="h2">Americano</h2>
-        <p>This will soon wake you up</p>
-    </div>
-    <div class="item item-body">
-        <img class="full-image" src="img/americano2.jpg">
-        <p>All our coffees are made fresh to order here. We use only the finest coffee beans.</p>
-        <div class="item item-toggle">
-          {{vm.following ? "Following" : "Not Following"}}
-            <label class="toggle toggle-energized">
-              <input type="checkbox" ng-model="vm.following">
-                <div class="track">
-                  <div class="handle"></div>
-                </div>
-            </label>
-        </div>
-    </div>
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="CoffeesCtrl">
-
-    <a class="tab-item" ng-click="openModal()">
-     <i class="icon ion-images"></i>
-       Images
-    </a>
-    <a class="tab-item" ng-click="openCoffeeChat()">
-      <i class="icon ion-chatbubbles"></i>
-        Chats
-    </a>
-      <a class="tab-item" href="#tab/food">
-        <i class="icon ion-beer"></i>
-          Order Now
-      </a>
-    </div>
-</div>
-</ion-content>
+              <div class="list card">
+                <div class="item item-avatar">
+                  <img src="img/americano.jpg">
+                    <h2 class="h2">Americano</h2>
+                      <p>This will soon wake you up</p>
+                  </div>
+                  <div class="item item-body">
+                      <img class="full-image" src="img/americano2.jpg">
+                      <p>All our coffees are made fresh to order here. We use only the finest coffee beans.</p>
+                      <div class="item item-toggle">
+                        {{vm.following ? "Following" : "Not Following"}}
+                          <label class="toggle toggle-energized">
+                            <input type="checkbox" ng-model="vm.following">
+                              <div class="track">
+                                <div class="handle"></div>
+                              </div>
+                          </label>
+                      </div>
+                  </div>
+                  <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="CoffeesCtrl">
+                            <a class="tab-item" ng-click="openModal()">
+                             <i class="icon ion-images"></i>
+                               Images
+                            </a>
+                            <a class="tab-item" ng-click="openCoffeeChat()">
+                              <i class="icon ion-chatbubbles"></i>
+                                Chats
+                            </a>
+                              <a class="tab-item" href="#tab/food">
+                                <i class="icon ion-beer"></i>
+                                  Order Now
+                              </a>
+                  </div>
+            </div>
+        </ion-content>
     </ion-view>
 </script>
 <!--this is the end of the americano page-->
@@ -1014,95 +1007,92 @@
 <!--End of Cocktails image page-->
 <!--Start of the capacino page-->
 <script type="text/ng-template" id="templates/cappuccino.html">
-    <ion-view title="Cappuccino" hide-tabs='true'>
-    <ion-nav-buttons side="right">
-        <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
-      </ion-nav-buttons>
-      <ion-content padding="true">
+<ion-view title="Cappuccino" hide-tabs='true'>
+          <ion-nav-buttons side="right">
+              <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
+            </ion-nav-buttons>
+<ion-content padding="true">
       <div style="height: 60px;"></div>
-<div class="list card">
-  <div class="item item-avatar">
-    <img src="img/cappuccino.jpg">
-      <h2 class="h2">Cappuccino</h2>
-        <p>The best around</p>
-    </div>
-    <div class="item item-body">
-        <img class="full-image" src="img/cappuccino2.jpg">
-        <p>All our coffees are made fresh to order here. We use only the finest coffee beans.</p>
-        <div class="item item-toggle">
-          {{vm.following ? "Following" : "Not Following"}}
-            <label class="toggle toggle-energized">
-              <input type="checkbox" ng-model="vm.following">
-                <div class="track">
-                  <div class="handle"></div>
-                </div>
-            </label>
-        </div>
-    </div>
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="CoffeesCtrl">
-
-    <a class="tab-item" ng-click="openModal()">
-     <i class="icon ion-images"></i>
-       Images
-    </a>
-    <a class="tab-item" ng-click="openCoffeeChat()">
-      <i class="icon ion-chatbubbles"></i>
-        Chats
-    </a>
-      <a class="tab-item" href="#tab/food">
-        <i class="icon ion-beer"></i>
-          Order Now
-      </a>
-    </div>
-</div>
-</ion-content>
+          <div class="list card">
+            <div class="item item-avatar">
+              <img src="img/cappuccino.jpg">
+                <h2 class="h2">Cappuccino</h2>
+                  <p>The best around</p>
+              </div>
+              <div class="item item-body">
+                  <img class="full-image" src="img/cappuccino2.jpg">
+                  <p>All our coffees are made fresh to order here. We use only the finest coffee beans.</p>
+                  <div class="item item-toggle">
+                    {{vm.following ? "Following" : "Not Following"}}
+                      <label class="toggle toggle-energized">
+                        <input type="checkbox" ng-model="vm.following">
+                          <div class="track">
+                            <div class="handle"></div>
+                          </div>
+                      </label>
+                  </div>
+              </div>
+              <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="CoffeesCtrl">
+                        <a class="tab-item" ng-click="openModal()">
+                         <i class="icon ion-images"></i>
+                           Images
+                        </a>
+                        <a class="tab-item" ng-click="openCoffeeChat()">
+                          <i class="icon ion-chatbubbles"></i>
+                            Chats
+                        </a>
+                          <a class="tab-item" href="#tab/food">
+                            <i class="icon ion-beer"></i>
+                              Order Now
+                          </a>
+              </div>
+          </div>
+      </ion-content>
     </ion-view>
 </script>
 <!--this is the end of the cappacino page-->
 <!--This the club sandwich page -->
 <script type="text/ng-template" id="templates/club.html">
-    <ion-view title="Club" hide-tabs='true'>
-    <ion-nav-buttons side="right">
-        <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
-    </ion-nav-buttons>
-      <ion-content padding="true">
+  <ion-view title="Club" hide-tabs='true'>
+          <ion-nav-buttons side="right">
+              <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
+          </ion-nav-buttons>
+<ion-content padding="true">
       <div style="height: 60px;"></div>
-<div class="list card">
-  <div class="item item-avatar">
-    <img src="img/club.jpg">
-      <h2 class="h2">Club Sandwich</h2>
-        <p>Absolutely delish</p>
-    </div>
-    <div class="item item-body">
-        <img class="full-image" src="img/club.jpg">
-        <p>Try our delicious club sandwiches. Our sandwiches are made with the freshest ingredients,</p>
-        <div class="item item-toggle">
-          {{vm.following ? "Following" : "Not Following"}}
-            <label class="toggle toggle-energized">
-              <input type="checkbox" ng-model="vm.following">
-                <div class="track">
-                  <div class="handle"></div>
-                </div>
-            </label>
-        </div>
-    </div>
-
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="SandwichesCtrl">
-
-    <a class="tab-item" ng-click="openModal()">
-     <i class="icon ion-images"></i>
-       Images
-    </a>
-    <a class="tab-item" ng-click="openSandwichChat()">
-      <i class="icon ion-chatbubbles"></i>
-        Chats
-    </a>
-      <a class="tab-item" href="#tab/food">
-        <i class="icon ion-beer"></i>
-          Order Now
-      </a>
-    </div>
-    </div>
+              <div class="list card">
+                <div class="item item-avatar">
+                  <img src="img/club.jpg">
+                    <h2 class="h2">Club Sandwich</h2>
+                      <p>Absolutely delish</p>
+                  </div>
+                  <div class="item item-body">
+                      <img class="full-image" src="img/club.jpg">
+                      <p>Try our delicious club sandwiches. Our sandwiches are made with the freshest ingredients,</p>
+                      <div class="item item-toggle">
+                        {{vm.following ? "Following" : "Not Following"}}
+                          <label class="toggle toggle-energized">
+                            <input type="checkbox" ng-model="vm.following">
+                              <div class="track">
+                                <div class="handle"></div>
+                              </div>
+                          </label>
+                      </div>
+                  </div>
+                  <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="SandwichesCtrl">
+                            <a class="tab-item" ng-click="openModal()">
+                             <i class="icon ion-images"></i>
+                               Images
+                            </a>
+                            <a class="tab-item" ng-click="openSandwichChat()">
+                              <i class="icon ion-chatbubbles"></i>
+                                Chats
+                            </a>
+                              <a class="tab-item" href="#tab/food">
+                                <i class="icon ion-beer"></i>
+                                  Order Now
+                              </a>
+                  </div>
+              </div>
       </ion-content>
     </ion-view>
 </script>
@@ -1123,47 +1113,46 @@
 <!--End of Sandwiches image page-->
 <!--This the blt sandwich page -->
 <script type="text/ng-template" id="templates/blt.html">
-  <ion-view title="BLT" hide-tabs='true'>
-  <ion-nav-buttons side="right">
-      <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
-  </ion-nav-buttons>
-      <ion-content padding="true">
-  <div style="height: 60px;"></div>
-<div class="list card">
-  <div class="item item-avatar">
-    <img src="img/blt.jpg">
-      <h2 class="h2">BLT Sandwich</h2>
-        <p>Goes great with a pint</p>
-    </div>
-    <div class="item item-body">
-        <img class="full-image" src="img/blt2.jpg">
-        <p>Try our delicious blt sandwiches. Our sandwiches are made with the freshest ingredients,</p>
-        <div class="item item-toggle">
-          {{vm.following ? "Following" : "Not Following"}}
-            <label class="toggle toggle-energized">
-              <input type="checkbox" ng-model="vm.following">
-                <div class="track">
-                  <div class="handle"></div>
+<ion-view title="BLT" hide-tabs='true'>
+          <ion-nav-buttons side="right">
+              <button class="button button-icon" ng-click="showOptions()"><span class="icon ion-more"></span></button>
+          </ion-nav-buttons>
+<ion-content padding="true">
+          <div style="height: 60px;"></div>
+        <div class="list card">
+          <div class="item item-avatar">
+            <img src="img/blt.jpg">
+              <h2 class="h2">BLT Sandwich</h2>
+                <p>Goes great with a pint</p>
+            </div>
+            <div class="item item-body">
+                <img class="full-image" src="img/blt2.jpg">
+                <p>Try our delicious blt sandwiches. Our sandwiches are made with the freshest ingredients,</p>
+                <div class="item item-toggle">
+                  {{vm.following ? "Following" : "Not Following"}}
+                    <label class="toggle toggle-energized">
+                      <input type="checkbox" ng-model="vm.following">
+                        <div class="track">
+                          <div class="handle"></div>
+                        </div>
+                    </label>
                 </div>
-            </label>
-        </div>
-    </div>
-    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
-
-    <a class="tab-item" ng-click="openModal()">
-     <i class="icon ion-images"></i>
-       Images
-    </a>
-    <a class="tab-item" ng-click="openSandwichChat()">
-      <i class="icon ion-chatbubbles"></i>
-        Chats
-    </a>
-      <a class="tab-item" href="#tab/food">
-        <i class="icon ion-beer"></i>
-          Order Now
-      </a>
-    </div>
-    </div>
+            </div>
+                <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="BaltikaCtrl">
+                          <a class="tab-item" ng-click="openModal()">
+                           <i class="icon ion-images"></i>
+                             Images
+                          </a>
+                          <a class="tab-item" ng-click="openSandwichChat()">
+                            <i class="icon ion-chatbubbles"></i>
+                              Chats
+                          </a>
+                            <a class="tab-item" href="#tab/food">
+                              <i class="icon ion-beer"></i>
+                                Order Now
+                            </a>
+                  </div>
+            </div>
       </ion-content>
     </ion-view>
 </script>
@@ -1172,36 +1161,33 @@
 <script type="text/ng-template" id="templates/images.html">
     <ion-view title="Gallery" hide-tabs='true'>
         <ion-content class="has-header padding" ng-controller="MediaCtrl">
-
         <div style="height: 60px;"></div>
-      <div class="item item-divider">
-          <i class="ion-images"></i>
-            My Images
-      </div>
-      <a class="item item-list-detail">
-          <ion-scroll direction="x">
-              <img ng-repeat="image in allImages" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
-          </ion-scroll>
-      </a>
-      <a class="item item-list-detail">
-          <ion-scroll direction="x">
-              <img ng-repeat="image in allImages1" ng-src="{{image.src}}" ng-click="showImages($index1)" class="image-list-thumb"/>
-          </ion-scroll>
-      </a>
-      <a class="item item-list-detail">
-          <ion-scroll direction="x">
-              <img ng-repeat="image in allImages2" ng-src="{{image.src}}" ng-click="showImages($index2)" class="image-list-thumb"/>
-          </ion-scroll>
-      </a>
-      <br><br>
-
-      <div class="button-bar">
-        <button class="button button-outline button-positive" ng-click="playVideo()">Play a video</button>
-      </div>
-
-      <div class="button-bar">
-      <a class="button button-full button-energized" href="#tab/food">Order</a>
-      </div>
+              <div class="item item-divider">
+                  <i class="ion-images"></i>
+                    My Images
+              </div>
+                    <a class="item item-list-detail">
+                        <ion-scroll direction="x">
+                            <img ng-repeat="image in allImages" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
+                        </ion-scroll>
+                    </a>
+                    <a class="item item-list-detail">
+                        <ion-scroll direction="x">
+                            <img ng-repeat="image in allImages1" ng-src="{{image.src}}" ng-click="showImages($index1)" class="image-list-thumb"/>
+                        </ion-scroll>
+                    </a>
+                    <a class="item item-list-detail">
+                        <ion-scroll direction="x">
+                            <img ng-repeat="image in allImages2" ng-src="{{image.src}}" ng-click="showImages($index2)" class="image-list-thumb"/>
+                        </ion-scroll>
+                    </a>
+                    <br><br>
+                    <div class="button-bar">
+                      <button class="button button-outline button-positive" ng-click="playVideo()">Play a video</button>
+                    </div>
+                    <div class="button-bar">
+                    <a class="button button-full button-energized" href="#tab/food">Order</a>
+                    </div>
     </ion-content>
 </ion-view>
 </script>
@@ -1209,53 +1195,53 @@
 <!--login page-->
 <script id="login.html" type="text/ng-template">
   <ion-view title="Login" hide-nav-bar="true" id ="tour">
-    <ion-content>
-    <div style="height: 60px;"></div>
-    </ion-content>
-    </ion-view> id ="tour"
+        <ion-content>
+            <div style="height: 60px;"></div>
+        </ion-content>
+    </ion-view>
 </script>
 <!--End of login page-->
-
 <!--Events page-->
 <script id="templates/events.html" type="text/ng-template">
 <ion-view title="Upcoming Events" hide-tabs='true'>
-  <ion-content>
-  <div style="height: 60px;"></div>
-    <ul class="list">
-      <span ng-repeat="day in events">
-      <li class="item item-divider">{{day.day}}</li>
-      <li class="item" ng-repeat="event in day.events">
-        <h2 class="h2">{{event.event}}</h2>
-        <p>{{event.time}}, {{event.location}}</p>
-      </li>
-    </ul>
-  </ion-content>
+        <ion-content>
+            <div style="height: 60px;"></div>
+                <ul class="list">
+                  <span ng-repeat="day in events">
+                  <li class="item item-divider">{{day.day}}</li>
+                  <li class="item" ng-repeat="event in day.events">
+                    <h2 class="h2">{{event.event}}</h2>
+                    <p>{{event.time}}, {{event.location}}</p>
+                  </li>
+                </ul>
+        </ion-content>
 </ion-view>
 </script>
 <!--End of events page-->
 <!--This is the order page-->
 <script id="templates/food.html" type="text/ng-template">
-  <ion-view title="Place your Order" class="room-service" hide-tabs='true'>
-  <ion-nav-buttons side="right">
-      <button class="button button-clear" ng-click="openPreview()"><span class="icon ion-ios7-cart"></span></button>
-  </ion-nav-buttons>
-<ion-footer-bar align-title="left" class="bar-positive">
-  <h1 class="title">Total: {{order.total | currency:"€"}}, Items {{order.items.length}}</h1>
-</ion-footer-bar>
-<ion-content>
-<div style="height: 65px;"></div>
-<ion-list>
-  <span ng-repeat="course in menu">
-  <ion-item class="item-divider">{{course.meal}}</ion-item>
-  <ion-item click-for-options ng-repeat="item in course.items">
-    {{item.item}} <span class="item-note">{{item.price | currency:"€"}}
-    <ion-option-button class="button-energized" ng-click="add(item)">Order</ion-option-button>
-  </ion-item>
-  </span>
-</ion-list>
-</ion-content>
-</ion-view>
+      <ion-view title="Place your Order" class="room-service" hide-tabs='true'>
+                <ion-nav-buttons side="right">
+                    <button class="button button-clear" ng-click="openPreview()"><span class="icon ion-ios7-cart"></span></button>
+                </ion-nav-buttons>
+                <ion-footer-bar align-title="left" class="bar-positive">
+                  <h1 class="title">Total: {{order.total | currency:"€"}}, Items {{order.items.length}}</h1>
+                </ion-footer-bar>
+        <ion-content>
+            <div style="height: 65px;"></div>
+            <ion-list>
+                    <span ng-repeat="course in menu">
+                              <ion-item class="item-divider">{{course.meal}}</ion-item>
+                              <ion-item click-for-options ng-repeat="item in course.items">
+                                {{item.item}} <span class="item-note">{{item.price | currency:"€"}}
+                                <ion-option-button class="button-energized" ng-click="add(item)">Order</ion-option-button>
+                              </ion-item>
+                    </span>
+              </ion-list>
+          </ion-content>
+      </ion-view>
 </script>
 <!--This is the end of the order page-->
   </body>
 </html>
+<!--End of index.html-->

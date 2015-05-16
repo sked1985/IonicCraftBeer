@@ -1,31 +1,28 @@
+<!--This the coffee chat page-->
 <ion-modal-view ng-controller="chatController3" id ="chats">
-  <ion-header-bar class="bar-stable">
-    <img ng-src="{{auth.profile.picture}}" id="profile-image1">
-    <h1 class="title">Coffee Chat</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="cancelCoffeeChat()">Close</button>
-    </div>
-  </ion-header-bar>
-  <ion-content class="content-stable">
-                 <div style="height: 65px;"></div>
-
+      <ion-header-bar class="bar-stable">
+            <img ng-src="{{auth.profile.picture}}" id="profile-image1">
+                <h1 class="title">Coffee Chat</h1>
+                <div class="buttons">
+                  <button class="button button-clear" ng-click="cancelCoffeeChat()">Close</button>
+                </div>
+      </ion-header-bar>
+<ion-content class="content-stable">
+  <div style="height: 65px;"></div>
       <div ng-repeat="msg in messages"ng-class="{other: msg.userId != myId}" class="messages">
-
         <div class="message">
           <span class="f">{{ msg.content }}</span>
         </div>
-
       </div>
-
-    </ion-content>
+</ion-content>
      <form name="myform" ng-submit="addMessage(message.theMessage)">
-     <ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
-      <label class="item-input-wrapper">
-        <input type="text" placeholder="Type your message" ng-model="message.theMessage" />
-      </label>
-      <button class="button button-clear" action="submit"  ng-click="sendMessage()">
-        Send
-      </button>
-    </ion-footer-bar>
+           <ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
+                <label class="item-input-wrapper">
+                  <input type="text" placeholder="Type your message" ng-model="message.theMessage" />
+                </label>
+                    <button class="button button-clear" action="submit"  ng-click="sendMessage()">
+                      Send
+                    </button>
+          </ion-footer-bar>
   </form>
 </ion-modal-view>

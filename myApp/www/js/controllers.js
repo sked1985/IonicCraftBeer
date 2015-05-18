@@ -985,12 +985,12 @@ angular.module('starter.controllers', [])
         Name: "",
         Age: "",
         contactnumber: "",
+        currentDate: [],
         bookeremail: "",
         type: "18th",
         people: 50,
         entertainment: "Band",
         food: "No",
-        partyDate: "",
         vegeterian: "Yes",
         extras: ""
       }
